@@ -1,4 +1,4 @@
-# Coverless
+# The Midway
 [![Versão](https://img.shields.io/badge/versão-0.0.0-orange)](https://github.com/biaduque/TheMidway/releases/tag/v1.1)
 ![Tamanho](https://img.shields.io/badge/tamanho-0,0%20MB-blue)
 [![Plataform](https://img.shields.io/badge/plataforma-IOS%2014+-lightgrey?)](https://apps.apple.com/us/app/coverless-your-book-sugestion/id1587382412)
