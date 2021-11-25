@@ -251,7 +251,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" name="BackgroundColor"/>
                                                         <connections>
-                                                            <segue destination="NHp-4N-1kx" kind="show" id="eNn-OG-U2W"/>
+                                                            <segue destination="NHp-4N-1kx" kind="show" identifier="quemVai" id="AT9-yX-yCu"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -397,10 +397,10 @@
             </objects>
             <point key="canvasLocation" x="2342.753623188406" y="1860.9375"/>
         </scene>
-        <!--View Controller-->
+        <!--Quem Vai View Controller-->
         <scene sceneID="azv-vl-nCE">
             <objects>
-                <viewController id="NHp-4N-1kx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="quemVai" id="NHp-4N-1kx" customClass="QuemVaiViewController" customModule="TheMidway" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDY-cK-SFs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

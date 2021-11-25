@@ -29,10 +29,15 @@ class NovoEncontroViewController: UIViewController {
         //collectionView.isHidden = true
         //localLabel.isHidden = true
         
-        ///funcao que faz o clique na tela ocultar o teclado
-        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+        
         
         // Do any additional setup after loading the view.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "quemVai"){
+            let displayVC = segue.destination as! QuemVaiViewController
+            displayVC.delegate = self
+        }
     }
 
 }

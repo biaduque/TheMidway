@@ -15,14 +15,17 @@ protocol QuemVaiViewControllerDelegate: AnyObject {
 class QuemVaiViewController: UIViewController {
     
     weak var delegate: QuemVaiViewControllerDelegate?
-    
+    public var teste = "oie"
     
     override func viewDidLoad() {
+        print(teste)
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
+    public func setTeste(teste: String){
+        self.teste = teste
+    }
 
     /*
     // MARK: - Navigation

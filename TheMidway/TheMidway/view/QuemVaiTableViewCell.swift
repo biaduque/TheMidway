@@ -8,8 +8,6 @@
 import UIKit
 
 class QuemVaiTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var ondeSeralabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,8 +16,6 @@ class QuemVaiTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     public func stylize(){
         self.imageView?.image = UIImage(systemName: "person.fill")!
