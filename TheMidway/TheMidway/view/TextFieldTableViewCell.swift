@@ -33,6 +33,7 @@ class TextFieldCell: UITableViewCell {
 extension TextFieldCell: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     ///essa funcao faz com que a tecla return do teclado faca o app aceitar a entrada e o teclado abaixe
+        textField.returnKeyType = .done
         textField.autocapitalizationType = .words
         textField.resignFirstResponder()
         return true
