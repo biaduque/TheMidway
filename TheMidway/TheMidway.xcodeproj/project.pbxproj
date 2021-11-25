@@ -11,6 +11,10 @@
 		1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB29274ED6EF0091E62A /* PerfilViewController.swift */; };
 		1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */; };
 		1376CB2E274ED72F0091E62A /* QuemVaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */; };
+		1376CB30274FF77A0091E62A /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
+		1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */; };
+		1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
+		1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */; };
 		DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA522274817D9003BBFCA /* AppDelegate.swift */; };
 		DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA524274817D9003BBFCA /* SceneDelegate.swift */; };
 		DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA526274817D9003BBFCA /* ViewController.swift */; };
@@ -25,6 +29,10 @@
 		1376CB29274ED6EF0091E62A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroViewController.swift; sourceTree = "<group>"; };
 		1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiViewController.swift; sourceTree = "<group>"; };
+		1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroCollectionViewCell.swift; sourceTree = "<group>"; };
+		1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuandoSeraTableViewCell.swift; sourceTree = "<group>"; };
+		1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiTableViewCell.swift; sourceTree = "<group>"; };
 		DB5BA51F274817D9003BBFCA /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5BA522274817D9003BBFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5BA524274817D9003BBFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +69,10 @@
 		1376CB25274ED68C0091E62A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */,
+				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
+				1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */,
+				1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -179,11 +191,15 @@
 			files = (
 				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
 				DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */,
+				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
 				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
 				DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */,
+				1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */,
 				1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */,
+				1376CB30274FF77A0091E62A /* TextFieldTableViewCell.swift in Sources */,
 				1376CB2E274ED72F0091E62A /* QuemVaiViewController.swift in Sources */,
 				DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */,
+				1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */,
 				1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

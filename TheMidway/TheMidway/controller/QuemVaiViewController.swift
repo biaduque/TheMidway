@@ -7,8 +7,16 @@
 
 import UIKit
 
-class QuemVaiViewController: UIViewController {
 
+protocol QuemVaiViewControllerDelegate: AnyObject {
+    func didReload()
+}
+
+class QuemVaiViewController: UIViewController {
+    
+    weak var delegate: QuemVaiViewControllerDelegate?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
