@@ -1,57 +1,19 @@
 //
-//  NovoEncontroViewController.swift
-//  TheMidway
+//  ViewController.swift
+//  Aula MapKit
 //
-//  Created by Beatriz Duque on 24/11/21.
+//  Created by Gui Reis on 24/08/21.
 //
 
 import UIKit
+import CoreLocation
 import MapKit
 
-class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var mapView: MKMapView!
+class MapViewControlller: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    /* MARK: - Atributos */
     
-    @IBOutlet weak var localLabel: UILabel!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        /// Os itens comecam escondidos até o calculo ser iniciado
-        mapView.isHidden = true
-        collectionView.isHidden = true
-        localLabel.isHidden = true
-        
-        
-        
-        // Do any additional setup after loading the view.
-        
-        // Define o delegate do mapa
-        self.mapView.delegate = self
-        
-        // Define o delegate das localizações
-        self.locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
-    }
-    
-    // MARK: Prepare
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "quemVai"){
-            let quemVaiVC = segue.destination as! QuemVaiViewController
-            quemVaiVC.delegate = self
-        }
-    }
-    
-    // MARK: MApView
-    ///Atributos
     /// View da controller
+    private let mainView = MapView()
     
     /// Tipods de lugares que queremos pra busca
     private let placesTypes: [MKPointOfInterestCategory] = [
@@ -110,6 +72,27 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     
     
+    /* MARK: - Ciclo de Vida */
+    
+    public override func viewDidLoad() -> Void {
+        super.viewDidLoad()
+        
+        self.view = self.mainView
+        
+        // Define o delegate do mapa
+        self.mainView.getMap().delegate = self
+        
+        // Define o delegate das localizações
+        self.locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        // Add ação do botão
+        self.mainView.getButton().addTarget(self, action: #selector(self.buttonAction), for: .touchDown)
+    }
+    
+    
+    
+    
     /* MARK: - Delegate */
     
     /// Autorização pra usar o mapa
@@ -125,8 +108,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         // if overlay is MKCircleRenderer {
             let circle = MKCircleRenderer(overlay: overlay)
-            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.3)
-            circle.strokeColor = UIColor(named: "Color4")
+            circle.fillColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1)
+            circle.strokeColor = .red
             circle.lineWidth = 1.0
             return circle
         // }
@@ -165,7 +148,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     /// Adicionar ponto no mapa
     private func addPointOnMap(pin: MKPointAnnotation) -> Void {
-        self.mapView.addAnnotation(pin)
+        self.mainView.getMap().addAnnotation(pin)
     }
     
     /// Cria um pin
@@ -183,7 +166,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // let radiusDistance = CLLocationDistance(exactly: radius)!
         let region = MKCoordinateRegion(center: place, latitudinalMeters: radius, longitudinalMeters: radius)
         
-        self.mapView.setRegion(region, animated: true)
+        self.mainView.getMap().setRegion(region, animated: true)
     }
     
     /// Pega a cordenada a aprtir de um endereço escrito
@@ -246,7 +229,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private func addCircle(location: CLLocationCoordinate2D) -> Void {
         let circle = MKCircle(center: location, radius: self.radiusArea as CLLocationDistance)
         
-        self.mapView.addOverlay(circle)
+        self.mainView.getMap().addOverlay(circle)
     }
     
     
@@ -336,80 +319,4 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         }
         return false
     }
-
 }
-// MARK: Table View
-extension NovoEncontroViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ///clique na celula
-        tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadInputViews()
-    }
-}
-
-extension NovoEncontroViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cellBase = UITableViewCell()
-        if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: IndexPath(index: indexPath.row)) as! TextFieldCell
-            cell.editTable()
-            cellBase = cell
-        }
-        else if indexPath.row == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "quandoSeraCell", for: IndexPath(index: indexPath.row)) as! QuandoSeraTableViewCell
-            cell.stylize()
-            cellBase = cell
-        }
-        else if indexPath.row == 2{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "quemVaiCell", for: IndexPath(index: indexPath.row)) as! QuemVaiTableViewCell
-            cell.stylize()
-            cellBase = cell
-        }
-        return cellBase
-
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-}
-
-// MARK: Collection View
-extension NovoEncontroViewController: UICollectionViewDelegate{
-    
-}
-
-extension NovoEncontroViewController:UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "novoEncontroCollection", for: indexPath) as! NovoEncontroCollectionViewCell
-        if nerbyPlaces.count != 0 {
-            cell.stylize(nearbyPlace: nerbyPlaces[indexPath.row])
-        }
-        return cell
-    }
-    
-    
-}
-
-// MARK: Delegate
-
-extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
-    func didReload() {
-        // Add ação do botão
-        self.buttonAction()
-        self.mapView.reloadInputViews()
-        self.collectionView.reloadInputViews()
-        self.collectionView.reloadData()
-        self.collectionView.isHidden = false
-        self.localLabel.isHidden = false
-        self.mapView.isHidden = false
-        self.collectionView.reloadData()
-
-        //self.mapView.getButton().addTarget(self, action: #selector(self.buttonAction), for: .touchDown)
-    }
-}
-
-

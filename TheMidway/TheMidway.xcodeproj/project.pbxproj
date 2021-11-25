@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		135026A8275025EA0092165D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026A7275025EA0092165D /* MapViewController.swift */; };
+		135026AA275026110092165D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026A9275026110092165D /* MapView.swift */; };
+		135026AD275026470092165D /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026AC275026470092165D /* MapPlace.swift */; };
 		1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */; };
 		1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB29274ED6EF0091E62A /* PerfilViewController.swift */; };
 		1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		135026A7275025EA0092165D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		135026A9275026110092165D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		135026AC275026470092165D /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
 		1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosViewController.swift; sourceTree = "<group>"; };
 		1376CB29274ED6EF0091E62A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		135026AB275026350092165D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				135026AC275026470092165D /* MapPlace.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		1376CB24274ED67F0091E62A /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +76,7 @@
 				1376CB29274ED6EF0091E62A /* PerfilViewController.swift */,
 				1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */,
 				1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */,
+				135026A7275025EA0092165D /* MapViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -73,6 +88,7 @@
 				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
 				1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */,
 				1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */,
+				135026A9275026110092165D /* MapView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -105,6 +121,7 @@
 		DB5BA521274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXGroup;
 			children = (
+				135026AB275026350092165D /* model */,
 				1376CB26274ED6960091E62A /* delegate */,
 				1376CB25274ED68C0091E62A /* view */,
 				1376CB24274ED67F0091E62A /* controller */,
@@ -193,14 +210,17 @@
 				DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */,
 				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
 				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
+				135026A8275025EA0092165D /* MapViewController.swift in Sources */,
 				DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */,
 				1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */,
+				135026AA275026110092165D /* MapView.swift in Sources */,
 				1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */,
 				1376CB30274FF77A0091E62A /* TextFieldTableViewCell.swift in Sources */,
 				1376CB2E274ED72F0091E62A /* QuemVaiViewController.swift in Sources */,
 				DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */,
 				1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */,
 				1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */,
+				135026AD275026470092165D /* MapPlace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -408,7 +408,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="9Co-gX-tDc">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="pxt-7b-Mhz"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="pxt-7b-Mhz">
+                            <connections>
+                                <action selector="doneButton:" destination="NHp-4N-1kx" id="E7I-Gu-G4G"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb9-X7-r8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
