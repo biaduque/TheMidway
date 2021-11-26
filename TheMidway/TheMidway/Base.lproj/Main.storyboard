@@ -257,13 +257,13 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local do encontro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaH-n2-d50">
-                                                <rect key="frame" x="20" y="213" width="183" height="27"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <rect key="frame" x="20" y="213" width="168" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="21X-dy-sPb">
-                                                <rect key="frame" x="20" y="248" width="394" height="138"/>
+                                                <rect key="frame" x="20" y="245" width="394" height="138"/>
                                                 <color key="backgroundColor" name="BackgroundColor"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <constraints>
@@ -290,7 +290,7 @@
                                                                         <constraint firstAttribute="height" constant="27" id="4mn-Wb-mcB"/>
                                                                         <constraint firstAttribute="width" constant="298" id="Rdf-fv-HQs"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -335,7 +335,7 @@
                                                 </cells>
                                             </collectionView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FPK-dF-Wqc">
-                                                <rect key="frame" x="0.0" y="406" width="414" height="484"/>
+                                                <rect key="frame" x="0.0" y="403" width="414" height="484"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="484" id="KyF-4u-496"/>
                                                     <constraint firstAttribute="width" constant="414" id="W1k-Vf-wo2"/>
