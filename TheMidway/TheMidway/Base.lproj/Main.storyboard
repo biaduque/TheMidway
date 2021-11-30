@@ -177,16 +177,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-qZ-f6z">
-                                <rect key="frame" x="0.0" y="56" width="414" height="728"/>
+                                <rect key="frame" x="0.0" y="4" width="414" height="780"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1y-Gb-5Ny">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="890"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="myK-ih-FKE">
-                                                <rect key="frame" x="0.0" y="8" width="364" height="201"/>
+                                                <rect key="frame" x="0.0" y="8" width="364" height="149"/>
                                                 <color key="backgroundColor" name="BackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="201" id="PKI-9M-nvZ"/>
+                                                    <constraint firstAttribute="height" constant="149" id="PKI-9M-nvZ"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textFieldCell" id="oFn-ln-T8z" customClass="TextFieldCell" customModule="TheMidway" customModuleProvider="target">
@@ -257,13 +257,13 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local do encontro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaH-n2-d50">
-                                                <rect key="frame" x="20" y="213" width="168" height="24"/>
+                                                <rect key="frame" x="20" y="165" width="168" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="21X-dy-sPb">
-                                                <rect key="frame" x="20" y="245" width="394" height="138"/>
+                                                <rect key="frame" x="20" y="197" width="394" height="138"/>
                                                 <color key="backgroundColor" name="BackgroundColor"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <constraints>
@@ -335,9 +335,9 @@
                                                 </cells>
                                             </collectionView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FPK-dF-Wqc">
-                                                <rect key="frame" x="0.0" y="403" width="414" height="484"/>
+                                                <rect key="frame" x="0.0" y="343" width="414" height="539"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="484" id="KyF-4u-496"/>
+                                                    <constraint firstAttribute="height" constant="539" id="KyF-4u-496"/>
                                                     <constraint firstAttribute="width" constant="414" id="W1k-Vf-wo2"/>
                                                 </constraints>
                                             </mapView>
@@ -347,10 +347,10 @@
                                             <constraint firstItem="myK-ih-FKE" firstAttribute="top" secondItem="e1y-Gb-5Ny" secondAttribute="top" constant="8" id="1bY-zO-Knj"/>
                                             <constraint firstItem="FPK-dF-Wqc" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" id="2He-kS-prW"/>
                                             <constraint firstItem="myK-ih-FKE" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" id="6gw-lS-YtQ"/>
-                                            <constraint firstItem="21X-dy-sPb" firstAttribute="top" secondItem="LaH-n2-d50" secondAttribute="bottom" constant="8" symbolic="YES" id="880-eg-Zmk"/>
+                                            <constraint firstItem="21X-dy-sPb" firstAttribute="top" secondItem="LaH-n2-d50" secondAttribute="bottom" constant="8" id="880-eg-Zmk"/>
                                             <constraint firstAttribute="trailing" secondItem="FPK-dF-Wqc" secondAttribute="trailing" id="Cjc-37-NUi"/>
-                                            <constraint firstItem="FPK-dF-Wqc" firstAttribute="top" secondItem="21X-dy-sPb" secondAttribute="bottom" constant="20" id="FcD-xq-N2N"/>
-                                            <constraint firstItem="LaH-n2-d50" firstAttribute="top" secondItem="myK-ih-FKE" secondAttribute="bottom" constant="4" id="XRi-pG-51U"/>
+                                            <constraint firstItem="FPK-dF-Wqc" firstAttribute="top" secondItem="21X-dy-sPb" secondAttribute="bottom" constant="8" id="FcD-xq-N2N"/>
+                                            <constraint firstItem="LaH-n2-d50" firstAttribute="top" secondItem="myK-ih-FKE" secondAttribute="bottom" constant="8" id="XRi-pG-51U"/>
                                             <constraint firstItem="21X-dy-sPb" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" constant="20" id="a3t-HP-TKY"/>
                                             <constraint firstItem="LaH-n2-d50" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" constant="20" symbolic="YES" id="fGy-Kl-HIn"/>
                                             <constraint firstAttribute="trailing" secondItem="myK-ih-FKE" secondAttribute="trailing" constant="50" id="mfW-g5-Wcq"/>

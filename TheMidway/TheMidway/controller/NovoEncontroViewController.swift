@@ -16,6 +16,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     @IBOutlet weak var localLabel: UILabel!
     
+    private var enderecos: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     ///Atributos
     /// View da controller
     
-    /// Tipods de lugares que queremos pra busca
+    /// Tipos de lugares que queremos pra busca
     private let placesTypes: [MKPointOfInterestCategory] = [
         // Parques
         .amusementPark,
@@ -65,24 +66,15 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         .cafe,
         .nightlife,
         
-        // Transporte
-//        .gasStation,
-//        .parking,
-//        .publicTransport,
-        
         // Teatro e cinema
         .theater,
         .movieTheater,
-        
-        // Outros
-//        .store,
-//        .foodMarket,
     ]
     
     /// Locais encontrados
     private var nerbyPlaces: [MapPlace] = []
     
-    
+    /// Lidando com a localização
     private lazy var locationManager: CLLocationManager = {
         var manager = CLLocationManager()
         manager.distanceFilter = 10
@@ -90,12 +82,14 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         return manager
     }()
     
-    
     /// Pontos adicionados como referência
     private let pointsExample: [CLLocationCoordinate2D] = [
-        CLLocationCoordinate2D(latitude: -23.713210, longitude: -46.536620),
-        CLLocationCoordinate2D(latitude: -23.548230, longitude: -46.650400),
-        CLLocationCoordinate2D(latitude: -23.597040, longitude: -46.577120)
+        CLLocationCoordinate2D(latitude: -23.495480, longitude: -46.868080),    // Muza
+        CLLocationCoordinate2D(latitude: -23.545580, longitude: -46.651860),    // Feh
+        CLLocationCoordinate2D(latitude: -23.523580, longitude: -46.774770),    // Bia
+        CLLocationCoordinate2D(latitude: -23.627600, longitude: -46.637000),    // Leh
+        CLLocationCoordinate2D(latitude: -23.741880, longitude: -46.661870),    // Oliver
+        CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),    // Gui
     ]
     
     /// Coordenaa do ponto médio achado
@@ -107,6 +101,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     /// Palavras que vão ser buscadas na hora de pesquisar os lugares
     private let searchWords: [String] = ["bar", "restaurant", "pizza", "shopping", "club", "park", "night", "party"]
         
+    /// Pontos encotrados por um endereço como string
+    private var coordFound: [CLLocationCoordinate2D] = []
     
     
     
@@ -123,10 +119,10 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     /// Todos os desenhos são configurados nessa função delegate. (OBS: caso faça algum outro desenho precisa específica com o if comentado)
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        // if overlay is MKCircleRenderer {
+        // if overlay is MKCircle {
             let circle = MKCircleRenderer(overlay: overlay)
-            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.3)
-            circle.strokeColor = UIColor(named: "Color4")
+            circle.fillColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1)
+            circle.strokeColor = .red
             circle.lineWidth = 1.0
             return circle
         // }
@@ -134,7 +130,18 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     }
     
     
+    /// Personaliza um pin
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.title!! == " " {
+            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+            annotationView.markerTintColor = UIColor.blue
+            // annotationView.glyphImage = UIImage()    // Colocando uma imagem
+            return annotationView
+        }
+        return MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+    }
     
+
     
     /* MARK: - Ação dos botões */
     
@@ -142,26 +149,40 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     @objc private func buttonAction() -> Void {
         
         if self.nerbyPlaces.isEmpty {
+            // Pega o ponto central
             self.midpoint = self.theMidpoint(coordinates: self.pointsExample)
             
+            // Adiciona os pontos exemplos
             for coords in self.pointsExample {
-                self.addPointOnMap(pin: self.createPin(name: "", coordinate: coords))
+                self.addPointOnMap(pin: self.createPin(name: " ", coordinate: coords))
             }
             
-            self.addPointOnMap(pin: self.createPin(name: "", coordinate: self.midpoint))
+            // Adiciona o ponto central
+            self.addPointOnMap(pin: self.createPin(name: " ", coordinate: self.midpoint))
+            
+            // Cria um cículo
             self.addCircle(location: self.midpoint)
+            
+            // Define a região que vai ser focada no mapa: o ponto dentral
             self.setViewLocation(place: self.midpoint, radius: self.radiusArea)
         }
         
+        // Faz a busca por locasi a partr das palavras chaves.
         for someWord in self.searchWords {
             self.getNerbyPlaces(someWord)
         }
+        
+        // self.getCoordsByAddress(address: "Rua Nicola Spinelli, 469")
     }
     
     
+    /// Tira o teclado
+    @objc func dismissKeyboard() {self.view.endEditing(true)}
     
     
-    /* MARK: - Gerenciamento do Mapa */
+    
+    
+    /* MARK: - Pins */
     
     /// Adicionar ponto no mapa
     private func addPointOnMap(pin: MKPointAnnotation) -> Void {
@@ -178,6 +199,11 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         return pin
     }
     
+    
+    
+    
+    /* MARK: - Gerenciamento do Mapa */
+    
     /// Define a região que o mapa vai mostrar
     private func setViewLocation(place: CLLocationCoordinate2D, radius: CLLocationDistance) -> Void {
         // let radiusDistance = CLLocationDistance(exactly: radius)!
@@ -185,11 +211,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         
         self.mapView.setRegion(region, animated: true)
     }
-    
-    /// Pega a cordenada a aprtir de um endereço escrito
-    private func getCoordFromAdress(adress: String) -> CLLocationCoordinate2D {
-        return CLLocationCoordinate2D()
-    }
+        
     
     
     
@@ -254,6 +276,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     /* MARK: - Locais */
     
+    /// Pega os lugares próximos a partir
     private func getNerbyPlaces(_ mainWord: String) -> Void {
         // Cria a pesquisa:
         let request = MKLocalSearch.Request()
@@ -336,7 +359,38 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         }
         return false
     }
-
+    
+    
+    /// Pega a cordenada a partir de um endereço
+    private func getCoordsByAddress(address: String) -> Void {
+        let geocoder: CLGeocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(address) { placemarks, error in
+            
+            // Lidando com o erro.
+            if let _ = error {
+                return
+            }
+            
+            // Caso tenha algum resultado um resultado
+            if (placemarks?.count ?? 0 > 0) {
+                // Pega o primeiro resultado
+                let topResult: CLPlacemark = (placemarks?[0])!
+                let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                
+                let point = CLLocationCoordinate2D(latitude: (placemark.location?.coordinate.latitude)!,
+                                                   longitude: (placemark.location?.coordinate.longitude)!)
+                self.coordFound.append(point)
+                
+                for c in self.coordFound{
+                    let pin = self.createPin(name: "", coordinate: c)
+                    self.addPointOnMap(pin: pin)
+                }
+            } else {
+                print("Não foi achado nenhum endereço.")
+            }
+        }
+    }
 }
 // MARK: Table View
 extension NovoEncontroViewController: UITableViewDelegate{
@@ -397,6 +451,11 @@ extension NovoEncontroViewController:UICollectionViewDataSource{
 // MARK: Delegate
 
 extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
+    //funcao para pegar as strings
+    func getAdress(endFriends: [String]){
+        self.enderecos = endFriends
+    }
+    
     func didReload() {
         // Add ação do botão
         self.buttonAction()
