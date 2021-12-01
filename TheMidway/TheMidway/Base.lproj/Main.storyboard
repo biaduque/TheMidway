@@ -32,7 +32,7 @@
                                                     <constraint firstAttribute="height" constant="691" id="uSx-8H-SLV"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SQz-2J-waA">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="encontroCell" id="SQz-2J-waA" customClass="EncontrosTableViewCell" customModule="TheMidway" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SQz-2J-waA" id="Etm-p6-xZ7">
@@ -83,6 +83,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1200"/>
+                    <connections>
+                        <outlet property="tableView" destination="3Fw-J2-8E3" id="RAp-JI-KOc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,6 +20,7 @@
 		1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
+		4A1343092758026D000FFCBF /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1343082758026D000FFCBF /* EncontrosTableViewCell.swift */; };
 		DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */; };
 		DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */; };
 		DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA522274817D9003BBFCA /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiTableViewCell.swift; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
+		4A1343082758026D000FFCBF /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
 		DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroRepository.swift; sourceTree = "<group>"; };
 		DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaRepository.swift; sourceTree = "<group>"; };
 		DB5BA51F274817D9003BBFCA /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 		1376CB25274ED68C0091E62A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4A1343082758026D000FFCBF /* EncontrosTableViewCell.swift */,
 				1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */,
 				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
 				1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
+				4A1343092758026D000FFCBF /* EncontrosTableViewCell.swift in Sources */,
 				DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */,
 				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
 				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,
