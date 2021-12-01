@@ -17,7 +17,7 @@ class QuemVaiViewController: UIViewController {
     
     weak var delegate: QuemVaiViewControllerDelegate?
     public var teste = "oie"
-    let enderecos = ["","","","",""]
+    let enderecos: [String] = ["","","","",""]
     
     override func viewDidLoad() {
         print(teste)
