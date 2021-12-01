@@ -25,8 +25,17 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.2
         layer.masksToBounds = false
     }
-    public func stylize(){
+    public func stylize(nearbyPlace: MapPlace){
         self.backgroundColor = UIColor(named: "BackgroundColor")!
         self.layer.cornerRadius = 5
+        
+        labelTitulo.text = nearbyPlace.name
+        //labelEndereco.text = String(nearbyPlace.address)
+    }
+    
+    public func teste(){
+        self.backgroundColor = UIColor(named: "BackgroundColor")!
+        self.layer.cornerRadius = 5
+        labelTitulo.text = "Oiii"
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class NovoEncontroViewController: UIViewController {
+class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -16,6 +16,7 @@ class NovoEncontroViewController: UIViewController {
     
     @IBOutlet weak var localLabel: UILabel!
     
+    private var enderecos: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,24 +26,162 @@ class NovoEncontroViewController: UIViewController {
         collectionView.dataSource = self
         
         /// Os itens comecam escondidos até o calculo ser iniciado
-        //mapView.isHidden = true
-        //collectionView.isHidden = true
-        //localLabel.isHidden = true
+        mapView.isHidden = true
+        collectionView.isHidden = true
+        localLabel.isHidden = true
         
         
+        /* MapKit */
         
-        // Do any additional setup after loading the view.
+        // Define o delegate do mapa
+        self.mapView.delegate = self
+        
+        // Define o delegate das localizações
+        self.locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        
     }
+    
+    
+    // MARK: Prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "quemVai"){
-            let displayVC = segue.destination as! QuemVaiViewController
-            displayVC.delegate = self
+            let quemVaiVC = segue.destination as! QuemVaiViewController
+            quemVaiVC.delegate = self
         }
     }
+    
+    
+    
+    // MARK: - MapView
 
+    /// Tipos de lugares que queremos pra busca
+    public let placesTypes: [MKPointOfInterestCategory] = [
+        // Parques
+        .amusementPark,
+        .nationalPark,
+        
+        // Restaurantes
+        .restaurant,
+        .bakery,
+        .cafe,
+        .nightlife,
+        
+        // Teatro e cinema
+        .theater,
+        .movieTheater,
+    ]
+    
+    /// Locais encontrados
+    public var nerbyPlaces: [MapPlace] = []
+    
+    /// Lidando com a localização
+    public lazy var locationManager: CLLocationManager = {
+        var manager = CLLocationManager()
+        manager.distanceFilter = 10
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        return manager
+    }()
+    
+    /// Pontos adicionados como referência
+    public let pointsExample: [CLLocationCoordinate2D] = [
+        CLLocationCoordinate2D(latitude: -23.495480, longitude: -46.868080),    // Muza
+        CLLocationCoordinate2D(latitude: -23.545580, longitude: -46.651860),    // Feh
+        CLLocationCoordinate2D(latitude: -23.523580, longitude: -46.774770),    // Bia
+        CLLocationCoordinate2D(latitude: -23.627600, longitude: -46.637000),    // Leh
+        CLLocationCoordinate2D(latitude: -23.741880, longitude: -46.661870),    // Oliver
+        CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),    // Gui
+    ]
+    
+    /// Coordenaa do ponto médio achado
+    public var midpoint: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    
+    /// Tamanho da área que vai ser desenhada pra fazer a busca
+    public let radiusArea: CLLocationDistance = 2500
+    
+    /// Palavras que vão ser buscadas na hora de pesquisar os lugares
+    public let searchWords: [String] = ["bar", "restaurant", "pizza", "shopping", "club", "park", "night", "party"]
+        
+    /// Pontos encotrados por um endereço como string
+    public var coordFound: [CLLocationCoordinate2D] = []
+    
+    
+    
+    
+    /* MARK: - Delegate */
+    
+    /// Autorização pra usar o mapa
+    public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let status = manager.authorizationStatus
+        
+        if manager.authorizationStatus == .authorizedWhenInUse || status == .authorizedAlways {
+            self.locationManager.startUpdatingLocation()
+        }
+    }
+    
+    /// Todos os desenhos são configurados nessa função delegate. (OBS: caso faça algum outro desenho precisa específica com o if comentado)
+    public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        // if overlay is MKCircle {
+            let circle = MKCircleRenderer(overlay: overlay)
+            circle.fillColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1)
+            circle.strokeColor = .red
+            circle.lineWidth = 1.0
+            return circle
+        // }
+        // return overlay
+    }
+    
+    
+    /// Personaliza um pin
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.title!! == " " {
+            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+            annotationView.markerTintColor = UIColor.blue
+            // annotationView.glyphImage = UIImage()    // Colocando uma imagem
+            return annotationView
+        }
+        return MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+    }
+    
+
+    
+    /* MARK: - Ação dos botões */
+    
+    /// Ativa o único botão da tela
+    @objc private func buttonAction() -> Void {
+        
+        if self.nerbyPlaces.isEmpty {
+            // Pega o ponto central
+            self.midpoint = self.theMidpoint(coordinates: self.pointsExample)
+
+            // Adiciona os pontos exemplos
+            for coords in self.pointsExample {
+                self.addPointOnMap(pin: self.createPin(name: " ", coordinate: coords))
+            }
+
+            // Adiciona o ponto central
+            self.addPointOnMap(pin: self.createPin(name: " ", coordinate: self.midpoint))
+
+            // Cria um cículo
+            self.addCircle(location: self.midpoint)
+
+            // Define a região que vai ser focada no mapa: o ponto dentral
+            self.setViewLocation(place: self.midpoint, radius: self.radiusArea)
+        }
+
+        // Faz a busca por locasi a partr das palavras chaves.
+        for someWord in self.searchWords {
+            self.getNerbyPlaces(someWord)
+        }
+
+        // self.getCoordsByAddress(address: "Rua Nicola Spinelli, 469")
+    }
 }
-// MARK: Table View
-extension NovoEncontroViewController: UITableViewDelegate{
+
+
+// MARK: - Table View
+extension NovoEncontroViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ///clique na celula
         tableView.deselectRow(at: indexPath, animated: true)
@@ -50,7 +189,9 @@ extension NovoEncontroViewController: UITableViewDelegate{
     }
 }
 
-extension NovoEncontroViewController: UITableViewDataSource{
+
+
+extension NovoEncontroViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellBase = UITableViewCell()
         if indexPath.row == 0{
@@ -76,30 +217,57 @@ extension NovoEncontroViewController: UITableViewDataSource{
     }
 }
 
-// MARK: Collection View
-extension NovoEncontroViewController: UICollectionViewDelegate{
+
+
+// MARK: - Collection View
+extension NovoEncontroViewController: UICollectionViewDelegate {
     
 }
 
-extension NovoEncontroViewController:UICollectionViewDataSource{
+extension NovoEncontroViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "novoEncontroCollection", for: indexPath) as! NovoEncontroCollectionViewCell
-        cell.stylize()
+        if self.nerbyPlaces.count != 0 {
+            cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row])
+        }
         return cell
     }
     
     
 }
 
+
+
+
 // MARK: Delegate
 
 extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
+    //funcao para pegar as strings
+    func getAdress(endFriends: [String]){
+        self.enderecos = endFriends
+    }
+    
     func didReload() {
-        self.collectionView.reloadData()
+        // Add ação do botão
+        self.buttonAction()
         self.mapView.reloadInputViews()
+        self.collectionView.reloadInputViews()
+        self.collectionView.reloadData()
+        self.collectionView.isHidden = false
+        self.localLabel.isHidden = false
+        self.mapView.isHidden = false
+        self.collectionView.reloadData()
+
+        //self.mapView.getButton().addTarget(self, action: #selector(self.buttonAction), for: .touchDown)
     }
 }
+
+
+
+
+
+
