@@ -6,7 +6,7 @@
 //
 
 /// Informações sobre uma pessoa
-struct Pessoa {
+struct PessoaBase {
     var nome: String
     var endereco: String
     var icone: String

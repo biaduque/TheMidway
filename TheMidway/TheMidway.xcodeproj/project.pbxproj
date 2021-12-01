@@ -20,6 +20,8 @@
 		1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
+		DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */; };
+		DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */; };
 		DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA522274817D9003BBFCA /* AppDelegate.swift */; };
 		DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA524274817D9003BBFCA /* SceneDelegate.swift */; };
 		DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA526274817D9003BBFCA /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 		1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiTableViewCell.swift; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
+		DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroRepository.swift; sourceTree = "<group>"; };
+		DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaRepository.swift; sourceTree = "<group>"; };
 		DB5BA51F274817D9003BBFCA /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5BA522274817D9003BBFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5BA524274817D9003BBFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
+		DB355CBF2757EEF900A6A1D5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */,
+				DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		DB5BA516274817D8003BBFCA = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +147,7 @@
 		DB5BA521274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXGroup;
 			children = (
+				DB355CBF2757EEF900A6A1D5 /* CoreData */,
 				225CD6202756BF9E00E07A21 /* extensions */,
 				135026AB275026350092165D /* model */,
 				1376CB26274ED6960091E62A /* delegate */,
@@ -223,8 +237,10 @@
 				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
 				DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */,
 				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
+				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,
 				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
 				135026A8275025EA0092165D /* MapViewController.swift in Sources */,
+				DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */,
 				DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */,
 				1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */,
 				135026AA275026110092165D /* MapView.swift in Sources */,
