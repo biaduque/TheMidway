@@ -43,7 +43,9 @@ class Contacts {
                 print("Solicitacao de acesso negada")
             }
         }
-        return contacts
+        let sortedArray =  contacts.sorted(by: { $0.nome < $1.nome })
+        return sortedArray
+        
     }
     
     ///funcao utilizada para transformar o endereco postal em string 

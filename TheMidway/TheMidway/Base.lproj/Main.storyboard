@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JbJ-ff-Wet">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JbJ-ff-Wet">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -117,10 +117,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lly-T2-1Wi">
-                                <rect key="frame" x="20" y="140" width="374" height="707"/>
+                                <rect key="frame" x="20" y="88" width="374" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="707" id="8zr-Xb-oPN"/>
+                                    <constraint firstAttribute="height" constant="759" id="8zr-Xb-oPN"/>
                                     <constraint firstAttribute="width" constant="374" id="ugJ-5S-evs"/>
                                 </constraints>
                                 <prototypes>
@@ -140,7 +140,7 @@
                         <constraints>
                             <constraint firstItem="0hP-jx-nZY" firstAttribute="trailing" secondItem="Lly-T2-1Wi" secondAttribute="trailing" constant="20" id="81p-ST-lzL"/>
                             <constraint firstItem="Lly-T2-1Wi" firstAttribute="leading" secondItem="0hP-jx-nZY" secondAttribute="leading" constant="20" id="EgP-ob-see"/>
-                            <constraint firstItem="Lly-T2-1Wi" firstAttribute="top" secondItem="0hP-jx-nZY" secondAttribute="top" constant="52" id="rnr-TI-a6Q"/>
+                            <constraint firstItem="Lly-T2-1Wi" firstAttribute="top" secondItem="0hP-jx-nZY" secondAttribute="top" id="rnr-TI-a6Q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Amigos" id="tKd-cS-4uF"/>
@@ -408,9 +408,15 @@
                     <navigationItem key="navigationItem" title="Novo encontro" largeTitleDisplayMode="always" id="X1t-rx-pt2">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="fkb-6F-KMy">
                             <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="odM-kE-WU6" id="Itt-8q-WXa"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="DAQ-rQ-aLF">
                             <color key="tintColor" name="AccentColor"/>
+                            <connections>
+                                <action selector="doneButton:" destination="odM-kE-WU6" id="rd5-Lb-rY2"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="411" height="788"/>
@@ -425,27 +431,87 @@
             </objects>
             <point key="canvasLocation" x="2342.753623188406" y="1860.9375"/>
         </scene>
-        <!--Quem Vai View Controller-->
+        <!--Quem vai?-->
         <scene sceneID="azv-vl-nCE">
             <objects>
                 <viewController storyboardIdentifier="quemVai" id="NHp-4N-1kx" customClass="QuemVaiViewController" customModule="TheMidway" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDY-cK-SFs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j3Q-Kg-34m">
+                                <rect key="frame" x="20" y="120" width="374" height="636"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Xoy-3I-UlD"/>
+                                    <constraint firstAttribute="height" constant="636" id="hlQ-vg-4xC"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="amigosCell" id="IME-7W-RHq" customClass="AmigosTableViewCell" customModule="TheMidway" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IME-7W-RHq" id="OBc-lN-OFt">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7b-7H-FwG">
+                                                    <rect key="frame" x="310" y="6" width="55" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="JFu-Tn-JPc"/>
+                                                        <constraint firstAttribute="height" constant="31" id="Ygi-fY-0h5"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="checkButtonTapped:" destination="IME-7W-RHq" eventType="touchUpInside" id="eHb-vF-rYX"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="d7b-7H-FwG" firstAttribute="top" secondItem="OBc-lN-OFt" secondAttribute="top" constant="6" id="70i-lY-ugG"/>
+                                                <constraint firstAttribute="trailing" secondItem="d7b-7H-FwG" secondAttribute="trailing" constant="9" id="Iki-si-f7s"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkButton" destination="d7b-7H-FwG" id="7va-wK-Z2F"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="o7w-hx-aiF">
+                                <rect key="frame" x="20" y="56" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="5yi-4l-DTi"/>
+                                    <constraint firstAttribute="height" constant="44" id="bV1-jh-cuL"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zLD-Aj-J7a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zLD-Aj-J7a" firstAttribute="trailing" secondItem="o7w-hx-aiF" secondAttribute="trailing" constant="20" id="1X1-VL-w8z"/>
+                            <constraint firstItem="zLD-Aj-J7a" firstAttribute="trailing" secondItem="j3Q-Kg-34m" secondAttribute="trailing" constant="20" id="8Ub-LH-Mdf"/>
+                            <constraint firstItem="o7w-hx-aiF" firstAttribute="top" secondItem="zLD-Aj-J7a" secondAttribute="top" id="CbB-7o-YfK"/>
+                            <constraint firstItem="j3Q-Kg-34m" firstAttribute="leading" secondItem="zLD-Aj-J7a" secondAttribute="leading" constant="20" id="jD2-mh-zq9"/>
+                            <constraint firstItem="o7w-hx-aiF" firstAttribute="leading" secondItem="zLD-Aj-J7a" secondAttribute="leading" constant="20" id="kUj-qw-r1F"/>
+                            <constraint firstItem="j3Q-Kg-34m" firstAttribute="top" secondItem="o7w-hx-aiF" secondAttribute="bottom" constant="20" id="x4L-DU-9nM"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9Co-gX-tDc">
+                    <navigationItem key="navigationItem" title="Quem vai?" largeTitleDisplayMode="never" id="9Co-gX-tDc">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="pxt-7b-Mhz">
                             <connections>
                                 <action selector="doneButton:" destination="NHp-4N-1kx" id="E7I-Gu-G4G"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="j3Q-Kg-34m" id="LAK-SJ-fyL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb9-X7-r8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3186" y="1861"/>
+            <point key="canvasLocation" x="3185.507246376812" y="1860.9375"/>
         </scene>
         <!--Quem vai?-->
         <scene sceneID="oSb-an-yun">
@@ -551,6 +617,7 @@
     <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <namedColor name="AccentColor">

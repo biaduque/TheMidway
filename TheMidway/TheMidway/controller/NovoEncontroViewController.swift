@@ -181,6 +181,13 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
 
         // self.getCoordsByAddress(address: "Rua Nicola Spinelli, 469")
     }
+    
+    @IBAction func doneButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func cancelButton(_ sender: Any) {
+        
+    }
 }
 
 
@@ -253,6 +260,7 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     //funcao para pegar as strings
     func getAdress(endFriends: [String]){
         self.enderecos = endFriends
+        print("aqui",self.enderecos)
     }
     
     func didReload() {
@@ -265,11 +273,9 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
         self.localLabel.isHidden = false
         self.mapView.isHidden = false
         self.collectionView.reloadData()
-
         //self.mapView.getButton().addTarget(self, action: #selector(self.buttonAction), for: .touchDown)
     }
 }
-
 
 
 
