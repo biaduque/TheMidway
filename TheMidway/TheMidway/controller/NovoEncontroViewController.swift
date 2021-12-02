@@ -8,6 +8,12 @@
 import UIKit
 import MapKit
 
+
+protocol NovoEncontroViewControllerDelegate: AnyObject {
+    func didReload()
+}
+
+
 class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +22,15 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     @IBOutlet weak var localLabel: UILabel!
     
+    // MARK: Private vars
     private var enderecos: [String] = []
+    private var encontroTitle: String = "Novo Encontro"
+    private var encontroEndereco: String = "Rua batata"
+    private var date = Date()
+    
+    
+    weak var delegate: NovoEncontroViewControllerDelegate?
+
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
@@ -183,7 +197,25 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     }
     
     @IBAction func doneButton(_ sender: Any) {
+        
+        ///titulo
+        let index = IndexPath(row: 0, section: 0)
+        let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
+        self.encontroTitle = cell.textField.text!
+        
+        
+        ///data
+        self.date = Date()
+        
+        ///local
+    
+        
+        ///adicionando no core data
+        EncontroData.shared.addEncontro(novoNome: self.encontroTitle, novoEndereco: self.encontroEndereco, novoData: self.date)
+        EncontroData.shared.saveContext()
+        delegate?.didReload()
         self.dismiss(animated: true, completion: nil)
+        
     }
     @IBAction func cancelButton(_ sender: Any) {
         
@@ -208,6 +240,7 @@ extension NovoEncontroViewController: UITableViewDataSource {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: IndexPath(index: indexPath.row)) as! TextFieldCell
             cell.editTable()
+            encontroTitle = cell.textField.text ?? "Novo Encontro"
             cellBase = cell
         }
         else if indexPath.row == 1{
