@@ -16,7 +16,25 @@ class PerfilViewController: UIViewController {
         super.viewDidLoad()
         contacts = Contacts.shared.fatchContacts()
         print(contacts)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
 
 }
+extension PerfilViewController: UITableViewDelegate{}
+extension PerfilViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "amigosCell", for: IndexPath(index: indexPath.row)) as! AmigosTableViewCell
+        
+        cell.textLabel?.text = contacts[indexPath.row].nome
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contacts.count
+        }
+}
+
