@@ -18,6 +18,10 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     private var enderecos: [String] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
