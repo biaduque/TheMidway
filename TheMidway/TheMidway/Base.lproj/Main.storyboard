@@ -108,17 +108,45 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
         </scene>
-        <!--Perfil-->
+        <!--Amigos-->
         <scene sceneID="w2E-Ix-PjX">
             <objects>
                 <viewController id="dbC-tl-rTP" customClass="PerfilViewController" customModule="TheMidway" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="agl-4B-Ltc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Lly-T2-1Wi">
+                                <rect key="frame" x="20" y="140" width="374" height="707"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="707" id="8zr-Xb-oPN"/>
+                                    <constraint firstAttribute="width" constant="374" id="ugJ-5S-evs"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="amigosCell" id="xHc-zM-yQC">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xHc-zM-yQC" id="Q0i-vJ-23G">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0hP-jx-nZY"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0hP-jx-nZY" firstAttribute="trailing" secondItem="Lly-T2-1Wi" secondAttribute="trailing" constant="20" id="81p-ST-lzL"/>
+                            <constraint firstItem="Lly-T2-1Wi" firstAttribute="leading" secondItem="0hP-jx-nZY" secondAttribute="leading" constant="20" id="EgP-ob-see"/>
+                            <constraint firstItem="Lly-T2-1Wi" firstAttribute="top" secondItem="0hP-jx-nZY" secondAttribute="top" constant="52" id="rnr-TI-a6Q"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Perfil" id="tKd-cS-4uF"/>
+                    <navigationItem key="navigationItem" title="Amigos" id="tKd-cS-4uF"/>
+                    <connections>
+                        <outlet property="tableView" destination="Lly-T2-1Wi" id="Y51-fa-pw5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrU-OL-4xB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,7 +178,7 @@
         <scene sceneID="NWl-r6-4M2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0oI-kn-EZn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Perfil" image="person" catalog="system" selectedImage="person.fill" id="1Ab-PL-b31">
+                    <tabBarItem key="tabBarItem" title="Perfil" image="person.3" catalog="system" selectedImage="person.3.fill" id="1Ab-PL-b31">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -523,8 +551,8 @@
     <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
-        <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <namedColor name="AccentColor">
             <color red="0.53725490196078429" green="0.2196078431372549" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
