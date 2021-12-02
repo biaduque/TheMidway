@@ -23,6 +23,7 @@
 		1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
+		4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */; };
 		DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */; };
 		DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */; };
 		DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA522274817D9003BBFCA /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiTableViewCell.swift; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
+		4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
 		DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroRepository.swift; sourceTree = "<group>"; };
 		DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaRepository.swift; sourceTree = "<group>"; };
 		DB5BA51F274817D9003BBFCA /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */,
 				135026A9275026110092165D /* MapView.swift */,
 				1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */,
+				4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */,
 				1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */,
 				1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */,
+				4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */,
 				135026AD275026470092165D /* MapPlace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
