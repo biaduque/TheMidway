@@ -10,4 +10,10 @@ struct PessoaBase {
     var nome: String
     var endereco: String
     var icone: String
+    
+    init(nome: String, endereco:String, icone:String){
+        self.nome = nome
+        self.endereco = endereco
+        self.icone = icone
+    }
 }
