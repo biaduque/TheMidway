@@ -8,6 +8,8 @@
 import UIKit
 
 class PerfilViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
     var contacts = [PessoaBase]()
     
     override func viewDidLoad() {
