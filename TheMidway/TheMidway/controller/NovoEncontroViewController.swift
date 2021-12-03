@@ -166,7 +166,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     /* MARK: - Ação dos botões */
     
     /// Ativa o único botão da tela
-    @objc private func buttonAction() -> Void {
+    @objc private func buttonAction(enderecos: [String]) -> Void {
         
         if self.nerbyPlaces.isEmpty {
             // Pega o ponto central
@@ -191,7 +191,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         for someWord in self.searchWords {
             self.getNerbyPlaces(someWord)
         }
-
+        //fazer as conversoes de enderecos ai
         // self.getCoordsByAddress(address: "Rua Nicola Spinelli, 469")
     }
     
@@ -294,7 +294,8 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     
     func didReload() {
         // Add ação do botão
-        self.buttonAction()
+        self.buttonAction(enderecos: self.enderecos)
+        print("aqui",self.enderecos)
         self.mapView.reloadInputViews()
         self.collectionView.reloadInputViews()
         self.collectionView.reloadData()

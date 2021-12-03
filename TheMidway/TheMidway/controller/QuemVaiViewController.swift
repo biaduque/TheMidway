@@ -37,6 +37,8 @@ class QuemVaiViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
    ///acao do botao que atualiza o mapa
     
     @IBAction func doneButton(_ sender: Any) {
@@ -44,11 +46,6 @@ class QuemVaiViewController: UIViewController {
         print("teste:", enderecos)
         self.delegate?.getAdress(endFriends: enderecos)
         self.delegate?.didReload()
-        
-        if let vc = storyboard?.instantiateViewController(identifier: "novoEncontro") as?
-            NovoEncontroViewController {
-            vc.tableView.reloadData()
-        }
         self.navigationController?.popViewController(animated: true)
         
     }
