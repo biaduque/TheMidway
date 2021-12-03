@@ -8,7 +8,7 @@
 import UIKit
 
 class NovoEncontroCollectionViewCell: UICollectionViewCell {
-    
+    let colors = ["Color1","Color2","Color3","Color4"]
     @IBOutlet weak var labelTitulo: UILabel!
     @IBOutlet weak var labelEndereco: UILabel!
     @IBOutlet weak var tagView: UIView!
@@ -28,14 +28,12 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
     public func stylize(nearbyPlace: MapPlace){
         self.backgroundColor = UIColor(named: "BackgroundColor")!
         self.layer.cornerRadius = 5
+        self.labelEndereco.text = "Rua Antonio Alves de Souza, 22"
         
+        ///edicao da tag de tipos
+        self.tagView.backgroundColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])
+        self.tagView.layer.cornerRadius = 3
         labelTitulo.text = nearbyPlace.name
         //labelEndereco.text = String(nearbyPlace.address)
-    }
-    
-    public func teste(){
-        self.backgroundColor = UIColor(named: "BackgroundColor")!
-        self.layer.cornerRadius = 5
-        labelTitulo.text = "Oiii"
     }
 }

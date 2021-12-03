@@ -11,6 +11,7 @@ import UIKit
 protocol QuemVaiViewControllerDelegate: AnyObject {
     func getAdress(endFriends:[String])
     func didReload()
+    func getLocations()
 }
 
 class QuemVaiViewController: UIViewController {
@@ -45,9 +46,17 @@ class QuemVaiViewController: UIViewController {
         //essa tela retorna a lista de strings de cada endereço
         print("teste:", enderecos)
         self.delegate?.getAdress(endFriends: enderecos)
+        self.delegate?.getLocations()
         self.delegate?.didReload()
         self.navigationController?.popViewController(animated: true)
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let vc = storyboard?.instantiateViewController(identifier: "novoEncontro") as?
+                    NovoEncontroViewController {
+            vc.collectionView?.reloadData()
+        }
     }
 }
 

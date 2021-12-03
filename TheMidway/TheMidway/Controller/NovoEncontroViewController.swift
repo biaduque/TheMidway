@@ -29,6 +29,9 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private var date = Date()
     
     
+    
+    @IBOutlet weak var refreshButton: UIButton!
+    
     weak var delegate: NovoEncontroViewControllerDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +49,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         mapView.isHidden = true
         collectionView.isHidden = true
         localLabel.isHidden = true
+        refreshButton.isHidden = true
         
         
         /* MapKit */
@@ -166,7 +170,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     /* MARK: - Ação dos botões */
     
     /// Ativa o único botão da tela
-    @objc private func buttonAction(enderecos: [String]) -> Void {
+    func buttonAction(enderecos: [String]) -> Void {
         
         if self.nerbyPlaces.isEmpty {
             // Pega o ponto central
@@ -195,6 +199,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // self.getCoordsByAddress(address: "Rua Nicola Spinelli, 469")
     }
     
+    // MARK: Done button
+    
     @IBAction func doneButton(_ sender: Any) {
         
         ///titulo
@@ -218,6 +224,12 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     }
     @IBAction func cancelButton(_ sender: Any) {
         
+    }
+    
+    @IBAction func reload(_ sender: Any) {
+        self.collectionView.reloadData()
+        self.collectionView.isHidden = false
+        self.mapView.isHidden = false
     }
 }
 
@@ -287,6 +299,7 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
 // MARK: Delegate
 
 extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
+    
     //funcao para pegar as strings
     func getAdress(endFriends: [String]){
         self.enderecos = endFriends
@@ -294,16 +307,17 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     
     func didReload() {
         // Add ação do botão
-        self.buttonAction(enderecos: self.enderecos)
-        print("aqui",self.enderecos)
-        self.mapView.reloadInputViews()
-        self.collectionView.reloadInputViews()
-        self.collectionView.reloadData()
-        self.collectionView.isHidden = false
-        self.localLabel.isHidden = false
-        self.mapView.isHidden = false
-        self.collectionView.reloadData()
+        self.mapView?.reloadInputViews()
+        self.collectionView?.reloadInputViews()
+        self.collectionView?.reloadData()
         //self.mapView.getButton().addTarget(self, action: #selector(self.buttonAction), for: .touchDown)
+    }
+    
+    func getLocations() {
+        self.buttonAction(enderecos: self.enderecos)
+        self.refreshButton?.isHidden = false
+        self.localLabel.isHidden = false
+    
     }
 }
 
