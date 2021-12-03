@@ -44,6 +44,11 @@ class QuemVaiViewController: UIViewController {
         print("teste:", enderecos)
         self.delegate?.getAdress(endFriends: enderecos)
         self.delegate?.didReload()
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "novoEncontro") as?
+            NovoEncontroViewController {
+            vc.tableView.reloadData()
+        }
         self.navigationController?.popViewController(animated: true)
         
     }

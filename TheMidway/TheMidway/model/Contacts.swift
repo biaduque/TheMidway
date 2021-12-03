@@ -9,11 +9,8 @@ import Foundation
 import UIKit
 import Contacts
 
-
 class Contacts {
-    
     static let shared:Contacts = Contacts()
-    
     public func fatchContacts() ->[PessoaBase]{
         var contacts = [PessoaBase]()
         let store = CNContactStore()

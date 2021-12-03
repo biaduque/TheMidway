@@ -25,7 +25,12 @@ class PerfilViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        // Do any additional setup after loading the view.
+        tableView.reloadData()
+    }
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        tableView.reloadInputViews()
+        tableView.reloadData()
     }
 
 }

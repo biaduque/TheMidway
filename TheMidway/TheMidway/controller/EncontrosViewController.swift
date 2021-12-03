@@ -75,7 +75,7 @@ extension EncontrosViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EncontroCell", for: IndexPath(index: indexPath.row)) as! EncontrosTableViewCell
         if collectionEncontro.count != 0 {
             cell.style(encontro: collectionEncontro[indexPath.row])
-            print("oi",collectionEncontro[indexPath.row].nome)
+    
         }
         return cell
     }

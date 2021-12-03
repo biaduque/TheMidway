@@ -30,7 +30,6 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     
     weak var delegate: NovoEncontroViewControllerDelegate?
-
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
@@ -285,15 +284,12 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
 }
 
 
-
-
 // MARK: Delegate
 
 extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     //funcao para pegar as strings
     func getAdress(endFriends: [String]){
         self.enderecos = endFriends
-        print("aqui",self.enderecos)
     }
     
     func didReload() {

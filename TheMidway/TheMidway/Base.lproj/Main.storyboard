@@ -193,7 +193,13 @@
                             <constraint firstItem="Lly-T2-1Wi" firstAttribute="top" secondItem="0hP-jx-nZY" secondAttribute="top" id="rnr-TI-a6Q"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Amigos" id="tKd-cS-4uF"/>
+                    <navigationItem key="navigationItem" title="Amigos" id="tKd-cS-4uF">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" style="done" id="kUL-DX-3dp">
+                            <connections>
+                                <action selector="refreshButton:" destination="dbC-tl-rTP" id="lgd-L3-Skb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Lly-T2-1Wi" id="Y51-fa-pw5"/>
                     </connections>
@@ -666,6 +672,7 @@
     </scenes>
     <color key="tintColor" name="AccentColor"/>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
         <image name="circle" catalog="system" width="128" height="121"/>
