@@ -7,6 +7,7 @@
 
 import UIKit
 import Contacts
+import ContactsUI
 
 
 protocol QuemVaiViewControllerDelegate: AnyObject {
@@ -66,7 +67,6 @@ extension QuemVaiViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ///clique na celula
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadInputViews()
     }
 }
 
@@ -86,6 +86,20 @@ extension QuemVaiViewController: UITableViewDataSource{
 }
 
 extension QuemVaiViewController: AmigosTableViewCellDelegate{
+    @objc func cancelButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func getString(postalAdress: [CNLabeledValue<CNPostalAddress>]) -> String{
+        var string = postalAdress[0].value.street
+        string = string + "," + postalAdress[0].value.subLocality
+        string = string + postalAdress[0].value.city
+        string = string + "-" + postalAdress[0].value.state
+        string  = string + "," + postalAdress[0].value.country
+        return string
+    }
+    
     func didTapped(newEnderecos: PessoaBase, wantAdress: Bool) {
         let adress = wantAdress
         
@@ -96,18 +110,25 @@ extension QuemVaiViewController: AmigosTableViewCellDelegate{
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {
                         [weak self] action in
                     //abre a viewController de adicionar endereco
-                    if let vc = self?.storyboard?.instantiateViewController(identifier: "novoEndereco") as?
-                                NovoEnderecoViewController {
-                        vc.contact = newEnderecos.source
-                        //self.collectionView?.reloadData()
-                        self?.navigationController?.pushViewController(vc, animated: true)
+                    var contact = newEnderecos.source
+                    if !contact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
+                        do {
+                            let storeC = CNContactStore()
+                            contact = try storeC.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
                         }
+                        catch { }
+                    }
+                    let viewControllerforContact = CNContactViewController(for: contact)
+                    viewControllerforContact.navigationItem.leftBarButtonItem = UIBarButtonItem(
+                        barButtonSystemItem: .done, target: self, action: #selector(self?.cancelButton)
+                    )
+                    self?.present(UINavigationController(rootViewController: viewControllerforContact),animated: true)
+                    
                 }))
                 ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
                 present(ac, animated: true)
             }
             self.enderecos.append(newEnderecos.endereco)
-            
         }
         
         else{

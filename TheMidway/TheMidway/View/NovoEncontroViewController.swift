@@ -173,15 +173,18 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     /// Ativa o único botão da tela
     func buttonAction(enderecos: [String]) -> Void {
         
-        if self.nerbyPlaces.isEmpty {
-            // Pega o ponto central
-            self.midpoint = self.theMidpoint(coordinates: self.pointsExample)
-
-            // Adiciona os pontos exemplos
-            for coords in self.pointsExample {
+        //fazer as conversoes de enderecos ai
+        if enderecos.count != 0{
+            for endereco in enderecos{
+                self.getCoordsByAddress(address: endereco)
+            }
+            
+            for coords in self.coordFound {
                 self.addPointOnMap(pin: self.createPin(name: " ", coordinate: coords))
             }
-
+            // Pega o ponto central
+            self.midpoint = self.theMidpoint(coordinates: self.coordFound)
+            
             // Adiciona o ponto central
             self.addPointOnMap(pin: self.createPin(name: " ", coordinate: self.midpoint))
 
@@ -190,14 +193,12 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
 
             // Define a região que vai ser focada no mapa: o ponto dentral
             self.setViewLocation(place: self.midpoint, radius: self.radiusArea)
-        }
 
-        // Faz a busca por locasi a partr das palavras chaves.
-        for someWord in self.searchWords {
-            self.getNerbyPlaces(someWord)
+            // Faz a busca por locasi a partr das palavras chaves.
+            for someWord in self.searchWords {
+                self.getNerbyPlaces(someWord)
+            }
         }
-        //fazer as conversoes de enderecos ai
-        // self.getCoordsByAddress(address: "Rua Nicola Spinelli, 469")
     }
     
     // MARK: Done button

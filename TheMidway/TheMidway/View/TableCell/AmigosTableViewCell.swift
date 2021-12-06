@@ -28,17 +28,17 @@ class AmigosTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
     }
 
     @IBAction func checkButtonTapped(_ sender: Any) {
-        if checkButton.imageView?.image == (UIImage(systemName: "circle")){
+        if checkButton.imageView?.image == (UIImage(systemName: "circle")) && wantsAdress == false{
             //se nao estiver clicado
             checkButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
             wantsAdress = true
             
         }
-        else{
+        else if  checkButton.imageView?.image == (UIImage(systemName: "circle.fill")) && wantsAdress == true {
             //se estiver clicado
             checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
             wantsAdress = false

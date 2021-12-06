@@ -55,7 +55,7 @@ class Contacts {
     private func getString(postalAdress: [CNLabeledValue<CNPostalAddress>]) -> String{
         var string = postalAdress[0].value.street
         string = string + "," + postalAdress[0].value.subLocality
-        string = string + postalAdress[0].value.city
+        string = string + " " + postalAdress[0].value.city
         string = string + "-" + postalAdress[0].value.state
         string  = string + "," + postalAdress[0].value.country
         return string
