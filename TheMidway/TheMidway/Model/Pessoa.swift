@@ -13,11 +13,13 @@ struct PessoaBase {
     var endereco: String
     var icone: String
     var source: CNContact
+    var id: String
     
-    init(nome: String, endereco:String, icone:String, source: CNContact){
+    init(nome: String, endereco:String, icone:String, source: CNContact, id: String){
         self.nome = nome
         self.endereco = endereco
         self.icone = icone
         self.source = source
+        self.id = id
     }
 }

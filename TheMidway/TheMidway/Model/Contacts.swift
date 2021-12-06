@@ -29,10 +29,10 @@ class Contacts {
                         //print(contact.givenName)
                         //print(contact.postalAddresses[0].value.street)
                         if contact.postalAddresses.count != 0 {
-                            contacts.append(PessoaBase(nome: contact.givenName + " " + contact.familyName, endereco: self.getString(postalAdress: contact.postalAddresses), icone: "", source: contact))
+                            contacts.append(PessoaBase(nome: contact.givenName + " " + contact.familyName, endereco: self.getString(postalAdress: contact.postalAddresses), icone: "", source: contact, id: contact.identifier))
                         }
                         else{
-                            contacts.append(PessoaBase(nome: contact.givenName + " " + contact.familyName, endereco: "", icone: "", source: contact))
+                            contacts.append(PessoaBase(nome: contact.givenName + " " + contact.familyName, endereco: "", icone: "", source: contact,id: contact.identifier))
                         }
                        
                     

@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Contacts
 
 protocol AmigosTableViewCellDelegate: AnyObject {
-    func didTapped(newEnderecos: String, wantAdress: Bool)
+    func didTapped(newEnderecos: PessoaBase, wantAdress: Bool)
 }
 
 class AmigosTableViewCell: UITableViewCell {
@@ -42,7 +43,7 @@ class AmigosTableViewCell: UITableViewCell {
             checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
             wantsAdress = false
         }
-        delegate?.didTapped(newEnderecos: pessoa?.endereco ?? "sem endereco", wantAdress: self.wantsAdress)
+        delegate?.didTapped(newEnderecos: pessoa ?? PessoaBase(nome: "Sem nome", endereco: "sem endereco", icone: "icone1", source: CNContact(),id: "base"), wantAdress: self.wantsAdress)
     }
     
     public func content(newPessoa: PessoaBase){

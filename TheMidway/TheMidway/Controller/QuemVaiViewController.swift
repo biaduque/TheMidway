@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Contacts
 
 
 protocol QuemVaiViewControllerDelegate: AnyObject {
@@ -85,17 +86,34 @@ extension QuemVaiViewController: UITableViewDataSource{
 }
 
 extension QuemVaiViewController: AmigosTableViewCellDelegate{
-    func didTapped(newEnderecos: String, wantAdress: Bool) {
+    func didTapped(newEnderecos: PessoaBase, wantAdress: Bool) {
         let adress = wantAdress
         
         if (adress == true){
-            self.enderecos.append(newEnderecos)
+            //se o endereco for vazio, o app da a oportunidade da pessoa adicionar um endereço
+            if newEnderecos.endereco == ""{
+                let ac = UIAlertController(title: "Ops! Endereço não cadastrado", message: "Não encontramos um endereço cadastrado para esse Amigo. Deseja adicionar um novo endereço?", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                        [weak self] action in
+                    //abre a viewController de adicionar endereco
+                    if let vc = self?.storyboard?.instantiateViewController(identifier: "novoEndereco") as?
+                                NovoEnderecoViewController {
+                        vc.contact = newEnderecos.source
+                        //self.collectionView?.reloadData()
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                        }
+                }))
+                ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+                present(ac, animated: true)
+            }
+            self.enderecos.append(newEnderecos.endereco)
+            
         }
         
         else{
             //se a pessoa remove a selecao do amigo, esse endereco é removido do vetor de enderecos
             for i in 0..<self.enderecos.count{
-                if self.enderecos[i] == newEnderecos{
+                if self.enderecos[i] == newEnderecos.endereco{
                     self.enderecos.remove(at: i)
                 }
             }

@@ -41,11 +41,26 @@ extension PerfilViewController: UITableViewDelegate{
         tableView.reloadInputViews()
         
         ///lembrar de pedir permissao para isso
-    
-        let contact = contacts[indexPath.row].source
-        let vc  = CNContactViewController(for: contact)
-        present(UINavigationController(rootViewController: vc),animated: true)
+        ///
+        var contact = contacts[indexPath.row].source
+        if !contact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
+            do {
+                let storeC = CNContactStore()
+                contact = try storeC.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
+            }
+            catch { }
+        }
+        let viewControllerforContact = CNContactViewController(for: contact)
+        viewControllerforContact.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel, target: self, action: #selector(cancelButton)
+        )
+        present(UINavigationController(rootViewController: viewControllerforContact),animated: true)
     }
+    
+    @objc func cancelButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -60,6 +75,6 @@ extension PerfilViewController: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
-        }
+    }
 }
 

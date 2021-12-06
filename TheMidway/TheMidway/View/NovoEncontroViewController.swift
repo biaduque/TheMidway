@@ -304,6 +304,7 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     //funcao para pegar as strings
     func getAdress(endFriends: [String]){
         self.enderecos = endFriends
+        print("novooo",self.enderecos)
     }
     
     func didReload() {
