@@ -15,7 +15,7 @@ class AmigosTableViewCell: UITableViewCell {
     @IBOutlet weak var checkButton: UIButton!
     
     var wantsAdress: Bool = false
-    var pessoa = PessoaBase(nome: "Bia", endereco: "Teste", icone: "perfil")
+    var pessoa: PessoaBase?
     
     weak var delegate: AmigosTableViewCellDelegate?
     
@@ -42,7 +42,7 @@ class AmigosTableViewCell: UITableViewCell {
             checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
             wantsAdress = false
         }
-        delegate?.didTapped(newEnderecos: pessoa.endereco, wantAdress: self.wantsAdress)
+        delegate?.didTapped(newEnderecos: pessoa?.endereco ?? "sem endereco", wantAdress: self.wantsAdress)
     }
     
     public func content(newPessoa: PessoaBase){

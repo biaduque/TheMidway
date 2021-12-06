@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="213" y="933"/>
         </scene>
-        <!--Perfil-->
+        <!--friends-->
         <scene sceneID="NWl-r6-4M2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0oI-kn-EZn" sceneMemberID="viewController">
+                <navigationController title="friends" automaticallyAdjustsScrollViewInsets="NO" id="0oI-kn-EZn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Perfil" image="person.3" catalog="system" selectedImage="person.3.fill" id="1Ab-PL-b31">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
@@ -343,7 +343,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontrar locais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaH-n2-d50">
                                                 <rect key="frame" x="20" y="165" width="152" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="AccentColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="21X-dy-sPb">
@@ -419,14 +419,14 @@
                                                 </cells>
                                             </collectionView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FPK-dF-Wqc">
-                                                <rect key="frame" x="0.0" y="343" width="414" height="539"/>
+                                                <rect key="frame" x="0.0" y="343" width="406" height="539"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="539" id="KyF-4u-496"/>
-                                                    <constraint firstAttribute="width" constant="414" id="W1k-Vf-wo2"/>
+                                                    <constraint firstAttribute="width" constant="406" id="W1k-Vf-wo2"/>
                                                 </constraints>
                                             </mapView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH0-oG-o31">
-                                                <rect key="frame" x="351.5" y="165" width="41.5" height="31"/>
+                                                <rect key="frame" x="322" y="165" width="41.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
                                                 <connections>
@@ -440,11 +440,11 @@
                                             <constraint firstItem="FPK-dF-Wqc" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" id="2He-kS-prW"/>
                                             <constraint firstItem="myK-ih-FKE" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" id="6gw-lS-YtQ"/>
                                             <constraint firstItem="21X-dy-sPb" firstAttribute="top" secondItem="LaH-n2-d50" secondAttribute="bottom" constant="8" id="880-eg-Zmk"/>
-                                            <constraint firstAttribute="trailing" secondItem="FPK-dF-Wqc" secondAttribute="trailing" id="Cjc-37-NUi"/>
+                                            <constraint firstAttribute="trailing" secondItem="FPK-dF-Wqc" secondAttribute="trailing" constant="8" id="Cjc-37-NUi"/>
                                             <constraint firstItem="FPK-dF-Wqc" firstAttribute="top" secondItem="21X-dy-sPb" secondAttribute="bottom" constant="8" id="FcD-xq-N2N"/>
                                             <constraint firstItem="LaH-n2-d50" firstAttribute="top" secondItem="myK-ih-FKE" secondAttribute="bottom" constant="8" id="XRi-pG-51U"/>
                                             <constraint firstItem="21X-dy-sPb" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" constant="20" id="a3t-HP-TKY"/>
-                                            <constraint firstAttribute="trailing" secondItem="kH0-oG-o31" secondAttribute="trailing" constant="21" id="aes-xj-BAN"/>
+                                            <constraint firstAttribute="trailing" secondItem="kH0-oG-o31" secondAttribute="trailing" constant="50.5" id="aes-xj-BAN"/>
                                             <constraint firstItem="kH0-oG-o31" firstAttribute="top" secondItem="LaH-n2-d50" secondAttribute="top" id="dN9-I3-g11"/>
                                             <constraint firstItem="LaH-n2-d50" firstAttribute="leading" secondItem="e1y-Gb-5Ny" secondAttribute="leading" constant="20" symbolic="YES" id="fGy-Kl-HIn"/>
                                             <constraint firstAttribute="trailing" secondItem="myK-ih-FKE" secondAttribute="trailing" constant="50" id="mfW-g5-Wcq"/>

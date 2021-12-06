@@ -14,7 +14,6 @@ class Contacts {
     public func fatchContacts() ->[PessoaBase]{
         var contacts = [PessoaBase]()
         let store = CNContactStore()
-        
         store.requestAccess(for: .contacts) {(granted, err) in
             if let err = err {
                 print("Falha ao acessar os contatos: ", err)
@@ -29,7 +28,14 @@ class Contacts {
                         (contact, stopPointerIfYouWantToStopEnumerating) in
                         //print(contact.givenName)
                         //print(contact.postalAddresses[0].value.street)
-                        contacts.append(PessoaBase(nome: contact.givenName + " " + contact.familyName, endereco: self.getString(postalAdress: contact.postalAddresses), icone: ""))
+                        if contact.postalAddresses.count != 0 {
+                            contacts.append(PessoaBase(nome: contact.givenName + " " + contact.familyName, endereco: self.getString(postalAdress: contact.postalAddresses), icone: "", source: contact))
+                        }
+                        else{
+                            contacts.append(PessoaBase(nome: contact.givenName + " " + contact.familyName, endereco: "", icone: "", source: contact))
+                        }
+                       
+                    
                     })
                 } catch let err {
                     print("Falha ao enumerar os contatos:",err)

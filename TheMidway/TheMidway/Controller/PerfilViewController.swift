@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import ContactsUI
+import Contacts
 
-class PerfilViewController: UIViewController {
+class PerfilViewController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var contacts = [PessoaBase]()
@@ -21,10 +23,8 @@ class PerfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.reloadData()
     }
     
@@ -39,6 +39,12 @@ extension PerfilViewController: UITableViewDelegate{
         ///clique na celula
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadInputViews()
+        
+        ///lembrar de pedir permissao para isso
+    
+        let contact = contacts[indexPath.row].source
+        let vc  = CNContactViewController(for: contact)
+        present(UINavigationController(rootViewController: vc),animated: true)
     }
 }
 

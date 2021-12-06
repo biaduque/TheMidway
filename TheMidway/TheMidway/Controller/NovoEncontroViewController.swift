@@ -47,6 +47,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         
         /// Os itens comecam escondidos até o calculo ser iniciado
         mapView.isHidden = true
+        mapView.layer.cornerRadius = 8
         collectionView.isHidden = true
         localLabel.isHidden = true
         refreshButton.isHidden = true
@@ -145,8 +146,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         // if overlay is MKCircle {
             let circle = MKCircleRenderer(overlay: overlay)
-            circle.fillColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1)
-            circle.strokeColor = .red
+            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.3)
+            circle.strokeColor = UIColor(named: "Color4")
             circle.lineWidth = 1.0
             return circle
         // }
@@ -158,7 +159,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation.title!! == " " {
             let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
-            annotationView.markerTintColor = UIColor.blue
+            annotationView.markerTintColor = UIColor(named: "Color4")
             // annotationView.glyphImage = UIImage()    // Colocando uma imagem
             return annotationView
         }
