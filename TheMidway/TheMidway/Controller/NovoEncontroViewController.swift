@@ -227,7 +227,13 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         
     }
     @IBAction func cancelButton(_ sender: Any) {
-        
+        let ac = UIAlertController(title: "Cancelar encontro", message: "Tem certeza que deseja descartar esse encontro? Essa ação não poderá ser desfeita!", preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Ignorar alterações", style: .destructive, handler:{
+            [] action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        ac.addAction(UIAlertAction(title: "Continuar editando", style: .cancel, handler: nil))
+        present(ac, animated: true)
     }
     
     @IBAction func reload(_ sender: Any) {
