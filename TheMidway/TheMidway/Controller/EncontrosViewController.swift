@@ -64,6 +64,7 @@ extension EncontrosViewController: UITableViewDelegate {
             ///clique na celula
             tableView.deselectRow(at: indexPath, animated: true)
             tableView.reloadInputViews()
+            print(collectionEncontro[indexPath.row].amigos as Any)
         }
 }
 extension EncontrosViewController: UITableViewDataSource {
@@ -79,8 +80,17 @@ extension EncontrosViewController: UITableViewDataSource {
         }
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
+                   // Deleta esse item aqui
+                   completionHandler(true)
+            try! EncontroData.shared.deleta(item: (self.collectionEncontro[indexPath.row]))
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
 }
 
 

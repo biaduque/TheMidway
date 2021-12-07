@@ -118,6 +118,7 @@
 		1376CB24274ED67F0091E62A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */,
 				1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */,
 				1376CB29274ED6EF0091E62A /* PerfilViewController.swift */,
 				1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */,
@@ -133,7 +134,6 @@
 				1344B5C1275A839300280E11 /* TableCell */,
 				1344B5C0275953F400280E11 /* alerts */,
 				135026A9275026110092165D /* MapView.swift */,
-				1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

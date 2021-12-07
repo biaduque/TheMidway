@@ -12,6 +12,7 @@ import ContactsUI
 
 protocol QuemVaiViewControllerDelegate: AnyObject {
     func getAdress(endFriends:[String])
+    func getPessoas(newPessoas: [PessoaBase])
     func didReload()
     func getLocations()
 }
@@ -25,6 +26,10 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
     public var enderecos: [String] = []
     
     var contacts = [PessoaBase]()
+    
+    var noAdress: Bool?
+    
+    var noAdressPerson: PessoaBase?
 
     private lazy var imagePerfil = ["perfil1","perfil2","perfil3","perfil4","perfil5","perfil6","perfil7","perfil8"]
 
@@ -44,6 +49,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
         //essa tela retorna a lista de strings de cada endereço
         print("teste:", enderecos)
         self.delegate?.getAdress(endFriends: enderecos)
+        self.delegate?.getPessoas(newPessoas: contacts)
         self.delegate?.getLocations()
         self.delegate?.didReload()
         self.navigationController?.popViewController(animated: true)
@@ -71,8 +77,10 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
             contacts.append(model)
         }
         else{
+            noAdress = true
             let model = PessoaBase(nome: nome, endereco: "", icone: icone, source: source, id: id)
-            contacts.append(model)
+            noAdressPerson = model
+            //contacts.append(model)
         }
         tableView.reloadData()
     }
@@ -92,6 +100,22 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
                 return
             }
         }
+        if newEndereco.endereco == ""{
+            let contact = newEndereco.source
+            let nome = contact.givenName
+            ///verificando a existencia de endereco
+            let icone = "icone1"
+            let source = contact
+            let id = contact.identifier
+            
+            let endereco = contact.postalAddresses
+            
+            if endereco.count != 0 {
+                let model = PessoaBase(nome: nome, endereco: getString(postalAdress: endereco), icone: icone, source: source, id: id)
+                contacts[wantAdress] = model
+            }
+        }
+       
         self.enderecos.append(contacts[wantAdress].endereco)
         print("testando",enderecos)
     }
@@ -136,10 +160,11 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
                 ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
                 present(ac, animated: true)
         }
+        tableView.reloadData()
     }
 }
 
-
+// MARK: Table View
 extension QuemVaiViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ///clique na celula
@@ -156,7 +181,11 @@ extension QuemVaiViewController: UITableViewDataSource{
             cell.content(newPessoa: contacts[indexPath.row])
             cell.textLabel?.text = contacts[indexPath.row].nome
             cell.imageView?.image = UIImage(named: imagePerfil[Int.random(in: 0..<imagePerfil.count)])
-            didTapped(newEnderecos: contacts[indexPath.row], wantAdress: indexPath.row)
+            if noAdress == true {
+                didTapped(newEnderecos: noAdressPerson!, wantAdress: indexPath.row)
+                noAdress = false
+                contacts.append(noAdressPerson!)
+            }
             addAdress(newEndereco: contacts[indexPath.row], wantAdress: indexPath.row)
 
         }
@@ -164,7 +193,22 @@ extension QuemVaiViewController: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
+                   // Deleta esse item aqui
+                   completionHandler(true)
+            try! self.contacts.remove(at: indexPath.row)
+            try! self.enderecos.remove(at: indexPath.row)
+            tableView.reloadData()
         }
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = .systemRed
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
+    
 }
 
 extension QuemVaiViewController: AmigosTableViewCellDelegate{

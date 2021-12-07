@@ -63,10 +63,7 @@ class PessoaData {
         pessoa.nome = novo.nome
         pessoa.endereco = novo.endereco
         pessoa.foto = novo.icone
-       
-        
- 
-            self.saveContext()
+        self.saveContext()
         
     }
     

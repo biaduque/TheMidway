@@ -22,8 +22,9 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     @IBOutlet weak var localLabel: UILabel!
     
-    // MARK: Private vars
+    // MARK: vars
     private var enderecos: [String] = []
+    public var pessoas: [PessoaBase] = []
     private var encontroTitle: String = "Novo Encontro"
     private var encontroEndereco: String = "Rua batata"
     private var date = Date()
@@ -216,9 +217,10 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         
         ///local
     
-        
         ///adicionando no core data
-        EncontroData.shared.addEncontro(novoNome: self.encontroTitle, novoEndereco: self.encontroEndereco, novoData: self.date)
+        EncontroData.shared.addEncontro(novoNome: self.encontroTitle,
+                                        novoEndereco: self.encontroEndereco,
+                                        novoData: self.date, pessoas: pessoas)
         EncontroData.shared.saveContext()
         delegate?.didReload()
         self.dismiss(animated: true, completion: nil)
@@ -306,6 +308,10 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     func getAdress(endFriends: [String]){
         self.enderecos = endFriends
         print("novooo",self.enderecos)
+    }
+    
+    func getPessoas(newPessoas: [PessoaBase]){
+        self.pessoas = newPessoas
     }
     
     func didReload() {

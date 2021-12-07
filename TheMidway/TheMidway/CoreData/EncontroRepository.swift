@@ -59,12 +59,18 @@ class EncontroData {
         return []
     }
     
-    func addEncontro(novoNome: String, novoEndereco: String, novoData: Date) {
+    func addEncontro(novoNome: String, novoEndereco: String, novoData: Date, pessoas: [PessoaBase]) {
         let encontro = Encontro(context: self.persistentContainer.viewContext)
         
         encontro.nome = novoNome
         encontro.endereco = novoEndereco
         encontro.data = novoData
+        
+        //for pessoa in pessoas{
+            //PessoaData.shared.addPessoa(novo: pessoa)
+        //}
+        //let newPessoas = PessoaData.shared.getPessoa()
+        //encontro.amigos = NSSet(array: newPessoas)
         self.saveContext()
         
     }
@@ -73,5 +79,4 @@ class EncontroData {
         self.persistentContainer.viewContext.delete(item)
         self.saveContext()
     }
-
 }
