@@ -59,6 +59,9 @@ class EncontrosViewController: UIViewController, NSFetchedResultsControllerDeleg
     }
 
 }
+
+// MARK: TableView
+
 extension EncontrosViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             ///clique na celula

@@ -44,7 +44,6 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
     
     
    ///acao do botao que atualiza o mapa
-    
     @IBAction func doneButton(_ sender: Any) {
         //essa tela retorna a lista de strings de cada endereço
         print("teste:", enderecos)
@@ -63,6 +62,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
         
     }
     
+    // MARK: Contact Picker
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         let nome = contact.givenName
         ///verificando a existencia de endereco
@@ -93,6 +93,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
         }
     }
     
+    // MARK: Adiciona endereco no vetor
     func addAdress(newEndereco: PessoaBase, wantAdress: Int){
         for endereco in enderecos{
             if newEndereco.endereco == endereco{
@@ -125,6 +126,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
     }
     
     
+    // MARK: Conversao de postal para string
     func getString(postalAdress: [CNLabeledValue<CNPostalAddress>]) -> String{
         var string = postalAdress[0].value.street
         string = string + "," + postalAdress[0].value.subLocality
@@ -134,6 +136,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
         return string
     }
     
+    // MARK: Adicionar novo endereco
     func didTapped(newEnderecos: PessoaBase, wantAdress: Int) {
             //se o endereco for vazio, o app da a oportunidade da pessoa adicionar um endereço
             if newEnderecos.endereco == ""{
