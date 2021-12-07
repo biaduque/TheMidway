@@ -57,6 +57,16 @@ class EncontrosViewController: UIViewController, NSFetchedResultsControllerDeleg
         self.collectionEncontro = nemEncontro
         tableView.reloadData()
     }
+    
+//    // MARK: Prepare
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if(segue.identifier == "visualizaEncontro"){
+//            let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow! as NSIndexPath
+//
+//            let verEncontro = segue.destination as! VisualizaEncontroViewController
+//            verEncontro.encontro = collectionEncontro[indexPath.row]
+//        }
+//    }
 
 }
 
@@ -65,9 +75,15 @@ class EncontrosViewController: UIViewController, NSFetchedResultsControllerDeleg
 extension EncontrosViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             ///clique na celula
-            tableView.deselectRow(at: indexPath, animated: true)
-            tableView.reloadInputViews()
-            print(collectionEncontro[indexPath.row].amigos as Any)
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadInputViews()
+            if let vc = storyboard?.instantiateViewController(identifier: "visualizaEncontro") as?
+                    VisualizaEncontroViewController {
+                vc.encontro = collectionEncontro[indexPath.row]
+                //navigationController?.present(vc, animated: true, completion: nil)
+                //navigationController?.pushViewController(vc, animated: true)
+                present(UINavigationController(rootViewController: vc),animated: true)
+            }
         }
 }
 extension EncontrosViewController: UITableViewDataSource {
