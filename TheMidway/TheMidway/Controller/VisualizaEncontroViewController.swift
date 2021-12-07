@@ -34,4 +34,12 @@ class VisualizaEncontroViewController: UIViewController {
         nomeDoLocalLabel?.text = encontro?.endereco
         enderecoLabel?.text = encontro?.endereco
     }
+    @IBAction func doneAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func shareAction(_ sender: Any) {
+        let vc = UIActivityViewController(activityItems: ["Olha esse TheMidway que encontrei para a gente: ", tituloEncontroLabel?.text, dataLabel?.text, enderecoLabel?.text], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true, completion: nil)
+    }
 }
