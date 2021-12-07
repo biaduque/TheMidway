@@ -9,11 +9,9 @@ import UIKit
 import Contacts
 
 protocol AmigosTableViewCellDelegate: AnyObject {
-    func didTapped(newEnderecos: PessoaBase, wantAdress: Bool)
 }
 
 class AmigosTableViewCell: UITableViewCell {
-    @IBOutlet weak var checkButton: UIButton!
     
     var wantsAdress: Bool = false
     var pessoa: PessoaBase?
@@ -30,22 +28,6 @@ class AmigosTableViewCell: UITableViewCell {
 
         
     }
-
-    @IBAction func checkButtonTapped(_ sender: Any) {
-        if checkButton.imageView?.image == (UIImage(systemName: "circle")) && wantsAdress == false{
-            //se nao estiver clicado
-            checkButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-            wantsAdress = true
-            
-        }
-        else if  checkButton.imageView?.image == (UIImage(systemName: "circle.fill")) && wantsAdress == true {
-            //se estiver clicado
-            checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
-            wantsAdress = false
-        }
-        delegate?.didTapped(newEnderecos: pessoa ?? PessoaBase(nome: "Sem nome", endereco: "sem endereco", icone: "icone1", source: CNContact(),id: "base"), wantAdress: self.wantsAdress)
-    }
-    
     public func content(newPessoa: PessoaBase){
         self.pessoa = newPessoa
     }
