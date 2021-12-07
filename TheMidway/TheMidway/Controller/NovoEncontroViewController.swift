@@ -8,6 +8,12 @@
 import UIKit
 import MapKit
 
+
+protocol NovoEncontroViewControllerDelegate: AnyObject {
+    func didReload()
+}
+
+
 class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +22,18 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     @IBOutlet weak var localLabel: UILabel!
     
+    // MARK: vars
     private var enderecos: [String] = []
+    public var pessoas: [PessoaBase] = []
+    private var encontroTitle: String = "Novo Encontro"
+    private var encontroEndereco: String = "Rua batata"
+    private var date = Date()
+    
+    
+    
+    @IBOutlet weak var refreshButton: UIButton!
+    
+    weak var delegate: NovoEncontroViewControllerDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
@@ -31,8 +48,10 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         
         /// Os itens comecam escondidos até o calculo ser iniciado
         mapView.isHidden = true
+        mapView.layer.cornerRadius = 8
         collectionView.isHidden = true
         localLabel.isHidden = true
+        refreshButton.isHidden = true
         
         
         /* MapKit */
@@ -128,8 +147,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         // if overlay is MKCircle {
             let circle = MKCircleRenderer(overlay: overlay)
-            circle.fillColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.1)
-            circle.strokeColor = .red
+            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.3)
+            circle.strokeColor = UIColor(named: "Color4")
             circle.lineWidth = 1.0
             return circle
         // }
@@ -141,7 +160,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation.title!! == " " {
             let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
-            annotationView.markerTintColor = UIColor.blue
+            annotationView.markerTintColor = UIColor(named: "Color4")
             // annotationView.glyphImage = UIImage()    // Colocando uma imagem
             return annotationView
         }
@@ -153,17 +172,20 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     /* MARK: - Ação dos botões */
     
     /// Ativa o único botão da tela
-    @objc private func buttonAction() -> Void {
+    func buttonAction(enderecos: [String]) -> Void {
         
-        if self.nerbyPlaces.isEmpty {
-            // Pega o ponto central
-            self.midpoint = self.theMidpoint(coordinates: self.pointsExample)
-
-            // Adiciona os pontos exemplos
-            for coords in self.pointsExample {
+        //fazer as conversoes de enderecos ai
+        if enderecos.count != 0{
+            for endereco in enderecos{
+                self.getCoordsByAddress(address: endereco)
+            }
+            
+            for coords in self.coordFound {
                 self.addPointOnMap(pin: self.createPin(name: " ", coordinate: coords))
             }
-
+            // Pega o ponto central
+            self.midpoint = self.theMidpoint(coordinates: self.coordFound)
+            
             // Adiciona o ponto central
             self.addPointOnMap(pin: self.createPin(name: " ", coordinate: self.midpoint))
 
@@ -172,21 +194,46 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
 
             // Define a região que vai ser focada no mapa: o ponto dentral
             self.setViewLocation(place: self.midpoint, radius: self.radiusArea)
-        }
 
-        // Faz a busca por locasi a partr das palavras chaves.
-        for someWord in self.searchWords {
-            self.getNerbyPlaces(someWord)
+            // Faz a busca por locasi a partr das palavras chaves.
+            for someWord in self.searchWords {
+                self.getNerbyPlaces(someWord)
+            }
         }
-
-        // self.getCoordsByAddress(address: "Rua Nicola Spinelli, 469")
     }
     
+    // MARK: Done button
+    
     @IBAction func doneButton(_ sender: Any) {
+        
+        ///titulo
+        let index = IndexPath(row: 0, section: 0)
+        let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
+        self.encontroTitle = cell.textField.text!
+        
+        
+        ///data
+        self.date = Date()
+        
+        ///local
+    
+        ///adicionando no core data
+        EncontroData.shared.addEncontro(novoNome: self.encontroTitle,
+                                        novoEndereco: self.encontroEndereco,
+                                        novoData: self.date, pessoas: pessoas)
+        EncontroData.shared.saveContext()
+        delegate?.didReload()
         self.dismiss(animated: true, completion: nil)
+        
     }
     @IBAction func cancelButton(_ sender: Any) {
         
+    }
+    
+    @IBAction func reload(_ sender: Any) {
+        self.collectionView.reloadData()
+        self.collectionView.isHidden = false
+        self.mapView.isHidden = false
     }
 }
 
@@ -208,6 +255,7 @@ extension NovoEncontroViewController: UITableViewDataSource {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: IndexPath(index: indexPath.row)) as! TextFieldCell
             cell.editTable()
+            encontroTitle = cell.textField.text ?? "Novo Encontro"
             cellBase = cell
         }
         else if indexPath.row == 1{
@@ -252,28 +300,33 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
 }
 
 
-
-
 // MARK: Delegate
 
 extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
+    
     //funcao para pegar as strings
     func getAdress(endFriends: [String]){
         self.enderecos = endFriends
-        print("aqui",self.enderecos)
+        print("novooo",self.enderecos)
+    }
+    
+    func getPessoas(newPessoas: [PessoaBase]){
+        self.pessoas = newPessoas
     }
     
     func didReload() {
         // Add ação do botão
-        self.buttonAction()
-        self.mapView.reloadInputViews()
-        self.collectionView.reloadInputViews()
-        self.collectionView.reloadData()
-        self.collectionView.isHidden = false
-        self.localLabel.isHidden = false
-        self.mapView.isHidden = false
-        self.collectionView.reloadData()
+        self.mapView?.reloadInputViews()
+        self.collectionView?.reloadInputViews()
+        self.collectionView?.reloadData()
         //self.mapView.getButton().addTarget(self, action: #selector(self.buttonAction), for: .touchDown)
+    }
+    
+    func getLocations() {
+        self.buttonAction(enderecos: self.enderecos)
+        self.refreshButton?.isHidden = false
+        self.localLabel.isHidden = false
+    
     }
 }
 

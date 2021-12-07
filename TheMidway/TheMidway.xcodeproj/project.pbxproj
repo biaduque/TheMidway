@@ -85,58 +85,74 @@
 			path = alerts;
 			sourceTree = "<group>";
 		};
-		135026AB275026350092165D /* model */ = {
+		1344B5C1275A839300280E11 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */,
+				1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */,
+				1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */,
+				4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */,
+				1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		1344B5C2275A83BA00280E11 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		135026AB275026350092165D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				135026AC275026470092165D /* MapPlace.swift */,
 				225CD6232756C15900E07A21 /* Pessoa.swift */,
 				1344B5B82758051E00280E11 /* Contacts.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		1376CB24274ED67F0091E62A /* controller */ = {
+		1376CB24274ED67F0091E62A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */,
 				1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */,
 				1376CB29274ED6EF0091E62A /* PerfilViewController.swift */,
-				1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */,
 				1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */,
 				135026A7275025EA0092165D /* MapViewController.swift */,
 			);
-			path = controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		1376CB25274ED68C0091E62A /* view */ = {
+		1376CB25274ED68C0091E62A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1344B5C2275A83BA00280E11 /* CollectionCell */,
+				1344B5C1275A839300280E11 /* TableCell */,
 				1344B5C0275953F400280E11 /* alerts */,
-				1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */,
-				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
-				1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */,
-				1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */,
 				135026A9275026110092165D /* MapView.swift */,
-				1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */,
-				4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */,
 			);
-			path = view;
+			path = View;
 			sourceTree = "<group>";
 		};
-		1376CB26274ED6960091E62A /* delegate */ = {
+		1376CB26274ED6960091E62A /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				DB5BA522274817D9003BBFCA /* AppDelegate.swift */,
 				DB5BA524274817D9003BBFCA /* SceneDelegate.swift */,
 			);
-			path = delegate;
+			path = Delegate;
 			sourceTree = "<group>";
 		};
-		225CD6202756BF9E00E07A21 /* extensions */ = {
+		225CD6202756BF9E00E07A21 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */,
 			);
-			path = extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DB355CBF2757EEF900A6A1D5 /* CoreData */ = {
@@ -168,11 +184,11 @@
 			isa = PBXGroup;
 			children = (
 				DB355CBF2757EEF900A6A1D5 /* CoreData */,
-				225CD6202756BF9E00E07A21 /* extensions */,
-				135026AB275026350092165D /* model */,
-				1376CB26274ED6960091E62A /* delegate */,
-				1376CB25274ED68C0091E62A /* view */,
-				1376CB24274ED67F0091E62A /* controller */,
+				225CD6202756BF9E00E07A21 /* Extensions */,
+				135026AB275026350092165D /* Model */,
+				1376CB26274ED6960091E62A /* Delegate */,
+				1376CB25274ED68C0091E62A /* View */,
+				1376CB24274ED67F0091E62A /* Controller */,
 				DB5BA526274817D9003BBFCA /* ViewController.swift */,
 				DB5BA528274817D9003BBFCA /* Main.storyboard */,
 				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,

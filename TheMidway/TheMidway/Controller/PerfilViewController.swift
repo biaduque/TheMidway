@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import ContactsUI
+import Contacts
 
-class PerfilViewController: UIViewController {
+class PerfilViewController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var contacts = [PessoaBase]()
@@ -21,11 +23,14 @@ class PerfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // Do any additional setup after loading the view.
+        tableView.reloadData()
+    }
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        tableView.reloadInputViews()
+        tableView.reloadData()
     }
 
 }
@@ -34,7 +39,28 @@ extension PerfilViewController: UITableViewDelegate{
         ///clique na celula
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadInputViews()
+        
+        ///lembrar de pedir permissao para isso
+        ///
+        var contact = contacts[indexPath.row].source
+        if !contact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
+            do {
+                let storeC = CNContactStore()
+                contact = try storeC.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
+            }
+            catch { }
+        }
+        let viewControllerforContact = CNContactViewController(for: contact)
+        viewControllerforContact.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel, target: self, action: #selector(cancelButton)
+        )
+        present(UINavigationController(rootViewController: viewControllerforContact),animated: true)
     }
+    
+    @objc func cancelButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -49,6 +75,6 @@ extension PerfilViewController: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
-        }
+    }
 }
 

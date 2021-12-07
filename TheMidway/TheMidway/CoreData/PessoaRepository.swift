@@ -57,16 +57,13 @@ class PessoaData {
         return []
     }
     
-    func addPessoa(novo: Pessoa) {
+    func addPessoa(novo: PessoaBase) {
         let pessoa = Pessoa(context: self.persistentContainer.viewContext)
         
         pessoa.nome = novo.nome
         pessoa.endereco = novo.endereco
-        pessoa.foto = novo.foto
-       
-        
- 
-            self.saveContext()
+        pessoa.foto = novo.icone
+        self.saveContext()
         
     }
     

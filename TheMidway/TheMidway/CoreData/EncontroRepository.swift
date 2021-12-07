@@ -9,6 +9,8 @@ import Foundation
 import CoreData
 
 class EncontroData {
+    
+    
     static let shared:EncontroData = EncontroData()
     
    
@@ -57,16 +59,19 @@ class EncontroData {
         return []
     }
     
-    func addEncontro(novo: Encontro) {
+    func addEncontro(novoNome: String, novoEndereco: String, novoData: Date, pessoas: [PessoaBase]) {
         let encontro = Encontro(context: self.persistentContainer.viewContext)
         
-        encontro.nome = novo.nome
-        encontro.endereco = novo.endereco
-        encontro.data = novo.data
-       
+        encontro.nome = novoNome
+        encontro.endereco = novoEndereco
+        encontro.data = novoData
         
- 
-            self.saveContext()
+        //for pessoa in pessoas{
+            //PessoaData.shared.addPessoa(novo: pessoa)
+        //}
+        //let newPessoas = PessoaData.shared.getPessoa()
+        //encontro.amigos = NSSet(array: newPessoas)
+        self.saveContext()
         
     }
     
@@ -74,5 +79,4 @@ class EncontroData {
         self.persistentContainer.viewContext.delete(item)
         self.saveContext()
     }
-
 }

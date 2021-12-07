@@ -22,5 +22,14 @@ class EncontrosTableViewCell: UITableViewCell {
 
         
     }
+    
+    func style(encontro: Encontro){
+        let formatter =  DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        dateLabel.text = formatter.string(from: encontro.data ?? Date())
+        
+        titleLabel.text = encontro.nome
+    }
 
 }
