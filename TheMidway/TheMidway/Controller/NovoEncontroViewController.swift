@@ -313,11 +313,14 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     //funcao para pegar as strings
     func getAdress(endFriends: [String]){
         self.enderecos = endFriends
-        print("novooo",self.enderecos)
     }
     
     func getPessoas(newPessoas: [PessoaBase]){
         self.pessoas = newPessoas
+        for i in 0..<pessoas.count{
+            self.enderecos[i] = pessoas[i].endereco
+            //print("enderecos coletados",self.enderecos)
+        }
     }
     
     func didReload() {
@@ -325,7 +328,6 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
         self.mapView?.reloadInputViews()
         self.collectionView?.reloadInputViews()
         self.collectionView?.reloadData()
-        //self.mapView.getButton().addTarget(self, action: #selector(self.buttonAction), for: .touchDown)
     }
     
     func getLocations() {
