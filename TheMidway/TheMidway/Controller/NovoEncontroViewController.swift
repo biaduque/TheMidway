@@ -177,7 +177,15 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         //fazer as conversoes de enderecos ai
         if enderecos.count != 0{
             for endereco in enderecos{
-                self.getCoordsByAddress(address: endereco)
+                self.getCoordsByAddress(address: endereco) { point in
+                    switch point {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let coords):
+                        // Add no mapa o endereço da pessoa
+                        self.addPointOnMap(pin: self.createPin(name: "", coordinate: coords))
+                    }
+                }
             }
             
             for coords in self.coordFound {

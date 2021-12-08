@@ -193,13 +193,14 @@ extension NovoEncontroViewController {
     
     
     /// Pega a cordenada a partir de um endereço
-    public func getCoordsByAddress(address: String) -> Void {
+    public func getCoordsByAddress(address: String, _ completionHandler: @escaping (Result< CLLocationCoordinate2D, Error>) -> Void) -> Void {
         let geocoder: CLGeocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(address) { placemarks, error in
             
             // Lidando com o erro.
-            if let _ = error {
+            if let error = error {
+                completionHandler(.failure(error))
                 return
             }
             
@@ -211,12 +212,15 @@ extension NovoEncontroViewController {
                 
                 let point = CLLocationCoordinate2D(latitude: (placemark.location?.coordinate.latitude)!,
                                                    longitude: (placemark.location?.coordinate.longitude)!)
-                self.coordFound.append(point)
                 
-                for c in self.coordFound{
-                    let pin = self.createPin(name: "", coordinate: c)
-                    self.addPointOnMap(pin: pin)
-                }
+                completionHandler(.success(point))
+                
+//                self.coordFound.append(point)
+//
+//                for c in self.coordFound{
+//                    let pin = self.createPin(name: "", coordinate: c)
+//                    self.addPointOnMap(pin: pin)
+//                }
             } else {
                 print("Não foi achado nenhum endereço.")
             }
