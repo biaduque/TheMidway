@@ -175,11 +175,19 @@
 		136FE104276130D8004F3E2D /* TheMidway Widget */ = {
 			isa = PBXGroup;
 			children = (
+				136FE11127614054004F3E2D /* View */,
 				136FE105276130D8004F3E2D /* TheMidway_Widget.swift */,
 				136FE107276130DD004F3E2D /* Assets.xcassets */,
 				136FE109276130DD004F3E2D /* Info.plist */,
 			);
 			path = "TheMidway Widget";
+			sourceTree = "<group>";
+		};
+		136FE11127614054004F3E2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1376CB24274ED67F0091E62A /* Controller */ = {
