@@ -101,28 +101,13 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
                 return
             }
         }
-        if newEndereco.endereco == ""{
-            let contact = newEndereco.source
-            let nome = contact.givenName
-            ///verificando a existencia de endereco
-            let icone = "icone1"
-            let source = contact
-            let id = contact.identifier
-            
-            let endereco = contact.postalAddresses
-            
-            if endereco.count != 0 {
-                let model = PessoaBase(nome: nome, endereco: getString(postalAdress: endereco), icone: icone, source: source, id: id)
-                contacts[wantAdress] = model
-            }
-        }
-       
         self.enderecos.append(contacts[wantAdress].endereco)
         print("testando",enderecos)
     }
     
     @objc func cancelButton() {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     
@@ -187,7 +172,7 @@ extension QuemVaiViewController: UITableViewDataSource{
             if noAdress == true {
                 didTapped(newEnderecos: noAdressPerson!, wantAdress: indexPath.row)
                 noAdress = false
-                contacts.append(noAdressPerson!)
+                //contacts.append(noAdressPerson!)
             }
             addAdress(newEndereco: contacts[indexPath.row], wantAdress: indexPath.row)
 
