@@ -164,8 +164,6 @@
 		1376CB25274ED68C0091E62A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
-				DB5BA528274817D9003BBFCA /* Main.storyboard */,
 				1344B5C2275A83BA00280E11 /* CollectionCell */,
 				1344B5C1275A839300280E11 /* TableCell */,
 				136FE0F8275FEFAA004F3E2D /* DataView.swift */,
@@ -244,7 +242,6 @@
 		DB5BA521274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXGroup;
 			children = (
-				22308B79276271910071CEB7 /* Assets */,
 				DB355CBF2757EEF900A6A1D5 /* CoreData */,
 				1376CB26274ED6960091E62A /* Delegate */,
 				225CD6202756BF9E00E07A21 /* Extensions */,
@@ -255,6 +252,9 @@
 				DB5BA528274817D9003BBFCA /* Main.storyboard */,
 				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
 				DB5BA533274817DC003BBFCA /* Info.plist */,
+				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
+				DB5BA528274817D9003BBFCA /* Main.storyboard */,
+				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
 			);
 			path = TheMidway;
 			sourceTree = "<group>";
