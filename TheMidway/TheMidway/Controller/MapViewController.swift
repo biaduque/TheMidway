@@ -12,8 +12,6 @@ import MapKit
 class MapViewControlller: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     /* MARK: - Atributos */
     
-    /// View da controller
-    private let mainView = MapView()
     
     /// Tipods de lugares que queremos pra busca
     private let placesTypes: [MKPointOfInterestCategory] = [
