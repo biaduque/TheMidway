@@ -115,7 +115,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
     func getString(postalAdress: [CNLabeledValue<CNPostalAddress>]) -> String{
         var string = postalAdress[0].value.street
         string = string + "," + postalAdress[0].value.subLocality
-        string = string + postalAdress[0].value.city
+        string = string + " " + postalAdress[0].value.city
         string = string + "-" + postalAdress[0].value.state
         string  = string + "," + postalAdress[0].value.country
         return string
@@ -187,8 +187,8 @@ extension QuemVaiViewController: UITableViewDataSource{
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
                    // Deleta esse item aqui
                    completionHandler(true)
-            try! self.contacts.remove(at: indexPath.row)
-            try! self.enderecos.remove(at: indexPath.row)
+            self.contacts.remove(at: indexPath.row)
+            self.enderecos.remove(at: indexPath.row)
             tableView.reloadData()
         }
         deleteAction.image = UIImage(systemName: "trash")
@@ -199,6 +199,6 @@ extension QuemVaiViewController: UITableViewDataSource{
     
 }
 
-extension QuemVaiViewController: AmigosTableViewCellDelegate{
+extension QuemVaiViewController: AmigosTableViewCellDelegate {
     
 }

@@ -283,8 +283,9 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     
     @IBAction func reload(_ sender: Any) {
-        self.collectionView.reloadData()
         self.collectionView.isHidden = false
+        self.collectionView.reloadInputViews()
+        self.collectionView.reloadData()
         self.mapView.isHidden = false
     }
 }
@@ -333,7 +334,10 @@ extension NovoEncontroViewController: UITableViewDataSource {
 // MARK: - Collection View
 extension NovoEncontroViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if nerbyPlaces.count > 20{
+            return 20
+        }
+        return nerbyPlaces.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -373,6 +377,7 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     
     func getLocations() {
         self.theMidwayMapUpdate(enderecos: self.enderecos)
+        print("oiteste",nerbyPlaces.count)
         self.refreshButton?.isHidden = false
         self.localLabel.isHidden = false
     }
