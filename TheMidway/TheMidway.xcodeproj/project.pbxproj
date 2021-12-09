@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		1344B5B92758051E00280E11 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5B82758051E00280E11 /* Contacts.swift */; };
 		1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */; };
-		1344B5BF275953F000280E11 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5BE275953F000280E11 /* AlertView.swift */; };
-		135026A8275025EA0092165D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026A7275025EA0092165D /* MapViewController.swift */; };
-		135026AA275026110092165D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026A9275026110092165D /* MapView.swift */; };
 		135026AD275026470092165D /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026AC275026470092165D /* MapPlace.swift */; };
 		136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */; };
 		136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
@@ -37,7 +34,6 @@
 		DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */; };
 		DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA522274817D9003BBFCA /* AppDelegate.swift */; };
 		DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA524274817D9003BBFCA /* SceneDelegate.swift */; };
-		DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA526274817D9003BBFCA /* ViewController.swift */; };
 		DB5BA52A274817D9003BBFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA528274817D9003BBFCA /* Main.storyboard */; };
 		DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */; };
 		DB5BA52F274817DC003BBFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
@@ -71,9 +67,6 @@
 /* Begin PBXFileReference section */
 		1344B5B82758051E00280E11 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosTableViewCell.swift; sourceTree = "<group>"; };
-		1344B5BE275953F000280E11 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		135026A7275025EA0092165D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		135026A9275026110092165D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		135026AC275026470092165D /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
 		136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizaEncontroViewController.swift; sourceTree = "<group>"; };
 		136FE0F8275FEFAA004F3E2D /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
@@ -101,7 +94,6 @@
 		DB5BA51F274817D9003BBFCA /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5BA522274817D9003BBFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5BA524274817D9003BBFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB5BA526274817D9003BBFCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB5BA529274817D9003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB5BA52C274817D9003BBFCA /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
 		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,14 +119,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1344B5C0275953F400280E11 /* alerts */ = {
-			isa = PBXGroup;
-			children = (
-				1344B5BE275953F000280E11 /* AlertView.swift */,
-			);
-			path = alerts;
-			sourceTree = "<group>";
-		};
 		1344B5C1275A839300280E11 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +156,6 @@
 				1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */,
 				1376CB29274ED6EF0091E62A /* PerfilViewController.swift */,
 				1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */,
-				135026A7275025EA0092165D /* MapViewController.swift */,
 				136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */,
 			);
 			path = Controller;
@@ -181,10 +164,10 @@
 		1376CB25274ED68C0091E62A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
+				DB5BA528274817D9003BBFCA /* Main.storyboard */,
 				1344B5C2275A83BA00280E11 /* CollectionCell */,
 				1344B5C1275A839300280E11 /* TableCell */,
-				1344B5C0275953F400280E11 /* alerts */,
-				135026A9275026110092165D /* MapView.swift */,
 				136FE0F8275FEFAA004F3E2D /* DataView.swift */,
 			);
 			path = View;
@@ -232,6 +215,7 @@
 		DB355CBF2757EEF900A6A1D5 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */,
 				DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */,
 				DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */,
 			);
@@ -260,17 +244,17 @@
 		DB5BA521274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXGroup;
 			children = (
+				22308B79276271910071CEB7 /* Assets */,
 				DB355CBF2757EEF900A6A1D5 /* CoreData */,
+				1376CB26274ED6960091E62A /* Delegate */,
 				225CD6202756BF9E00E07A21 /* Extensions */,
 				135026AB275026350092165D /* Model */,
-				1376CB26274ED6960091E62A /* Delegate */,
 				1376CB25274ED68C0091E62A /* View */,
 				1376CB24274ED67F0091E62A /* Controller */,
 				DB5BA526274817D9003BBFCA /* ViewController.swift */,
 				DB5BA528274817D9003BBFCA /* Main.storyboard */,
 				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
 				DB5BA533274817DC003BBFCA /* Info.plist */,
-				DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */,
 			);
 			path = TheMidway;
 			sourceTree = "<group>";
@@ -390,19 +374,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
-				DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */,
 				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
-				1344B5BF275953F000280E11 /* AlertView.swift in Sources */,
 				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,
 				1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */,
 				1344B5B92758051E00280E11 /* Contacts.swift in Sources */,
 				136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */,
 				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
-				135026A8275025EA0092165D /* MapViewController.swift in Sources */,
 				DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */,
 				DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */,
 				1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */,
-				135026AA275026110092165D /* MapView.swift in Sources */,
 				1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */,
 				225CD6242756C15900E07A21 /* Pessoa.swift in Sources */,
 				136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */,
@@ -649,7 +629,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = 534V229RMK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -678,7 +658,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = 534V229RMK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
