@@ -125,6 +125,11 @@ extension NovoEncontroViewController {
         
         search.start() { response, error in
             
+            if let erro = error {
+                print("Erro achado: \(erro)")
+                return
+            }
+            
             guard let response = response else {
                 // Lidar com o erro aqui!
                 print("Estou no erro.")
@@ -210,17 +215,12 @@ extension NovoEncontroViewController {
                 let topResult: CLPlacemark = (placemarks?[0])!
                 let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
                 
-                let point = CLLocationCoordinate2D(latitude: (placemark.location?.coordinate.latitude)!,
-                                                   longitude: (placemark.location?.coordinate.longitude)!)
+                let point = CLLocationCoordinate2D(
+                    latitude: (placemark.location?.coordinate.latitude)!,
+                    longitude: (placemark.location?.coordinate.longitude)!)
                 
                 completionHandler(.success(point))
                 
-//                self.coordFound.append(point)
-//
-//                for c in self.coordFound{
-//                    let pin = self.createPin(name: "", coordinate: c)
-//                    self.addPointOnMap(pin: pin)
-//                }
             } else {
                 print("Não foi achado nenhum endereço.")
             }

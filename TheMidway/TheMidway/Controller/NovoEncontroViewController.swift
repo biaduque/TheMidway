@@ -43,7 +43,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        collectionView.delegate = self
+        // collectionView.delegate = self
         collectionView.dataSource = self
         
         /// Os itens comecam escondidos até o calculo ser iniciado
@@ -62,6 +62,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // Define o delegate das localizações
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
+        
+        
         
         
     }
@@ -108,7 +110,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     }()
     
     /// Pontos adicionados como referência
-    public let pointsExample: [CLLocationCoordinate2D] = [
+    public let pointsExamplee: [CLLocationCoordinate2D] = [
         CLLocationCoordinate2D(latitude: -23.495480, longitude: -46.868080),    // Muza
         CLLocationCoordinate2D(latitude: -23.545580, longitude: -46.651860),    // Feh
         CLLocationCoordinate2D(latitude: -23.523580, longitude: -46.774770),    // Bia
@@ -172,77 +174,113 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     /* MARK: - Ação dos botões */
     
     /// Ativa o único botão da tela
-    func buttonAction(enderecos: [String]) -> Void {
-        
-        //fazer as conversoes de enderecos ai
-        if enderecos.count != 0{
-            for endereco in enderecos{
-                self.getCoordsByAddress(address: endereco) { point in
+    public func theMidwayMapUpdate(enderecos: [String]) -> Void {
+        self.coordFound = []
+        self.nerbyPlaces = []
+        // fazer as conversoes de enderecos ai
+        if enderecos.count != 0 {
+            print("entrei aqui com \(enderecos.count): \n\n\(enderecos)\n\n")
+            let group = DispatchGroup()
+            
+            for end in enderecos {
+                print("\n\n\n Endereço loop: \(end)\n\n")
+                group.enter()
+                self.getCoordsByAddress(address: end) { point in
+                    defer {group.leave()}
+                    
+                    print("\n\n\nEntrei no CH com: \(end)\n\n")
+                    
+                    
                     switch point {
                     case .failure(let error):
                         print(error)
                     case .success(let coords):
-                        // Add no mapa o endereço da pessoa
+                        self.coordFound.append(coords)
                         self.addPointOnMap(pin: self.createPin(name: "", coordinate: coords))
+                        print("\n\n\nCoordenada achada: \(coords)\n\n")
                     }
                 }
             }
+
             
-            for coords in self.coordFound {
-                self.addPointOnMap(pin: self.createPin(name: " ", coordinate: coords))
-            }
-            // Pega o ponto central
-            self.midpoint = self.theMidpoint(coordinates: self.coordFound)
-            
-            // Adiciona o ponto central
-            self.addPointOnMap(pin: self.createPin(name: " ", coordinate: self.midpoint))
+            group.notify(queue: .main) {
+                // Pega o ponto central
+                print("Contador: \(self.coordFound.count)")
+                self.midpoint = self.theMidpoint(coordinates: self.coordFound)
 
-            // Cria um cículo
-            self.addCircle(location: self.midpoint)
-
-            // Define a região que vai ser focada no mapa: o ponto dentral
-            self.setViewLocation(place: self.midpoint, radius: self.radiusArea)
-
-            // Faz a busca por locasi a partr das palavras chaves.
-            for someWord in self.searchWords {
-                self.getNerbyPlaces(someWord)
+                // Adiciona o ponto central
+                self.addPointOnMap(pin: self.createPin(name: "The Midway", coordinate: self.midpoint))
+                // Cria um cículo
+                self.addCircle(location: self.midpoint)
+                
+                // Define a região que vai ser focada no mapa: o ponto dentral
+                self.setViewLocation(place: self.midpoint, radius: self.radiusArea)
+                
+                // Faz a busca por locais a partr das palavras chaves.
+                for someWord in self.searchWords {
+                    self.getNerbyPlaces(someWord)
+                }
             }
         }
     }
     
     // MARK: Done button
     
-    @IBAction func doneButton(_ sender: Any) {
+    @IBAction func doneButton(_ sender: UIButton) {
         
-        ///titulo
+        // Título
         let index = IndexPath(row: 0, section: 0)
         let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
         self.encontroTitle = cell.textField.text!
         
-        
-        ///data
         self.date = Date()
-        
-        ///local
-    
-        ///adicionando no core data
-        EncontroData.shared.addEncontro(novoNome: self.encontroTitle,
-                                        novoEndereco: self.encontroEndereco,
-                                        novoData: self.date, pessoas: pessoas)
+            
+        // Adicionando no core data
+        EncontroData.shared.addEncontro(
+            novoNome: self.encontroTitle,
+            novoEndereco: self.encontroEndereco,
+            novoData: self.date, pessoas: pessoas
+        )
         EncontroData.shared.saveContext()
-        delegate?.didReload()
-        self.dismiss(animated: true, completion: nil)
         
+        // Atualiza
+        self.delegate?.didReload()
+        
+        // Fecha tela
+        self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func cancelButton(_ sender: Any) {
-        let ac = UIAlertController(title: "Cancelar encontro", message: "Tem certeza que deseja descartar esse encontro? Essa ação não poderá ser desfeita!", preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "Ignorar alterações", style: .destructive, handler:{
-            [] action in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        ac.addAction(UIAlertAction(title: "Continuar editando", style: .cancel, handler: nil))
-        present(ac, animated: true)
+    
+    
+    
+    @IBAction func cancelButton(_ sender: UIButton) {
+        let ac = UIAlertController(
+            title: "Cancelar encontro",
+            message: "Tem certeza que deseja descartar esse encontro? Essa ação não poderá ser desfeita!",
+            preferredStyle: .actionSheet
+        )
+        
+        ac.addAction(
+            UIAlertAction(
+                title: "Ignorar alterações",
+                style: .destructive,
+                handler: {[] action in
+                    self.dismiss(animated: true, completion: nil)
+                }
+            )
+        )
+        
+        ac.addAction(
+            UIAlertAction(
+                title: "Continuar editando",
+                style: .cancel,
+                handler: nil
+            )
+        )
+        
+        self.present(ac, animated: true)
     }
+    
+    
     
     @IBAction func reload(_ sender: Any) {
         self.collectionView.reloadData()
@@ -293,10 +331,6 @@ extension NovoEncontroViewController: UITableViewDataSource {
 
 
 // MARK: - Collection View
-extension NovoEncontroViewController: UICollectionViewDelegate {
-    
-}
-
 extension NovoEncontroViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -327,7 +361,6 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
         self.pessoas = newPessoas
         for i in 0..<pessoas.count{
             self.enderecos[i] = pessoas[i].endereco
-            //print("enderecos coletados",self.enderecos)
         }
     }
     
@@ -339,10 +372,9 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     }
     
     func getLocations() {
-        self.buttonAction(enderecos: self.enderecos)
+        self.theMidwayMapUpdate(enderecos: self.enderecos)
         self.refreshButton?.isHidden = false
         self.localLabel.isHidden = false
-    
     }
 }
 
