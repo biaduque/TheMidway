@@ -291,7 +291,10 @@ extension NovoEncontroViewController: UICollectionViewDelegate {
 
 extension NovoEncontroViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if self.nerbyPlaces.count > 20{
+            return 20
+        }
+        return self.nerbyPlaces.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -331,6 +334,7 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     }
     
     func getLocations() {
+        print("lugares",nerbyPlaces.count)
         self.buttonAction(enderecos: self.enderecos)
         self.refreshButton?.isHidden = false
         self.localLabel.isHidden = false
