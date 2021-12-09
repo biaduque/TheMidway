@@ -22,11 +22,11 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-
+        
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        for hourOffset in 0 ..< 720 {
+            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
             let entry = SimpleEntry(date: entryDate)
             entries.append(entry)
         }
@@ -38,6 +38,7 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    
 }
 
 struct TheMidway_WidgetEntryView : View {
@@ -72,6 +73,7 @@ struct TheMidway_WidgetEntryView : View {
                     Text("Rua Antônio Alves de Souza, 22 - Bonfim, Osasco - SP")
                         .font(.caption2)
                         .frame(width: geometry.size.width - 20, height:geometry.size.height/6, alignment: .leading)
+                
                     HStack(){
                         Image(systemName: "calendar")
                             .foregroundColor(color1)
@@ -94,6 +96,8 @@ struct TheMidway_WidgetEntryView : View {
     }
 }
 
+
+
 @main
 struct TheMidway_Widget: Widget {
     
@@ -112,5 +116,6 @@ struct TheMidway_Widget_Previews: PreviewProvider {
     static var previews: some View {
         TheMidway_WidgetEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .redacted(reason: .placeholder)
     }
 }
