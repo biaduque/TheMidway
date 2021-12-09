@@ -197,7 +197,6 @@
 		13B67A8327627A40005D8D95 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -248,9 +247,6 @@
 				135026AB275026350092165D /* Model */,
 				1376CB25274ED68C0091E62A /* View */,
 				1376CB24274ED67F0091E62A /* Controller */,
-				DB5BA526274817D9003BBFCA /* ViewController.swift */,
-				DB5BA528274817D9003BBFCA /* Main.storyboard */,
-				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
 				DB5BA533274817DC003BBFCA /* Info.plist */,
 				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
 				DB5BA528274817D9003BBFCA /* Main.storyboard */,
@@ -629,7 +625,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 534V229RMK;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -658,7 +654,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 534V229RMK;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

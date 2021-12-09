@@ -43,7 +43,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // collectionView.delegate = self
+        
+        collectionView.delegate = self
         collectionView.dataSource = self
         
         /// Os itens comecam escondidos até o calculo ser iniciado
@@ -334,22 +335,24 @@ extension NovoEncontroViewController: UITableViewDataSource {
 extension NovoEncontroViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.nerbyPlaces.count > 20{
-            return 20
+            return 2
         }
         return self.nerbyPlaces.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "novoEncontroCollection", for: indexPath) as! NovoEncontroCollectionViewCell
+        cell.backgroundColor = .systemRed
         if self.nerbyPlaces.count != 0 {
-            cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row])
+            cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row],endereco: enderecos[indexPath.row])
+            cell.backgroundColor = .systemRed
         }
         return cell
     }
-    
+}
+extension NovoEncontroViewController:UICollectionViewDelegate{
     
 }
-
 
 // MARK: Delegate
 

@@ -25,7 +25,7 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.2
         layer.masksToBounds = false
     }
-    public func stylize(nearbyPlace: MapPlace){
+    public func stylize(nearbyPlace: MapPlace, endereco: String){
         self.backgroundColor = UIColor(named: "BackgroundColor")!
         self.layer.cornerRadius = 5
         self.labelEndereco.text = "Rua Antonio Alves de Souza, 22"
@@ -34,6 +34,6 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
         self.tagView.backgroundColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])
         self.tagView.layer.cornerRadius = 3
         labelTitulo.text = nearbyPlace.name
-        //labelEndereco.text = String(nearbyPlace.address)
+        labelEndereco.text = endereco
     }
 }
