@@ -239,6 +239,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // Adicionando no core data
         EncontroData.shared.addEncontro(
             novoNome: self.encontroTitle,
+            nomeLocal: "Nome do local",
             novoEndereco: self.encontroEndereco,
             novoData: self.date, pessoas: pessoas
         )
@@ -344,7 +345,7 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "novoEncontroCollection", for: indexPath) as! NovoEncontroCollectionViewCell
         cell.backgroundColor = .systemRed
         if self.nerbyPlaces.count != 0 {
-            cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row],endereco: enderecos[indexPath.row])
+            cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row])
             cell.backgroundColor = .systemRed
         }
         return cell
