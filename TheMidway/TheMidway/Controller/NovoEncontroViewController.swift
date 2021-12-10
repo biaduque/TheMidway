@@ -26,6 +26,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private var enderecos: [String] = []
     public var pessoas: [PessoaBase] = []
     private var encontroTitle: String = "Novo Encontro"
+    private var localTitle: String = "Nome Local"
     private var encontroEndereco: String = "Rua batata"
     private var date = Date()
     
@@ -43,7 +44,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.dataSource = self
         
         /// Os itens comecam escondidos até o calculo ser iniciado
@@ -238,6 +239,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // Adicionando no core data
         EncontroData.shared.addEncontro(
             novoNome: self.encontroTitle,
+            nomeLocal: self.localTitle,
             novoEndereco: self.encontroEndereco,
             novoData: self.date, pessoas: pessoas
         )
@@ -283,8 +285,9 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     
     @IBAction func reload(_ sender: Any) {
-        self.collectionView.reloadData()
         self.collectionView.isHidden = false
+        self.collectionView.reloadInputViews()
+        self.collectionView.reloadData()
         self.mapView.isHidden = false
     }
 }
@@ -333,13 +336,17 @@ extension NovoEncontroViewController: UITableViewDataSource {
 // MARK: - Collection View
 extension NovoEncontroViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if nerbyPlaces.count > 20{
+            return 20
+        }
+        return nerbyPlaces.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "novoEncontroCollection", for: indexPath) as! NovoEncontroCollectionViewCell
         if self.nerbyPlaces.count != 0 {
             cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row])
+            cell.delegate = self
         }
         return cell
     }
@@ -347,6 +354,11 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
     
 }
 
+extension NovoEncontroViewController: UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+}
 
 // MARK: Delegate
 
@@ -373,12 +385,18 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     
     func getLocations() {
         self.theMidwayMapUpdate(enderecos: self.enderecos)
+        print("oiteste",nerbyPlaces.count)
         self.refreshButton?.isHidden = false
         self.localLabel.isHidden = false
     }
 }
 
-
+extension NovoEncontroViewController: NovoEncontroCollectionViewCellDelegate{
+    func newLocation(nearbyPlace: MapPlace) {
+        self.localTitle = nearbyPlace.name
+        self.encontroEndereco = "Endereco do local encontrado"
+    }
+}
 
 
 

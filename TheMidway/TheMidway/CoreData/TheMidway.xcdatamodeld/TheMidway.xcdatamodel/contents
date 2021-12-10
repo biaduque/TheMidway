@@ -4,6 +4,7 @@
         <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="endereco" optional="YES" attributeType="String"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="nomeLocal" optional="YES" attributeType="String"/>
         <relationship name="amigos" toMany="YES" deletionRule="Nullify" destinationEntity="Pessoa"/>
     </entity>
     <entity name="Pessoa" representedClassName="Pessoa" syncable="YES" codeGenerationType="class">
@@ -12,7 +13,7 @@
         <attribute name="nome" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Encontro" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Encontro" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="Pessoa" positionX="-54" positionY="18" width="128" height="74"/>
     </elements>
 </model>
