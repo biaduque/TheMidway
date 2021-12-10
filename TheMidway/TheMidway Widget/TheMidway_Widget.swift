@@ -44,6 +44,8 @@ struct SimpleEntry: TimelineEntry {
 struct TheMidway_WidgetEntryView : View {
     var entry: Provider.Entry
     
+//    var collectionEncontro: [Encontro] = []
+    
     let colors = ["Color1","Color2","Color3","Color4","Color5","Color6","Color7","Color8"]
     let backgrounds = ["Back1","Back2","Back3","Back4","Back5","Back6","Back7","Back8"]
     
