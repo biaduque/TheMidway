@@ -12,6 +12,11 @@
 		135026AD275026470092165D /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026AC275026470092165D /* MapPlace.swift */; };
 		136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */; };
 		136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
+		136FE101276130D8004F3E2D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136FE100276130D8004F3E2D /* WidgetKit.framework */; };
+		136FE103276130D8004F3E2D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136FE102276130D8004F3E2D /* SwiftUI.framework */; };
+		136FE106276130D8004F3E2D /* TheMidway_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE105276130D8004F3E2D /* TheMidway_Widget.swift */; };
+		136FE108276130DD004F3E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136FE107276130DD004F3E2D /* Assets.xcassets */; };
+		136FE10C276130DD004F3E2D /* TheMidway WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */; };
 		1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB29274ED6EF0091E62A /* PerfilViewController.swift */; };
 		1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */; };
@@ -33,12 +38,42 @@
 		DB5BA532274817DC003BBFCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		136FE10A276130DD004F3E2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB5BA517274817D9003BBFCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 136FE0FD276130D8004F3E2D;
+			remoteInfo = "TheMidway WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		136FE10D276130DD004F3E2D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				136FE10C276130DD004F3E2D /* TheMidway WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1344B5B82758051E00280E11 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosTableViewCell.swift; sourceTree = "<group>"; };
 		135026AC275026470092165D /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
 		136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizaEncontroViewController.swift; sourceTree = "<group>"; };
 		136FE0F8275FEFAA004F3E2D /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TheMidway WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		136FE100276130D8004F3E2D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		136FE102276130D8004F3E2D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		136FE105276130D8004F3E2D /* TheMidway_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMidway_Widget.swift; sourceTree = "<group>"; };
+		136FE107276130DD004F3E2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		136FE109276130DD004F3E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosViewController.swift; sourceTree = "<group>"; };
 		1376CB29274ED6EF0091E62A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +98,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		136FE0FB276130D8004F3E2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136FE103276130D8004F3E2D /* SwiftUI.framework in Frameworks */,
+				136FE101276130D8004F3E2D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB5BA51C274817D9003BBFCA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,6 +145,25 @@
 				1344B5B82758051E00280E11 /* Contacts.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		136FE0FF276130D8004F3E2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				136FE100276130D8004F3E2D /* WidgetKit.framework */,
+				136FE102276130D8004F3E2D /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		136FE104276130D8004F3E2D /* TheMidway Widget */ = {
+			isa = PBXGroup;
+			children = (
+				136FE105276130D8004F3E2D /* TheMidway_Widget.swift */,
+				136FE107276130DD004F3E2D /* Assets.xcassets */,
+				136FE109276130DD004F3E2D /* Info.plist */,
+			);
+			path = "TheMidway Widget";
 			sourceTree = "<group>";
 		};
 		1376CB24274ED67F0091E62A /* Controller */ = {
@@ -156,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				DB5BA521274817D9003BBFCA /* TheMidway */,
+				136FE104276130D8004F3E2D /* TheMidway Widget */,
+				136FE0FF276130D8004F3E2D /* Frameworks */,
 				DB5BA520274817D9003BBFCA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5BA51F274817D9003BBFCA /* TheMidway.app */,
+				136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +254,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		136FE0FD276130D8004F3E2D /* TheMidway WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 136FE110276130DD004F3E2D /* Build configuration list for PBXNativeTarget "TheMidway WidgetExtension" */;
+			buildPhases = (
+				136FE0FA276130D8004F3E2D /* Sources */,
+				136FE0FB276130D8004F3E2D /* Frameworks */,
+				136FE0FC276130D8004F3E2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TheMidway WidgetExtension";
+			productName = "TheMidway WidgetExtension";
+			productReference = 136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DB5BA51E274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB5BA536274817DC003BBFCA /* Build configuration list for PBXNativeTarget "TheMidway" */;
@@ -195,10 +278,12 @@
 				DB5BA51B274817D9003BBFCA /* Sources */,
 				DB5BA51C274817D9003BBFCA /* Frameworks */,
 				DB5BA51D274817D9003BBFCA /* Resources */,
+				136FE10D276130DD004F3E2D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				136FE10B276130DD004F3E2D /* PBXTargetDependency */,
 			);
 			name = TheMidway;
 			productName = TheMidway;
@@ -212,9 +297,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					136FE0FD276130D8004F3E2D = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					DB5BA51E274817D9003BBFCA = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -234,11 +322,20 @@
 			projectRoot = "";
 			targets = (
 				DB5BA51E274817D9003BBFCA /* TheMidway */,
+				136FE0FD276130D8004F3E2D /* TheMidway WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		136FE0FC276130D8004F3E2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136FE108276130DD004F3E2D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB5BA51D274817D9003BBFCA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +349,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		136FE0FA276130D8004F3E2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136FE106276130D8004F3E2D /* TheMidway_Widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB5BA51B274817D9003BBFCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,6 +387,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		136FE10B276130DD004F3E2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 136FE0FD276130D8004F3E2D /* TheMidway WidgetExtension */;
+			targetProxy = 136FE10A276130DD004F3E2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DB5BA528274817D9003BBFCA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -302,6 +415,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		136FE10E276130DD004F3E2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TheMidway Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TheMidway Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.TheMidway-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		136FE10F276130DD004F3E2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TheMidway Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TheMidway Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.TheMidway-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DB5BA534274817DC003BBFCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -421,6 +588,7 @@
 		DB5BA537274817DC003BBFCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -449,6 +617,7 @@
 		DB5BA538274817DC003BBFCA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -477,6 +646,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		136FE110276130DD004F3E2D /* Build configuration list for PBXNativeTarget "TheMidway WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136FE10E276130DD004F3E2D /* Debug */,
+				136FE10F276130DD004F3E2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DB5BA51A274817D9003BBFCA /* Build configuration list for PBXProject "TheMidway" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
