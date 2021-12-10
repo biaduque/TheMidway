@@ -6,14 +6,105 @@
 //
 
 import UIKit
+import MapKit
+import EventKit
+import EventKitUI
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelegate {
+        
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var encontroLabel: UILabel!
+    @IBOutlet weak var enderecoLabel: UILabel!
+    
+    var encontroTitle: String?
+    
+    let eventStore = EKEventStore()
+    var time = Date()
+    var date = Date()
+    
+    var timeString: String?
+    var dateString: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.mapView.delegate = self
+        
+        // Define o delegate das localizações
     }
 
-
+    
+    @IBAction func actionAddInCalendar(_ sender: Any) {
+        print("teste")
+        eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
+                   DispatchQueue.main.async {
+                       if (granted) && (error == nil) {
+                           let event = EKEvent(eventStore: self.eventStore)
+                           event.title = self.encontroTitle ?? "Novo encontro TheMidway"
+                           #warning("LEMBRAR DE COLOCAR O TIME COM O COISO DO DATE PICKER")
+                           event.startDate = self.time
+                           event.url = URL(string: "https://apple.com")
+                           event.endDate = self.time
+                           let eventController = EKEventEditViewController()
+                           eventController.event = event
+                           eventController.eventStore = self.eventStore
+                           eventController.editViewDelegate = self
+                           self.present(eventController, animated: true, completion: nil)
+                       }
+                   }
+            })
+    }
+    
 }
 
+
+extension ViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ///clique na celula
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadInputViews()
+    }
+}
+
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cellBase = UITableViewCell()
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: IndexPath(index: indexPath.row)) as! TextFieldCell
+            cell.editTable()
+            encontroTitle = cell.textField.text ?? "Novo Encontro"
+            cellBase = cell
+        }
+        else if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "quandoSeraCell", for: IndexPath(index: indexPath.row)) as! QuandoSeraTableViewCell
+            
+            cell.stylize()
+            let comp = cell.datePicker.calendar.dateComponents([.hour, .minute], from: cell.datePicker.date)
+
+            self.date = cell.datePicker.date
+            self.time = cell.datePicker.date
+            
+            let formatter =  DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            self.dateString = formatter.string(from: cell.datePicker.date)
+            self.timeString = String(comp.hour!) + "h" + String(comp.minute!)
+            
+            cellBase = cell
+            
+        }
+        return cellBase
+    }
+}

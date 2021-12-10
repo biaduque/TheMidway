@@ -31,6 +31,10 @@ class VisualizaEncontroViewController: UIViewController {
     public func content(){
         tituloEncontroLabel?.text = encontro?.nome
         dataLabel?.style(dataEncontro: encontro?.data ?? Date())
+        
+        //let comp = encontro?.data.calendar.dateComponents([.hour, .minute], from: encontro?.data)
+        //let timeString = String(comp.hour!) + "h" + String(comp.minute!)
+        
         nomeDoLocalLabel?.text = encontro?.endereco
         enderecoLabel?.text = encontro?.endereco
     }

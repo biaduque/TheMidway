@@ -27,6 +27,8 @@
 		13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */; };
 		13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		13B67A8427627A4F005D8D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
+		13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
+		13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
 		4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */; };
@@ -362,6 +364,8 @@
 				13B67A71276278E0005D8D95 /* ViewController.swift in Sources */,
 				13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */,
 				13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */,
+				13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */,
+				13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
