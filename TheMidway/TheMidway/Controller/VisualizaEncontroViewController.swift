@@ -31,7 +31,7 @@ class VisualizaEncontroViewController: UIViewController {
     public func content(){
         tituloEncontroLabel?.text = encontro?.nome
         dataLabel?.style(dataEncontro: encontro?.data ?? Date())
-        nomeDoLocalLabel?.text = encontro?.endereco
+        nomeDoLocalLabel?.text = encontro?.nomeLocal
         enderecoLabel?.text = encontro?.endereco
     }
     @IBAction func doneAction(_ sender: Any) {

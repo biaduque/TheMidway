@@ -26,6 +26,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private var enderecos: [String] = []
     public var pessoas: [PessoaBase] = []
     private var encontroTitle: String = "Novo Encontro"
+    private var localTitle: String = "Nome Local"
     private var encontroEndereco: String = "Rua batata"
     private var date = Date()
     
@@ -43,7 +44,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.dataSource = self
         
         /// Os itens comecam escondidos até o calculo ser iniciado
@@ -238,6 +239,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // Adicionando no core data
         EncontroData.shared.addEncontro(
             novoNome: self.encontroTitle,
+            nomeLocal: self.localTitle,
             novoEndereco: self.encontroEndereco,
             novoData: self.date, pessoas: pessoas
         )
@@ -344,6 +346,7 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "novoEncontroCollection", for: indexPath) as! NovoEncontroCollectionViewCell
         if self.nerbyPlaces.count != 0 {
             cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row])
+            cell.delegate = self
         }
         return cell
     }
@@ -351,6 +354,11 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
     
 }
 
+extension NovoEncontroViewController: UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+}
 
 // MARK: Delegate
 
@@ -383,7 +391,12 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     }
 }
 
-
+extension NovoEncontroViewController: NovoEncontroCollectionViewCellDelegate{
+    func newLocation(nearbyPlace: MapPlace) {
+        self.localTitle = nearbyPlace.name
+        self.encontroEndereco = "Endereco do local encontrado"
+    }
+}
 
 
 
