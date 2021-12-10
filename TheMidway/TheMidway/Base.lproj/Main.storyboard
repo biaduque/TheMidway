@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JbJ-ff-Wet">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JbJ-ff-Wet">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -396,12 +396,26 @@
                                                                         <constraint firstAttribute="width" constant="115" id="rZf-KH-acQ"/>
                                                                     </constraints>
                                                                 </view>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kny-g4-eJv">
+                                                                    <rect key="frame" x="249" y="8" width="44" height="31"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="31" id="uh1-Da-dD4"/>
+                                                                        <constraint firstAttribute="width" constant="44" id="zd2-n4-Q9l"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="clickCheck:" destination="mMw-U8-kXe" eventType="touchUpInside" id="oCZ-oW-bu3"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="tintColor" name="AccentColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="HyC-6x-VC0" firstAttribute="top" secondItem="esf-Qb-2e5" secondAttribute="top" constant="8" id="049-6k-4ZG"/>
+                                                                <constraint firstItem="kny-g4-eJv" firstAttribute="top" secondItem="esf-Qb-2e5" secondAttribute="top" constant="8" id="Eao-6b-OnT"/>
                                                                 <constraint firstItem="HyC-6x-VC0" firstAttribute="leading" secondItem="esf-Qb-2e5" secondAttribute="leading" constant="8" id="Kdw-eX-p2r"/>
                                                                 <constraint firstAttribute="bottom" secondItem="8W3-bs-duD" secondAttribute="bottom" constant="8" id="N4D-Ht-46v"/>
+                                                                <constraint firstAttribute="trailing" secondItem="kny-g4-eJv" secondAttribute="trailing" constant="8" id="d2E-xI-6LD"/>
                                                                 <constraint firstItem="8W3-bs-duD" firstAttribute="top" secondItem="SbH-bE-3wj" secondAttribute="bottom" constant="24.5" id="dnW-sQ-wKk"/>
                                                                 <constraint firstItem="8W3-bs-duD" firstAttribute="leading" secondItem="esf-Qb-2e5" secondAttribute="leading" constant="8" id="eHV-W3-Z0p"/>
                                                                 <constraint firstAttribute="trailing" secondItem="HyC-6x-VC0" secondAttribute="trailing" constant="8" id="iuq-m4-hyY"/>
@@ -412,6 +426,7 @@
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="301" height="122"/>
                                                         <connections>
+                                                            <outlet property="checkButton" destination="kny-g4-eJv" id="iED-af-wE3"/>
                                                             <outlet property="labelEndereco" destination="SbH-bE-3wj" id="udH-ka-tk9"/>
                                                             <outlet property="labelTitulo" destination="HyC-6x-VC0" id="G8k-Bb-xCg"/>
                                                             <outlet property="tagView" destination="8W3-bs-duD" id="LmV-qm-cY3"/>
@@ -755,6 +770,7 @@
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>

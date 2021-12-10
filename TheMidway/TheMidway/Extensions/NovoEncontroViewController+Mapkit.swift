@@ -125,6 +125,11 @@ extension NovoEncontroViewController {
         
         search.start() { response, error in
             
+            if let erro = error {
+                print("Erro achado: \(erro)")
+                return
+            }
+            
             guard let response = response else {
                 // Lidar com o erro aqui!
                 print("Estou no erro.")
@@ -193,13 +198,14 @@ extension NovoEncontroViewController {
     
     
     /// Pega a cordenada a partir de um endereço
-    public func getCoordsByAddress(address: String) -> Void {
+    public func getCoordsByAddress(address: String, _ completionHandler: @escaping (Result< CLLocationCoordinate2D, Error>) -> Void) -> Void {
         let geocoder: CLGeocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(address) { placemarks, error in
             
             // Lidando com o erro.
-            if let _ = error {
+            if let error = error {
+                completionHandler(.failure(error))
                 return
             }
             
@@ -209,14 +215,12 @@ extension NovoEncontroViewController {
                 let topResult: CLPlacemark = (placemarks?[0])!
                 let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
                 
-                let point = CLLocationCoordinate2D(latitude: (placemark.location?.coordinate.latitude)!,
-                                                   longitude: (placemark.location?.coordinate.longitude)!)
-                self.coordFound.append(point)
+                let point = CLLocationCoordinate2D(
+                    latitude: (placemark.location?.coordinate.latitude)!,
+                    longitude: (placemark.location?.coordinate.longitude)!)
                 
-                for c in self.coordFound{
-                    let pin = self.createPin(name: "", coordinate: c)
-                    self.addPointOnMap(pin: pin)
-                }
+                completionHandler(.success(point))
+                
             } else {
                 print("Não foi achado nenhum endereço.")
             }
