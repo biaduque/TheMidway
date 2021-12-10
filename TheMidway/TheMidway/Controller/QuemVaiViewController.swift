@@ -72,7 +72,8 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
         
         let endereco = contact.postalAddresses
         
-        if endereco.count != 0 {
+        //se o endereco da rua nao for vazio
+        if endereco[0].value.street != "" {
             let model = PessoaBase(nome: nome, endereco: getString(postalAdress: endereco), icone: icone, source: source, id: id)
             contacts.append(model)
         }
@@ -165,6 +166,12 @@ extension QuemVaiViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "amigosCell", for: IndexPath(index: indexPath.row)) as! AmigosTableViewCell
         cell.delegate = self
+        
+        if noAdress == true {
+            didTapped(newEnderecos: noAdressPerson!, wantAdress: indexPath.row)
+            noAdress = false
+        }
+        
         if contacts.count != 0 {
             cell.content(newPessoa: contacts[indexPath.row])
             cell.textLabel?.text = contacts[indexPath.row].nome
@@ -174,9 +181,8 @@ extension QuemVaiViewController: UITableViewDataSource{
                 noAdress = false
                 //contacts.append(noAdressPerson!)
             }
-            addAdress(newEndereco: contacts[indexPath.row], wantAdress: indexPath.row)
-
         }
+        addAdress(newEndereco: contacts[indexPath.row], wantAdress: indexPath.row)
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
