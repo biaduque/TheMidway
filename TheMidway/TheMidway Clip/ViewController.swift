@@ -85,9 +85,17 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
         self.date = cell2.datePicker.date
         let hora = self.getHora(datePickerOutlet: cell2.datePicker)
         
-        let vc = UIActivityViewController(activityItems: ["Olha o The Midway que eu encontrei para nós!"], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: ["Olha o The Midway que eu encontrei para nós!",
+                                                         encontroTitle], applicationActivities: [])
+        
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+    }
+    
+    func getHora(datePickerOutlet: UIDatePicker) -> String {
+        let comp = datePickerOutlet.calendar.dateComponents([.hour, .minute], from: datePickerOutlet.date)
+        let hora = String(comp.hour!) + "h" + String(comp.minute!)
+        return hora
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
