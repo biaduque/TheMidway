@@ -75,6 +75,16 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
 //                   }
 //            })
         
+        let index = IndexPath(row: 0, section: 0)
+        let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
+        self.encontroTitle = cell.textField.text!
+        
+        //data
+        let index2 = IndexPath(row: 1, section: 0)
+        let cell2: QuandoSeraTableViewCell = self.tableView.cellForRow(at: index2) as! QuandoSeraTableViewCell
+        self.date = cell2.datePicker.date
+        let hora = self.getHora(datePickerOutlet: cell2.datePicker)
+        
         let vc = UIActivityViewController(activityItems: ["Olha o The Midway que eu encontrei para nós!"], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
