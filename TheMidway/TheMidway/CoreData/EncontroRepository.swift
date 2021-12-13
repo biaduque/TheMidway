@@ -59,11 +59,12 @@ class EncontroData {
         return []
     }
     
-    func addEncontro(novoNome: String, nomeLocal: String, novoEndereco: String, novoData: Date, pessoas: [PessoaBase]) {
+    func addEncontro(novoNome: String, nomeLocal: String, novoEndereco: String, novoData: Date, hora: String, pessoas: [PessoaBase]) {
         let encontro = Encontro(context: self.persistentContainer.viewContext)
         encontro.nomeLocal = nomeLocal
         encontro.nome = novoNome
         encontro.endereco = novoEndereco
+        encontro.hora = hora
         encontro.data = novoData
         
         //for pessoa in pessoas{
