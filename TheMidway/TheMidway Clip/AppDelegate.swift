@@ -31,6 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+            guard let incomingURL = URL(string:userActivityType),
+                    let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true),
+                    let queryItems = components.queryItems
+            else{
+                return false
+            }
+            return true
+    }
+    
 }
 
