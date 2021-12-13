@@ -29,6 +29,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private var localTitle: String = "Nome Local"
     private var encontroEndereco: String = "Rua batata"
     private var date = Date()
+    private var hora = "Sem horário definido"
     
     
     
@@ -234,15 +235,22 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
         self.encontroTitle = cell.textField.text!
         
-        self.date = Date()
+        //data
+        let index2 = IndexPath(row: 1, section: 0)
+        let cell2: QuandoSeraTableViewCell = self.tableView.cellForRow(at: index2) as! QuandoSeraTableViewCell
+        self.date = cell2.datePicker.date
+        self.hora = self.getHora(datePickerOutlet: cell2.datePicker)
             
         // Adicionando no core data
         EncontroData.shared.addEncontro(
             novoNome: self.encontroTitle,
             nomeLocal: self.localTitle,
             novoEndereco: self.encontroEndereco,
-            novoData: self.date, pessoas: pessoas
+            novoData: self.date,
+            hora: self.hora,
+            pessoas: pessoas
         )
+        
         EncontroData.shared.saveContext()
         
         // Atualiza
@@ -290,6 +298,12 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         self.collectionView.reloadData()
         self.mapView.isHidden = false
     }
+    
+    func getHora(datePickerOutlet: UIDatePicker) -> String {
+        let comp = datePickerOutlet.calendar.dateComponents([.hour, .minute], from: datePickerOutlet.date)
+        let hora = String(comp.hour!) + "h" + String(comp.minute!)
+        return hora
+    }
 }
 
 
@@ -316,6 +330,7 @@ extension NovoEncontroViewController: UITableViewDataSource {
         else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "quandoSeraCell", for: IndexPath(index: indexPath.row)) as! QuandoSeraTableViewCell
             cell.stylize()
+            date = cell.datePicker.date
             cellBase = cell
         }
         else if indexPath.row == 2{
