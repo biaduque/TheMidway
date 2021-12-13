@@ -14,7 +14,7 @@ from flask import Flask, request, Response
 from flask.json import jsonify
 from flask_mysqldb import MySQL
 
-from os import getenv
+from os import getenv, environ
 
 
 ## Criando a aplicação:
@@ -166,7 +166,8 @@ def database_maneger(type: str, data: tuple) -> tuple:
 def main() -> None:
     r"""Função main, o que precisa pra rodar"""
 
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
 
 
 # Execução da função main.
