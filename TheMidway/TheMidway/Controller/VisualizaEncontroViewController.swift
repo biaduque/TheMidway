@@ -7,6 +7,8 @@
 
 import UIKit
 import MapKit
+import EventKit
+import EventKitUI
 
 class VisualizaEncontroViewController: UIViewController {
 
@@ -22,6 +24,9 @@ class VisualizaEncontroViewController: UIViewController {
     
     var encontro: Encontro?
     
+    let eventStore =  EKEventStore()
+    let time = Date()
+    
     override func viewWillAppear(_ animated: Bool) {
         content()
     }
@@ -34,6 +39,9 @@ class VisualizaEncontroViewController: UIViewController {
     public func content(){
         tituloEncontroLabel?.text = encontro?.nome
         dataLabel?.style(dataEncontro: encontro?.data ?? Date())
+        let hora = encontro?.hora
+        let dataEhora = String((dataLabel?.text!)!) + " - " + String(hora!)
+        dataLabel?.text = dataEhora
         nomeDoLocalLabel?.text = encontro?.nomeLocal
         enderecoLabel?.text = encontro?.endereco
     }
@@ -67,6 +75,16 @@ class VisualizaEncontroViewController: UIViewController {
                 }
             )
         )
+        ac.addAction(
+            UIAlertAction(
+                title: "Adicionar no calendário",
+                style: .default,
+                handler: {[] action in
+                    self.openCalendar()
+                }
+            )
+        )
+        
         ac.addAction(
             UIAlertAction(
                 title: "Cancelar",
@@ -118,5 +136,32 @@ class VisualizaEncontroViewController: UIViewController {
         let vc = UIActivityViewController(activityItems: ["Olha esse TheMidway que encontrei para a gente: ", tituloEncontroLabel?.text, dataLabel?.text, enderecoLabel?.text], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true, completion: nil)
+    }
+    
+    func openCalendar(){
+        eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
+                   DispatchQueue.main.async {
+                       if (granted) && (error == nil) {
+                           let event = EKEvent(eventStore: self.eventStore)
+                           event.title = self.tituloEncontroLabel?.text
+                           event.startDate = self.encontro?.data
+                           event.url = URL(string: "https://apple.com")
+                           let eventController = EKEventEditViewController()
+                           eventController.event = event
+                           eventController.eventStore = self.eventStore
+                           eventController.editViewDelegate = self
+                           self.present(eventController, animated: true, completion: nil)
+                           
+                       }
+                   }
+               })
+    }
+    
+}
+
+
+extension VisualizaEncontroViewController: EKEventEditViewDelegate{
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
