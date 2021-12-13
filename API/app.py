@@ -20,17 +20,17 @@ from os import getenv, environ
 ## Criando a aplicação:
 app = Flask(__name__)
 
-app.secret_key = 'secretKey'
+app.secret_key = str(environ.get("SECRET_KEY", 'nada'))
 
 
 # Configuração do JSON
 app.config['JSON_AS_ASCII'] = False
 
 # Conexão com o banco de dados
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = getenv('SENHA_BD')
-app.config['MYSQL_DB'] = 'theMidway'
+app.config['MYSQL_HOST'] = str(environ.get("MYSQL_HOST", 'localhost'))
+app.config['MYSQL_USER'] = str(environ.get("MYSQL_USER", 'root'))
+app.config['MYSQL_PASSWORD'] = str(environ.get("MYSQL_PASSWORD", getenv("senha_db")))
+app.config['MYSQL_DB'] = str(environ.get("MYSQL_DB", 'themidway'))
 
 
 # MySql -> Banco de dados
