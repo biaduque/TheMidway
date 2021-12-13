@@ -75,18 +75,31 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
 //                   }
 //            })
         
+        // titulo do encontro compartilhado
         let index = IndexPath(row: 0, section: 0)
         let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
         self.encontroTitle = cell.textField.text!
         
-        //data
+        //data e hora compartilhados
+        
         let index2 = IndexPath(row: 1, section: 0)
         let cell2: QuandoSeraTableViewCell = self.tableView.cellForRow(at: index2) as! QuandoSeraTableViewCell
+        let comp = cell2.datePicker.calendar.dateComponents([.hour, .minute], from: cell2.datePicker.date)
+
         self.date = cell2.datePicker.date
-        let hora = self.getHora(datePickerOutlet: cell2.datePicker)
+        self.time = cell2.datePicker.date
+        
+        let formatter =  DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        self.dateString = formatter.string(from: cell2.datePicker.date)
+        self.timeString = String(comp.hour!) + "h" + String(comp.minute!)
+        
         
         let vc = UIActivityViewController(activityItems: ["Olha o The Midway que eu encontrei para nós!",
-                                                         encontroTitle], applicationActivities: [])
+                                                          encontroTitle ?? "Meu novo encontro",
+                                                          "Data e hora planejados:",
+                                                          dateString ?? "Sem data definida",
+                                                          timeString ?? "Sem horário definido"], applicationActivities: [])
         
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
