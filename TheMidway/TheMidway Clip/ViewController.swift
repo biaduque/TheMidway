@@ -139,6 +139,8 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
             annotations.coordinate = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.latitude)
             self.mapView.addAnnotation(annotations)
             self.enderecoLabel.text = String(self.latitude) + String(self.longitude)
+            let region = MKCoordinateRegion(center: annotations.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
+            self.mapView.setRegion(region, animated: true)
     }
     
 }
