@@ -26,8 +26,10 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private var enderecos: [String] = []
     public var pessoas: [PessoaBase] = []
     private var encontroTitle: String = "Novo Encontro"
+    private var localTitle: String = "Nome Local"
     private var encontroEndereco: String = "Rua batata"
     private var date = Date()
+    private var hora = "Sem horário definido"
     
     
     
@@ -43,7 +45,6 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -234,15 +235,22 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
         self.encontroTitle = cell.textField.text!
         
-        self.date = Date()
+        //data
+        let index2 = IndexPath(row: 1, section: 0)
+        let cell2: QuandoSeraTableViewCell = self.tableView.cellForRow(at: index2) as! QuandoSeraTableViewCell
+        self.date = cell2.datePicker.date
+        self.hora = self.getHora(datePickerOutlet: cell2.datePicker)
             
         // Adicionando no core data
         EncontroData.shared.addEncontro(
             novoNome: self.encontroTitle,
-            nomeLocal: "Nome do local",
+            nomeLocal: self.localTitle,
             novoEndereco: self.encontroEndereco,
-            novoData: self.date, pessoas: pessoas
+            novoData: self.date,
+            hora: self.hora,
+            pessoas: pessoas
         )
+        
         EncontroData.shared.saveContext()
         
         // Atualiza
@@ -285,9 +293,16 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     
     @IBAction func reload(_ sender: Any) {
-        self.collectionView.reloadData()
         self.collectionView.isHidden = false
+        self.collectionView.reloadInputViews()
+        self.collectionView.reloadData()
         self.mapView.isHidden = false
+    }
+    
+    func getHora(datePickerOutlet: UIDatePicker) -> String {
+        let comp = datePickerOutlet.calendar.dateComponents([.hour, .minute], from: datePickerOutlet.date)
+        let hora = String(comp.hour!) + "h" + String(comp.minute!)
+        return hora
     }
 }
 
@@ -315,6 +330,7 @@ extension NovoEncontroViewController: UITableViewDataSource {
         else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "quandoSeraCell", for: IndexPath(index: indexPath.row)) as! QuandoSeraTableViewCell
             cell.stylize()
+            date = cell.datePicker.date
             cellBase = cell
         }
         else if indexPath.row == 2{
@@ -335,24 +351,28 @@ extension NovoEncontroViewController: UITableViewDataSource {
 // MARK: - Collection View
 extension NovoEncontroViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.nerbyPlaces.count > 20{
-            return 2
+        if nerbyPlaces.count > 20{
+            return 20
         }
-        return self.nerbyPlaces.count
+        return nerbyPlaces.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "novoEncontroCollection", for: indexPath) as! NovoEncontroCollectionViewCell
-        cell.backgroundColor = .systemRed
         if self.nerbyPlaces.count != 0 {
             cell.stylize(nearbyPlace: self.nerbyPlaces[indexPath.row])
-            cell.backgroundColor = .systemRed
+            cell.delegate = self
         }
         return cell
     }
-}
-extension NovoEncontroViewController:UICollectionViewDelegate{
     
+    
+}
+
+extension NovoEncontroViewController: UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
 }
 
 // MARK: Delegate
@@ -380,12 +400,18 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     
     func getLocations() {
         self.theMidwayMapUpdate(enderecos: self.enderecos)
+        print("oiteste",nerbyPlaces.count)
         self.refreshButton?.isHidden = false
         self.localLabel.isHidden = false
     }
 }
 
-
+extension NovoEncontroViewController: NovoEncontroCollectionViewCellDelegate{
+    func newLocation(nearbyPlace: MapPlace) {
+        self.localTitle = nearbyPlace.name
+        self.encontroEndereco = "Endereco do local encontrado"
+    }
+}
 
 
 
