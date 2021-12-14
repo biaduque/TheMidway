@@ -170,6 +170,7 @@ extension VisualizaEncontroViewController: EKEventEditViewDelegate{
 extension VisualizaEncontroViewController: MKMapViewDelegate{
     func createAnnotation(){
             /// Pegar latitude e longidite pelo endereco
+        #warning("Adicionar encontro via endereco do core data")
         let endereco = encontro?.endereco
             ///retornar latitude e longitude do endereco para essa localização
          let annotations = MKPointAnnotation()
