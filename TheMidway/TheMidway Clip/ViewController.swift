@@ -112,13 +112,17 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
+        print("Estou no início da funcao")
+        if status != .denied {
+            print("Estou no status")
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                print("Estou no manager")
                 if CLLocationManager.isRangingAvailable() {
                     guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
                     //print("locations = \(locValue.latitude) \(locValue.longitude)")
                     self.latitude = locValue.latitude
                     self.longitude = locValue.longitude
+                    print("Estou aqui")
                 }
             }
         }
