@@ -2,12 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>O app solicita sua localização atual para a criação do Encontro nesse Midway Point.</string>
-	<key>NSContactsUsageDescription</key>
-	<string>Para a melhor experiência do aplicativo e cálculo do ponto médio, precisamos da sua lista de contatos para que você nos informe quais amigos vão para o Encontro. Você deseja aceitar esse acesso?</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Para conseguirmos adicionar esse Midway Point em seus eventos no calendário, precisamos que permite o acesso à ele.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>O App deseja ter acesso à sua localização atual para criar o evento TheMidway.</string>
+	<key>NSAppClip</key>
+	<dict>
+		<key>NSAppClipRequestEphemeralUserNotification</key>
+		<false/>
+		<key>NSAppClipRequestLocationConfirmation</key>
+		<false/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

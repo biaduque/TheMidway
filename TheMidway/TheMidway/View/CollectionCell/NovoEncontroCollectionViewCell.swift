@@ -43,7 +43,6 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
         self.tagView.backgroundColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])
         self.tagView.layer.cornerRadius = 3
         labelTitulo.text = nearbyPlace.name
-        //labelEndereco.text = String(nearbyPlace.address)
     }
     @IBAction func clickCheck(_ sender: Any) {
         if checkButton.imageView?.image == UIImage(systemName: "circle"){

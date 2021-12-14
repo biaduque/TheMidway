@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132CD68C2767C58F00066BA9 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
 		1344B5B92758051E00280E11 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5B82758051E00280E11 /* Contacts.swift */; };
 		1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */; };
 		135026AD275026470092165D /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026AC275026470092165D /* MapPlace.swift */; };
 		136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */; };
 		136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
-		136FE101276130D8004F3E2D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136FE100276130D8004F3E2D /* WidgetKit.framework */; };
-		136FE103276130D8004F3E2D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136FE102276130D8004F3E2D /* SwiftUI.framework */; };
-		136FE106276130D8004F3E2D /* TheMidway_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE105276130D8004F3E2D /* TheMidway_Widget.swift */; };
-		136FE108276130DD004F3E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136FE107276130DD004F3E2D /* Assets.xcassets */; };
-		136FE10C276130DD004F3E2D /* TheMidway WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */; };
 		1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB29274ED6EF0091E62A /* PerfilViewController.swift */; };
 		1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */; };
@@ -25,6 +21,15 @@
 		1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */; };
 		1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
 		1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */; };
+		13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A6C276278E0005D8D95 /* AppDelegate.swift */; };
+		13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A6E276278E0005D8D95 /* SceneDelegate.swift */; };
+		13B67A71276278E0005D8D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A70276278E0005D8D95 /* ViewController.swift */; };
+		13B67A74276278E0005D8D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A72276278E0005D8D95 /* Main.storyboard */; };
+		13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */; };
+		13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		13B67A8427627A4F005D8D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
+		13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
+		13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
 		4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */; };
@@ -39,25 +44,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		136FE10A276130DD004F3E2D /* PBXContainerItemProxy */ = {
+		13B67A7C276278E2005D8D95 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB5BA517274817D9003BBFCA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 136FE0FD276130D8004F3E2D;
-			remoteInfo = "TheMidway WidgetExtension";
+			remoteGlobalIDString = 13B67A69276278E0005D8D95;
+			remoteInfo = "TheMidway Clip";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		136FE10D276130DD004F3E2D /* Embed App Extensions */ = {
+		13B67A7F276278E2005D8D95 /* Embed App Clips */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
 			files = (
-				136FE10C276130DD004F3E2D /* TheMidway WidgetExtension.appex in Embed App Extensions */,
+				13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -68,12 +73,6 @@
 		135026AC275026470092165D /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
 		136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizaEncontroViewController.swift; sourceTree = "<group>"; };
 		136FE0F8275FEFAA004F3E2D /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
-		136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TheMidway WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		136FE100276130D8004F3E2D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		136FE102276130D8004F3E2D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		136FE105276130D8004F3E2D /* TheMidway_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMidway_Widget.swift; sourceTree = "<group>"; };
-		136FE107276130DD004F3E2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		136FE109276130DD004F3E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosViewController.swift; sourceTree = "<group>"; };
 		1376CB29274ED6EF0091E62A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +81,14 @@
 		1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroCollectionViewCell.swift; sourceTree = "<group>"; };
 		1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuandoSeraTableViewCell.swift; sourceTree = "<group>"; };
 		1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiTableViewCell.swift; sourceTree = "<group>"; };
+		13B67A6A276278E0005D8D95 /* TheMidway Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheMidway Clip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B67A6C276278E0005D8D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		13B67A6E276278E0005D8D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		13B67A70276278E0005D8D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		13B67A73276278E0005D8D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13B67A78276278E2005D8D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13B67A7A276278E2005D8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13B67A7B276278E2005D8D95 /* TheMidway_Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway_Clip.entitlements; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
 		4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
@@ -92,18 +99,16 @@
 		DB5BA524274817D9003BBFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB5BA529274817D9003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB5BA52C274817D9003BBFCA /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
-		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../TheMidway/Assets.xcassets; sourceTree = "<group>"; };
 		DB5BA531274817DC003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB5BA533274817DC003BBFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		136FE0FB276130D8004F3E2D /* Frameworks */ = {
+		13B67A67276278E0005D8D95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				136FE103276130D8004F3E2D /* SwiftUI.framework in Frameworks */,
-				136FE101276130D8004F3E2D /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,25 +152,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		136FE0FF276130D8004F3E2D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				136FE100276130D8004F3E2D /* WidgetKit.framework */,
-				136FE102276130D8004F3E2D /* SwiftUI.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		136FE104276130D8004F3E2D /* TheMidway Widget */ = {
-			isa = PBXGroup;
-			children = (
-				136FE105276130D8004F3E2D /* TheMidway_Widget.swift */,
-				136FE107276130DD004F3E2D /* Assets.xcassets */,
-				136FE109276130DD004F3E2D /* Info.plist */,
-			);
-			path = "TheMidway Widget";
-			sourceTree = "<group>";
-		};
 		1376CB24274ED67F0091E62A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +183,28 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		13B67A6B276278E0005D8D95 /* TheMidway Clip */ = {
+			isa = PBXGroup;
+			children = (
+				13B67A6C276278E0005D8D95 /* AppDelegate.swift */,
+				13B67A6E276278E0005D8D95 /* SceneDelegate.swift */,
+				13B67A70276278E0005D8D95 /* ViewController.swift */,
+				13B67A72276278E0005D8D95 /* Main.storyboard */,
+				13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */,
+				13B67A7A276278E2005D8D95 /* Info.plist */,
+				13B67A7B276278E2005D8D95 /* TheMidway_Clip.entitlements */,
+			);
+			path = "TheMidway Clip";
+			sourceTree = "<group>";
+		};
+		13B67A8327627A40005D8D95 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		225CD6202756BF9E00E07A21 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +226,9 @@
 		DB5BA516274817D8003BBFCA = {
 			isa = PBXGroup;
 			children = (
+				13B67A8327627A40005D8D95 /* Shared */,
 				DB5BA521274817D9003BBFCA /* TheMidway */,
-				136FE104276130D8004F3E2D /* TheMidway Widget */,
-				136FE0FF276130D8004F3E2D /* Frameworks */,
+				13B67A6B276278E0005D8D95 /* TheMidway Clip */,
 				DB5BA520274817D9003BBFCA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -229,7 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5BA51F274817D9003BBFCA /* TheMidway.app */,
-				136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */,
+				13B67A6A276278E0005D8D95 /* TheMidway Clip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,7 +254,6 @@
 				DB5BA533274817DC003BBFCA /* Info.plist */,
 				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
 				DB5BA528274817D9003BBFCA /* Main.storyboard */,
-				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
 			);
 			path = TheMidway;
 			sourceTree = "<group>";
@@ -254,22 +261,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		136FE0FD276130D8004F3E2D /* TheMidway WidgetExtension */ = {
+		13B67A69276278E0005D8D95 /* TheMidway Clip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 136FE110276130DD004F3E2D /* Build configuration list for PBXNativeTarget "TheMidway WidgetExtension" */;
+			buildConfigurationList = 13B67A82276278E2005D8D95 /* Build configuration list for PBXNativeTarget "TheMidway Clip" */;
 			buildPhases = (
-				136FE0FA276130D8004F3E2D /* Sources */,
-				136FE0FB276130D8004F3E2D /* Frameworks */,
-				136FE0FC276130D8004F3E2D /* Resources */,
+				13B67A66276278E0005D8D95 /* Sources */,
+				13B67A67276278E0005D8D95 /* Frameworks */,
+				13B67A68276278E0005D8D95 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "TheMidway WidgetExtension";
-			productName = "TheMidway WidgetExtension";
-			productReference = 136FE0FE276130D8004F3E2D /* TheMidway WidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
+			name = "TheMidway Clip";
+			productName = "TheMidway Clip";
+			productReference = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
 		};
 		DB5BA51E274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXNativeTarget;
@@ -278,12 +285,12 @@
 				DB5BA51B274817D9003BBFCA /* Sources */,
 				DB5BA51C274817D9003BBFCA /* Frameworks */,
 				DB5BA51D274817D9003BBFCA /* Resources */,
-				136FE10D276130DD004F3E2D /* Embed App Extensions */,
+				13B67A7F276278E2005D8D95 /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				136FE10B276130DD004F3E2D /* PBXTargetDependency */,
+				13B67A7D276278E2005D8D95 /* PBXTargetDependency */,
 			);
 			name = TheMidway;
 			productName = TheMidway;
@@ -300,7 +307,7 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
-					136FE0FD276130D8004F3E2D = {
+					13B67A69276278E0005D8D95 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 					DB5BA51E274817D9003BBFCA = {
@@ -322,17 +329,19 @@
 			projectRoot = "";
 			targets = (
 				DB5BA51E274817D9003BBFCA /* TheMidway */,
-				136FE0FD276130D8004F3E2D /* TheMidway WidgetExtension */,
+				13B67A69276278E0005D8D95 /* TheMidway Clip */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		136FE0FC276130D8004F3E2D /* Resources */ = {
+		13B67A68276278E0005D8D95 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				136FE108276130DD004F3E2D /* Assets.xcassets in Resources */,
+				13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */,
+				13B67A8427627A4F005D8D95 /* Assets.xcassets in Resources */,
+				13B67A74276278E0005D8D95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,11 +358,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		136FE0FA276130D8004F3E2D /* Sources */ = {
+		13B67A66276278E0005D8D95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				136FE106276130D8004F3E2D /* TheMidway_Widget.swift in Sources */,
+				132CD68C2767C58F00066BA9 /* DataView.swift in Sources */,
+				13B67A71276278E0005D8D95 /* ViewController.swift in Sources */,
+				13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */,
+				13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */,
+				13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */,
+				13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,14 +402,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		136FE10B276130DD004F3E2D /* PBXTargetDependency */ = {
+		13B67A7D276278E2005D8D95 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 136FE0FD276130D8004F3E2D /* TheMidway WidgetExtension */;
-			targetProxy = 136FE10A276130DD004F3E2D /* PBXContainerItemProxy */;
+			target = 13B67A69276278E0005D8D95 /* TheMidway Clip */;
+			targetProxy = 13B67A7C276278E2005D8D95 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		13B67A72276278E0005D8D95 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B67A73276278E0005D8D95 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B67A78276278E2005D8D95 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		DB5BA528274817D9003BBFCA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -415,57 +445,65 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		136FE10E276130DD004F3E2D /* Debug */ = {
+		13B67A80276278E2005D8D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TheMidway Widget/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "TheMidway Widget";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.TheMidway-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		136FE10F276130DD004F3E2D /* Release */ = {
+		13B67A81276278E2005D8D95 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TheMidway Widget/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "TheMidway Widget";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.TheMidway-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -593,7 +631,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -622,7 +660,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -646,11 +684,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		136FE110276130DD004F3E2D /* Build configuration list for PBXNativeTarget "TheMidway WidgetExtension" */ = {
+		13B67A82276278E2005D8D95 /* Build configuration list for PBXNativeTarget "TheMidway Clip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				136FE10E276130DD004F3E2D /* Debug */,
-				136FE10F276130DD004F3E2D /* Release */,
+				13B67A80276278E2005D8D95 /* Debug */,
+				13B67A81276278E2005D8D95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
