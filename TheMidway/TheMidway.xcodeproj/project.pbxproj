@@ -99,7 +99,7 @@
 		DB5BA524274817D9003BBFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB5BA529274817D9003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB5BA52C274817D9003BBFCA /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
-		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../TheMidway/Assets.xcassets; sourceTree = "<group>"; };
 		DB5BA531274817DC003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB5BA533274817DC003BBFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +200,7 @@
 		13B67A8327627A40005D8D95 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 				DB5BA533274817DC003BBFCA /* Info.plist */,
 				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
 				DB5BA528274817D9003BBFCA /* Main.storyboard */,
-				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
 			);
 			path = TheMidway;
 			sourceTree = "<group>";

@@ -42,7 +42,7 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
+        self.enderecoLabel.text = "Marque um Midway em sua localização atual"
         tableView.dataSource = self
         self.mapView.delegate = self
         
@@ -143,7 +143,6 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
             let annotations = MKPointAnnotation()
             annotations.coordinate = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.latitude)
             self.mapView.addAnnotation(annotations)
-            self.enderecoLabel.text = String(self.latitude) + String(self.longitude)
             let region = MKCoordinateRegion(center: annotations.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
             self.mapView.setRegion(region, animated: true)
     }
