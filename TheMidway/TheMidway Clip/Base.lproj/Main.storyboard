@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -88,11 +89,25 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI9-E2-EgG">
+                                <rect key="frame" x="352" y="247" width="42" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="EbY-Ai-1qv"/>
+                                    <constraint firstAttribute="width" constant="42" id="xlI-K6-x1I"/>
+                                </constraints>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="refresh:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aHh-rN-8uZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vSf-bi-yuZ" firstAttribute="top" secondItem="kJG-cY-ibb" secondAttribute="bottom" constant="8" symbolic="YES" id="513-Ln-1TB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZI9-E2-EgG" secondAttribute="trailing" constant="20" id="9eH-xG-kPf"/>
                             <constraint firstItem="vdK-k4-Zlt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IL2-EE-bY4"/>
                             <constraint firstItem="sFO-77-bzB" firstAttribute="top" secondItem="vdK-k4-Zlt" secondAttribute="bottom" constant="8" id="PAH-YA-6z6"/>
                             <constraint firstItem="kJG-cY-ibb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SlS-QU-FmS"/>
@@ -103,12 +118,16 @@
                             <constraint firstAttribute="bottom" secondItem="vSf-bi-yuZ" secondAttribute="bottom" id="jXw-jL-eui"/>
                             <constraint firstItem="vSf-bi-yuZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rMf-G6-dEF"/>
                             <constraint firstItem="sFO-77-bzB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ufk-WC-pZ8"/>
+                            <constraint firstItem="ZI9-E2-EgG" firstAttribute="top" secondItem="vdK-k4-Zlt" secondAttribute="bottom" constant="8" symbolic="YES" id="wic-kl-kTW"/>
                             <constraint firstItem="kJG-cY-ibb" firstAttribute="top" secondItem="sFO-77-bzB" secondAttribute="bottom" constant="8" symbolic="YES" id="ymc-SY-SIm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Novo encontro" largeTitleDisplayMode="always" id="GBy-SU-KN2">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="KIO-km-S4i">
                             <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="closeButton:" destination="BYZ-38-t0r" id="35E-tA-UOH"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="4PR-sZ-EzD">
                             <connections>
@@ -147,6 +166,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.53725490196078429" green="0.2196078431372549" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

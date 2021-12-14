@@ -122,16 +122,17 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
                 }
             }
         }
-        self.mapView.reloadInputViews()
         self.createAnnotation()
+        self.mapView.reloadInputViews()
+
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         self.latitude = locValue.latitude
         self.longitude = locValue.longitude
-        self.mapView.reloadInputViews()
         self.createAnnotation()
+        self.mapView.reloadInputViews()
     }
     
     func createAnnotation(){
@@ -141,6 +142,15 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
             self.enderecoLabel.text = String(self.latitude) + String(self.longitude)
             let region = MKCoordinateRegion(center: annotations.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
             self.mapView.setRegion(region, animated: true)
+    }
+    
+    @IBAction func closeButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        self.createAnnotation()
+        self.mapView.reloadInputViews()
     }
     
 }
