@@ -72,6 +72,20 @@ class EncontroData {
         //}
         //let newPessoas = PessoaData.shared.getPessoa()
         //encontro.amigos = NSSet(array: newPessoas)
+        
+        
+        ///formatando a data para string
+        let formatter =  DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let textData = formatter.string(from: encontro.data ?? Date())
+               
+
+        UserDefaults().set(encontro.nomeLocal, forKey: "nomeLocal")
+        UserDefaults().set(encontro.endereco, forKey: "endEncontro")
+        UserDefaults().set(textData, forKey: "dataEncontro")
+        UserDefaults().set(encontro.hora, forKey: "horaEncontro")
+        UserDefaults().set(encontro.nome, forKey: "tituloEncontro")
+        
         self.saveContext()
         
     }

@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Para conseguirmos adicionar esse Midway Point em seus eventos no calendário, precisamos que permite o acesso à ele.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>O App deseja ter acesso à sua localização atual para criar o evento TheMidway.</string>
 	<key>NSAppClip</key>
 	<dict>
 		<key>NSAppClipRequestEphemeralUserNotification</key>
