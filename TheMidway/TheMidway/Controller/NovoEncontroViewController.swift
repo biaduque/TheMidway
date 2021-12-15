@@ -302,7 +302,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     func getHora(datePickerOutlet: UIDatePicker) -> String {
         let comp = datePickerOutlet.calendar.dateComponents([.hour, .minute], from: datePickerOutlet.date)
-        let hora = String(comp.hour!) + "h" + String(comp.minute!)
+        let hora = String(comp.hour!) + ":" + String(comp.minute!)
         return hora
     }
 }

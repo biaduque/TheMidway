@@ -9,8 +9,6 @@ import Foundation
 import CoreData
 
 class EncontroData {
-    
-    
     static let shared:EncontroData = EncontroData()
     
    
@@ -24,15 +22,15 @@ class EncontroData {
     static var persistentContainer: NSPersistentContainer = {
        
         let container = NSPersistentContainer(name: "TheMidway")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores() {storeDescription, error in
             if let error = error as NSError? {
-               
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-        })
+        }
         return container
     }()
 
+    
     // MARK: - Core Data Saving support
 
     static func saveContext () {
@@ -46,6 +44,7 @@ class EncontroData {
             }
         }
     }
+    
     
     // Buscar todas as reuniões no banco de dados
     static func getEncontro() -> [Encontro] {
@@ -70,18 +69,50 @@ class EncontroData {
         ///formatando a data para string
         let formatter =  DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        let textData = formatter.string(from: encontro.data ?? Date())
+        let dateToString = formatter.string(from: encontro.data ?? Date())
                
-
+        // Informações para o Widget
         UserDefaults().set(encontro.nomeLocal, forKey: "nomeLocal")
         UserDefaults().set(encontro.endereco, forKey: "endEncontro")
-        UserDefaults().set(textData, forKey: "dataEncontro")
+        UserDefaults().set(dateToString, forKey: "dataEncontro")
         UserDefaults().set(encontro.hora, forKey: "horaEncontro")
         UserDefaults().set(encontro.nome, forKey: "tituloEncontro")
         
+        
+        // Informações para a API + Banco de Dados
+        let dict: [String:String] = [
+            "data" : dateToString,
+            "hora" : hora,
+            "nome" : nomeLocal,
+            "tipo" : "",
+            "longitude" : "0",
+            "latitude" : "0",
+            "pais" : "",
+            "cidade" : "",
+            "bairro" : "",
+            "endereco" : novoEndereco,
+            "numero" : ""
+        ]
+        
+        // Chama a instancia da api
+        let api = ApiManeger()
+
+        // Faz um POST
+        api.postMethod(urlData: dict) { result in
+            switch result {
+            case .success(let status):
+                // Entra aqui quando da certo!
+                print("\n\nFoi dado um POST: \(status)\n\n")
+
+            case .failure(let error):
+                print("\n\nErro: \(error.description)\n\n")
+            }
+        }
+        
+        
         self.saveContext()
-        return encontro
     }
+    
     
     static func deleta(item: Encontro) throws{
         self.persistentContainer.viewContext.delete(item)
