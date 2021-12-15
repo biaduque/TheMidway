@@ -20,9 +20,11 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
     }
     
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mapView: MKMapView!
+    let names = ["Bakery", "Bar", "Cinema", "Coffee", "Restaurant", "Shopping", "Theater"]
     
+    
+    @IBOutlet weak var collectionSugestoes: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var encontroLabel: UILabel!
     @IBOutlet weak var enderecoLabel: UILabel!
     
@@ -35,45 +37,22 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
     var timeString: String?
     var dateString: String?
     
-    var locationManager: CLLocationManager?
-    var latitude = 0.0
-    var longitude = 0.0
 
-
+    var actualLocal: String?
+    var cellAnterior: SugestoesCollectionViewCell?
+    var isFirstRun = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.enderecoLabel.text = "Marque um Midway em sua localização atual"
         tableView.dataSource = self
-        self.mapView.delegate = self
+        self.collectionSugestoes.delegate = self
+        self.collectionSugestoes.dataSource = self
+      
         
-        // Define o delegate das localizações
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
-        
-        // Criando anotação do mapa
-        createAnnotation()
     }
 
     
     @IBAction func actionAddInCalendar(_ sender: Any) {
-//        eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
-//                   DispatchQueue.main.async {
-//                       if (granted) && (error == nil) {
-//                           let event = EKEvent(eventStore: self.eventStore)
-//                           event.title = self.encontroTitle ?? "Novo encontro TheMidway"
-//                           #warning("LEMBRAR DE COLOCAR O TIME COM O COISO DO DATE PICKER")
-//                           event.startDate = self.time
-//                           event.url = URL(string: "https://apple.com")
-//                           event.endDate = self.time
-//                           let eventController = EKEventEditViewController()
-//                           eventController.event = event
-//                           eventController.eventStore = self.eventStore
-//                           eventController.editViewDelegate = self
-//                           self.present(eventController, animated: true, completion: nil)
-//                       }
-//                   }
-//            })
         
         // titulo do encontro compartilhado
         let index = IndexPath(row: 0, section: 0)
@@ -111,43 +90,9 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
         return hora
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status != .denied {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-                    //print("locations = \(locValue.latitude) \(locValue.longitude)")
-                    self.latitude = locValue.latitude
-                    self.longitude = locValue.longitude
-                }
-            }
-        }
-        self.createAnnotation()
-        self.mapView.reloadInputViews()
-
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        self.latitude = locValue.latitude
-        self.longitude = locValue.longitude
-        self.createAnnotation()
-        self.mapView.reloadInputViews()
-    }
-    
-    func createAnnotation(){
-            let annotations = MKPointAnnotation()
-            annotations.coordinate = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.latitude)
-            self.mapView.addAnnotation(annotations)
-            let region = MKCoordinateRegion(center: annotations.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
-            self.mapView.setRegion(region, animated: true)
-    }
-    
     @IBAction func refresh(_ sender: Any) {
-        self.createAnnotation()
-        self.mapView.reloadInputViews()
+        
     }
-    
 }
 
 
@@ -190,5 +135,45 @@ extension ViewController: UITableViewDataSource{
             
         }
         return cellBase
+    }
+}
+
+// MARK: - Collection View
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sugestoesCell", for: indexPath) as! SugestoesCollectionViewCell
+        cell.stylize(index: indexPath.row)
+        return cell
+    }
+    
+    
+}
+
+extension ViewController: UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell: SugestoesCollectionViewCell = self.collectionSugestoes.cellForItem(at: indexPath)as! SugestoesCollectionViewCell
+        self.desativarOutras(cell: cell)
+        cellAnterior = cell
+        cell.didChange()
+        self.actualLocal = names[indexPath.row]
+        //collectionView.reloadData()
+        print(indexPath.row)
+    }
+    
+    func desativarOutras(cell: SugestoesCollectionViewCell){
+        if cellAnterior != cell {
+            cellAnterior?.desativate()
+        }
+    }
+}
+
+extension ViewController: SugestoesCollectionViewCellDelegate{
+    func changeLocal(local: String) {
+        self.actualLocal = local
     }
 }

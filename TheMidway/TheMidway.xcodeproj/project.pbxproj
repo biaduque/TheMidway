@@ -37,6 +37,8 @@
 		13ED109C276938A400D85E04 /* WidgetTheMidwayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		13ED10A327693AE300D85E04 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A227693AE300D85E04 /* UserDefaultManager.swift */; };
 		13ED10A427693AE600D85E04 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A227693AE300D85E04 /* UserDefaultManager.swift */; };
+		13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
+		13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
 		4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */; };
@@ -122,6 +124,7 @@
 		13ED1099276938A400D85E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13ED10A227693AE300D85E04 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		13ED10A527693C3B00D85E04 /* TheMidway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway.entitlements; sourceTree = "<group>"; };
+		13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestoesCollectionViewCell.swift; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
 		4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
+				13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -462,6 +466,7 @@
 				132CD68C2767C58F00066BA9 /* DataView.swift in Sources */,
 				13B67A71276278E0005D8D95 /* ViewController.swift in Sources */,
 				13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */,
+				13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */,
 				13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */,
 				13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */,
 				13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */,
@@ -486,6 +491,7 @@
 				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,
 				1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */,
 				1344B5B92758051E00280E11 /* Contacts.swift in Sources */,
+				13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */,
 				136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */,
 				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
 				DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */,

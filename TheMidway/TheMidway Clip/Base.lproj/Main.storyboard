@@ -6,10 +6,11 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Novo encontro-->
+        <!--The Midway points-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TheMidway_Clip" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,22 +71,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vSf-bi-yuZ">
-                                <rect key="frame" x="0.0" y="325" width="414" height="571"/>
-                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local do encontro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFO-77-bzB">
                                 <rect key="frame" x="20" y="247" width="168" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço do local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJG-cY-ibb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha um TheMidway point em alta!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJG-cY-ibb">
                                 <rect key="frame" x="20" y="279" width="374" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="TjR-GZ-Vps"/>
                                     <constraint firstAttribute="height" constant="38" id="esn-MU-J14"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -102,27 +100,100 @@
                                     <action selector="refresh:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aHh-rN-8uZ"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lV2-hY-xze">
+                                <rect key="frame" x="20" y="325" width="374" height="505"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Oxb-xD-KFp"/>
+                                    <constraint firstAttribute="height" constant="505" id="ycs-VK-0qX"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dYl-Nd-R3h">
+                                    <size key="itemSize" width="346" height="159"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sugestoesCell" id="fYJ-3G-OAq" customClass="SugestoesCollectionViewCell" customModule="TheMidway_Clip" customModuleProvider="target">
+                                        <rect key="frame" x="14" y="0.0" width="346" height="159"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PgJ-C0-mKx">
+                                            <rect key="frame" x="0.0" y="0.0" width="346" height="159"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bakery" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-vk-RSG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="159"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="aJF-yf-Emk"/>
+                                                        <constraint firstAttribute="height" constant="159" id="vXg-mR-JII"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rk3-MV-b7M">
+                                                    <rect key="frame" x="294" y="8" width="44" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="LWN-nv-CN7"/>
+                                                        <constraint firstAttribute="width" constant="44" id="mA2-Oa-92J"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Padaria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hq-8h-D0I">
+                                                    <rect key="frame" x="178" y="22" width="62" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Endereço do local" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aav-Ua-Wo0">
+                                                    <rect key="frame" x="178" y="67" width="143" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" name="Color5"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="GL9-vk-RSG" secondAttribute="trailing" constant="176" id="6Qb-yE-ohA"/>
+                                                <constraint firstItem="aav-Ua-Wo0" firstAttribute="top" secondItem="PgJ-C0-mKx" secondAttribute="top" constant="67" id="BH1-Fz-xlc"/>
+                                                <constraint firstItem="8hq-8h-D0I" firstAttribute="top" secondItem="GL9-vk-RSG" secondAttribute="bottom" constant="-137" id="KqG-vR-6Zc"/>
+                                                <constraint firstItem="aav-Ua-Wo0" firstAttribute="leading" secondItem="GL9-vk-RSG" secondAttribute="trailing" constant="8" id="NWJ-vL-C80"/>
+                                                <constraint firstItem="8hq-8h-D0I" firstAttribute="leading" secondItem="PgJ-C0-mKx" secondAttribute="leading" constant="178" id="PQS-Kw-A8Q"/>
+                                                <constraint firstItem="rk3-MV-b7M" firstAttribute="top" secondItem="PgJ-C0-mKx" secondAttribute="top" constant="8" id="QRo-hw-1Yp"/>
+                                                <constraint firstItem="GL9-vk-RSG" firstAttribute="leading" secondItem="PgJ-C0-mKx" secondAttribute="leading" id="aZa-mY-ZdP"/>
+                                                <constraint firstItem="GL9-vk-RSG" firstAttribute="top" secondItem="PgJ-C0-mKx" secondAttribute="top" id="gvT-6E-LWy"/>
+                                                <constraint firstAttribute="trailing" secondItem="rk3-MV-b7M" secondAttribute="trailing" constant="8" id="jee-vc-ZSI"/>
+                                                <constraint firstAttribute="bottom" secondItem="8hq-8h-D0I" secondAttribute="bottom" constant="137" id="wtx-wn-Kwc"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="346" height="159"/>
+                                        <connections>
+                                            <outlet property="imageBackground" destination="GL9-vk-RSG" id="DJM-DP-6SK"/>
+                                            <outlet property="labelNome" destination="8hq-8h-D0I" id="xvz-jN-kIp"/>
+                                            <outlet property="setButton" destination="rk3-MV-b7M" id="yhk-4A-MtV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vSf-bi-yuZ" firstAttribute="top" secondItem="kJG-cY-ibb" secondAttribute="bottom" constant="8" symbolic="YES" id="513-Ln-1TB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZI9-E2-EgG" secondAttribute="trailing" constant="20" id="9eH-xG-kPf"/>
+                            <constraint firstItem="lV2-hY-xze" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EF3-zW-pyi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lV2-hY-xze" secondAttribute="bottom" constant="32" id="H9x-jE-9WM"/>
                             <constraint firstItem="vdK-k4-Zlt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IL2-EE-bY4"/>
+                            <constraint firstItem="lV2-hY-xze" firstAttribute="top" secondItem="kJG-cY-ibb" secondAttribute="bottom" constant="8" symbolic="YES" id="ODs-JA-4pZ"/>
                             <constraint firstItem="sFO-77-bzB" firstAttribute="top" secondItem="vdK-k4-Zlt" secondAttribute="bottom" constant="8" id="PAH-YA-6z6"/>
                             <constraint firstItem="kJG-cY-ibb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SlS-QU-FmS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kJG-cY-ibb" secondAttribute="trailing" constant="20" id="Vh5-vT-zMC"/>
-                            <constraint firstItem="vSf-bi-yuZ" firstAttribute="centerX" secondItem="kJG-cY-ibb" secondAttribute="centerX" id="bn9-DI-b3S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lV2-hY-xze" secondAttribute="trailing" constant="20" id="cjJ-eA-Lzq"/>
                             <constraint firstItem="vdK-k4-Zlt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hpF-xw-ViY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vdK-k4-Zlt" secondAttribute="trailing" constant="20" id="jIe-aa-67h"/>
-                            <constraint firstAttribute="bottom" secondItem="vSf-bi-yuZ" secondAttribute="bottom" id="jXw-jL-eui"/>
-                            <constraint firstItem="vSf-bi-yuZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rMf-G6-dEF"/>
                             <constraint firstItem="sFO-77-bzB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ufk-WC-pZ8"/>
                             <constraint firstItem="ZI9-E2-EgG" firstAttribute="top" secondItem="vdK-k4-Zlt" secondAttribute="bottom" constant="8" symbolic="YES" id="wic-kl-kTW"/>
                             <constraint firstItem="kJG-cY-ibb" firstAttribute="top" secondItem="sFO-77-bzB" secondAttribute="bottom" constant="8" symbolic="YES" id="ymc-SY-SIm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Novo encontro" largeTitleDisplayMode="always" id="GBy-SU-KN2">
+                    <navigationItem key="navigationItem" title="The Midway points" largeTitleDisplayMode="always" id="GBy-SU-KN2">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="4PR-sZ-EzD">
                             <connections>
                                 <action selector="actionAddInCalendar:" destination="BYZ-38-t0r" id="aUx-Ov-8bT"/>
@@ -130,9 +201,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionSugestoes" destination="lV2-hY-xze" id="YTe-T8-wOg"/>
                         <outlet property="encontroLabel" destination="sFO-77-bzB" id="GO9-zs-iKr"/>
                         <outlet property="enderecoLabel" destination="kJG-cY-ibb" id="gGp-gE-8ua"/>
-                        <outlet property="mapView" destination="vSf-bi-yuZ" id="H0f-lC-xKe"/>
                         <outlet property="tableView" destination="vdK-k4-Zlt" id="Yhm-y4-MF8"/>
                     </connections>
                 </viewController>
@@ -160,9 +231,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bakery" width="1142" height="1142"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.53725490196078429" green="0.2196078431372549" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color5">
+            <color red="0.12549019607843137" green="0.12941176470588237" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
