@@ -144,30 +144,40 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Endereço do local" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aav-Ua-Wo0">
-                                                    <rect key="frame" x="178" y="67" width="143" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço do local" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aav-Ua-Wo0">
+                                                    <rect key="frame" x="178" y="63" width="115.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM3-TB-wyc">
+                                                    <rect key="frame" x="178" y="38" width="37.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" name="Color5"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="GL9-vk-RSG" secondAttribute="trailing" constant="176" id="6Qb-yE-ohA"/>
-                                                <constraint firstItem="aav-Ua-Wo0" firstAttribute="top" secondItem="PgJ-C0-mKx" secondAttribute="top" constant="67" id="BH1-Fz-xlc"/>
+                                                <constraint firstItem="aav-Ua-Wo0" firstAttribute="top" secondItem="mM3-TB-wyc" secondAttribute="bottom" constant="8" symbolic="YES" id="76s-nF-jKK"/>
                                                 <constraint firstItem="8hq-8h-D0I" firstAttribute="top" secondItem="GL9-vk-RSG" secondAttribute="bottom" constant="-137" id="KqG-vR-6Zc"/>
-                                                <constraint firstItem="aav-Ua-Wo0" firstAttribute="leading" secondItem="GL9-vk-RSG" secondAttribute="trailing" constant="8" id="NWJ-vL-C80"/>
                                                 <constraint firstItem="8hq-8h-D0I" firstAttribute="leading" secondItem="PgJ-C0-mKx" secondAttribute="leading" constant="178" id="PQS-Kw-A8Q"/>
                                                 <constraint firstItem="rk3-MV-b7M" firstAttribute="top" secondItem="PgJ-C0-mKx" secondAttribute="top" constant="8" id="QRo-hw-1Yp"/>
+                                                <constraint firstItem="mM3-TB-wyc" firstAttribute="leading" secondItem="GL9-vk-RSG" secondAttribute="trailing" constant="8" symbolic="YES" id="YYl-Mu-Azq"/>
                                                 <constraint firstItem="GL9-vk-RSG" firstAttribute="leading" secondItem="PgJ-C0-mKx" secondAttribute="leading" id="aZa-mY-ZdP"/>
+                                                <constraint firstItem="mM3-TB-wyc" firstAttribute="top" secondItem="8hq-8h-D0I" secondAttribute="bottom" constant="16" id="eqF-7d-v5D"/>
                                                 <constraint firstItem="GL9-vk-RSG" firstAttribute="top" secondItem="PgJ-C0-mKx" secondAttribute="top" id="gvT-6E-LWy"/>
+                                                <constraint firstItem="aav-Ua-Wo0" firstAttribute="leading" secondItem="GL9-vk-RSG" secondAttribute="trailing" constant="8" symbolic="YES" id="hAQ-mE-FRm"/>
                                                 <constraint firstAttribute="trailing" secondItem="rk3-MV-b7M" secondAttribute="trailing" constant="8" id="jee-vc-ZSI"/>
                                                 <constraint firstAttribute="bottom" secondItem="8hq-8h-D0I" secondAttribute="bottom" constant="137" id="wtx-wn-Kwc"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="346" height="159"/>
                                         <connections>
+                                            <outlet property="enderecoLabel" destination="aav-Ua-Wo0" id="meO-Oe-vqw"/>
                                             <outlet property="imageBackground" destination="GL9-vk-RSG" id="DJM-DP-6SK"/>
                                             <outlet property="labelNome" destination="8hq-8h-D0I" id="xvz-jN-kIp"/>
+                                            <outlet property="nomeLocal" destination="mM3-TB-wyc" id="ici-KU-4gr"/>
                                             <outlet property="setButton" destination="rk3-MV-b7M" id="yhk-4A-MtV"/>
                                         </connections>
                                     </collectionViewCell>
