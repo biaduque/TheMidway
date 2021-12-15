@@ -19,7 +19,7 @@ class SugestoesCollectionViewCell: UICollectionViewCell {
 
     let names = ["Padaria", "Bar", "Cinema", "Café", "Restaurante", "Shopping", "Teatro"]
     
-    let nomeLocalArray = ["Mercatto",
+    public let nomeLocalArray = ["Mercatto",
                           "Igrejinha Bar",
                           "Cinépollis",
                           "Starbucks",
@@ -27,7 +27,7 @@ class SugestoesCollectionViewCell: UICollectionViewCell {
                           "Eldorado",
                           "Theatro Municipal do RJ"
                         ]
-    let enderecos = ["Av. Nascimento de Castro, 1890 - Lagoa Nova, Natal - RN, 59056-450",
+    public let enderecos = ["Av. Nascimento de Castro, 1890 - Lagoa Nova, Natal - RN, 59056-450",
         "Rua Fernando de Albuquerque - SP, BR - Consolação",
         "Alameda Rio Negro - Iguatemi, SP - Alphaville",
         "Kalanderpl. 1, 8045 Zürich - ZH, Wiedikon",
