@@ -36,7 +36,9 @@ class VisualizaEncontroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        self.createAnnotation()
+        DispatchQueue.main.async {
+            self.createAnnotation()
+        }
     }
     
     
@@ -185,6 +187,16 @@ extension VisualizaEncontroViewController: MKMapViewDelegate{
                 let annotations = MKPointAnnotation()
                 annotations.coordinate = CLLocationCoordinate2D(latitude: coords.latitude, longitude: coords.longitude)
                 self.mapView.addAnnotation(annotations)
+                
+                let radiusArea: Double = 4000
+                
+                let region = MKCoordinateRegion(
+                    center: annotations.coordinate,
+                    latitudinalMeters: radiusArea,
+                    longitudinalMeters: radiusArea
+                )
+                
+                self.mapView.setRegion(region, animated: true)
             }
         }
     }

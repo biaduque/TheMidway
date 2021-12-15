@@ -26,7 +26,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private var enderecos: [String] = []
     public var pessoas: [PessoaBase] = []
     private var encontroTitle: String = "Novo Encontro"
-    private var localTitle: String = "Nome Local"
+    private var localTitle: String = "Nome Locallllll"
     private var encontroEndereco: String = "Rua batata"
     private var date = Date()
     private var hora = "Sem horário definido"
@@ -66,10 +66,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // Define o delegate das localizações
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
-        
-        
-        
-        
+
     }
     
     
@@ -379,9 +376,14 @@ extension NovoEncontroViewController: UICollectionViewDelegate{
         self.desativarOutras(cell: cell)
         cellAnterior = cell
         cell.clickCheck()
+        
         let bairro = String(nerbyPlaces[indexPath.row].district)
-        let newAddress = bairro + String(nerbyPlaces[indexPath.row].address) + ", " + String(nerbyPlaces[indexPath.row].number)
+        let rua = String(nerbyPlaces[indexPath.row].address)
+        let numero = String(nerbyPlaces[indexPath.row].number)
+        
+        let newAddress = "\(rua), \(numero) - \(bairro)"
         self.encontroEndereco = newAddress
+        self.localTitle = String(nerbyPlaces[indexPath.row].name)
  
     }
     
