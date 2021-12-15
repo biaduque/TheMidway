@@ -7,7 +7,6 @@
 
 import WidgetKit
 import SwiftUI
-import TheMidway
 
 struct Provider: TimelineProvider {
     

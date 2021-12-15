@@ -13,13 +13,11 @@ class PessoaData {
     
    
     
-    var contenxt: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
+    static var context: NSManagedObjectContext =  EncontroData.context
     
     // MARK: - Core Data stack
     ///var privada ja que nao vai ser acessada
-    private lazy var persistentContainer: NSPersistentContainer = {
+    static var persistentContainer: NSPersistentContainer = {
        
         let container = NSPersistentContainer(name: "TheMidway")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -33,7 +31,7 @@ class PessoaData {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    static func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -46,28 +44,35 @@ class PessoaData {
     }
     
     // Buscar todas as reuniões no banco de dados
-    func getPessoa() -> [Pessoa] {
-        let fr = NSFetchRequest<Pessoa>(entityName: "Pessoa")
-        do {
-            return try self.persistentContainer.viewContext.fetch(fr)
-        }catch {
-            print(error)
-        }
+    static func getPessoa(encontro: Encontro) throws -> [Pessoa] {
+        let allPessoas = try context.fetch(Pessoa.fetchRequest()) as? [Pessoa]
+        let encontroPessoas = allPessoas?.filter({
+                $0.encontro == encontro
+        })
         
-        return []
+        var amigos: [Pessoa] = []
+        if let safePessoas = encontroPessoas{
+            amigos = safePessoas
+        }
+    
+        return amigos
     }
     
-    func addPessoa(novo: PessoaBase) {
-        let pessoa = Pessoa(context: self.persistentContainer.viewContext)
+    static func addPessoa(novo: PessoaBase, encontro: Encontro) throws -> Pessoa {
+        let pessoa = Pessoa(context: context)
         
         pessoa.nome = novo.nome
         pessoa.endereco = novo.endereco
         pessoa.foto = novo.icone
+        
+        encontro.addToAmigos(pessoa)
+        
         self.saveContext()
+        return pessoa 
         
     }
     
-    func deleta(item: Pessoa) throws{
+    static func deleta(item: Pessoa) throws{
         self.persistentContainer.viewContext.delete(item)
         self.saveContext()
     }

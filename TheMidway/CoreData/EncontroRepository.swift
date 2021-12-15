@@ -15,13 +15,13 @@ class EncontroData {
     
    
     
-    var contenxt: NSManagedObjectContext {
-        persistentContainer.viewContext
+    static var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
     }
     
     // MARK: - Core Data stack
     ///var privada ja que nao vai ser acessada
-    private lazy var persistentContainer: NSPersistentContainer = {
+    static var persistentContainer: NSPersistentContainer = {
        
         let container = NSPersistentContainer(name: "TheMidway")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -35,7 +35,7 @@ class EncontroData {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    static func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -48,7 +48,7 @@ class EncontroData {
     }
     
     // Buscar todas as reuniões no banco de dados
-    func getEncontro() -> [Encontro] {
+    static func getEncontro() -> [Encontro] {
         let fr = NSFetchRequest<Encontro>(entityName: "Encontro")
         do {
             return try self.persistentContainer.viewContext.fetch(fr)
@@ -59,20 +59,13 @@ class EncontroData {
         return []
     }
     
-    func addEncontro(novoNome: String, nomeLocal: String, novoEndereco: String, novoData: Date, hora: String, pessoas: [PessoaBase]) {
+    static func addEncontro(novoNome: String, nomeLocal: String, novoEndereco: String, novoData: Date, hora: String) throws -> Encontro {
         let encontro = Encontro(context: self.persistentContainer.viewContext)
         encontro.nomeLocal = nomeLocal
         encontro.nome = novoNome
         encontro.endereco = novoEndereco
         encontro.hora = hora
         encontro.data = novoData
-        
-        //for pessoa in pessoas{
-            //PessoaData.shared.addPessoa(novo: pessoa)
-        //}
-        //let newPessoas = PessoaData.shared.getPessoa()
-        //encontro.amigos = NSSet(array: newPessoas)
-        
         
         ///formatando a data para string
         let formatter =  DateFormatter()
@@ -87,10 +80,10 @@ class EncontroData {
         UserDefaults().set(encontro.nome, forKey: "tituloEncontro")
         
         self.saveContext()
-        
+        return encontro
     }
     
-    func deleta(item: Encontro) throws{
+    static func deleta(item: Encontro) throws{
         self.persistentContainer.viewContext.delete(item)
         self.saveContext()
     }

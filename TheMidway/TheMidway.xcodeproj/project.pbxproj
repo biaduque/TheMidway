@@ -127,6 +127,10 @@
 		13ED10A527693C3B00D85E04 /* TheMidway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway.entitlements; sourceTree = "<group>"; };
 		13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestoesCollectionViewCell.swift; sourceTree = "<group>"; };
 		13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetTheMidwayExtension.entitlements; sourceTree = "<group>"; };
+		13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
 		4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
@@ -273,6 +277,17 @@
 			path = WidgetTheMidway;
 			sourceTree = "<group>";
 		};
+		13ED10CC276A671500D85E04 /* Manage Objects */ = {
+			isa = PBXGroup;
+			children = (
+				13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */,
+				13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */,
+				13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */,
+				13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */,
+			);
+			path = "Manage Objects";
+			sourceTree = "<group>";
+		};
 		225CD6202756BF9E00E07A21 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +309,7 @@
 		DB5BA516274817D8003BBFCA = {
 			isa = PBXGroup;
 			children = (
+				13ED10CC276A671500D85E04 /* Manage Objects */,
 				13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */,
 				DB355CBF2757EEF900A6A1D5 /* CoreData */,
 				13B67A8327627A40005D8D95 /* Shared */,
