@@ -202,7 +202,7 @@ extension NovoEncontroViewController {
     
     
     /// Pega a cordenada a partir de um endereço
-    public func getCoordsByAddress(address: String, _ completionHandler: @escaping (Result< CLLocationCoordinate2D, Error>) -> Void) -> Void {
+    static func getCoordsByAddress(address: String, _ completionHandler: @escaping (Result< CLLocationCoordinate2D, Error>) -> Void) -> Void {
         let geocoder: CLGeocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(address) { placemarks, error in

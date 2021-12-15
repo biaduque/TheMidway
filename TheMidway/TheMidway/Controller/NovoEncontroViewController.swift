@@ -34,6 +34,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     
     @IBOutlet weak var refreshButton: UIButton!
+    var cellAnterior: NovoEncontroCollectionViewCell?
+
     
     weak var delegate: NovoEncontroViewControllerDelegate?
     
@@ -187,7 +189,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
             for end in enderecos {
                 print("\n\n\n Endereço loop: \(end)\n\n")
                 group.enter()
-                self.getCoordsByAddress(address: end) { point in
+                NovoEncontroViewController.getCoordsByAddress(address: end) { point in
                     defer {group.leave()}
                     
                     print("\n\n\nEntrei no CH com: \(end)\n\n")
@@ -373,6 +375,20 @@ extension NovoEncontroViewController:UICollectionViewDataSource {
 extension NovoEncontroViewController: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell: NovoEncontroCollectionViewCell = self.collectionView.cellForItem(at: indexPath)as! NovoEncontroCollectionViewCell
+        self.desativarOutras(cell: cell)
+        cellAnterior = cell
+        cell.clickCheck()
+        let bairro = String(nerbyPlaces[indexPath.row].district)
+        let newAddress = bairro + String(nerbyPlaces[indexPath.row].address) + ", " + String(nerbyPlaces[indexPath.row].number)
+        self.encontroEndereco = newAddress
+ 
+    }
+    
+    func desativarOutras(cell: NovoEncontroCollectionViewCell){
+        if cellAnterior != cell {
+            cellAnterior?.desative()
+        }
     }
 }
 
