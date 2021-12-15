@@ -9,30 +9,27 @@ import Foundation
 import CoreData
 
 class EncontroData {
-    
-    
     static let shared:EncontroData = EncontroData()
-    
-   
     
     var contenxt: NSManagedObjectContext {
         persistentContainer.viewContext
     }
     
     // MARK: - Core Data stack
-    ///var privada ja que nao vai ser acessada
+    
+    //var privada ja que nao vai ser acessada
     private lazy var persistentContainer: NSPersistentContainer = {
        
         let container = NSPersistentContainer(name: "TheMidway")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores() {storeDescription, error in
             if let error = error as NSError? {
-               
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-        })
+        }
         return container
     }()
 
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -47,6 +44,7 @@ class EncontroData {
         }
     }
     
+    
     // Buscar todas as reuniões no banco de dados
     func getEncontro() -> [Encontro] {
         let fr = NSFetchRequest<Encontro>(entityName: "Encontro")
@@ -59,6 +57,8 @@ class EncontroData {
         return []
     }
     
+    
+    
     func addEncontro(novoNome: String, nomeLocal: String, novoEndereco: String, novoData: Date, hora: String, pessoas: [PessoaBase]) {
         let encontro = Encontro(context: self.persistentContainer.viewContext)
         encontro.nomeLocal = nomeLocal
@@ -67,28 +67,53 @@ class EncontroData {
         encontro.hora = hora
         encontro.data = novoData
         
-        //for pessoa in pessoas{
-            //PessoaData.shared.addPessoa(novo: pessoa)
-        //}
-        //let newPessoas = PessoaData.shared.getPessoa()
-        //encontro.amigos = NSSet(array: newPessoas)
-        
-        
-        ///formatando a data para string
+        // Formatando a data para string
         let formatter =  DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        let textData = formatter.string(from: encontro.data ?? Date())
+        let dateToString = formatter.string(from: encontro.data ?? Date())
                
-
+        // Informações para o Widget
         UserDefaults().set(encontro.nomeLocal, forKey: "nomeLocal")
         UserDefaults().set(encontro.endereco, forKey: "endEncontro")
-        UserDefaults().set(textData, forKey: "dataEncontro")
+        UserDefaults().set(dateToString, forKey: "dataEncontro")
         UserDefaults().set(encontro.hora, forKey: "horaEncontro")
         UserDefaults().set(encontro.nome, forKey: "tituloEncontro")
         
-        self.saveContext()
         
+        // Informações para a API + Banco de Dados
+        let dict: [String:String] = [
+            "data" : dateToString,
+            "hora" : hora,
+            "nome" : nomeLocal,
+            "tipo" : "",
+            "longitude" : "0",
+            "latitude" : "0",
+            "pais" : "",
+            "cidade" : "",
+            "bairro" : "",
+            "endereco" : novoEndereco,
+            "numero" : ""
+        ]
+        
+        // Chama a instancia da api
+        let api = ApiManeger()
+
+        // Faz um POST
+        api.postMethod(urlData: dict) { result in
+            switch result {
+            case .success(let status):
+                // Entra aqui quando da certo!
+                print("\n\nFoi dado um POST: \(status)\n\n")
+
+            case .failure(let error):
+                print("\n\nErro: \(error.description)\n\n")
+            }
+        }
+        
+        
+        self.saveContext()
     }
+    
     
     func deleta(item: Encontro) throws{
         self.persistentContainer.viewContext.delete(item)
