@@ -6,15 +6,16 @@
         <attribute name="hora" optional="YES" attributeType="String"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
         <attribute name="nomeLocal" optional="YES" attributeType="String"/>
-        <relationship name="amigos" toMany="YES" deletionRule="Nullify" destinationEntity="Pessoa"/>
+        <relationship name="amigos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pessoa" inverseName="encontro" inverseEntity="Pessoa"/>
     </entity>
     <entity name="Pessoa" representedClassName="Pessoa" syncable="YES" codeGenerationType="class">
         <attribute name="endereco" optional="YES" attributeType="String"/>
         <attribute name="foto" optional="YES" attributeType="String"/>
         <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="encontro" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Encontro" inverseName="amigos" inverseEntity="Encontro"/>
     </entity>
     <elements>
         <element name="Encontro" positionX="-63" positionY="-18" width="128" height="119"/>
-        <element name="Pessoa" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="Pessoa" positionX="-54" positionY="18" width="128" height="89"/>
     </elements>
 </model>
