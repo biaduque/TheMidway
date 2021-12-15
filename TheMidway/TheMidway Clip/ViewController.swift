@@ -25,7 +25,7 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
     
     @IBOutlet weak var collectionSugestoes: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var encontroLabel: UILabel!
+    @IBOutlet weak var localEncontroLabel: UILabel!
     @IBOutlet weak var enderecoLabel: UILabel!
     
     var encontroTitle: String?
