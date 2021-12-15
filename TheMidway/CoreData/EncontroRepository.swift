@@ -72,11 +72,11 @@ class EncontroData {
         let dateToString = formatter.string(from: encontro.data ?? Date())
                
         // Informações para o Widget
-        UserDefaults().set(encontro.nomeLocal, forKey: "nomeLocal")
-        UserDefaults().set(encontro.endereco, forKey: "endEncontro")
-        UserDefaults().set(dateToString, forKey: "dataEncontro")
-        UserDefaults().set(encontro.hora, forKey: "horaEncontro")
-        UserDefaults().set(encontro.nome, forKey: "tituloEncontro")
+        UserDefaultsManager.shared.nomeLocal = nomeLocal
+        UserDefaultsManager.shared.endEncontro = encontro.endereco
+        UserDefaultsManager.shared.dataEncontro = dateToString
+        UserDefaultsManager.shared.horaEncontro = encontro.hora
+        UserDefaultsManager.shared.tituloEncontro = encontro.nome
         
         
         // Informações para a API + Banco de Dados
