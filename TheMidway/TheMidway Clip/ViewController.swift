@@ -76,7 +76,7 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
         
         let vc = UIActivityViewController(activityItems: ["Olha o The Midway que eu encontrei para nós!",
                                                           encontroTitle ?? "Meu novo encontro",
-                                                          "Data e hora planejados:",
+                                                          actualLocal ?? "Sem local definido",
                                                           dateString ?? "Sem data definida",
                                                           timeString ?? "Sem horário definido"], applicationActivities: [])
         
