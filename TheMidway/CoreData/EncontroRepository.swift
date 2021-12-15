@@ -111,6 +111,7 @@ class EncontroData {
         
         
         self.saveContext()
+        return encontro
     }
     
     

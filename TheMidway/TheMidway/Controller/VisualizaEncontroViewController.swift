@@ -30,7 +30,6 @@ class VisualizaEncontroViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         amigos = try? PessoaData.getPessoa(encontro: encontro!)
-        print("amigos",amigos?[0].nome)
         content()
     }
     
