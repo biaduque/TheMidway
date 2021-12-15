@@ -7,7 +7,7 @@
 		<key>NSAppClipRequestEphemeralUserNotification</key>
 		<false/>
 		<key>NSAppClipRequestLocationConfirmation</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
