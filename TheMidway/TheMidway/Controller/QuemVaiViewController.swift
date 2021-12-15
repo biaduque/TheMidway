@@ -149,6 +149,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
                 ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
                 present(ac, animated: true)
         }
+        contacts.append(newEnderecos)
         tableView.reloadData()
     }
 }
@@ -179,7 +180,6 @@ extension QuemVaiViewController: UITableViewDataSource{
             if noAdress == true {
                 didTapped(newEnderecos: noAdressPerson!, wantAdress: indexPath.row)
                 noAdress = false
-                //contacts.append(noAdressPerson!)
             }
         }
         addAdress(newEndereco: contacts[indexPath.row], wantAdress: indexPath.row)

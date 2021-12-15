@@ -242,16 +242,17 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         self.hora = self.getHora(datePickerOutlet: cell2.datePicker)
             
         // Adicionando no core data
-        EncontroData.shared.addEncontro(
-            novoNome: self.encontroTitle,
-            nomeLocal: self.localTitle,
-            novoEndereco: self.encontroEndereco,
-            novoData: self.date,
-            hora: self.hora,
-            pessoas: pessoas
-        )
+        let novoEncontro = try? EncontroData.addEncontro(novoNome: self.encontroTitle,
+                                                            nomeLocal: self.localTitle,
+                                                            novoEndereco: self.encontroEndereco,
+                                                            novoData: self.date,
+                                                           hora: self.hora)
+        // Adicionando pessoas no encontro
+        for pessoa in self.pessoas{
+            _ = try? PessoaData.addPessoa(novo: pessoa, encontro: novoEncontro!)
+        }
         
-        EncontroData.shared.saveContext()
+        EncontroData.saveContext()
         
         // Atualiza
         self.delegate?.didReload()

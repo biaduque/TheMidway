@@ -39,6 +39,7 @@
 		13ED10A427693AE600D85E04 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A227693AE300D85E04 /* UserDefaultManager.swift */; };
 		13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
 		13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
+		13ED10AC276A5F0000D85E04 /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
 		22B09AFD276A625000448337 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09AFC276A625000448337 /* APIError.swift */; };
@@ -131,6 +132,11 @@
 		13ED10A227693AE300D85E04 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		13ED10A527693C3B00D85E04 /* TheMidway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway.entitlements; sourceTree = "<group>"; };
 		13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestoesCollectionViewCell.swift; sourceTree = "<group>"; };
+		13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetTheMidwayExtension.entitlements; sourceTree = "<group>"; };
+		13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
 		22B09AFC276A625000448337 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -284,6 +290,17 @@
 			path = WidgetTheMidway;
 			sourceTree = "<group>";
 		};
+		13ED10CC276A671500D85E04 /* Manage Objects */ = {
+			isa = PBXGroup;
+			children = (
+				13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */,
+				13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */,
+				13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */,
+				13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */,
+			);
+			path = "Manage Objects";
+			sourceTree = "<group>";
+		};
 		225CD6202756BF9E00E07A21 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +342,8 @@
 		DB5BA516274817D8003BBFCA = {
 			isa = PBXGroup;
 			children = (
+				13ED10CC276A671500D85E04 /* Manage Objects */,
+				13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */,
 				DB355CBF2757EEF900A6A1D5 /* CoreData */,
 				13B67A8327627A40005D8D95 /* Shared */,
 				DB5BA521274817D9003BBFCA /* TheMidway */,
@@ -512,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13ED10A427693AE600D85E04 /* UserDefaultManager.swift in Sources */,
+				13ED10AC276A5F0000D85E04 /* TheMidway.xcdatamodeld in Sources */,
 				13ED1096276938A200D85E04 /* WidgetTheMidway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,6 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V8V28A4DX2;
@@ -697,6 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V8V28A4DX2;

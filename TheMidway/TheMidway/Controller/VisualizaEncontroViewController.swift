@@ -23,11 +23,13 @@ class VisualizaEncontroViewController: UIViewController {
     var longitude = -46.774770
     
     var encontro: Encontro?
+    var amigos: [Pessoa]?
     
     let eventStore =  EKEventStore()
     let time = Date()
     
     override func viewWillAppear(_ animated: Bool) {
+        amigos = try? PessoaData.getPessoa(encontro: encontro!)
         content()
     }
     
@@ -36,6 +38,7 @@ class VisualizaEncontroViewController: UIViewController {
         self.mapView.delegate = self
         self.createAnnotation()
     }
+    
     
     public func content(){
         tituloEncontroLabel?.text = encontro?.nome
@@ -46,6 +49,8 @@ class VisualizaEncontroViewController: UIViewController {
         nomeDoLocalLabel?.text = encontro?.nomeLocal
         enderecoLabel?.text = encontro?.endereco
     }
+    
+    
     @IBAction func doneAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

@@ -9,12 +9,15 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
+    
+    
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(),nomeLocal: "",dataEncontro: "",endEncontro: "",horaEncontro: "",tituloEncontro: "")
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
+        let entry =  SimpleEntry(date: Date(),nomeLocal: "",dataEncontro: "",endEncontro: "",horaEncontro: "",tituloEncontro: "")
         completion(entry)
     }
 
@@ -25,33 +28,53 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
+            
+            let nomeLocal = UserDefaultsManager.shared.nomeLocal
+            let dataEncontro = UserDefaultsManager.shared.dataEncontro
+            let endEncontro = UserDefaultsManager.shared.endEncontro
+            let horaEncontro = UserDefaultsManager.shared.horaEncontro
+            let tituloEncontro = UserDefaultsManager.shared.tituloEncontro
+            
+            let entry = SimpleEntry(date: entryDate,
+                                    nomeLocal: nomeLocal ?? "Nome do local",
+                                    dataEncontro: dataEncontro ?? "23/10",
+                                    endEncontro: endEncontro ?? "Endereço do encontro",
+                                    horaEncontro: horaEncontro ?? "15h00",
+                                    tituloEncontro: tituloEncontro ?? "Meu novo encontro")
             entries.append(entry)
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
+    
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    var nomeLocal: String
+    var dataEncontro: String
+    var endEncontro: String
+    var horaEncontro: String
+    var tituloEncontro: String
 }
 
 struct WidgetTheMidwayEntryView : View {
+    let colors = ["Color1","Color2","Color3","Color4","Color5","Color6","Color7","Color8"]
+    let backgrounds = ["Back1","Back2","Back3","Back4","Back5","Back6","Back7","Back8"]
+    
     var entry: Provider.Entry
-        
-        let colors = ["Color1","Color2","Color3","Color4","Color5","Color6","Color7","Color8"]
-        let backgrounds = ["Back1","Back2","Back3","Back4","Back5","Back6","Back7","Back8"]
-        
-        let color1 = Color(uiColor: UIColor(named: "Color1") ?? .systemRed)
-        
+    let index = Int.random(in: 0..<8)
+    
         var body: some View {
+            
+            let color1 = Color(uiColor: UIColor(named: colors[index]) ?? .systemRed)
+            let back1 = Color(uiColor: UIColor(named: backgrounds[index]) ?? .systemRed)
             
             GeometryReader{ geometry in
                 VStack(){
                     VStack(alignment: .leading){
-                        Text("Título do Encontro")
+                        Text(entry.tituloEncontro)
                             .foregroundColor(.white)
                             .font(Font.system(size: 16, weight: .bold, design: .default))
                             .frame(width: geometry.size.width, height: geometry.size.height/3, alignment: .leading)
@@ -59,7 +82,7 @@ struct WidgetTheMidwayEntryView : View {
                     }.background(color1)
                     VStack(alignment: .leading,spacing: 7){
                         HStack(){
-                            Text("Local do Encontro")
+                            Text(entry.nomeLocal)
                                 .font(Font.system(size: 12, weight: .bold, design: .default))
                                 .padding(.top)
                             Image(systemName: "location.fill")
@@ -68,7 +91,7 @@ struct WidgetTheMidwayEntryView : View {
                                 .frame(width: 12, height: 12)
                                 .padding(.top)
                         }
-                        Text("Endereço do Encontro")
+                        Text(entry.endEncontro)
                             .font(.caption2)
                             .frame(width: geometry.size.width - 20, height:geometry.size.height/6, alignment: .leading)
                     
@@ -76,21 +99,21 @@ struct WidgetTheMidwayEntryView : View {
                             Image(systemName: "calendar")
                                 .foregroundColor(color1)
                                 .frame(width: 15, height: 15, alignment: .leading)
-                            Text("23/10")
+                            Text(entry.dataEncontro)
                                 .font(Font.system(size: 12, weight: .bold, design: .default))
                         }
                         HStack(){
                             Image(systemName: "clock")
                                 .foregroundColor(color1)
                                 .frame(width: 15, height: 15, alignment: .leading)
-                            Text("15h40")
+                            Text(entry.horaEncontro)
                                 .font(Font.system(size: 12, weight: .bold, design: .default))
                         }
                         
                     }.frame(width: geometry.size.width - 20, height: geometry.size.height/2.3, alignment: .leading)
                 }
                
-            }.background(Color(uiColor: UIColor(named: "Back1") ?? .systemRed))
+            }.background(back1)
         }
 }
 
@@ -109,7 +132,20 @@ struct WidgetTheMidway: Widget {
 
 struct WidgetTheMidway_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetTheMidwayEntryView(entry: SimpleEntry(date: Date()))
+        let nomeLocal = UserDefaultsManager.shared.nomeLocal
+        let dataEncontro = UserDefaultsManager.shared.dataEncontro
+        let endEncontro = UserDefaultsManager.shared.endEncontro
+        let horaEncontro = UserDefaultsManager.shared.horaEncontro
+        let tituloEncontro = UserDefaultsManager.shared.tituloEncontro
+        
+        WidgetTheMidwayEntryView(entry: SimpleEntry(date: Date(),
+                                                    nomeLocal: nomeLocal ?? "Nome do local",
+                                                    dataEncontro: dataEncontro ?? "23/10",
+                                                    endEncontro: endEncontro ?? "Endereço do encontro",
+                                                    horaEncontro: horaEncontro ?? "15h00",
+                                                    tituloEncontro: tituloEncontro ?? "Meu novo encontro"))
+            //.redacted(reason: .placeholder)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            
     }
 }

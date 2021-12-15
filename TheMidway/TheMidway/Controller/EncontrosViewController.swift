@@ -18,7 +18,7 @@ class EncontrosViewController: UIViewController, NSFetchedResultsControllerDeleg
         let request: NSFetchRequest<Encontro> = Encontro.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Encontro.data, ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: request,
-                                             managedObjectContext: EncontroData.shared.contenxt,
+                                             managedObjectContext: EncontroData.context,
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
         frc.delegate = self
@@ -103,7 +103,7 @@ extension EncontrosViewController: UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
                    // Deleta esse item aqui
                    completionHandler(true)
-            try! EncontroData.shared.deleta(item: (self.collectionEncontro[indexPath.row]))
+            try! EncontroData.deleta(item: (self.collectionEncontro[indexPath.row]))
         }
         deleteAction.image = UIImage(systemName: "trash")
         deleteAction.backgroundColor = .systemRed
@@ -115,7 +115,7 @@ extension EncontrosViewController: UITableViewDataSource {
 
 extension EncontrosViewController: NovoEncontroViewControllerDelegate{
     func didReload() {
-        collectionEncontro = EncontroData.shared.getEncontro()
+        collectionEncontro = EncontroData.getEncontro()
         self.tableView.reloadData()
     }
 }
