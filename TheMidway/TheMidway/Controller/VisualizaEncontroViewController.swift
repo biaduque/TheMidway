@@ -36,7 +36,9 @@ class VisualizaEncontroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        self.createAnnotation()
+        DispatchQueue.main.async {
+            self.createAnnotation()
+        }
     }
     
     
@@ -173,13 +175,29 @@ extension VisualizaEncontroViewController: EKEventEditViewDelegate{
 }
 
 extension VisualizaEncontroViewController: MKMapViewDelegate{
+    
     func createAnnotation(){
-            /// Pegar latitude e longidite pelo endereco
-        #warning("Adicionar encontro via endereco do core data")
-        let endereco = encontro?.endereco
-            ///retornar latitude e longitude do endereco para essa localização
-         let annotations = MKPointAnnotation()
-         annotations.coordinate = CLLocationCoordinate2D(latitude: 41.87369, longitude: -87.813293)
-         mapView.addAnnotation(annotations)
+        guard let endereco = encontro?.endereco else { return }
+
+        NovoEncontroViewController.getCoordsByAddress(address: endereco) { point in
+            switch point {
+            case .failure(let error):
+                print(error)
+            case .success(let coords):
+                let annotations = MKPointAnnotation()
+                annotations.coordinate = CLLocationCoordinate2D(latitude: coords.latitude, longitude: coords.longitude)
+                self.mapView.addAnnotation(annotations)
+                
+                let radiusArea: Double = 4000
+                
+                let region = MKCoordinateRegion(
+                    center: annotations.coordinate,
+                    latitudinalMeters: radiusArea,
+                    longitudinalMeters: radiusArea
+                )
+                
+                self.mapView.setRegion(region, animated: true)
+            }
+        }
     }
 }

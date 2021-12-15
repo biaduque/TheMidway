@@ -631,7 +631,7 @@
 				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
@@ -662,7 +662,7 @@
 				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
@@ -693,7 +693,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetTheMidway/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetTheMidway;
@@ -704,7 +704,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidway;
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidwayy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -721,7 +721,7 @@
 				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetTheMidway/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetTheMidway;
@@ -732,7 +732,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidway;
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidwayy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -866,7 +866,7 @@
 				CODE_SIGN_ENTITLEMENTS = TheMidway/TheMidway.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -896,7 +896,7 @@
 				CODE_SIGN_ENTITLEMENTS = TheMidway/TheMidway.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

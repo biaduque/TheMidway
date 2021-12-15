@@ -33,6 +33,7 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.2
         layer.masksToBounds = false
     }
+    
     public func stylize(nearbyPlace: MapPlace){
         self.nearbyPlace = nearbyPlace
         self.backgroundColor = UIColor(named: "BackgroundColor")!
@@ -44,13 +45,17 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
         self.tagView.layer.cornerRadius = 3
         labelTitulo.text = nearbyPlace.name
     }
-    @IBAction func clickCheck(_ sender: Any) {
+    
+    func clickCheck() {
         if checkButton.imageView?.image == UIImage(systemName: "circle"){
             checkButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         }
         else{
             checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
         }
-        delegate?.newLocation(nearbyPlace: self.nearbyPlace!)
+        //delegate?.newLocation(nearbyPlace: self.nearbyPlace!)
+    }
+    func desative(){
+        checkButton.setImage(UIImage(systemName: "circle"), for: .normal)
     }
 }

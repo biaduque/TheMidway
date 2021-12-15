@@ -25,7 +25,7 @@ class ViewController: UIViewController, EKEventEditViewDelegate, MKMapViewDelega
     
     @IBOutlet weak var collectionSugestoes: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var encontroLabel: UILabel!
+    @IBOutlet weak var localEncontroLabel: UILabel!
     @IBOutlet weak var enderecoLabel: UILabel!
     
     var encontroTitle: String?
@@ -160,7 +160,7 @@ extension ViewController: UICollectionViewDelegate{
         self.desativarOutras(cell: cell)
         cellAnterior = cell
         cell.didChange()
-        self.actualLocal = names[indexPath.row]
+        self.actualLocal = cell.nomeLocalArray[indexPath.row] + cell.enderecos[indexPath.row]
         //collectionView.reloadData()
         print(indexPath.row)
     }
