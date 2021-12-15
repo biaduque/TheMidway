@@ -153,12 +153,16 @@ extension NovoEncontroViewController {
                     let newItem: MapPlace = MapPlace(
                         name: name,
                         coordinates: coords,
-                        address: location,
                         pin: pin,
-                        type: type
+                        type: type.rawValue,
+                        country: item.placemark.isoCountryCode ?? "",
+                        city: item.placemark.administrativeArea ?? "",
+                        district: item.placemark.subLocality ?? "",
+                        address: item.placemark.thoroughfare ?? "",
+                        number: item.placemark.subThoroughfare ?? "",
+                        site: String(describing: item.url),
+                        contact: item.phoneNumber ?? ""
                     )
-                    
-                    // Adiciona na lista
                     
                     // Verifica se está dentor do raio E se já não foi adicionado.
                     if self.getDistance(place: coords) <= self.radiusArea+500 && !self.findPlace(place: newItem){

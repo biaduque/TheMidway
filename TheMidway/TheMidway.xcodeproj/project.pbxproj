@@ -41,6 +41,12 @@
 		13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
 		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
 		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
+		22B09AFD276A625000448337 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09AFC276A625000448337 /* APIError.swift */; };
+		22B09B00276A629600448337 /* APIManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09AFF276A629600448337 /* APIManeger.swift */; };
+		22B09B02276A62D200448337 /* HTTPVerbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B01276A62D200448337 /* HTTPVerbs.swift */; };
+		22B09B05276A631D00448337 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B04276A631D00448337 /* Items.swift */; };
+		22B09B07276A633E00448337 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B06276A633E00448337 /* MeetingInfo.swift */; };
+		22B09B09276A637300448337 /* EncontroMarcado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B08276A637300448337 /* EncontroMarcado.swift */; };
 		4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */; };
 		DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */; };
 		DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */; };
@@ -127,6 +133,12 @@
 		13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestoesCollectionViewCell.swift; sourceTree = "<group>"; };
 		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
 		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
+		22B09AFC276A625000448337 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		22B09AFF276A629600448337 /* APIManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManeger.swift; sourceTree = "<group>"; };
+		22B09B01276A62D200448337 /* HTTPVerbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerbs.swift; sourceTree = "<group>"; };
+		22B09B04276A631D00448337 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		22B09B06276A633E00448337 /* MeetingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
+		22B09B08276A637300448337 /* EncontroMarcado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroMarcado.swift; sourceTree = "<group>"; };
 		4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
 		DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroRepository.swift; sourceTree = "<group>"; };
 		DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaRepository.swift; sourceTree = "<group>"; };
@@ -195,6 +207,7 @@
 				225CD6232756C15900E07A21 /* Pessoa.swift */,
 				1344B5B82758051E00280E11 /* Contacts.swift */,
 				13ED10A227693AE300D85E04 /* UserDefaultManager.swift */,
+				22B09B08276A637300448337 /* EncontroMarcado.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +292,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		22B09AFE276A625700448337 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				22B09B03276A630A00448337 /* Model */,
+				22B09AFC276A625000448337 /* APIError.swift */,
+				22B09AFF276A629600448337 /* APIManeger.swift */,
+				22B09B01276A62D200448337 /* HTTPVerbs.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		22B09B03276A630A00448337 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22B09B04276A631D00448337 /* Items.swift */,
+				22B09B06276A633E00448337 /* MeetingInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DB355CBF2757EEF900A6A1D5 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				13ED10A527693C3B00D85E04 /* TheMidway.entitlements */,
+				22B09AFE276A625700448337 /* API */,
 				1376CB26274ED6960091E62A /* Delegate */,
 				225CD6202756BF9E00E07A21 /* Extensions */,
 				135026AB275026350092165D /* Model */,
@@ -486,17 +520,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B09B00276A629600448337 /* APIManeger.swift in Sources */,
+				22B09B07276A633E00448337 /* MeetingInfo.swift in Sources */,
 				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
 				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
 				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,
+				22B09B05276A631D00448337 /* Items.swift in Sources */,
 				1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */,
 				1344B5B92758051E00280E11 /* Contacts.swift in Sources */,
+				22B09AFD276A625000448337 /* APIError.swift in Sources */,
 				13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */,
 				136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */,
 				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
 				DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */,
 				DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */,
+				22B09B02276A62D200448337 /* HTTPVerbs.swift in Sources */,
 				1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */,
+				22B09B09276A637300448337 /* EncontroMarcado.swift in Sources */,
 				1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */,
 				225CD6242756C15900E07A21 /* Pessoa.swift in Sources */,
 				136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */,

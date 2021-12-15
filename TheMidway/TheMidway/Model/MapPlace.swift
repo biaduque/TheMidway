@@ -13,7 +13,15 @@ import MapKit
 struct MapPlace {
     let name: String
     let coordinates: CLLocationCoordinate2D
-    let address: CLLocation
     let pin: MKPointAnnotation
-    let type: MKPointOfInterestCategory
+    let type: String
+
+    let country: String
+    let city: String
+    let district: String
+    let address: String
+    let number: String
+
+    let site: String
+    let contact: String
 }
