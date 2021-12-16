@@ -17,7 +17,9 @@ class VisualizaEncontroViewController: UIViewController {
     @IBOutlet weak var dataLabel: DataView?
     @IBOutlet weak var nomeDoLocalLabel: UILabel?
     @IBOutlet weak var enderecoLabel: UILabel?
-    @IBOutlet weak var tagView: UIView?
+    @IBOutlet weak var tagView: TagView!
+    @IBOutlet weak var labelTagView: UILabel!
+    @IBOutlet weak var collectionConvidados: UICollectionView!
     
     var latitude = -23.523580
     var longitude = -46.774770
@@ -35,6 +37,8 @@ class VisualizaEncontroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionConvidados.delegate = self
+        collectionConvidados.dataSource = self
         self.mapView.delegate = self
         DispatchQueue.main.async {
             self.createAnnotation()
@@ -50,6 +54,8 @@ class VisualizaEncontroViewController: UIViewController {
         dataLabel?.text = dataEhora
         nomeDoLocalLabel?.text = encontro?.nomeLocal
         enderecoLabel?.text = encontro?.endereco
+        tagView.stilyze(categoria: "Shopping")
+        labelTagView.text = "Shopping"
     }
     
     
@@ -167,13 +173,14 @@ class VisualizaEncontroViewController: UIViewController {
     
 }
 
-
+// MARK: Calendar event
 extension VisualizaEncontroViewController: EKEventEditViewDelegate{
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         controller.dismiss(animated: true, completion: nil)
     }
 }
 
+// MARK: MapView
 extension VisualizaEncontroViewController: MKMapViewDelegate{
     
     func createAnnotation(){
@@ -186,6 +193,8 @@ extension VisualizaEncontroViewController: MKMapViewDelegate{
             case .success(let coords):
                 let annotations = MKPointAnnotation()
                 annotations.coordinate = CLLocationCoordinate2D(latitude: coords.latitude, longitude: coords.longitude)
+                self.latitude = coords.latitude
+                self.longitude = coords.longitude
                 self.mapView.addAnnotation(annotations)
                 
                 let radiusArea: Double = 4000
@@ -200,4 +209,21 @@ extension VisualizaEncontroViewController: MKMapViewDelegate{
             }
         }
     }
+}
+
+extension VisualizaEncontroViewController: UICollectionViewDelegate{
+    
+}
+extension VisualizaEncontroViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return amigos?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "amigosCell", for: indexPath) as! AmigosCollectionViewCell
+        cell.stylize(nome: self.amigos?[indexPath.row].nome ?? "Convidado")
+        return cell
+    }
+    
+    
 }

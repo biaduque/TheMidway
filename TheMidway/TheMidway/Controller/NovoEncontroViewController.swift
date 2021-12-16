@@ -30,7 +30,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     private var encontroEndereco: String = "Rua batata"
     private var date = Date()
     private var hora = "Sem horário definido"
-    
+    private var categoria = "Sem categoria"
     
     
     @IBOutlet weak var refreshButton: UIButton!
@@ -245,7 +245,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
                                                             nomeLocal: self.localTitle,
                                                             novoEndereco: self.encontroEndereco,
                                                             novoData: self.date,
-                                                           hora: self.hora)
+                                                           hora: self.hora,
+                                                         categoria: self.categoria)
         // Adicionando pessoas no encontro
         for pessoa in self.pessoas{
             _ = try? PessoaData.addPessoa(novo: pessoa, encontro: novoEncontro!)
@@ -384,6 +385,8 @@ extension NovoEncontroViewController: UICollectionViewDelegate{
         let newAddress = "\(rua), \(numero) - \(bairro)"
         self.encontroEndereco = newAddress
         self.localTitle = String(nerbyPlaces[indexPath.row].name)
+        
+        self.categoria = nerbyPlaces[indexPath.row].type
  
     }
     

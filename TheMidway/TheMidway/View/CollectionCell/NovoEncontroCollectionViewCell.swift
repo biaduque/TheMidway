@@ -15,7 +15,8 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
     let colors = ["Color1","Color2","Color3","Color4"]
     @IBOutlet weak var labelTitulo: UILabel!
     @IBOutlet weak var labelEndereco: UILabel!
-    @IBOutlet weak var tagView: UIView!
+    @IBOutlet weak var tagView: TagView!
+    @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     var nearbyPlace: MapPlace?
     
@@ -35,14 +36,26 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
     }
     
     public func stylize(nearbyPlace: MapPlace){
+        //set de visual
         self.nearbyPlace = nearbyPlace
         self.backgroundColor = UIColor(named: "BackgroundColor")!
         self.layer.cornerRadius = 5
-        //self.labelEndereco.text = "Rua Antonio Alves de Souza, 22"
+        
+        
+        ///setando o endereco
+        let bairro = String(nearbyPlace.district)
+        let rua = String(nearbyPlace.address)
+        let numero = String(nearbyPlace.number)
+        
+        let newAddress = "\(rua), \(numero) - \(bairro)"
+        self.labelEndereco.text = newAddress
         
         ///edicao da tag de tipos
-        self.tagView.backgroundColor = UIColor(named: colors[Int.random(in: 0..<colors.count)])
+        self.tagView.stilyze(categoria: nearbyPlace.type)
         self.tagView.layer.cornerRadius = 3
+        self.tagLabel.text = nearbyPlace.type
+        
+        ///setando o nome do lugar
         labelTitulo.text = nearbyPlace.name
     }
     
