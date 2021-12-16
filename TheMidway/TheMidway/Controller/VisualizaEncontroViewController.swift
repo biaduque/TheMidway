@@ -205,7 +205,7 @@ extension VisualizaEncontroViewController: MKMapViewDelegate{
                     longitudinalMeters: radiusArea
                 )
                 
-                self.mapView.setRegion(region, animated: true)
+                self.mapView.setRegion(region, animated: false)
             }
         }
     }

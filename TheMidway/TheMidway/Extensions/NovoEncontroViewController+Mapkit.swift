@@ -165,7 +165,7 @@ extension NovoEncontroViewController {
                     )
                     
                     // Verifica se está dentor do raio E se já não foi adicionado.
-                    if self.getDistance(place: coords) <= self.radiusArea+500 && !self.findPlace(place: newItem){
+                    if self.getDistance(place: coords) <= self.radiusArea && !self.findPlace(place: newItem){
                         self.nerbyPlaces.append(newItem)
                         
                         print("Lugar: \(newItem.name)")
@@ -173,7 +173,10 @@ extension NovoEncontroViewController {
                         print("Tipo: \(String(describing: item.pointOfInterestCategory!))\n")
                         
                         // Add no mapa
-                        self.addPointOnMap(pin: pin)
+                        if self.pinAdded <= 20 {
+                            self.addPointOnMap(pin: pin)
+                            self.pinAdded += 1
+                        }
                     }
                 }
             }

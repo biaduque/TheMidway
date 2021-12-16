@@ -129,6 +129,9 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     /// Pontos encotrados por um endereço como string
     public var coordFound: [CLLocationCoordinate2D] = []
     
+    /// Quantidade de pontos adicionados no mapa
+    public var pinAdded: Int = 0
+    
     
     
     
@@ -147,8 +150,8 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         // if overlay is MKCircle {
             let circle = MKCircleRenderer(overlay: overlay)
-            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.3)
-            circle.strokeColor = UIColor(named: "Color4")
+            circle.fillColor = UIColor(named: "Color4Principal")?.withAlphaComponent(0.3)
+            circle.strokeColor = UIColor(named: "Color4Principal")
             circle.lineWidth = 1.0
             return circle
         // }
@@ -158,16 +161,16 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     /// Personaliza um pin
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.title!! == " " {
-            let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
-            annotationView.markerTintColor = UIColor(named: "Color4")
-            // annotationView.glyphImage = UIImage()    // Colocando uma imagem
-            return annotationView
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+        
+        if annotation.title!! == "The Midway" {
+            annotationView.markerTintColor = UIColor(named: "Color4Principal")
+        } else if annotation.title!! == " " {
+            annotationView.markerTintColor = UIColor(named: "Color1Principal")
         }
-        return MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+        return annotationView
     }
     
-
     
     /* MARK: - Ação dos botões */
     
@@ -175,27 +178,21 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     public func theMidwayMapUpdate(enderecos: [String]) -> Void {
         self.coordFound = []
         self.nerbyPlaces = []
-        // fazer as conversoes de enderecos ai
+        
         if enderecos.count != 0 {
-            print("entrei aqui com \(enderecos.count): \n\n\(enderecos)\n\n")
             let group = DispatchGroup()
             
             for end in enderecos {
-                print("\n\n\n Endereço loop: \(end)\n\n")
                 group.enter()
                 NovoEncontroViewController.getCoordsByAddress(address: end) { point in
                     defer {group.leave()}
-                    
-                    print("\n\n\nEntrei no CH com: \(end)\n\n")
-                    
-                    
+
                     switch point {
                     case .failure(let error):
                         print(error)
                     case .success(let coords):
                         self.coordFound.append(coords)
-                        self.addPointOnMap(pin: self.createPin(name: "", coordinate: coords))
-                        print("\n\n\nCoordenada achada: \(coords)\n\n")
+                        self.addPointOnMap(pin: self.createPin(name: " ", coordinate: coords))
                     }
                 }
             }
@@ -203,16 +200,16 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
             
             group.notify(queue: .main) {
                 // Pega o ponto central
-                print("Contador: \(self.coordFound.count)")
                 self.midpoint = self.theMidpoint(coordinates: self.coordFound)
 
                 // Adiciona o ponto central
                 self.addPointOnMap(pin: self.createPin(name: "The Midway", coordinate: self.midpoint))
+                
                 // Cria um cículo
                 self.addCircle(location: self.midpoint)
                 
                 // Define a região que vai ser focada no mapa: o ponto dentral
-                self.setViewLocation(place: self.midpoint, radius: self.radiusArea)
+                self.setViewLocation(place: self.midpoint, radius: self.radiusArea+3000)
                 
                 // Faz a busca por locais a partr das palavras chaves.
                 for someWord in self.searchWords {
@@ -238,12 +235,15 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         self.hora = self.getHora(datePickerOutlet: cell2.datePicker)
             
         // Adicionando no core data
-        let novoEncontro = try? EncontroData.addEncontro(novoNome: self.encontroTitle,
-                                                            nomeLocal: self.localTitle,
-                                                            novoEndereco: self.encontroEndereco,
-                                                            novoData: self.date,
-                                                           hora: self.hora,
-                                                         categoria: self.categoria)
+        let novoEncontro = try? EncontroData.addEncontro(
+            novoNome: self.encontroTitle,
+            nomeLocal: self.localTitle,
+            novoEndereco: self.encontroEndereco,
+            novoData: self.date,
+            hora: self.hora,
+            categoria: self.categoria
+        )
+        
         // Adicionando pessoas no encontro
         for pessoa in self.pessoas{
             _ = try? PessoaData.addPessoa(novo: pessoa, encontro: novoEncontro!)
@@ -297,10 +297,11 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         self.mapView.isHidden = false
     }
     
+    
     func getHora(datePickerOutlet: UIDatePicker) -> String {
-        let comp = datePickerOutlet.calendar.dateComponents([.hour, .minute], from: datePickerOutlet.date)
-        let hora = String(comp.hour!) + ":" + String(comp.minute!)
-        return hora
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm"
+        return df.string(from: datePickerOutlet.date)
     }
 }
 
