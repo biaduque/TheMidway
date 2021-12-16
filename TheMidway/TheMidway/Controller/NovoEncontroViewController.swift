@@ -39,9 +39,6 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
     
     weak var delegate: NovoEncontroViewControllerDelegate?
     
-    override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -422,7 +419,6 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
     
     func getLocations() {
         self.theMidwayMapUpdate(enderecos: self.enderecos)
-        print("oiteste",nerbyPlaces.count)
         self.refreshButton?.isHidden = false
         self.localLabel.isHidden = false
     }
