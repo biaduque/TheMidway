@@ -166,7 +166,7 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         if annotation.title!! == "The Midway" {
             annotationView.markerTintColor = UIColor(named: "Color4Principal")
         } else if annotation.title!! == " " {
-            annotationView.markerTintColor = UIColor(named: "Color1Principal")
+            annotationView.markerTintColor = UIColor(named: "Color2Principal")
         }
         return annotationView
     }
@@ -384,7 +384,7 @@ extension NovoEncontroViewController: UICollectionViewDelegate{
         self.encontroEndereco = newAddress
         self.localTitle = String(nerbyPlaces[indexPath.row].name)
         
-        self.categoria = nerbyPlaces[indexPath.row].type
+        self.categoria = nerbyPlaces[indexPath.row].type.localizedDescription
  
     }
     

@@ -14,7 +14,7 @@ struct MapPlace {
     let name: String
     let coordinates: CLLocationCoordinate2D
     let pin: MKPointAnnotation
-    let type: String
+    var type: PointsOfInterest
 
     let country: String
     let city: String
