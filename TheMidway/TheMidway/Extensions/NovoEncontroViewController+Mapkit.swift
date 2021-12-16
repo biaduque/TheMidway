@@ -150,11 +150,11 @@ extension NovoEncontroViewController {
                     let pin = self.createPin(name: name, coordinate: coords)
                     
                     // Guarda as informações
-                    let newItem: MapPlace = MapPlace(
+                    var newItem: MapPlace = MapPlace(
                         name: name,
                         coordinates: coords,
                         pin: pin,
-                        type: type.rawValue,
+                        type: .restaurant,
                         country: item.placemark.isoCountryCode ?? "",
                         city: item.placemark.administrativeArea ?? "",
                         district: item.placemark.subLocality ?? "",
@@ -164,9 +164,22 @@ extension NovoEncontroViewController {
                         contact: item.phoneNumber ?? ""
                     )
                     
-                    // Verifica se está dentor do raio E se já não foi adicionado.
+                    // Verifica se está dentro do raio E se já não foi adicionado.
                     if self.getDistance(place: coords) <= self.radiusArea && !self.findPlace(place: newItem){
                         self.nerbyPlaces.append(newItem)
+                        
+                        switch type {
+                        case .amusementPark: newItem.type = .amusementPark
+                        case .nationalPark: newItem.type = .nationalPark
+                        case .restaurant: newItem.type = .restaurant
+                        case .bakery: newItem.type = .bakery
+                        case .theater: newItem.type = .theater
+                        case .movieTheater: newItem.type = .movieTheater
+                        case .cafe: newItem.type = .cafe
+                        case .nightlife: newItem.type = .nightlife
+                        default: newItem.type = .restaurant
+                        }
+                        
                         
                         print("Lugar: \(newItem.name)")
                         print("Site: \(String(describing: item.url))")

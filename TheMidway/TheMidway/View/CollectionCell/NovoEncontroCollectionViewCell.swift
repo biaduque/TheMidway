@@ -51,9 +51,9 @@ class NovoEncontroCollectionViewCell: UICollectionViewCell {
         self.labelEndereco.text = newAddress
         
         ///edicao da tag de tipos
-        self.tagView.stilyze(categoria: nearbyPlace.type)
+        self.tagView.stilyze(categoria: nearbyPlace.type.localizedDescription)
         self.tagView.layer.cornerRadius = 3
-        self.tagLabel.text = nearbyPlace.type
+        self.tagLabel.text = nearbyPlace.type.localizedDescription
         
         ///setando o nome do lugar
         labelTitulo.text = nearbyPlace.name
