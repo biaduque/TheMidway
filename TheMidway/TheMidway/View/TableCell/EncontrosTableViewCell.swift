@@ -10,7 +10,7 @@ import UIKit
 class EncontrosTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var friendsLabel: UIView!
+    @IBOutlet weak var clockLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +28,8 @@ class EncontrosTableViewCell: UITableViewCell {
         formatter.dateFormat = "dd/MM/yyyy"
         
         dateLabel.text = formatter.string(from: encontro.data ?? Date())
-        
         titleLabel.text = encontro.nome
+        clockLabel.text = encontro.hora
     }
 
 }

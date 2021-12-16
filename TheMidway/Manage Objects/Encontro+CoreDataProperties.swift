@@ -22,6 +22,7 @@ extension Encontro {
     @NSManaged public var nome: String?
     @NSManaged public var nomeLocal: String?
     @NSManaged public var amigos: NSSet?
+    @NSManaged public var categoria: String?
 
 }
 

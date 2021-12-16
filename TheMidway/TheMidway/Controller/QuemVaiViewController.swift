@@ -27,18 +27,27 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
     
     var contacts = [PessoaBase]()
     
+    var contactsRequest = [PessoaBase]()
+    
     var noAdress: Bool?
     
     var noAdressPerson: PessoaBase?
 
     private lazy var imagePerfil = ["perfil1","perfil2","perfil3","perfil4","perfil5","perfil6","perfil7","perfil8"]
+    
 
+    override func viewWillAppear(_ animated: Bool) {
+        ///se a pessoa aceitar compartilhar os contatos, esse vetor estara preenchido
+        contactsRequest = Contacts.shared.fatchContacts()
+        if contactsRequest.count == 0 {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
     }
     
     
@@ -56,10 +65,14 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
     }
     
     @IBAction func addButton(_ sender: Any) {
-        let contactViewController = CNContactPickerViewController()
-        contactViewController.delegate = self
-        self.present(contactViewController, animated: true)
-        
+        if contactsRequest.count == 0 {
+            self.navigationController?.popViewController(animated: true)
+        }
+        else{
+            let contactViewController = CNContactPickerViewController()
+            contactViewController.delegate = self
+            self.present(contactViewController, animated: true)
+        }
     }
     
     // MARK: Contact Picker

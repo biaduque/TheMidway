@@ -58,13 +58,14 @@ class EncontroData {
         return []
     }
     
-    static func addEncontro(novoNome: String, nomeLocal: String, novoEndereco: String, novoData: Date, hora: String) throws -> Encontro {
+    static func addEncontro(novoNome: String, nomeLocal: String, novoEndereco: String, novoData: Date, hora: String, categoria: String) throws -> Encontro {
         let encontro = Encontro(context: self.persistentContainer.viewContext)
         encontro.nomeLocal = nomeLocal
         encontro.nome = novoNome
         encontro.endereco = novoEndereco
         encontro.hora = hora
         encontro.data = novoData
+        encontro.categoria = categoria
         
         ///formatando a data para string
         let formatter =  DateFormatter()

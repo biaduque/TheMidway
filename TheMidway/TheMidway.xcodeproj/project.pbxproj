@@ -11,8 +11,11 @@
 		1344B5B92758051E00280E11 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5B82758051E00280E11 /* Contacts.swift */; };
 		1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */; };
 		135026AD275026470092165D /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026AC275026470092165D /* MapPlace.swift */; };
+		136A52E2276BA8C6000E2108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
 		136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */; };
 		136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
+		13763FBF276AB871001DAE7D /* AmigosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */; };
+		13763FC1276ABA8C001DAE7D /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13763FC0276ABA8C001DAE7D /* TagView.swift */; };
 		1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */; };
 		1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB29274ED6EF0091E62A /* PerfilViewController.swift */; };
 		1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */; };
@@ -27,7 +30,6 @@
 		13B67A74276278E0005D8D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A72276278E0005D8D95 /* Main.storyboard */; };
 		13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */; };
 		13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		13B67A8427627A4F005D8D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
 		13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
 		13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
 		13ED1091276938A200D85E04 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13ED1090276938A200D85E04 /* WidgetKit.framework */; };
@@ -107,6 +109,8 @@
 		135026AC275026470092165D /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
 		136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizaEncontroViewController.swift; sourceTree = "<group>"; };
 		136FE0F8275FEFAA004F3E2D /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosCollectionViewCell.swift; sourceTree = "<group>"; };
+		13763FC0276ABA8C001DAE7D /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosViewController.swift; sourceTree = "<group>"; };
 		1376CB29274ED6EF0091E62A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			children = (
 				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
 				13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */,
+				13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				1344B5C2275A83BA00280E11 /* CollectionCell */,
 				1344B5C1275A839300280E11 /* TableCell */,
 				136FE0F8275FEFAA004F3E2D /* DataView.swift */,
+				13763FC0276ABA8C001DAE7D /* TagView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,7 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */,
-				13B67A8427627A4F005D8D95 /* Assets.xcassets in Resources */,
+				136A52E2276BA8C6000E2108 /* Assets.xcassets in Resources */,
 				13B67A74276278E0005D8D95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +548,8 @@
 			files = (
 				22B09B00276A629600448337 /* APIManeger.swift in Sources */,
 				22B09B07276A633E00448337 /* MeetingInfo.swift in Sources */,
+				13763FBF276AB871001DAE7D /* AmigosCollectionViewCell.swift in Sources */,
+				13763FC1276ABA8C001DAE7D /* TagView.swift in Sources */,
 				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
 				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
 				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,

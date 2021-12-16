@@ -11,6 +11,9 @@ import Contacts
 
 class PerfilViewController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyImage: UIImageView!
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var emptyButton: UIButton!
     
     var contacts = [PessoaBase]()
     
@@ -32,6 +35,12 @@ class PerfilViewController: UIViewController, CNContactPickerDelegate {
         tableView.reloadInputViews()
         tableView.reloadData()
     }
+    @IBAction func Carregarcontatos(_ sender: Any) {
+        tableView.reloadInputViews()
+        tableView.reloadData()
+        tabBarController?.selectedIndex = 0
+        tabBarController?.selectedIndex = 1
+    }
 
 }
 extension PerfilViewController: UITableViewDelegate{
@@ -41,7 +50,6 @@ extension PerfilViewController: UITableViewDelegate{
         tableView.reloadInputViews()
         
         ///lembrar de pedir permissao para isso
-        ///
         var contact = contacts[indexPath.row].source
         if !contact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
             do {
@@ -74,6 +82,15 @@ extension PerfilViewController: UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if contacts.count != 0{
+            emptyImage.isHidden = true
+            emptyLabel.isHidden = true
+            emptyButton.isHidden = true
+            tableView.isHidden = false
+        }
+        else{
+            tableView.isHidden = true
+        }
         return contacts.count
     }
 }

@@ -13,6 +13,9 @@ class EncontrosViewController: UIViewController, NSFetchedResultsControllerDeleg
     @IBOutlet weak var tableView: UITableView!
     var collectionEncontro: [Encontro] = []
     
+    @IBOutlet weak var emptyImage: UIImageView!
+    @IBOutlet weak var criarNovoButton: UIButton!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     private lazy var fetchResultController: NSFetchedResultsController<Encontro> = {
         let request: NSFetchRequest<Encontro> = Encontro.fetchRequest()
@@ -67,7 +70,9 @@ class EncontrosViewController: UIViewController, NSFetchedResultsControllerDeleg
 //            verEncontro.encontro = collectionEncontro[indexPath.row]
 //        }
 //    }
-
+    
+ 
+    
 }
 
 // MARK: TableView
@@ -88,7 +93,17 @@ extension EncontrosViewController: UITableViewDelegate {
 }
 extension EncontrosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if collectionEncontro.count != 0 {
+            self.emptyImage.isHidden = true
+            self.emptyLabel.isHidden = true
+            self.criarNovoButton.isHidden = true
+            tableView.isHidden = false
+        }
+        else{
+            tableView.isHidden = true
+        }
         return collectionEncontro.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
