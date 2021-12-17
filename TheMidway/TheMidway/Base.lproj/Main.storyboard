@@ -298,7 +298,7 @@
         <scene sceneID="NWl-r6-4M2">
             <objects>
                 <navigationController title="friends" automaticallyAdjustsScrollViewInsets="NO" id="0oI-kn-EZn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Perfil" image="person.3" catalog="system" selectedImage="person.3.fill" id="1Ab-PL-b31">
+                    <tabBarItem key="tabBarItem" title="Amigos" image="person.3" catalog="system" selectedImage="person.3.fill" id="1Ab-PL-b31">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -479,9 +479,6 @@
                                                                     </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
-                                                                    <connections>
-                                                                        <action selector="clickCheck:" destination="mMw-U8-kXe" eventType="touchUpInside" id="oCZ-oW-bu3"/>
-                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="tintColor" name="AccentColor"/>
