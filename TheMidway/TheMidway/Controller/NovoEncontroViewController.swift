@@ -409,6 +409,7 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
         for i in 0..<pessoas.count{
             self.enderecos[i] = pessoas[i].endereco
         }
+        print("enderecosTeste",self.enderecos)
     }
     
     func didReload() {
