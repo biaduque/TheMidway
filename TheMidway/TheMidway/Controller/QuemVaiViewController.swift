@@ -66,13 +66,13 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
     
     @IBAction func addButton(_ sender: Any) {
         if contactsRequest.count == 0 {
-            self.navigationController?.popViewController(animated: true)
+           self.navigationController?.popViewController(animated: true)
         }
         else{
             let contactViewController = CNContactPickerViewController()
             contactViewController.delegate = self
             self.present(contactViewController, animated: true)
-        }
+       }
     }
     
     // MARK: Contact Picker
@@ -86,15 +86,21 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
         let endereco = contact.postalAddresses
         
         //se o endereco da rua nao for vazio
-        if endereco[0].value.street != "" {
-            let model = PessoaBase(nome: nome, endereco: getString(postalAdress: endereco), icone: icone, source: source, id: id)
-            contacts.append(model)
+        if endereco.count != 0 {
+            if endereco[0].value.street != ""{
+                let model = PessoaBase(nome: nome, endereco: getString(postalAdress: endereco), icone: icone, source: source, id: id)
+                contacts.append(model)
+            }
+            else{
+                noAdress = true
+                let model = PessoaBase(nome: nome, endereco: "", icone: icone, source: source, id: id)
+                noAdressPerson = model
+            }
         }
         else{
             noAdress = true
             let model = PessoaBase(nome: nome, endereco: "", icone: icone, source: source, id: id)
             noAdressPerson = model
-            //contacts.append(model)
         }
         tableView.reloadData()
     }
@@ -162,7 +168,7 @@ class QuemVaiViewController: UIViewController, CNContactPickerDelegate, CNContac
                 ac.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
                 present(ac, animated: true)
         }
-        contacts.append(newEnderecos)
+        //contacts.append(newEnderecos)
         tableView.reloadData()
     }
 }
@@ -190,11 +196,13 @@ extension QuemVaiViewController: UITableViewDataSource{
             cell.content(newPessoa: contacts[indexPath.row])
             cell.textLabel?.text = contacts[indexPath.row].nome
             cell.imageView?.image = UIImage(named: imagePerfil[Int.random(in: 0..<imagePerfil.count)])
-            if noAdress == true {
-                didTapped(newEnderecos: noAdressPerson!, wantAdress: indexPath.row)
-                noAdress = false
-            }
         }
+        
+        if noAdress == true {
+            didTapped(newEnderecos: noAdressPerson!, wantAdress: indexPath.row)
+            noAdress = false
+        }
+        
         addAdress(newEndereco: contacts[indexPath.row], wantAdress: indexPath.row)
         return cell
     }

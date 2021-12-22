@@ -226,7 +226,12 @@ class NovoEncontroViewController: UIViewController, CLLocationManagerDelegate, M
         // Título
         let index = IndexPath(row: 0, section: 0)
         let cell: TextFieldCell = self.tableView.cellForRow(at: index) as! TextFieldCell
-        self.encontroTitle = cell.textField.text!
+        if cell.textField.text == ""{
+            self.encontroTitle = "Novo Encontro"
+        }
+        else{
+            self.encontroTitle = cell.textField.text!
+        }
         
         //data
         let index2 = IndexPath(row: 1, section: 0)
@@ -409,6 +414,7 @@ extension NovoEncontroViewController: QuemVaiViewControllerDelegate{
         for i in 0..<pessoas.count{
             self.enderecos[i] = pessoas[i].endereco
         }
+        print("enderecosTeste",self.enderecos)
     }
     
     func didReload() {
