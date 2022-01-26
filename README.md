@@ -1,7 +1,7 @@
 # The Midway
-[![Versão](https://img.shields.io/badge/versão-0.0.0-orange)](https://github.com/biaduque/TheMidway/releases/tag/v1.1)
-![Tamanho](https://img.shields.io/badge/tamanho-0,0%20MB-blue)
-[![Plataform](https://img.shields.io/badge/plataforma-IOS%2014+-lightgrey?)](https://apps.apple.com/us/app/coverless-your-book-sugestion/id1587382412)
+[![Versão](https://img.shields.io/badge/versão-1.0.0-orange)](https://github.com/biaduque/TheMidway/releases/tag/v1.1)
+![Tamanho](https://img.shields.io/badge/tamanho-1,4%20MB-blue)
+[![Plataform](https://img.shields.io/badge/plataforma-IOS%2014+-lightgrey?)](https://apps.apple.com/us/app/the-midway/id1599585926)
 [![Swift version](https://img.shields.io/badge/swift-v5.5-blue?logo=swift)](https://swift.org/download/#releases)
 [![License](https://img.shields.io/badge/licença-GNU%20v3.0-brightgreen?)](https://github.com/biaduque/TheMidway/blob/main/LICENSE)
 
@@ -14,10 +14,10 @@ The Midway é um aplicativo que facilita você se encontrar com seus amigos, ach
 5. [Autores](#autores)
 
 ## App Store
-Em breve na App Store.
+O app ja está disponível na App Store, [baixe já!](https://apps.apple.com/us/app/the-midway/id1599585926).
 
 ## Código
-Código sendo desenvolvido em Swift 5.5 usando o XCode 14. 
+Código desenvolvido em UIKit usando o XCode 14. 
 
 ## Documentação
 Documentação em construção na [wiki](https://github.com/biaduque/TheMidway/wiki) do projeto.

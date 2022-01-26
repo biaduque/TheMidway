@@ -7,28 +7,180 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132CD68C2767C58F00066BA9 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
+		1344B5B92758051E00280E11 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5B82758051E00280E11 /* Contacts.swift */; };
+		1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */; };
+		135026AD275026470092165D /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026AC275026470092165D /* MapPlace.swift */; };
+		136A52E2276BA8C6000E2108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
+		136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */; };
+		136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
+		13763FBF276AB871001DAE7D /* AmigosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */; };
+		13763FC1276ABA8C001DAE7D /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13763FC0276ABA8C001DAE7D /* TagView.swift */; };
+		1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */; };
+		1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB29274ED6EF0091E62A /* PerfilViewController.swift */; };
+		1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */; };
+		1376CB2E274ED72F0091E62A /* QuemVaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */; };
+		1376CB30274FF77A0091E62A /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
+		1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */; };
+		1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
+		1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */; };
+		13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A6C276278E0005D8D95 /* AppDelegate.swift */; };
+		13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A6E276278E0005D8D95 /* SceneDelegate.swift */; };
+		13B67A71276278E0005D8D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A70276278E0005D8D95 /* ViewController.swift */; };
+		13B67A74276278E0005D8D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A72276278E0005D8D95 /* Main.storyboard */; };
+		13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */; };
+		13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
+		13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
+		13ED1091276938A200D85E04 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13ED1090276938A200D85E04 /* WidgetKit.framework */; };
+		13ED1093276938A200D85E04 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13ED1092276938A200D85E04 /* SwiftUI.framework */; };
+		13ED1096276938A200D85E04 /* WidgetTheMidway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED1095276938A200D85E04 /* WidgetTheMidway.swift */; };
+		13ED1098276938A300D85E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13ED1097276938A300D85E04 /* Assets.xcassets */; };
+		13ED109C276938A400D85E04 /* WidgetTheMidwayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		13ED10A327693AE300D85E04 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A227693AE300D85E04 /* UserDefaultManager.swift */; };
+		13ED10A427693AE600D85E04 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A227693AE300D85E04 /* UserDefaultManager.swift */; };
+		13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
+		13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
+		13ED10AC276A5F0000D85E04 /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */; };
+		2210352D276BE37D0059A5DB /* PointsOfinterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2210352C276BE37D0059A5DB /* PointsOfinterest.swift */; };
+		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
+		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
+		22B09AFD276A625000448337 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09AFC276A625000448337 /* APIError.swift */; };
+		22B09B00276A629600448337 /* APIManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09AFF276A629600448337 /* APIManeger.swift */; };
+		22B09B02276A62D200448337 /* HTTPVerbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B01276A62D200448337 /* HTTPVerbs.swift */; };
+		22B09B05276A631D00448337 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B04276A631D00448337 /* Items.swift */; };
+		22B09B07276A633E00448337 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B06276A633E00448337 /* MeetingInfo.swift */; };
+		22B09B09276A637300448337 /* EncontroMarcado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B08276A637300448337 /* EncontroMarcado.swift */; };
+		4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */; };
+		DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */; };
+		DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */; };
 		DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA522274817D9003BBFCA /* AppDelegate.swift */; };
 		DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA524274817D9003BBFCA /* SceneDelegate.swift */; };
-		DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA526274817D9003BBFCA /* ViewController.swift */; };
 		DB5BA52A274817D9003BBFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA528274817D9003BBFCA /* Main.storyboard */; };
 		DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */; };
 		DB5BA52F274817DC003BBFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
 		DB5BA532274817DC003BBFCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		13B67A7C276278E2005D8D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB5BA517274817D9003BBFCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B67A69276278E0005D8D95;
+			remoteInfo = "TheMidway Clip";
+		};
+		13ED109A276938A400D85E04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB5BA517274817D9003BBFCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13ED108D276938A200D85E04;
+			remoteInfo = WidgetTheMidwayExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		13B67A7F276278E2005D8D95 /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13ED109D276938A400D85E04 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				13ED109C276938A400D85E04 /* WidgetTheMidwayExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1344B5B82758051E00280E11 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosTableViewCell.swift; sourceTree = "<group>"; };
+		135026AC275026470092165D /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
+		136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizaEncontroViewController.swift; sourceTree = "<group>"; };
+		136FE0F8275FEFAA004F3E2D /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosCollectionViewCell.swift; sourceTree = "<group>"; };
+		13763FC0276ABA8C001DAE7D /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosViewController.swift; sourceTree = "<group>"; };
+		1376CB29274ED6EF0091E62A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroViewController.swift; sourceTree = "<group>"; };
+		1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiViewController.swift; sourceTree = "<group>"; };
+		1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroCollectionViewCell.swift; sourceTree = "<group>"; };
+		1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuandoSeraTableViewCell.swift; sourceTree = "<group>"; };
+		1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiTableViewCell.swift; sourceTree = "<group>"; };
+		13B67A6A276278E0005D8D95 /* TheMidway Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheMidway Clip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B67A6C276278E0005D8D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		13B67A6E276278E0005D8D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		13B67A70276278E0005D8D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		13B67A73276278E0005D8D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13B67A78276278E2005D8D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13B67A7A276278E2005D8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13B67A7B276278E2005D8D95 /* TheMidway_Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway_Clip.entitlements; sourceTree = "<group>"; };
+		13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetTheMidwayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		13ED1090276938A200D85E04 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		13ED1092276938A200D85E04 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		13ED1095276938A200D85E04 /* WidgetTheMidway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTheMidway.swift; sourceTree = "<group>"; };
+		13ED1097276938A300D85E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13ED1099276938A400D85E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13ED10A227693AE300D85E04 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		13ED10A527693C3B00D85E04 /* TheMidway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway.entitlements; sourceTree = "<group>"; };
+		13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestoesCollectionViewCell.swift; sourceTree = "<group>"; };
+		13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetTheMidwayExtension.entitlements; sourceTree = "<group>"; };
+		13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2210352C276BE37D0059A5DB /* PointsOfinterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOfinterest.swift; sourceTree = "<group>"; };
+		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
+		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
+		22B09AFC276A625000448337 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		22B09AFF276A629600448337 /* APIManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManeger.swift; sourceTree = "<group>"; };
+		22B09B01276A62D200448337 /* HTTPVerbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerbs.swift; sourceTree = "<group>"; };
+		22B09B04276A631D00448337 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		22B09B06276A633E00448337 /* MeetingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
+		22B09B08276A637300448337 /* EncontroMarcado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroMarcado.swift; sourceTree = "<group>"; };
+		4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
+		DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroRepository.swift; sourceTree = "<group>"; };
+		DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaRepository.swift; sourceTree = "<group>"; };
 		DB5BA51F274817D9003BBFCA /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5BA522274817D9003BBFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5BA524274817D9003BBFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB5BA526274817D9003BBFCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB5BA529274817D9003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB5BA52C274817D9003BBFCA /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
-		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../TheMidway/Assets.xcassets; sourceTree = "<group>"; };
 		DB5BA531274817DC003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB5BA533274817DC003BBFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		13B67A67276278E0005D8D95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13ED108B276938A200D85E04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13ED1093276938A200D85E04 /* SwiftUI.framework in Frameworks */,
+				13ED1091276938A200D85E04 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB5BA51C274817D9003BBFCA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,10 +191,181 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1344B5C1275A839300280E11 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */,
+				1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */,
+				1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */,
+				4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */,
+				1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		1344B5C2275A83BA00280E11 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
+				13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */,
+				13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		135026AB275026350092165D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				135026AC275026470092165D /* MapPlace.swift */,
+				225CD6232756C15900E07A21 /* Pessoa.swift */,
+				1344B5B82758051E00280E11 /* Contacts.swift */,
+				13ED10A227693AE300D85E04 /* UserDefaultManager.swift */,
+				22B09B08276A637300448337 /* EncontroMarcado.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1376CB24274ED67F0091E62A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */,
+				1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */,
+				1376CB29274ED6EF0091E62A /* PerfilViewController.swift */,
+				1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */,
+				136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1376CB25274ED68C0091E62A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1344B5C2275A83BA00280E11 /* CollectionCell */,
+				1344B5C1275A839300280E11 /* TableCell */,
+				136FE0F8275FEFAA004F3E2D /* DataView.swift */,
+				13763FC0276ABA8C001DAE7D /* TagView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1376CB26274ED6960091E62A /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				DB5BA522274817D9003BBFCA /* AppDelegate.swift */,
+				DB5BA524274817D9003BBFCA /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		13B67A6B276278E0005D8D95 /* TheMidway Clip */ = {
+			isa = PBXGroup;
+			children = (
+				13B67A6C276278E0005D8D95 /* AppDelegate.swift */,
+				13B67A6E276278E0005D8D95 /* SceneDelegate.swift */,
+				13B67A70276278E0005D8D95 /* ViewController.swift */,
+				13B67A72276278E0005D8D95 /* Main.storyboard */,
+				13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */,
+				13B67A7A276278E2005D8D95 /* Info.plist */,
+				13B67A7B276278E2005D8D95 /* TheMidway_Clip.entitlements */,
+			);
+			path = "TheMidway Clip";
+			sourceTree = "<group>";
+		};
+		13B67A8327627A40005D8D95 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		13ED108F276938A200D85E04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13ED1090276938A200D85E04 /* WidgetKit.framework */,
+				13ED1092276938A200D85E04 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		13ED1094276938A200D85E04 /* WidgetTheMidway */ = {
+			isa = PBXGroup;
+			children = (
+				13ED1095276938A200D85E04 /* WidgetTheMidway.swift */,
+				13ED1097276938A300D85E04 /* Assets.xcassets */,
+				13ED1099276938A400D85E04 /* Info.plist */,
+			);
+			path = WidgetTheMidway;
+			sourceTree = "<group>";
+		};
+		13ED10CC276A671500D85E04 /* Manage Objects */ = {
+			isa = PBXGroup;
+			children = (
+				13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */,
+				13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */,
+				13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */,
+				13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */,
+			);
+			path = "Manage Objects";
+			sourceTree = "<group>";
+		};
+		2210352B276BE3670059A5DB /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				2210352C276BE37D0059A5DB /* PointsOfinterest.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		225CD6202756BF9E00E07A21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		22B09AFE276A625700448337 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				22B09B03276A630A00448337 /* Model */,
+				22B09AFC276A625000448337 /* APIError.swift */,
+				22B09AFF276A629600448337 /* APIManeger.swift */,
+				22B09B01276A62D200448337 /* HTTPVerbs.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		22B09B03276A630A00448337 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22B09B04276A631D00448337 /* Items.swift */,
+				22B09B06276A633E00448337 /* MeetingInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB355CBF2757EEF900A6A1D5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */,
+				DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */,
+				DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		DB5BA516274817D8003BBFCA = {
 			isa = PBXGroup;
 			children = (
+				13ED10CC276A671500D85E04 /* Manage Objects */,
+				13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */,
+				DB355CBF2757EEF900A6A1D5 /* CoreData */,
+				13B67A8327627A40005D8D95 /* Shared */,
 				DB5BA521274817D9003BBFCA /* TheMidway */,
+				13B67A6B276278E0005D8D95 /* TheMidway Clip */,
+				13ED1094276938A200D85E04 /* WidgetTheMidway */,
+				13ED108F276938A200D85E04 /* Frameworks */,
 				DB5BA520274817D9003BBFCA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				DB5BA51F274817D9003BBFCA /* TheMidway.app */,
+				13B67A6A276278E0005D8D95 /* TheMidway Clip.app */,
+				13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,14 +383,17 @@
 		DB5BA521274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXGroup;
 			children = (
-				DB5BA522274817D9003BBFCA /* AppDelegate.swift */,
-				DB5BA524274817D9003BBFCA /* SceneDelegate.swift */,
-				DB5BA526274817D9003BBFCA /* ViewController.swift */,
-				DB5BA528274817D9003BBFCA /* Main.storyboard */,
-				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
-				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
+				2210352B276BE3670059A5DB /* Enum */,
+				13ED10A527693C3B00D85E04 /* TheMidway.entitlements */,
+				22B09AFE276A625700448337 /* API */,
+				1376CB26274ED6960091E62A /* Delegate */,
+				225CD6202756BF9E00E07A21 /* Extensions */,
+				135026AB275026350092165D /* Model */,
+				1376CB25274ED68C0091E62A /* View */,
+				1376CB24274ED67F0091E62A /* Controller */,
 				DB5BA533274817DC003BBFCA /* Info.plist */,
-				DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */,
+				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
+				DB5BA528274817D9003BBFCA /* Main.storyboard */,
 			);
 			path = TheMidway;
 			sourceTree = "<group>";
@@ -73,6 +401,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		13B67A69276278E0005D8D95 /* TheMidway Clip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B67A82276278E2005D8D95 /* Build configuration list for PBXNativeTarget "TheMidway Clip" */;
+			buildPhases = (
+				13B67A66276278E0005D8D95 /* Sources */,
+				13B67A67276278E0005D8D95 /* Frameworks */,
+				13B67A68276278E0005D8D95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TheMidway Clip";
+			productName = "TheMidway Clip";
+			productReference = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
+		13ED108D276938A200D85E04 /* WidgetTheMidwayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13ED10A0276938A400D85E04 /* Build configuration list for PBXNativeTarget "WidgetTheMidwayExtension" */;
+			buildPhases = (
+				13ED108A276938A200D85E04 /* Sources */,
+				13ED108B276938A200D85E04 /* Frameworks */,
+				13ED108C276938A200D85E04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetTheMidwayExtension;
+			productName = WidgetTheMidwayExtension;
+			productReference = 13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DB5BA51E274817D9003BBFCA /* TheMidway */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB5BA536274817DC003BBFCA /* Build configuration list for PBXNativeTarget "TheMidway" */;
@@ -80,10 +442,14 @@
 				DB5BA51B274817D9003BBFCA /* Sources */,
 				DB5BA51C274817D9003BBFCA /* Frameworks */,
 				DB5BA51D274817D9003BBFCA /* Resources */,
+				13B67A7F276278E2005D8D95 /* Embed App Clips */,
+				13ED109D276938A400D85E04 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				13B67A7D276278E2005D8D95 /* PBXTargetDependency */,
+				13ED109B276938A400D85E04 /* PBXTargetDependency */,
 			);
 			name = TheMidway;
 			productName = TheMidway;
@@ -97,9 +463,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					13B67A69276278E0005D8D95 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					13ED108D276938A200D85E04 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					DB5BA51E274817D9003BBFCA = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -119,11 +491,31 @@
 			projectRoot = "";
 			targets = (
 				DB5BA51E274817D9003BBFCA /* TheMidway */,
+				13B67A69276278E0005D8D95 /* TheMidway Clip */,
+				13ED108D276938A200D85E04 /* WidgetTheMidwayExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		13B67A68276278E0005D8D95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */,
+				136A52E2276BA8C6000E2108 /* Assets.xcassets in Resources */,
+				13B67A74276278E0005D8D95 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13ED108C276938A200D85E04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13ED1098276938A300D85E04 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB5BA51D274817D9003BBFCA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,20 +529,101 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		13B67A66276278E0005D8D95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				132CD68C2767C58F00066BA9 /* DataView.swift in Sources */,
+				13B67A71276278E0005D8D95 /* ViewController.swift in Sources */,
+				13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */,
+				13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */,
+				13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */,
+				13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */,
+				13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13ED108A276938A200D85E04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13ED10A427693AE600D85E04 /* UserDefaultManager.swift in Sources */,
+				13ED10AC276A5F0000D85E04 /* TheMidway.xcdatamodeld in Sources */,
+				13ED1096276938A200D85E04 /* WidgetTheMidway.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB5BA51B274817D9003BBFCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB5BA527274817D9003BBFCA /* ViewController.swift in Sources */,
+				22B09B00276A629600448337 /* APIManeger.swift in Sources */,
+				22B09B07276A633E00448337 /* MeetingInfo.swift in Sources */,
+				13763FBF276AB871001DAE7D /* AmigosCollectionViewCell.swift in Sources */,
+				13763FC1276ABA8C001DAE7D /* TagView.swift in Sources */,
+				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
+				2210352D276BE37D0059A5DB /* PointsOfinterest.swift in Sources */,
+				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
+				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,
+				22B09B05276A631D00448337 /* Items.swift in Sources */,
+				1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */,
+				1344B5B92758051E00280E11 /* Contacts.swift in Sources */,
+				22B09AFD276A625000448337 /* APIError.swift in Sources */,
+				13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */,
+				136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */,
 				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
+				DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */,
 				DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */,
+				22B09B02276A62D200448337 /* HTTPVerbs.swift in Sources */,
+				1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */,
+				22B09B09276A637300448337 /* EncontroMarcado.swift in Sources */,
+				1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */,
+				225CD6242756C15900E07A21 /* Pessoa.swift in Sources */,
+				136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */,
+				1376CB30274FF77A0091E62A /* TextFieldTableViewCell.swift in Sources */,
+				1376CB2E274ED72F0091E62A /* QuemVaiViewController.swift in Sources */,
 				DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */,
+				225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */,
+				1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */,
+				13ED10A327693AE300D85E04 /* UserDefaultManager.swift in Sources */,
+				1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */,
+				4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */,
+				135026AD275026470092165D /* MapPlace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		13B67A7D276278E2005D8D95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B67A69276278E0005D8D95 /* TheMidway Clip */;
+			targetProxy = 13B67A7C276278E2005D8D95 /* PBXContainerItemProxy */;
+		};
+		13ED109B276938A400D85E04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13ED108D276938A200D85E04 /* WidgetTheMidwayExtension */;
+			targetProxy = 13ED109A276938A400D85E04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		13B67A72276278E0005D8D95 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B67A73276278E0005D8D95 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B67A78276278E2005D8D95 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		DB5BA528274817D9003BBFCA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -170,6 +643,124 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		13B67A80276278E2005D8D95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		13B67A81276278E2005D8D95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		13ED109E276938A400D85E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetTheMidway/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetTheMidway;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidwayy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13ED109F276938A400D85E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetTheMidway/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetTheMidway;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidwayy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DB5BA534274817DC003BBFCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -289,11 +880,13 @@
 		DB5BA537274817DC003BBFCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheMidway/TheMidway.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YJHS8SK8R5;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -317,11 +910,13 @@
 		DB5BA538274817DC003BBFCA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheMidway/TheMidway.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YJHS8SK8R5;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -345,6 +940,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		13B67A82276278E2005D8D95 /* Build configuration list for PBXNativeTarget "TheMidway Clip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B67A80276278E2005D8D95 /* Debug */,
+				13B67A81276278E2005D8D95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13ED10A0276938A400D85E04 /* Build configuration list for PBXNativeTarget "WidgetTheMidwayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13ED109E276938A400D85E04 /* Debug */,
+				13ED109F276938A400D85E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DB5BA51A274817D9003BBFCA /* Build configuration list for PBXProject "TheMidway" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

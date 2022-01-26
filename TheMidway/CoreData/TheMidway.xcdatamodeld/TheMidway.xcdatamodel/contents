@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Encontro" representedClassName="Encontro" syncable="YES" codeGenerationType="class">
+        <attribute name="categoria" optional="YES" attributeType="String"/>
+        <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="endereco" optional="YES" attributeType="String"/>
+        <attribute name="hora" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <attribute name="nomeLocal" optional="YES" attributeType="String"/>
+        <relationship name="amigos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pessoa" inverseName="encontro" inverseEntity="Pessoa"/>
+    </entity>
+    <entity name="Pessoa" representedClassName="Pessoa" syncable="YES" codeGenerationType="class">
+        <attribute name="endereco" optional="YES" attributeType="String"/>
+        <attribute name="foto" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="encontro" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Encontro" inverseName="amigos" inverseEntity="Encontro"/>
+    </entity>
+    <elements>
+        <element name="Encontro" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Pessoa" positionX="-54" positionY="18" width="128" height="89"/>
+    </elements>
+</model>
