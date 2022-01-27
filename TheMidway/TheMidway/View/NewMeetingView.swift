@@ -38,13 +38,17 @@ class NewMeetingView: UIView {
     
     public let formsTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.backgroundColor = .red // UIColor(named: "BackgroundColor")
+        table.backgroundColor = UIColor(named: "BackgroundColor")
         table.translatesAutoresizingMaskIntoConstraints = false
         
         table.alwaysBounceVertical = false
         table.alwaysBounceHorizontal = false
         
         table.isScrollEnabled = false
+        
+        table.clipsToBounds = true
+        table.layer.masksToBounds = true
+        table.layer.cornerRadius = 7
         
         // Tamanho da célula
         table.rowHeight = 40
@@ -220,7 +224,7 @@ class NewMeetingView: UIView {
             self.formsTableView.topAnchor.constraint(equalTo: self.titleViewLabel.bottomAnchor, constant: betweenSpace*2),
             self.formsTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.formsTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.formsTableView.heightAnchor.constraint(equalToConstant: 120)
+            self.formsTableView.heightAnchor.constraint(equalToConstant: 160)
         ]
         NSLayoutConstraint.activate(formsTableViewConstraints)
         

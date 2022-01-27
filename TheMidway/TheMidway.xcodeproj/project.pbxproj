@@ -38,6 +38,8 @@
 		229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1127A2D6230039902B /* NewMeetingViewController.swift */; };
 		229F7A1727A2E30C0039902B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229F7A1627A2E30C0039902B /* Assets.xcassets */; };
 		229F7A1927A2E3B80039902B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */; };
+		229F7A1B27A31D4A0039902B /* MainCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */; };
+		229F7A1D27A31D820039902B /* MainCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		229F7A1127A2D6230039902B /* NewMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingViewController.swift; sourceTree = "<group>"; };
 		229F7A1627A2E30C0039902B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionDelegate.swift; sourceTree = "<group>"; };
+		229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +254,7 @@
 		229F79D027A23C0F0039902B /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 		229F79D627A23D210039902B /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				229F79F827A2D49C0039902B /* Person.swift in Sources */,
 				229F79EE27A2D45E0039902B /* PlacesCategories.swift in Sources */,
 				229F79FD27A2D49C0039902B /* MapPlace.swift in Sources */,
+				229F7A1D27A31D820039902B /* MainCollectionDataSource.swift in Sources */,
 				229F79FF27A2D4CC0039902B /* EmptyView.swift in Sources */,
 				229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */,
 				229F79E127A2D3AD0039902B /* TheMidway.xcdatamodeld in Sources */,
@@ -384,6 +391,7 @@
 				229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */,
 				229F79EB27A2D4250039902B /* MapViewDelegate.swift in Sources */,
 				229F7A1227A2D6230039902B /* MainViewController.swift in Sources */,
+				229F7A1B27A31D4A0039902B /* MainCollectionDelegate.swift in Sources */,
 				229F79FA27A2D49C0039902B /* LabelConfig.swift in Sources */,
 				229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */,
 			);

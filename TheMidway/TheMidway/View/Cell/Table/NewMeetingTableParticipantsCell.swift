@@ -36,7 +36,11 @@ class NewMeetingTableParticipantsCell: UITableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-        self.backgroundColor = UIColor(named: "BackgroundColor")
+        self.backgroundColor = .secondarySystemBackground // UIColor(named: "BackgroundColor")
+        
+        self.clipsToBounds = true
+        self.contentView.clipsToBounds = true
+        self.contentView.layer.masksToBounds = true
         
         self.contentView.addSubview(self.leftImage)
         self.contentView.addSubview(self.leftLabel)

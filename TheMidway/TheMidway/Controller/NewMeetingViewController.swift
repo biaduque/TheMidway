@@ -17,6 +17,7 @@ class NewMeetingViewController: UIViewController,
     
     private let mainView = NewMeetingView()
     
+    private var superViewController: MainViewController
     
     private var placesOnTheMidway: [MapPlace] = [
         MapPlace(
@@ -72,8 +73,20 @@ class NewMeetingViewController: UIViewController,
     private let locationDelegate = LocationManegerDelegate()
     
     
-    
     /* DataSources */
+    
+    
+    
+    /* MARK: -  */
+    
+    init(vc: MainViewController) {
+        self.superViewController = vc
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    
     
     
     /* MARK: - Ciclo de Vida */
@@ -88,6 +101,21 @@ class NewMeetingViewController: UIViewController,
     public override func viewDidLoad() -> Void {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Salvar",
+            style: .done,
+            target: self,
+            action: #selector(self.saveNewMeetingAction)
+        )
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Cancelar",
+            style: .plain,
+            target: self,
+            action: #selector(self.saveNewMeetingAction)
+        )
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemRed
+        
         // Configurando a remoção do teclado em qualquer lugar da tela
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -100,10 +128,10 @@ class NewMeetingViewController: UIViewController,
         
     
     
-        self.mainView.infoButton.addTarget(self, action: #selector(self.newMeetingAction), for: .touchDown)
+        self.mainView.infoButton.addTarget(self, action: #selector(self.saveNewMeetingAction), for: .touchDown)
         
         self.mainView.setTitles(
-            titleViewText: LabelConfig(text: "Novo encontro", sizeFont: 30, weight: .bold),
+            titleViewText: LabelConfig(text: "", sizeFont: 30, weight: .bold),
             placeFoundText: LabelConfig(text: "Locais encontrados", sizeFont: 23, weight: .bold)
         )
         
@@ -144,13 +172,16 @@ class NewMeetingViewController: UIViewController,
 
     /// Quantidade de células que vai ter na table
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return 1
+        }
         return 3
     }
     
     
     /// Número de sessões diferentes
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     /// Ação de quando clica em uma célula
@@ -165,8 +196,7 @@ class NewMeetingViewController: UIViewController,
         
         var cell = UITableViewCell()
         
-        switch indexPath.row {
-        case 0:
+        if indexPath.section == 0 {
             guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableTitleCell.identifier, for: indexPath) as? NewMeetingTableTitleCell else {
                 return cell
             }
@@ -174,30 +204,55 @@ class NewMeetingViewController: UIViewController,
             newCell.setTextBackground("Título do encontro")
             newCell.setTextFieldDelegate(delegate: self.textFieldDelegate)
             cell = newCell
-            
-        case 1:
-            guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableDateCell.identifier, for: indexPath) as? NewMeetingTableDateCell else {
-                return cell
-            }
-            
-            newCell.setCellTitle(LabelConfig(text: "Quando será?", sizeFont: 17, weight: .regular))
-            cell = newCell
-            
-        case 2:
-            guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableParticipantsCell.identifier, for: indexPath) as? NewMeetingTableParticipantsCell else {
-                return cell
-            }
-            
-            newCell.setCellTitle(
-                leftText: LabelConfig(text: "Quem vai?", sizeFont: 17, weight: .regular),
-                rightText: LabelConfig(text: "10", sizeFont: 17, weight: .regular))
-            cell = newCell
+        } else {
+            switch indexPath.row {
+            case 0:
+                guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableDateCell.identifier, for: indexPath) as? NewMeetingTableDateCell else {
+                    return cell
+                }
+                
+                newCell.setCellTitle(LabelConfig(text: "Quando será?", sizeFont: 17, weight: .regular))
+                cell = newCell
+                
+            case 1:
+                guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableParticipantsCell.identifier, for: indexPath) as? NewMeetingTableParticipantsCell else {
+                    return cell
+                }
+                
+                newCell.setCellTitle(
+                    leftText: LabelConfig(text: "Quem vai?", sizeFont: 17, weight: .regular),
+                    rightText: LabelConfig(text: "10", sizeFont: 17, weight: .regular))
+                cell = newCell
 
-        default: return cell
+            default: return cell
+            }
         }
+    
         return cell
     }
     
+    
+//    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height/2))
+//        view.backgroundColor = UIColor(named: "BackgroundColor")
+//        return view
+//    }
+  
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return .leastNormalMagnitude
+        } else {
+            tableView.sectionHeaderHeight = 0
+        }
+        return .leastNormalMagnitude
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return .leastNormalMagnitude
+        }
+        return .leastNormalMagnitude
+    }
     
     
     /* MARK: - Delegate (Collection) */
@@ -211,7 +266,7 @@ class NewMeetingViewController: UIViewController,
     /// Configura uma célula
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        // Cria uma variácel para mexer com uma célula que foi criada
+        // Cria uma variável para mexer com uma célula que foi criada
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewMeetingCollectionCell.identifier, for: indexPath) as? NewMeetingCollectionCell else {
             return UICollectionViewCell()
         }
@@ -238,6 +293,8 @@ class NewMeetingViewController: UIViewController,
         self.lastCellChecked.uncheckCell()
         self.lastCellChecked = cell
         
+        collectionView.tag = indexPath.row
+        
         self.mapManeger.setMapFocus(at: self.placesOnTheMidway[indexPath.row].coordinates, radius: 1000)
     }
     
@@ -246,7 +303,37 @@ class NewMeetingViewController: UIViewController,
     /* MARK: - Ações dos botões */
     
     
-    @objc private func newMeetingAction() -> Void {
+    @objc private func saveNewMeetingAction() -> Void {
+        
+        let mapPlace = self.placesOnTheMidway[self.mainView.placesFoundCollection.tag]
+        
+        
+        guard let cellDate = self.mainView.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 1) as IndexPath) as? NewMeetingTableDateCell else {
+            return
+        }
+        
+        guard let cellTitle = self.mainView.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as? NewMeetingTableTitleCell else {
+            return
+        }
+        
+        if cellTitle.getText() == "" {
+            // Caso para quando a pessoa não colocu um título
+        }
+        
+        let data = MeetingCreated(
+            placeInfo: mapPlace,
+            date: cellDate.getDate(),
+            hour: cellDate.getTime(),
+            meetingName: cellTitle.getText(),
+            participants: []
+        )
+
+        guard let _ = try? MeetingCDManeger.shared.newMeeting(data: data) else {
+            print("\n\nErro na hora de salvar o encontro no CoreData\n\n")
+            return
+        }
+        
+        self.superViewController.reloadDataMeetingsTableView()
         self.dismiss(animated: true)
     }
     
@@ -254,6 +341,7 @@ class NewMeetingViewController: UIViewController,
     @objc private func dismissKeyboard() -> Void {
         self.view.endEditing(true)
     }
+    
     
     
     

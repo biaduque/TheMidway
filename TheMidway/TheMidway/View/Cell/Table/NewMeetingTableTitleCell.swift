@@ -31,10 +31,14 @@ class NewMeetingTableTitleCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = UIColor(named: "BackgroundColor")
+        self.backgroundColor = .secondarySystemBackground// UIColor(named: "BackgroundColor")
 //        self.layoutMargins = .zero
 //        self.separatorInset = .zero
         self.separatorInset.left = 38
+        self.clipsToBounds = true
+        self.contentView.clipsToBounds = true
+        self.contentView.layer.masksToBounds = true
+        
         
         self.contentView.addSubview(self.textField)
         
@@ -53,6 +57,10 @@ class NewMeetingTableTitleCell: UITableViewCell {
     
     public func setTextFieldDelegate(delegate: UITextFieldDelegate) -> Void {
         self.textField.delegate = delegate
+    }
+    
+    public func getText() -> String {
+        return self.textField.text ?? ""
     }
     
     

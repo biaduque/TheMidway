@@ -12,16 +12,14 @@ class MainTableDelegate: NSObject, UITableViewDelegate {
     
     /* MARK: - Atributos */
     
-    private var meetings: [Meetings] = []
+    private var meetings: [Meetings] = MeetingCDManeger.shared.getMeetingsCreated()
     
     
     
-    /* MARK: -  */
+    /* MARK: - Encapsulamento */
     
-    init(meetings: [Meetings]) {
-        self.meetings = meetings
-        
-        super.init()
+    public func setMeetings(_ meetings: [Meetings]) -> Void {
+        return self.meetings = meetings
     }
     
     
@@ -31,6 +29,9 @@ class MainTableDelegate: NSObject, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadInputViews()
-        print("Cell pressed")
+        
+        if indexPath.section == 1 && indexPath.row == 1 {
+            print("Vai abrir uma nova controller aqui")
+        }
     }
 }

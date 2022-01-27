@@ -22,7 +22,7 @@ class MainView: UIView {
     
     private var suggestionLabel: UILabel
     
-    public let suggestionCollection: UICollectionView = {
+    private let suggestionCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal                // Direção da rolagem (se é horizontal ou vertical)
         layout.itemSize = CGSize(width: 200, height: 230)   // Define o tamanho da célula
@@ -43,7 +43,7 @@ class MainView: UIView {
     
     public let newMeetingButton: UIButton
     
-    public let meetingsTableView: UITableView = {
+    private let meetingsTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.backgroundColor = UIColor(named: "BackgroundColor")
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +103,7 @@ class MainView: UIView {
     
     /* MARK: -  Encapsulamento */
     
+    // Configuração da View
     public func setTitles(suggestionText: String, meetingText: String, sizeFont:CGFloat, w:UIFont.Weight) -> Void {
         // Labels
         self.suggestionLabel.text = suggestionText
@@ -118,6 +119,32 @@ class MainView: UIView {
         self.infoButton.setImage(UIImage(systemName: "questionmark.circle", withConfiguration: configIcon), for: .normal)
     }
     
+    
+    // Delegate & Datasource
+    
+    public func setSuggestionsCollectionDelegate(_ delegate: MainCollectionDelegate) -> Void {
+        self.suggestionCollection.delegate = delegate
+    }
+    
+    public func setSuggestionsCollectionDataSource(_ dataSource: MainCollectionDataSource) -> Void {
+        self.suggestionCollection.dataSource = dataSource
+    }
+    
+    
+    public func setMeetingsTableDelegate(_ delegate: MainTableDelegate) -> Void {
+        self.meetingsTableView.delegate = delegate
+    }
+    
+    public func setMeetingsTableDataSource(_ dataSource: MainTableDataSource) -> Void {
+        self.meetingsTableView.dataSource = dataSource
+    }
+    
+    
+    // Atualizando dados da Table
+    public func updateMeetingsTableData() -> Void { self.meetingsTableView.reloadData() }
+    
+    
+    // EmptyView
     
     public func activateEmptyView(num: Int) -> Void {
         if num == 0 {

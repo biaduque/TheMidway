@@ -39,8 +39,12 @@ class NewMeetingTableDateCell: UITableViewCell {
         
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = UIColor(named: "BackgroundColor")
+        self.backgroundColor = .secondarySystemBackground // UIColor(named: "BackgroundColor")
         
+        self.clipsToBounds = true
+        self.contentView.clipsToBounds = true
+        self.contentView.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
         // self.layoutMargins = .zero
         // self.separatorInset = .zero
         
@@ -67,6 +71,19 @@ class NewMeetingTableDateCell: UITableViewCell {
         self.image.image = UIImage(systemName: "calendar", withConfiguration: configIcon)
     }
     
+    
+    public func getTime() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm"
+        return df.string(from: self.date.date)
+    }
+    
+    
+    public func getDate() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm"
+        return df.string(from: self.date.date)
+    }
     
     
     /* MARK: - Configurações */

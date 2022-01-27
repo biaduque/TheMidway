@@ -12,23 +12,22 @@ class MainTableDataSource: NSObject, UITableViewDataSource {
     
     /* MARK: - Atributos */
     
-    private var meetings: [Meetings] = []
+    private var meetings: [Meetings] = MeetingCDManeger.shared.getMeetingsCreated()
     
     
     
-    /* MARK: -  */
+    /* MARK: - Encapsulamento */
     
-    init(meetings: [Meetings]) {
-        self.meetings = meetings
-        
-        super.init()
+    public func setMeetings(_ meetings: [Meetings]) -> Void {
+        return self.meetings = meetings
     }
     
     
     
     /* MARK: - Data Sources */
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    /// Fala quantas linhas vão ter na tableView
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.meetings.count
     }
     
