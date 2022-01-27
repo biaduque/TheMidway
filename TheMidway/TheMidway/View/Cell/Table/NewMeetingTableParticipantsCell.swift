@@ -41,16 +41,13 @@ class NewMeetingTableParticipantsCell: UITableViewCell {
         self.clipsToBounds = true
         self.contentView.clipsToBounds = true
         self.contentView.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
         
         self.contentView.addSubview(self.leftImage)
         self.contentView.addSubview(self.leftLabel)
         self.contentView.addSubview(self.rightImage)
         self.contentView.addSubview(self.rightLabel)
-        
-        // self.accessoryType = .disclosureIndicator
-        
-        self.separatorInset.left = 38
-        
+    
         self.setConstraints()
     }
     
@@ -96,11 +93,12 @@ class NewMeetingTableParticipantsCell: UITableViewCell {
     /* MARK: - Constraints */
     
     private func setConstraints() -> Void {
+        let lateralSpace: CGFloat = 5
         let betweenSpace: CGFloat = 8
         
         let leftImageConstraints: [NSLayoutConstraint] = [
             self.leftImage.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace),
-            self.leftImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.leftImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.leftImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace),
             self.leftImage.widthAnchor.constraint(equalToConstant: self.frame.height - betweenSpace*2)
         ]

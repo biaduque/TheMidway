@@ -31,13 +31,12 @@ class NewMeetingTableTitleCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = .secondarySystemBackground// UIColor(named: "BackgroundColor")
-//        self.layoutMargins = .zero
-//        self.separatorInset = .zero
-        self.separatorInset.left = 38
+        self.backgroundColor = .secondarySystemBackground
+        
         self.clipsToBounds = true
         self.contentView.clipsToBounds = true
         self.contentView.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
         
         
         self.contentView.addSubview(self.textField)
@@ -80,12 +79,12 @@ class NewMeetingTableTitleCell: UITableViewCell {
     /* MARK: - Constraints */
     
     private func setConstraints() -> Void {
-        // let lateralSpace: CGFloat = 5
+        let lateralSpace: CGFloat = 5
         
         let textFieldConstraints: [NSLayoutConstraint] = [
             self.textField.topAnchor.constraint(equalTo: self.topAnchor),
-            self.textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.textField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
+            self.textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.textField.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ]
         NSLayoutConstraint.activate(textFieldConstraints)

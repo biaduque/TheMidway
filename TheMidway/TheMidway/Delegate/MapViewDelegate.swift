@@ -16,7 +16,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
             print("Estou no delegate do círculo")
         
             let circle = MKCircleRenderer(overlay: overlay)
-            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.2)
+            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.18)
             circle.strokeColor = UIColor(named: "Color4")
             circle.lineWidth = 1.0
             return circle

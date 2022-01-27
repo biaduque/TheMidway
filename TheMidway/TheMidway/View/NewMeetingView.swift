@@ -16,29 +16,12 @@ class NewMeetingView: UIView {
     
     private var emptyViewConstraints: [NSLayoutConstraint] = []
     
-//    private var scroll: UIScrollView = {
-//        let scroll = UIScrollView()
-//        scroll.translatesAutoresizingMaskIntoConstraints = false
-//
-//        scroll.alwaysBounceHorizontal = true
-//        scroll.alwaysBounceVertical = true
-//        return scroll
-//    }()
     
-    
-    public let infoButton: UIButton
-    
-    
-    // Título
-    
-    private var titleViewLabel: UILabel
-    
-    
-    // Informações de Cadastro
+    // Formulário
     
     public let formsTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.backgroundColor = UIColor(named: "BackgroundColor")
+        table.backgroundColor = UIColor(named: "BackgroundColor") // .secondarySystemBackground
         table.translatesAutoresizingMaskIntoConstraints = false
         
         table.alwaysBounceVertical = false
@@ -51,7 +34,7 @@ class NewMeetingView: UIView {
         table.layer.cornerRadius = 7
         
         // Tamanho da célula
-        table.rowHeight = 40
+        table.rowHeight = 45
     
         table.register(NewMeetingTableTitleCell.self, forCellReuseIdentifier: NewMeetingTableTitleCell.identifier)
         table.register(NewMeetingTableDateCell.self, forCellReuseIdentifier: NewMeetingTableDateCell.identifier)
@@ -64,6 +47,8 @@ class NewMeetingView: UIView {
         let view = UIView(frame: frame)
         table.tableHeaderView = view
         table.tableFooterView = view
+         table.sectionHeaderHeight = .leastNormalMagnitude
+         table.sectionFooterHeight = 20
         
         table.contentInset = .zero
         
@@ -107,10 +92,6 @@ class NewMeetingView: UIView {
     /* MARK: -  */
     
     init() {
-        self.infoButton = MainView.newButton(color: UIColor(named: "AccentColor"))
-        
-        self.titleViewLabel = MainView.newLabel(color: UIColor(named: "TitleLabel"))
-        
         self.placesFoundLabel = MainView.newLabel(color: UIColor(named: "TitleLabel"))
         self.retryButton = MainView.newButton(color: UIColor(named: "AccentColor"))
         
@@ -118,9 +99,6 @@ class NewMeetingView: UIView {
     
         self.backgroundColor = UIColor(named: "BackgroundColor")
                 
-        self.addSubview(self.infoButton)
-        
-        self.addSubview(self.titleViewLabel)
         self.addSubview(self.formsTableView)
         
         self.addSubview(self.placesFoundLabel)
@@ -140,88 +118,30 @@ class NewMeetingView: UIView {
     
     /* MARK: -  Encapsulamento */
     
-    public func setTitles(titleViewText: LabelConfig, placeFoundText: LabelConfig) -> Void {
-        // Labels
-        self.titleViewLabel.text = titleViewText.text
-        self.titleViewLabel.font = .systemFont(ofSize: titleViewText.sizeFont, weight: titleViewText.weight)
-        
+    public func setTitles(placeFoundText: LabelConfig) -> Void {
         self.placesFoundLabel.text = placeFoundText.text
         self.placesFoundLabel.font = .systemFont(ofSize: placeFoundText.sizeFont, weight: placeFoundText.weight)
         
         // Botões
-        let configIcon = UIImage.SymbolConfiguration(pointSize: titleViewText.sizeFont-10, weight: .semibold, scale: .large)
-        
-        self.infoButton.setImage(UIImage(systemName: "questionmark.circle", withConfiguration: configIcon), for: .normal)
+        let configIcon = UIImage.SymbolConfiguration(pointSize: placeFoundText.sizeFont, weight: .semibold, scale: .large)
         
         self.retryButton.setImage(UIImage(systemName: "arrow.counterclockwise", withConfiguration: configIcon), for: .normal)
     }
     
-    
-    public func activateEmptyView(num: Int) -> Void {
-        if num == 0 {
-            self.emptyView.isHidden = false
-            NSLayoutConstraint.activate(self.emptyViewConstraints)
-            
-            if !self.emptyView.isDescendant(of: self) {
-                self.addSubview(self.emptyView)
-            }
         
-//            self.meetingsTableView.isHidden = true
-//            NSLayoutConstraint.deactivate(self.meetingsTableViewConstraints)
-
-        } else {
-            self.emptyView.isHidden = true
-            NSLayoutConstraint.deactivate(self.emptyViewConstraints)
-            self.emptyView.removeFromSuperview()
-
-//            self.meetingsTableView.isHidden = false
-//            NSLayoutConstraint.activate(self.meetingsTableViewConstraints)
-        }
-    }
-    
-    
-    public func setEmptyViewInfo(img: String, label: LabelConfig, button: LabelConfig) {
-        self.emptyView.setEmptyViewInfo(img: img, text: label, button: button)
-    }
-    
-    public func getEmptyViewButton() -> UIButton {
-        return self.emptyView.getButton()
-    }
-    
-    
     
     /* MARK: -  Constraints */
     
     private func setConstraints() -> Void {
-        let lateralSpace: CGFloat = 25
+        let lateralSpace: CGFloat = 18
         let betweenSpace: CGFloat = 20
         
         let buttonSize: CGFloat = 25
         
-        // Label
-        let titleViewLabelConstraints: [NSLayoutConstraint] = [
-            self.titleViewLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
-            self.titleViewLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
-            self.titleViewLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.titleViewLabel.bottomAnchor.constraint(equalTo: self.formsTableView.topAnchor, constant: -betweenSpace)
-        ]
-        NSLayoutConstraint.activate(titleViewLabelConstraints)
-        
-        // Botão de Informação
-        let infoButtonConstraints: [NSLayoutConstraint] = [
-            self.infoButton.topAnchor.constraint(equalTo: self.titleViewLabel.topAnchor),
-            self.infoButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.infoButton.centerYAnchor.constraint(equalTo: self.titleViewLabel.centerYAnchor),
-            self.infoButton.heightAnchor.constraint(equalToConstant: buttonSize),
-            self.infoButton.widthAnchor.constraint(equalToConstant: buttonSize)
-        ]
-        NSLayoutConstraint.activate(infoButtonConstraints)
-        
         
         /* Formulário */
-        
         let formsTableViewConstraints: [NSLayoutConstraint] = [
-            self.formsTableView.topAnchor.constraint(equalTo: self.titleViewLabel.bottomAnchor, constant: betweenSpace*2),
+            self.formsTableView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
             self.formsTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.formsTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.formsTableView.heightAnchor.constraint(equalToConstant: 160)
@@ -229,11 +149,11 @@ class NewMeetingView: UIView {
         NSLayoutConstraint.activate(formsTableViewConstraints)
         
         
-        /*  Lugares encotrados */
+        /*  Lugares encontrados */
         
         // Label
         let placesFoundLabelConstraints: [NSLayoutConstraint] = [
-            self.placesFoundLabel.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor, constant: betweenSpace),
+            self.placesFoundLabel.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor, constant: betweenSpace*1.2),
             self.placesFoundLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.placesFoundLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.placesFoundLabel.heightAnchor.constraint(equalToConstant: 50)

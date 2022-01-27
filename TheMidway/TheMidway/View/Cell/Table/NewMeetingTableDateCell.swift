@@ -40,15 +40,12 @@ class NewMeetingTableDateCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = .secondarySystemBackground // UIColor(named: "BackgroundColor")
+        self.separatorInset.left = 38
         
         self.clipsToBounds = true
         self.contentView.clipsToBounds = true
         self.contentView.layer.masksToBounds = true
         self.layer.cornerRadius = 5
-        // self.layoutMargins = .zero
-        // self.separatorInset = .zero
-        
-        self.separatorInset.left = 38
         
         self.contentView.addSubview(self.image)
         self.contentView.addSubview(self.label)
@@ -101,10 +98,11 @@ class NewMeetingTableDateCell: UITableViewCell {
     /* MARK: - Constraints */
     
     private func setConstraints() -> Void {
+        let lateralSpace: CGFloat = 5
         let betweenSpace: CGFloat = 8
         
         let imageConstraints: [NSLayoutConstraint] = [
-            self.image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.image.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.image.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace),
             self.image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace),
             self.image.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -124,9 +122,10 @@ class NewMeetingTableDateCell: UITableViewCell {
 
         let dateConstraints: [NSLayoutConstraint] = [
             self.date.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace/2),
-            self.date.leadingAnchor.constraint(equalTo: self.centerXAnchor),
-            self.date.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.date.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace/2)
+            self.date.leadingAnchor.constraint(equalTo: self.centerXAnchor, constant: -(lateralSpace*2)),
+            self.date.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.date.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
+            self.date.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lateralSpace)
         ]
         NSLayoutConstraint.activate(dateConstraints)
     }

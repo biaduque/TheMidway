@@ -123,19 +123,18 @@ class NewMeetingViewController: UIViewController,
         
         
         // Delegates
-        self.mapManeger = MapViewManeger(mapView: self.mainView.mapView, locationDelegate: self.locationDelegate, mapDelegate: self.mapViewDelegate)
+        self.mapManeger = MapViewManeger(
+            mapView: self.mainView.mapView,
+            locationDelegate: self.locationDelegate,
+            mapDelegate: self.mapViewDelegate
+        )
         self.locationDelegate.setManeger(manegar: self.mapManeger)
         
-    
-    
-        self.mainView.infoButton.addTarget(self, action: #selector(self.saveNewMeetingAction), for: .touchDown)
-        
-        self.mainView.setTitles(
-            titleViewText: LabelConfig(text: "", sizeFont: 30, weight: .bold),
-            placeFoundText: LabelConfig(text: "Locais encontrados", sizeFont: 23, weight: .bold)
-        )
+
+        self.mainView.setTitles(placeFoundText: LabelConfig(text: "Locais encontrados", sizeFont: 23, weight: .bold))
         
         
+        // The Midway logic
         var coords: [CLLocationCoordinate2D] = []
         for place in self.placesOnTheMidway {
             let pin = self.mapManeger.createPin(name: place.name, coordinate: place.coordinates, type: place.type.localizedDescription)
@@ -150,7 +149,7 @@ class NewMeetingViewController: UIViewController,
         self.mapManeger.addPointOnMap(pin: pin)
         
         self.mapManeger.addCircle(at: midwayCoords)
-        self.mapManeger.setMapFocus(at: midwayCoords, radius: 2500)
+        self.mapManeger.setMapFocus(at: midwayCoords, radius: 4000)
     }
     
     
@@ -211,7 +210,7 @@ class NewMeetingViewController: UIViewController,
                     return cell
                 }
                 
-                newCell.setCellTitle(LabelConfig(text: "Quando será?", sizeFont: 17, weight: .regular))
+                newCell.setCellTitle(LabelConfig(text: "Quando será?", sizeFont: 17, weight: .bold))
                 cell = newCell
                 
             case 1:
@@ -220,7 +219,7 @@ class NewMeetingViewController: UIViewController,
                 }
                 
                 newCell.setCellTitle(
-                    leftText: LabelConfig(text: "Quem vai?", sizeFont: 17, weight: .regular),
+                    leftText: LabelConfig(text: "Quem vai?", sizeFont: 17, weight: .bold),
                     rightText: LabelConfig(text: "10", sizeFont: 17, weight: .regular))
                 cell = newCell
 
@@ -231,28 +230,6 @@ class NewMeetingViewController: UIViewController,
         return cell
     }
     
-    
-//    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height/2))
-//        view.backgroundColor = UIColor(named: "BackgroundColor")
-//        return view
-//    }
-  
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return .leastNormalMagnitude
-        } else {
-            tableView.sectionHeaderHeight = 0
-        }
-        return .leastNormalMagnitude
-    }
-    
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return .leastNormalMagnitude
-        }
-        return .leastNormalMagnitude
-    }
     
     
     /* MARK: - Delegate (Collection) */
@@ -295,7 +272,7 @@ class NewMeetingViewController: UIViewController,
         
         collectionView.tag = indexPath.row
         
-        self.mapManeger.setMapFocus(at: self.placesOnTheMidway[indexPath.row].coordinates, radius: 1000)
+        self.mapManeger.setMapFocus(at: self.placesOnTheMidway[indexPath.row].coordinates, radius: 3000)
     }
     
         
