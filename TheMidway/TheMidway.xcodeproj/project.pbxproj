@@ -8,72 +8,72 @@
 
 /* Begin PBXBuildFile section */
 		2215BB7827A21FC4009362AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2215BB7627A21FC4009362AC /* Main.storyboard */; };
-		2215BB8D27A221B3009362AC /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB8A27A221B3009362AC /* TheMidway.xcdatamodeld */; };
-		2215BB8E27A221B3009362AC /* MeetingCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB8C27A221B3009362AC /* MeetingCDManeger.swift */; };
-		2215BB9127A221D3009362AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2215BB9027A221D3009362AC /* Assets.xcassets */; };
-		2215BB9527A22227009362AC /* MapViewManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9427A22227009362AC /* MapViewManeger.swift */; };
-		2215BB9827A22234009362AC /* PlacesCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9627A22234009362AC /* PlacesCategories.swift */; };
-		2215BB9927A22234009362AC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9727A22234009362AC /* APIError.swift */; };
-		2215BBA027A2225C009362AC /* MeetingCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9B27A2225C009362AC /* MeetingCreated.swift */; };
-		2215BBA127A2225C009362AC /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9C27A2225C009362AC /* Person.swift */; };
-		2215BBA227A2225C009362AC /* LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9D27A2225C009362AC /* LabelConfig.swift */; };
-		2215BBA327A2225C009362AC /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9E27A2225C009362AC /* MapPlace.swift */; };
-		2215BBA427A2225C009362AC /* MeetingCreatedCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BB9F27A2225C009362AC /* MeetingCreatedCellInfo.swift */; };
-		2215BBA827A2227C009362AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBA627A2227C009362AC /* MainViewController.swift */; };
-		2215BBA927A2227C009362AC /* NewMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBA727A2227C009362AC /* NewMeetingViewController.swift */; };
-		2215BBB027A222B1009362AC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBAE27A222B1009362AC /* MainView.swift */; };
-		2215BBB127A222B1009362AC /* NewMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBAF27A222B1009362AC /* NewMeetingView.swift */; };
-		2215BBB627A222C6009362AC /* NewMeetingTableParticipantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBB227A222C6009362AC /* NewMeetingTableParticipantsCell.swift */; };
-		2215BBB727A222C6009362AC /* NewMeetingTableTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBB327A222C6009362AC /* NewMeetingTableTitleCell.swift */; };
-		2215BBB827A222C6009362AC /* MainViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBB427A222C6009362AC /* MainViewTableCell.swift */; };
-		2215BBB927A222C6009362AC /* NewMeetingTableDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBB527A222C6009362AC /* NewMeetingTableDateCell.swift */; };
-		2215BBBC27A222DF009362AC /* NewMeetingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBBA27A222DF009362AC /* NewMeetingCollectionCell.swift */; };
-		2215BBBD27A222DF009362AC /* MainViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBBB27A222DF009362AC /* MainViewCollectionCell.swift */; };
-		2215BBC027A22307009362AC /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBBF27A22307009362AC /* EmptyView.swift */; };
-		2215BBC727A22386009362AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBC527A22386009362AC /* AppDelegate.swift */; };
-		2215BBC827A22386009362AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBC627A22386009362AC /* SceneDelegate.swift */; };
-		2215BBCC27A22399009362AC /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBC927A22399009362AC /* TextFieldDelegate.swift */; };
-		2215BBCD27A22399009362AC /* LocationManegerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBCA27A22399009362AC /* LocationManegerDelegate.swift */; };
-		2215BBCE27A22399009362AC /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215BBCB27A22399009362AC /* MapViewDelegate.swift */; };
-		229F79CF27A235580039902B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229F79CE27A235580039902B /* Launch Screen.storyboard */; };
 		229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D227A23C400039902B /* MainTableDelegate.swift */; };
 		229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D727A23D440039902B /* MainTableDataSource.swift */; };
+		229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */; };
+		229F79E127A2D3AD0039902B /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DE27A2D3AD0039902B /* TheMidway.xcdatamodeld */; };
+		229F79E427A2D4090039902B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E227A2D4090039902B /* SceneDelegate.swift */; };
+		229F79E527A2D4090039902B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E327A2D4090039902B /* AppDelegate.swift */; };
+		229F79E927A2D4250039902B /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E627A2D4240039902B /* TextFieldDelegate.swift */; };
+		229F79EA27A2D4250039902B /* LocationManegerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E727A2D4250039902B /* LocationManegerDelegate.swift */; };
+		229F79EB27A2D4250039902B /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E827A2D4250039902B /* MapViewDelegate.swift */; };
+		229F79EE27A2D45E0039902B /* PlacesCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79EC27A2D45E0039902B /* PlacesCategories.swift */; };
+		229F79EF27A2D45E0039902B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79ED27A2D45E0039902B /* APIError.swift */; };
+		229F79F127A2D4750039902B /* MapViewManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F027A2D4750039902B /* MapViewManeger.swift */; };
+		229F79F827A2D49C0039902B /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F227A2D49B0039902B /* Person.swift */; };
+		229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */; };
+		229F79FA27A2D49C0039902B /* LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F427A2D49B0039902B /* LabelConfig.swift */; };
+		229F79FC27A2D49C0039902B /* MeetingCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F627A2D49B0039902B /* MeetingCreated.swift */; };
+		229F79FD27A2D49C0039902B /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F727A2D49C0039902B /* MapPlace.swift */; };
+		229F79FF27A2D4CC0039902B /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79FE27A2D4CC0039902B /* EmptyView.swift */; };
+		229F7A0427A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0027A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift */; };
+		229F7A0527A2D4EA0039902B /* NewMeetingTableDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0127A2D4EA0039902B /* NewMeetingTableDateCell.swift */; };
+		229F7A0627A2D4EA0039902B /* MainViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0227A2D4EA0039902B /* MainViewTableCell.swift */; };
+		229F7A0727A2D4EA0039902B /* NewMeetingTableTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0327A2D4EA0039902B /* NewMeetingTableTitleCell.swift */; };
+		229F7A0A27A2D5D50039902B /* MainViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0827A2D5D50039902B /* MainViewCollectionCell.swift */; };
+		229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0927A2D5D50039902B /* NewMeetingCollectionCell.swift */; };
+		229F7A0E27A2D5F50039902B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0C27A2D5F50039902B /* MainView.swift */; };
+		229F7A0F27A2D5F50039902B /* NewMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0D27A2D5F50039902B /* NewMeetingView.swift */; };
+		229F7A1227A2D6230039902B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1027A2D6230039902B /* MainViewController.swift */; };
+		229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1127A2D6230039902B /* NewMeetingViewController.swift */; };
+		229F7A1727A2E30C0039902B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229F7A1627A2E30C0039902B /* Assets.xcassets */; };
+		229F7A1927A2E3B80039902B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2215BB6D27A21FC4009362AC /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2215BB7727A21FC4009362AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2215BB8127A21FC5009362AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2215BB8B27A221B3009362AC /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
-		2215BB8C27A221B3009362AC /* MeetingCDManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingCDManeger.swift; path = "../../../TheMidway 18-41-23-148/CoreData/MeetingCDManeger.swift"; sourceTree = "<group>"; };
-		2215BB9027A221D3009362AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../TheMidway 18-41-23-148/Assets/Assets.xcassets"; sourceTree = "<group>"; };
-		2215BB9427A22227009362AC /* MapViewManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewManeger.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Complements/MapViewManeger.swift"; sourceTree = "<group>"; };
-		2215BB9627A22234009362AC /* PlacesCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacesCategories.swift; path = "../../../../../TheMidway 18-41-23-148/TheMidway/Complements/Enum/PlacesCategories.swift"; sourceTree = "<group>"; };
-		2215BB9727A22234009362AC /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIError.swift; path = "../../../../../TheMidway 18-41-23-148/TheMidway/Complements/Enum/APIError.swift"; sourceTree = "<group>"; };
-		2215BB9B27A2225C009362AC /* MeetingCreated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingCreated.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Modal/MeetingCreated.swift"; sourceTree = "<group>"; };
-		2215BB9C27A2225C009362AC /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Modal/Person.swift"; sourceTree = "<group>"; };
-		2215BB9D27A2225C009362AC /* LabelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelConfig.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Modal/LabelConfig.swift"; sourceTree = "<group>"; };
-		2215BB9E27A2225C009362AC /* MapPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapPlace.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Modal/MapPlace.swift"; sourceTree = "<group>"; };
-		2215BB9F27A2225C009362AC /* MeetingCreatedCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeetingCreatedCellInfo.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Modal/MeetingCreatedCellInfo.swift"; sourceTree = "<group>"; };
-		2215BBA627A2227C009362AC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Controller/MainViewController.swift"; sourceTree = "<group>"; };
-		2215BBA727A2227C009362AC /* NewMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMeetingViewController.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Controller/NewMeetingViewController.swift"; sourceTree = "<group>"; };
-		2215BBAE27A222B1009362AC /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/View/MainView.swift"; sourceTree = "<group>"; };
-		2215BBAF27A222B1009362AC /* NewMeetingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMeetingView.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/View/NewMeetingView.swift"; sourceTree = "<group>"; };
-		2215BBB227A222C6009362AC /* NewMeetingTableParticipantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMeetingTableParticipantsCell.swift; path = "../../../../../../TheMidway 18-41-23-148/TheMidway/View/Cell/Table/NewMeetingTableParticipantsCell.swift"; sourceTree = "<group>"; };
-		2215BBB327A222C6009362AC /* NewMeetingTableTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMeetingTableTitleCell.swift; path = "../../../../../../TheMidway 18-41-23-148/TheMidway/View/Cell/Table/NewMeetingTableTitleCell.swift"; sourceTree = "<group>"; };
-		2215BBB427A222C6009362AC /* MainViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewTableCell.swift; path = "../../../../../../TheMidway 18-41-23-148/TheMidway/View/Cell/Table/MainViewTableCell.swift"; sourceTree = "<group>"; };
-		2215BBB527A222C6009362AC /* NewMeetingTableDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMeetingTableDateCell.swift; path = "../../../../../../TheMidway 18-41-23-148/TheMidway/View/Cell/Table/NewMeetingTableDateCell.swift"; sourceTree = "<group>"; };
-		2215BBBA27A222DF009362AC /* NewMeetingCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMeetingCollectionCell.swift; path = "../../../../../../TheMidway 18-41-23-148/TheMidway/View/Cell/Collections/NewMeetingCollectionCell.swift"; sourceTree = "<group>"; };
-		2215BBBB27A222DF009362AC /* MainViewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewCollectionCell.swift; path = "../../../../../../TheMidway 18-41-23-148/TheMidway/View/Cell/Collections/MainViewCollectionCell.swift"; sourceTree = "<group>"; };
-		2215BBBF27A22307009362AC /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyView.swift; path = "../../../../../TheMidway 18-41-23-148/TheMidway/View/EmptyView/EmptyView.swift"; sourceTree = "<group>"; };
-		2215BBC527A22386009362AC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../../../../TheMidway 18-41-23-148/TheMidway/Delegate/System/AppDelegate.swift"; sourceTree = "<group>"; };
-		2215BBC627A22386009362AC /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "../../../../../TheMidway 18-41-23-148/TheMidway/Delegate/System/SceneDelegate.swift"; sourceTree = "<group>"; };
-		2215BBC927A22399009362AC /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldDelegate.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Delegate/TextFieldDelegate.swift"; sourceTree = "<group>"; };
-		2215BBCA27A22399009362AC /* LocationManegerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManegerDelegate.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Delegate/LocationManegerDelegate.swift"; sourceTree = "<group>"; };
-		2215BBCB27A22399009362AC /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewDelegate.swift; path = "../../../../TheMidway 18-41-23-148/TheMidway/Delegate/MapViewDelegate.swift"; sourceTree = "<group>"; };
-		229F79CE27A235580039902B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		229F79D227A23C400039902B /* MainTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDelegate.swift; sourceTree = "<group>"; };
 		229F79D727A23D440039902B /* MainTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDataSource.swift; sourceTree = "<group>"; };
+		229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCDManeger.swift; sourceTree = "<group>"; };
+		229F79DF27A2D3AD0039902B /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
+		229F79E227A2D4090039902B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		229F79E327A2D4090039902B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		229F79E627A2D4240039902B /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		229F79E727A2D4250039902B /* LocationManegerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManegerDelegate.swift; sourceTree = "<group>"; };
+		229F79E827A2D4250039902B /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		229F79EC27A2D45E0039902B /* PlacesCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCategories.swift; sourceTree = "<group>"; };
+		229F79ED27A2D45E0039902B /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		229F79F027A2D4750039902B /* MapViewManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewManeger.swift; sourceTree = "<group>"; };
+		229F79F227A2D49B0039902B /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCreatedCellInfo.swift; sourceTree = "<group>"; };
+		229F79F427A2D49B0039902B /* LabelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelConfig.swift; sourceTree = "<group>"; };
+		229F79F627A2D49B0039902B /* MeetingCreated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCreated.swift; sourceTree = "<group>"; };
+		229F79F727A2D49C0039902B /* MapPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
+		229F79FE27A2D4CC0039902B /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		229F7A0027A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingTableParticipantsCell.swift; sourceTree = "<group>"; };
+		229F7A0127A2D4EA0039902B /* NewMeetingTableDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingTableDateCell.swift; sourceTree = "<group>"; };
+		229F7A0227A2D4EA0039902B /* MainViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTableCell.swift; sourceTree = "<group>"; };
+		229F7A0327A2D4EA0039902B /* NewMeetingTableTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingTableTitleCell.swift; sourceTree = "<group>"; };
+		229F7A0827A2D5D50039902B /* MainViewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCollectionCell.swift; sourceTree = "<group>"; };
+		229F7A0927A2D5D50039902B /* NewMeetingCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingCollectionCell.swift; sourceTree = "<group>"; };
+		229F7A0C27A2D5F50039902B /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		229F7A0D27A2D5F50039902B /* NewMeetingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingView.swift; sourceTree = "<group>"; };
+		229F7A1027A2D6230039902B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		229F7A1127A2D6230039902B /* NewMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingViewController.swift; sourceTree = "<group>"; };
+		229F7A1627A2E30C0039902B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 		2215BB8927A22199009362AC /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				2215BB8A27A221B3009362AC /* TheMidway.xcdatamodeld */,
-				2215BB8C27A221B3009362AC /* MeetingCDManeger.swift */,
+				229F79DE27A2D3AD0039902B /* TheMidway.xcdatamodeld */,
+				229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 		2215BB8F27A221C0009362AC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2215BB9027A221D3009362AC /* Assets.xcassets */,
+				229F7A1627A2E30C0039902B /* Assets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				2215BB9327A2220F009362AC /* Enum */,
-				2215BB9427A22227009362AC /* MapViewManeger.swift */,
+				229F79F027A2D4750039902B /* MapViewManeger.swift */,
 			);
 			path = Complements;
 			sourceTree = "<group>";
@@ -149,8 +149,8 @@
 		2215BB9327A2220F009362AC /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				2215BB9727A22234009362AC /* APIError.swift */,
-				2215BB9627A22234009362AC /* PlacesCategories.swift */,
+				229F79ED27A2D45E0039902B /* APIError.swift */,
+				229F79EC27A2D45E0039902B /* PlacesCategories.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -158,11 +158,11 @@
 		2215BB9A27A22241009362AC /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				2215BB9D27A2225C009362AC /* LabelConfig.swift */,
-				2215BB9E27A2225C009362AC /* MapPlace.swift */,
-				2215BB9B27A2225C009362AC /* MeetingCreated.swift */,
-				2215BB9F27A2225C009362AC /* MeetingCreatedCellInfo.swift */,
-				2215BB9C27A2225C009362AC /* Person.swift */,
+				229F79F427A2D49B0039902B /* LabelConfig.swift */,
+				229F79F727A2D49C0039902B /* MapPlace.swift */,
+				229F79F627A2D49B0039902B /* MeetingCreated.swift */,
+				229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */,
+				229F79F227A2D49B0039902B /* Person.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -170,8 +170,8 @@
 		2215BBA527A22268009362AC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2215BBA627A2227C009362AC /* MainViewController.swift */,
-				2215BBA727A2227C009362AC /* NewMeetingViewController.swift */,
+				229F7A1027A2D6230039902B /* MainViewController.swift */,
+				229F7A1127A2D6230039902B /* NewMeetingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,11 +179,11 @@
 		2215BBAA27A22286009362AC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				229F79CE27A235580039902B /* Launch Screen.storyboard */,
+				229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */,
 				2215BBBE27A222F3009362AC /* EmptyView */,
 				2215BBAB27A2228B009362AC /* Cell */,
-				2215BBAE27A222B1009362AC /* MainView.swift */,
-				2215BBAF27A222B1009362AC /* NewMeetingView.swift */,
+				229F7A0C27A2D5F50039902B /* MainView.swift */,
+				229F7A0D27A2D5F50039902B /* NewMeetingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,8 +200,8 @@
 		2215BBAC27A22290009362AC /* Collection */ = {
 			isa = PBXGroup;
 			children = (
-				2215BBBB27A222DF009362AC /* MainViewCollectionCell.swift */,
-				2215BBBA27A222DF009362AC /* NewMeetingCollectionCell.swift */,
+				229F7A0827A2D5D50039902B /* MainViewCollectionCell.swift */,
+				229F7A0927A2D5D50039902B /* NewMeetingCollectionCell.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -209,10 +209,10 @@
 		2215BBAD27A22298009362AC /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				2215BBB427A222C6009362AC /* MainViewTableCell.swift */,
-				2215BBB527A222C6009362AC /* NewMeetingTableDateCell.swift */,
-				2215BBB227A222C6009362AC /* NewMeetingTableParticipantsCell.swift */,
-				2215BBB327A222C6009362AC /* NewMeetingTableTitleCell.swift */,
+				229F7A0227A2D4EA0039902B /* MainViewTableCell.swift */,
+				229F7A0327A2D4EA0039902B /* NewMeetingTableTitleCell.swift */,
+				229F7A0127A2D4EA0039902B /* NewMeetingTableDateCell.swift */,
+				229F7A0027A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 		2215BBBE27A222F3009362AC /* EmptyView */ = {
 			isa = PBXGroup;
 			children = (
-				2215BBBF27A22307009362AC /* EmptyView.swift */,
+				229F79FE27A2D4CC0039902B /* EmptyView.swift */,
 			);
 			path = EmptyView;
 			sourceTree = "<group>";
@@ -228,12 +228,12 @@
 		2215BBC327A2236D009362AC /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				2215BBC427A22374009362AC /* System */,
 				229F79D127A23C160039902B /* Table */,
 				229F79D027A23C0F0039902B /* Collection */,
-				2215BBC427A22374009362AC /* System */,
-				2215BBCA27A22399009362AC /* LocationManegerDelegate.swift */,
-				2215BBCB27A22399009362AC /* MapViewDelegate.swift */,
-				2215BBC927A22399009362AC /* TextFieldDelegate.swift */,
+				229F79E727A2D4250039902B /* LocationManegerDelegate.swift */,
+				229F79E827A2D4250039902B /* MapViewDelegate.swift */,
+				229F79E627A2D4240039902B /* TextFieldDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -241,8 +241,8 @@
 		2215BBC427A22374009362AC /* System */ = {
 			isa = PBXGroup;
 			children = (
-				2215BBC527A22386009362AC /* AppDelegate.swift */,
-				2215BBC627A22386009362AC /* SceneDelegate.swift */,
+				229F79E327A2D4090039902B /* AppDelegate.swift */,
+				229F79E227A2D4090039902B /* SceneDelegate.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -345,8 +345,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				229F79CF27A235580039902B /* Launch Screen.storyboard in Resources */,
-				2215BB9127A221D3009362AC /* Assets.xcassets in Resources */,
+				229F7A1927A2E3B80039902B /* LaunchScreen.storyboard in Resources */,
+				229F7A1727A2E30C0039902B /* Assets.xcassets in Resources */,
 				2215BB7827A21FC4009362AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,34 +358,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2215BBC727A22386009362AC /* AppDelegate.swift in Sources */,
-				2215BBCD27A22399009362AC /* LocationManegerDelegate.swift in Sources */,
+				229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */,
+				229F79E927A2D4250039902B /* TextFieldDelegate.swift in Sources */,
+				229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */,
+				229F79EA27A2D4250039902B /* LocationManegerDelegate.swift in Sources */,
+				229F79F127A2D4750039902B /* MapViewManeger.swift in Sources */,
+				229F7A0627A2D4EA0039902B /* MainViewTableCell.swift in Sources */,
 				229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */,
-				2215BBCE27A22399009362AC /* MapViewDelegate.swift in Sources */,
-				2215BBA027A2225C009362AC /* MeetingCreated.swift in Sources */,
-				2215BBB027A222B1009362AC /* MainView.swift in Sources */,
-				2215BBB827A222C6009362AC /* MainViewTableCell.swift in Sources */,
-				2215BBA827A2227C009362AC /* MainViewController.swift in Sources */,
+				229F7A0A27A2D5D50039902B /* MainViewCollectionCell.swift in Sources */,
+				229F7A0527A2D4EA0039902B /* NewMeetingTableDateCell.swift in Sources */,
+				229F79E527A2D4090039902B /* AppDelegate.swift in Sources */,
+				229F79F827A2D49C0039902B /* Person.swift in Sources */,
+				229F79EE27A2D45E0039902B /* PlacesCategories.swift in Sources */,
+				229F79FD27A2D49C0039902B /* MapPlace.swift in Sources */,
+				229F79FF27A2D4CC0039902B /* EmptyView.swift in Sources */,
 				229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */,
-				2215BBB127A222B1009362AC /* NewMeetingView.swift in Sources */,
-				2215BBC827A22386009362AC /* SceneDelegate.swift in Sources */,
-				2215BB8E27A221B3009362AC /* MeetingCDManeger.swift in Sources */,
-				2215BBA327A2225C009362AC /* MapPlace.swift in Sources */,
-				2215BBBC27A222DF009362AC /* NewMeetingCollectionCell.swift in Sources */,
-				2215BBB727A222C6009362AC /* NewMeetingTableTitleCell.swift in Sources */,
-				2215BBA227A2225C009362AC /* LabelConfig.swift in Sources */,
-				2215BBB927A222C6009362AC /* NewMeetingTableDateCell.swift in Sources */,
-				2215BBBD27A222DF009362AC /* MainViewCollectionCell.swift in Sources */,
-				2215BBCC27A22399009362AC /* TextFieldDelegate.swift in Sources */,
-				2215BBA427A2225C009362AC /* MeetingCreatedCellInfo.swift in Sources */,
-				2215BB9527A22227009362AC /* MapViewManeger.swift in Sources */,
-				2215BB8D27A221B3009362AC /* TheMidway.xcdatamodeld in Sources */,
-				2215BBB627A222C6009362AC /* NewMeetingTableParticipantsCell.swift in Sources */,
-				2215BBA127A2225C009362AC /* Person.swift in Sources */,
-				2215BB9927A22234009362AC /* APIError.swift in Sources */,
-				2215BB9827A22234009362AC /* PlacesCategories.swift in Sources */,
-				2215BBC027A22307009362AC /* EmptyView.swift in Sources */,
-				2215BBA927A2227C009362AC /* NewMeetingViewController.swift in Sources */,
+				229F79E127A2D3AD0039902B /* TheMidway.xcdatamodeld in Sources */,
+				229F7A0F27A2D5F50039902B /* NewMeetingView.swift in Sources */,
+				229F7A0427A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift in Sources */,
+				229F7A0727A2D4EA0039902B /* NewMeetingTableTitleCell.swift in Sources */,
+				229F7A0E27A2D5F50039902B /* MainView.swift in Sources */,
+				229F79EF27A2D45E0039902B /* APIError.swift in Sources */,
+				229F79E427A2D4090039902B /* SceneDelegate.swift in Sources */,
+				229F79FC27A2D49C0039902B /* MeetingCreated.swift in Sources */,
+				229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */,
+				229F79EB27A2D4250039902B /* MapViewDelegate.swift in Sources */,
+				229F7A1227A2D6230039902B /* MainViewController.swift in Sources */,
+				229F79FA27A2D49C0039902B /* LabelConfig.swift in Sources */,
+				229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,14 +604,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2215BB8A27A221B3009362AC /* TheMidway.xcdatamodeld */ = {
+		229F79DE27A2D3AD0039902B /* TheMidway.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2215BB8B27A221B3009362AC /* TheMidway.xcdatamodel */,
+				229F79DF27A2D3AD0039902B /* TheMidway.xcdatamodel */,
 			);
-			currentVersion = 2215BB8B27A221B3009362AC /* TheMidway.xcdatamodel */;
-			name = TheMidway.xcdatamodeld;
-			path = "../../../TheMidway 18-41-23-148/CoreData/TheMidway.xcdatamodeld";
+			currentVersion = 229F79DF27A2D3AD0039902B /* TheMidway.xcdatamodel */;
+			path = TheMidway.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
