@@ -215,18 +215,23 @@ class MapViewManeger {
                     // Cria o pin
                     let pin = self.createPin(name: name, coordinate: coords2d, type: "")
                     
-                    // Guarda as informações
-                    let newItem: MapPlace = MapPlace(
-                        name: name,
-                        coordinates: coords2d,
-                        pin: pin,
-                        type: self.pinType(type: type.rawValue),
+                    // Endereço
+                    let addressInfo = AddressInfo(
                         postalCode: item.placemark.postalCode ?? "",
                         country: item.placemark.isoCountryCode ?? "",
                         city: item.placemark.administrativeArea ?? "",
                         district: item.placemark.subLocality ?? "",
                         address: item.placemark.thoroughfare ?? "",
                         number: item.placemark.subThoroughfare ?? ""
+                    )
+                    
+                    // Guarda as informações
+                    let newItem: MapPlace = MapPlace(
+                        name: name,
+                        coordinates: coords2d,
+                        pin: pin,
+                        type: self.pinType(type: type.rawValue),
+                        addressInfo: addressInfo
                     )
                     
                     // Verifica se está dentro do raio E se já não foi adicionado.

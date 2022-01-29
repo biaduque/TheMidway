@@ -5,10 +5,9 @@
 //  Created by Gui Reis on 26/01/22.
 //
 
+
 struct MeetingCreated {
-    let placeInfo: MapPlace
-    let date: String
-    let hour: String
-    let meetingName: String
+    var placeInfo: MapPlace
+    let meetingInfo: MeetingInfo
     let participants: [String]
 }

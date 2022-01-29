@@ -40,6 +40,14 @@
 		229F7A1927A2E3B80039902B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */; };
 		229F7A1B27A31D4A0039902B /* MainCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */; };
 		229F7A1D27A31D820039902B /* MainCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */; };
+		22D4F20927A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20827A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift */; };
+		22D4F20B27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20A27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift */; };
+		22D4F20D27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20C27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift */; };
+		22D4F20F27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20E27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift */; };
+		22D4F21127A34D0000DD5A00 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21027A34D0000DD5A00 /* MeetingInfo.swift */; };
+		22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */; };
+		22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21427A42B4500DD5A00 /* AddressInfo.swift */; };
+		22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21627A42B7900DD5A00 /* ContactInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +86,14 @@
 		229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionDelegate.swift; sourceTree = "<group>"; };
 		229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionDataSource.swift; sourceTree = "<group>"; };
+		22D4F20827A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingFormsTableDelegate.swift; sourceTree = "<group>"; };
+		22D4F20A27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingFormsTableDataSource.swift; sourceTree = "<group>"; };
+		22D4F20C27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingPlacesFoundCollectionDelegate.swift; sourceTree = "<group>"; };
+		22D4F20E27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingPlacesFoundCollectionDataSource.swift; sourceTree = "<group>"; };
+		22D4F21027A34D0000DD5A00 /* MeetingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
+		22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContactDelegate.swift; sourceTree = "<group>"; };
+		22D4F21427A42B4500DD5A00 /* AddressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfo.swift; sourceTree = "<group>"; };
+		22D4F21627A42B7900DD5A00 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,11 +178,10 @@
 		2215BB9A27A22241009362AC /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				229F79F427A2D49B0039902B /* LabelConfig.swift */,
-				229F79F727A2D49C0039902B /* MapPlace.swift */,
-				229F79F627A2D49B0039902B /* MeetingCreated.swift */,
-				229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */,
-				229F79F227A2D49B0039902B /* Person.swift */,
+				22D4F21B27A42C3C00DD5A00 /* Map */,
+				22D4F21A27A42C2C00DD5A00 /* Meeting */,
+				22D4F21927A42C0F00DD5A00 /* Person */,
+				22D4F21827A42BFC00DD5A00 /* View */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -238,6 +253,7 @@
 				229F79E727A2D4250039902B /* LocationManegerDelegate.swift */,
 				229F79E827A2D4250039902B /* MapViewDelegate.swift */,
 				229F79E627A2D4240039902B /* TextFieldDelegate.swift */,
+				22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -255,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */,
+				22D4F20C27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -263,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				229F79D227A23C400039902B /* MainTableDelegate.swift */,
+				22D4F20827A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -270,8 +288,8 @@
 		229F79D427A23D0E0039902B /* Data Source */ = {
 			isa = PBXGroup;
 			children = (
-				229F79D627A23D210039902B /* Collection */,
 				229F79D527A23D1C0039902B /* Table */,
+				229F79D627A23D210039902B /* Collection */,
 			);
 			path = "Data Source";
 			sourceTree = "<group>";
@@ -280,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				229F79D727A23D440039902B /* MainTableDataSource.swift */,
+				22D4F20A27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -288,8 +307,45 @@
 			isa = PBXGroup;
 			children = (
 				229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */,
+				22D4F20E27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		22D4F21827A42BFC00DD5A00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				229F79F427A2D49B0039902B /* LabelConfig.swift */,
+				229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22D4F21927A42C0F00DD5A00 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				229F79F227A2D49B0039902B /* Person.swift */,
+				22D4F21627A42B7900DD5A00 /* ContactInfo.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		22D4F21A27A42C2C00DD5A00 /* Meeting */ = {
+			isa = PBXGroup;
+			children = (
+				22D4F21027A34D0000DD5A00 /* MeetingInfo.swift */,
+				229F79F627A2D49B0039902B /* MeetingCreated.swift */,
+			);
+			path = Meeting;
+			sourceTree = "<group>";
+		};
+		22D4F21B27A42C3C00DD5A00 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				229F79F727A2D49C0039902B /* MapPlace.swift */,
+				22D4F21427A42B4500DD5A00 /* AddressInfo.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */,
 				229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */,
 				229F79E927A2D4250039902B /* TextFieldDelegate.swift in Sources */,
 				229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */,
@@ -375,9 +432,14 @@
 				229F7A0527A2D4EA0039902B /* NewMeetingTableDateCell.swift in Sources */,
 				229F79E527A2D4090039902B /* AppDelegate.swift in Sources */,
 				229F79F827A2D49C0039902B /* Person.swift in Sources */,
+				22D4F20D27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift in Sources */,
 				229F79EE27A2D45E0039902B /* PlacesCategories.swift in Sources */,
+				22D4F20B27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift in Sources */,
 				229F79FD27A2D49C0039902B /* MapPlace.swift in Sources */,
+				22D4F21127A34D0000DD5A00 /* MeetingInfo.swift in Sources */,
 				229F7A1D27A31D820039902B /* MainCollectionDataSource.swift in Sources */,
+				22D4F20F27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift in Sources */,
+				22D4F20927A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift in Sources */,
 				229F79FF27A2D4CC0039902B /* EmptyView.swift in Sources */,
 				229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */,
 				229F79E127A2D3AD0039902B /* TheMidway.xcdatamodeld in Sources */,
@@ -393,6 +455,8 @@
 				229F7A1227A2D6230039902B /* MainViewController.swift in Sources */,
 				229F7A1B27A31D4A0039902B /* MainCollectionDelegate.swift in Sources */,
 				229F79FA27A2D49C0039902B /* LabelConfig.swift in Sources */,
+				22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */,
+				22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */,
 				229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

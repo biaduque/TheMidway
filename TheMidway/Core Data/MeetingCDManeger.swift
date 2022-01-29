@@ -64,17 +64,23 @@ class MeetingCDManeger {
     public func newMeeting(data: MeetingCreated) throws -> Meetings {
         let meeting = Meetings(context: self.mainContext)
         
-        meeting.address = data.placeInfo.address
-        meeting.city = data.placeInfo.city
-        meeting.country = data.placeInfo.country
-        meeting.date = data.date
-        meeting.district = data.placeInfo.district
-        meeting.hour = data.hour
+        // Informações do Encontro
+        meeting.meetingName = data.meetingInfo.meetingName
+        meeting.date = data.meetingInfo.date
+        meeting.hour = data.meetingInfo.hour
+        
+        // Endereço
+        meeting.placeName = data.placeInfo.name
+        
+        meeting.country = data.placeInfo.addressInfo.country
+        meeting.city = data.placeInfo.addressInfo.city
+        meeting.district = data.placeInfo.addressInfo.district
+        meeting.address = data.placeInfo.addressInfo.address
+        meeting.addressNumber = data.placeInfo.addressInfo.number
+        
         meeting.latitude = Float(data.placeInfo.coordinates.latitude)
         meeting.longitude = Float(data.placeInfo.coordinates.longitude)
-        meeting.placeName = data.placeInfo.name
-        meeting.meetingName = data.meetingName
-        meeting.addressNumber = data.placeInfo.number
+        
         meeting.categorie = data.placeInfo.type.localizedDescription
         
         self.saveContext()

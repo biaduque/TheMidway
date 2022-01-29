@@ -27,7 +27,7 @@ class MainView: UIView {
         layout.scrollDirection = .horizontal                // Direção da rolagem (se é horizontal ou vertical)
         layout.itemSize = CGSize(width: 200, height: 230)   // Define o tamanho da célula
         layout.minimumLineSpacing = 20                      // Espaço entre as células
-
+        
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(MainViewCollectionCell.self, forCellWithReuseIdentifier: MainViewCollectionCell.identifier)
         cv.backgroundColor = UIColor(named: "BackgroundColor")
@@ -189,7 +189,7 @@ class MainView: UIView {
         
         let buttonSize: CGFloat = 25
         
-        // BOtão de Informação
+        // Botão de Informação
         let infoButtonConstraints: [NSLayoutConstraint] = [
             self.infoButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
             self.infoButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
@@ -214,7 +214,7 @@ class MainView: UIView {
         
         // Collection
         let suggestionCollectionConstraints: [NSLayoutConstraint] = [
-            self.suggestionCollection.topAnchor.constraint(equalTo: self.suggestionCollection.bottomAnchor, constant: betweenSpace),
+            self.suggestionCollection.topAnchor.constraint(equalTo: self.suggestionLabel.bottomAnchor, constant: betweenSpace),
             self.suggestionCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.suggestionCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             // self.suggestionCollection.bottomAnchor.constraint(equalTo: self.meetingsLabel.topAnchor, constant: -betweenSpace)

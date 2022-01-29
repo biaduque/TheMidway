@@ -76,6 +76,8 @@ class MainViewCollectionCell: UICollectionViewCell {
         NSLayoutConstraint.activate(labelConstraints)
     }
     
+    
+    
     // MARK: - Configurações
     
     public override func prepareForReuse() -> Void {

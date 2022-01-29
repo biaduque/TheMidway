@@ -9,8 +9,7 @@ import struct CoreLocation.CLLocationCoordinate2D
 
 
 struct Person {
-    let name: String
-    let address: String
+    let contactInfo: ContactInfo
     let image: Int
     let coordinate: CLLocationCoordinate2D
 }
