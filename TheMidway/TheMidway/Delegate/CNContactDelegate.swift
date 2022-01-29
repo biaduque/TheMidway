@@ -15,12 +15,19 @@ class CNContactDelegate: NSObject, CNContactPickerDelegate {
     
     private var peopleSelected: [String:ContactInfo] = [:]
     
+    private var parentController: ParticipantsViewController!
+    
     
     
     /* MARK: - Encapsulamento */
     
     public func getPeopleSelected() -> [ContactInfo] {
         return Array(self.peopleSelected.values)
+    }
+    
+    
+    public func setParentController(_ vc: ParticipantsViewController) -> Void {
+        self.parentController = vc
     }
     
     
@@ -59,6 +66,9 @@ class CNContactDelegate: NSObject, CNContactPickerDelegate {
             }
         }
         print("\n\nPessoas selecionadas: \(self.peopleSelected.count)\n\n")
+        
+        
+        self.parentController.verifyContactAddress(self.getPeopleSelected())
     }
     
     

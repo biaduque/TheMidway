@@ -12,4 +12,5 @@ struct Person {
     let contactInfo: ContactInfo
     let image: Int
     let coordinate: CLLocationCoordinate2D
+    var meetingId: Int
 }

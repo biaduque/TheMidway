@@ -47,7 +47,6 @@ class MeetingCDManeger {
     }
     
     
-    
     /// Pega todos os encontros criados
     public func getMeetingsCreated() -> [Meetings] {
         let fr = NSFetchRequest<Meetings>(entityName: "Meetings")
@@ -85,6 +84,13 @@ class MeetingCDManeger {
         
         self.saveContext()
         return meeting
+    }
+    
+    
+    /// Remove um encontro no Core Data
+    public func deleteMeeting(at item: Meetings) throws {
+        self.mainContext.delete(item)
+        self.saveContext()
     }
 }
 

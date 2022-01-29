@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2215BB7827A21FC4009362AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2215BB7627A21FC4009362AC /* Main.storyboard */; };
+		223E1EE327A4C819005C9D84 /* ParticipantsCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223E1EE227A4C819005C9D84 /* ParticipantsCDManeger.swift */; };
+		2267F86C27A4EF7A0090E324 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */; };
+		2267F86E27A4EF9F0090E324 /* ParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */; };
+		2267F87027A4F0BE0090E324 /* ParticipantsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F86F27A4F0BE0090E324 /* ParticipantsTableCell.swift */; };
+		2267F87227A4FEEF0090E324 /* ParticipantsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87127A4FEEF0090E324 /* ParticipantsTableDelegate.swift */; };
+		2267F87427A4FF240090E324 /* ParticipantsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87327A4FF240090E324 /* ParticipantsTableDataSource.swift */; };
 		229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D227A23C400039902B /* MainTableDelegate.swift */; };
 		229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D727A23D440039902B /* MainTableDataSource.swift */; };
 		229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */; };
@@ -54,6 +60,12 @@
 		2215BB6D27A21FC4009362AC /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2215BB7727A21FC4009362AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2215BB8127A21FC5009362AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		223E1EE227A4C819005C9D84 /* ParticipantsCDManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsCDManeger.swift; sourceTree = "<group>"; };
+		2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
+		2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewController.swift; sourceTree = "<group>"; };
+		2267F86F27A4F0BE0090E324 /* ParticipantsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableCell.swift; sourceTree = "<group>"; };
+		2267F87127A4FEEF0090E324 /* ParticipantsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableDelegate.swift; sourceTree = "<group>"; };
+		2267F87327A4FF240090E324 /* ParticipantsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableDataSource.swift; sourceTree = "<group>"; };
 		229F79D227A23C400039902B /* MainTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDelegate.swift; sourceTree = "<group>"; };
 		229F79D727A23D440039902B /* MainTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDataSource.swift; sourceTree = "<group>"; };
 		229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCDManeger.swift; sourceTree = "<group>"; };
@@ -145,6 +157,7 @@
 			children = (
 				229F79DE27A2D3AD0039902B /* TheMidway.xcdatamodeld */,
 				229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */,
+				223E1EE227A4C819005C9D84 /* ParticipantsCDManeger.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -191,6 +204,7 @@
 			children = (
 				229F7A1027A2D6230039902B /* MainViewController.swift */,
 				229F7A1127A2D6230039902B /* NewMeetingViewController.swift */,
+				2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +217,7 @@
 				2215BBAB27A2228B009362AC /* Cell */,
 				229F7A0C27A2D5F50039902B /* MainView.swift */,
 				229F7A0D27A2D5F50039902B /* NewMeetingView.swift */,
+				2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,6 +247,7 @@
 				229F7A0327A2D4EA0039902B /* NewMeetingTableTitleCell.swift */,
 				229F7A0127A2D4EA0039902B /* NewMeetingTableDateCell.swift */,
 				229F7A0027A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift */,
+				2267F86F27A4F0BE0090E324 /* ParticipantsTableCell.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -281,6 +297,7 @@
 			children = (
 				229F79D227A23C400039902B /* MainTableDelegate.swift */,
 				22D4F20827A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift */,
+				2267F87127A4FEEF0090E324 /* ParticipantsTableDelegate.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -299,6 +316,7 @@
 			children = (
 				229F79D727A23D440039902B /* MainTableDataSource.swift */,
 				22D4F20A27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift */,
+				2267F87327A4FF240090E324 /* ParticipantsTableDataSource.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -421,11 +439,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */,
+				2267F86E27A4EF9F0090E324 /* ParticipantsViewController.swift in Sources */,
 				229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */,
 				229F79E927A2D4250039902B /* TextFieldDelegate.swift in Sources */,
 				229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */,
 				229F79EA27A2D4250039902B /* LocationManegerDelegate.swift in Sources */,
 				229F79F127A2D4750039902B /* MapViewManeger.swift in Sources */,
+				2267F86C27A4EF7A0090E324 /* ParticipantsView.swift in Sources */,
+				2267F87027A4F0BE0090E324 /* ParticipantsTableCell.swift in Sources */,
 				229F7A0627A2D4EA0039902B /* MainViewTableCell.swift in Sources */,
 				229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */,
 				229F7A0A27A2D5D50039902B /* MainViewCollectionCell.swift in Sources */,
@@ -436,6 +457,7 @@
 				229F79EE27A2D45E0039902B /* PlacesCategories.swift in Sources */,
 				22D4F20B27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift in Sources */,
 				229F79FD27A2D49C0039902B /* MapPlace.swift in Sources */,
+				2267F87427A4FF240090E324 /* ParticipantsTableDataSource.swift in Sources */,
 				22D4F21127A34D0000DD5A00 /* MeetingInfo.swift in Sources */,
 				229F7A1D27A31D820039902B /* MainCollectionDataSource.swift in Sources */,
 				22D4F20F27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift in Sources */,
@@ -446,6 +468,8 @@
 				229F7A0F27A2D5F50039902B /* NewMeetingView.swift in Sources */,
 				229F7A0427A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift in Sources */,
 				229F7A0727A2D4EA0039902B /* NewMeetingTableTitleCell.swift in Sources */,
+				2267F87227A4FEEF0090E324 /* ParticipantsTableDelegate.swift in Sources */,
+				223E1EE327A4C819005C9D84 /* ParticipantsCDManeger.swift in Sources */,
 				229F7A0E27A2D5F50039902B /* MainView.swift in Sources */,
 				229F79EF27A2D45E0039902B /* APIError.swift in Sources */,
 				229F79E427A2D4090039902B /* SceneDelegate.swift in Sources */,

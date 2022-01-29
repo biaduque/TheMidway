@@ -112,7 +112,6 @@ class NewMeetingViewController: UIViewController {
         
         // Definindo delegate & datasources
         self.formsTableDelegate.setParentController(self)
-        self.formsTableDelegate.setContactControllerDelegate(self.contactDelegate)
         self.mainView.setFormsTableDelegate(self.formsTableDelegate)
         
         self.mainView.setFormsTableDataSource(self.formsTableDataSource)
