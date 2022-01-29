@@ -5,8 +5,6 @@
 //  Created by Gui Reis on 24/01/22.
 //
 
-import Foundation
-import MapKit
 
 enum PlacesCategories: CustomStringConvertible {
     case amusementPark

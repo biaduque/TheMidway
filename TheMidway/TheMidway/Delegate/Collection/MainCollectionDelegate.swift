@@ -9,7 +9,11 @@ import UIKit
 
 class MainCollectionDelegate: NSObject, UICollectionViewDelegate {
     
+    /* MARK: - Atributos */
+    
     private let suggestionTypes: [String] = MainCollectionDataSource.sugestionTypes
+    
+    
     
     /* MARK: - Delegate */
     

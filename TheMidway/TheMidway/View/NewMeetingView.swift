@@ -152,10 +152,11 @@ class NewMeetingView: UIView {
     
     // Delegate & Datasource
     
-    /// Atualia as informações do mapa
+    /// Atualiza as informações do mapa
     public func updatePlacesFoundCollectionData() -> Void { self.placesFoundCollection.reloadData() }
     
-    /// Pega as ionformações que froam selecionas e definidas da tabela
+    
+    /// Pega as informações que froam selecionas e definidas da tabela
     public func getFormsTableData() -> MeetingInfo {
         guard let cellTitle = self.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as? NewMeetingTableTitleCell,
                 let cellDate = self.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 1) as IndexPath) as? NewMeetingTableDateCell else {

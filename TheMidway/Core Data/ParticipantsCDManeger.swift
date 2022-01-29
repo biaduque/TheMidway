@@ -9,6 +9,8 @@ import CoreData
 import Foundation
 
 class ParticipantsCDManeger {
+    
+    /* MARK: - Atributos */
 
     static let shared: ParticipantsCDManeger = ParticipantsCDManeger()
     
@@ -16,9 +18,7 @@ class ParticipantsCDManeger {
         return self.container.viewContext
     }
     
-    
-    // MARK: - Core Data stack
-    
+        
     private lazy var container: NSPersistentContainer = {
        
         let container = NSPersistentContainer(name: "TheMidway")
@@ -32,9 +32,10 @@ class ParticipantsCDManeger {
 
 
     
-    // MARK: - Core Data Saving support
+    /* MARK: - Acessando o Core Data (Encapsulamento) */
     
-    public func saveContext() -> Void {
+    /// Salvando e atualizando alterações que tiveram no core data
+    private func saveContext() -> Void {
 
         if self.mainContext.hasChanges {
             do {
@@ -46,9 +47,6 @@ class ParticipantsCDManeger {
         }
     }
     
-    
-    
-    /* MARK: - Acessando o Core Data */
     
     /// Pega todos os participantes a partir de um id
     public func getParticipants(at meetingId: Int) -> [Participants] {

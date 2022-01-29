@@ -11,15 +11,12 @@ class ParticipantsView: UIView {
     
     /* MARK: - Atributos */
         
-    private var confirmedLabel: UILabel
-    
     public let addPersonButton: UIButton
     
+    private var confirmedLabel: UILabel
     private let confirmedTableView: UITableView
     
-    
     private var notFoundLabel: UILabel
-    
     private let notFoundTableView: UITableView
     
     
@@ -66,6 +63,7 @@ class ParticipantsView: UIView {
     /* MARK: - Encapsulamento */
     
     // Configuração da View
+    
     public func setTitles(confirmedText: String, notFoundText: String, sizeFont:CGFloat, w:UIFont.Weight) -> Void {
         // Labels
         self.confirmedLabel.text = confirmedText
@@ -168,12 +166,11 @@ class ParticipantsView: UIView {
             self.notFoundTableView.heightAnchor.constraint(equalToConstant: self.cellHeight*4)
         ]
         NSLayoutConstraint.activate(notFoundTableConstraints)
-        
     }
     
     
     
-    /* MARK: - Configurações */
+    /* MARK: - Criação de Elementos */
     
     static func newTable(cellHeight: CGFloat, backgroundColor: UIColor) -> UITableView {
         let table = UITableView(frame: .zero, style: .grouped)

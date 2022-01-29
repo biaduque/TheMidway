@@ -20,7 +20,7 @@ class NewMeetingFormsTableDataSource: NSObject, UITableViewDataSource {
     /// Quantidade de células que vai ter na table
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 { return 1 }
-        return 3
+        return 2
     }
     
     

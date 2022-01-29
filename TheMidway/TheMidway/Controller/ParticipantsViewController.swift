@@ -100,8 +100,6 @@ class ParticipantsViewController: UIViewController {
     
     public override func viewDidAppear(_ animated: Bool) -> Void {
         super.viewDidAppear(animated)
-        
-        
     }
     
                 
@@ -109,15 +107,11 @@ class ParticipantsViewController: UIViewController {
     /* MARK: - Ações dos botões */
     
     /// Salva os dados criados do novo encontro
-    @objc private func saveNewMeetingAction() -> Void {
-        
-        
-        
-
-//        guard let _ = try? MeetingCDManeger.shared.newMeeting(data: data) else {
-//            print("\n\nErro na hora de salvar o encontro no CoreData\n\n")
-//            return
-//        }
+    @objc private func saveAction() -> Void {
+        // guard let _ = try? MeetingCDManeger.shared.newMeeting(data: data) else {
+        //     print("\n\nErro na hora de salvar o encontro no CoreData\n\n")
+        //     return
+        // }
         
         // self.superViewController.reloadDataMeetingsTableView()
         self.dismiss(animated: true)
@@ -146,7 +140,7 @@ class ParticipantsViewController: UIViewController {
             title: "Salvar",
             style: .done,
             target: self,
-            action: #selector(self.saveNewMeetingAction)
+            action: #selector(self.saveAction)
         )
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
@@ -165,7 +159,7 @@ class ParticipantsViewController: UIViewController {
     }
     
     
-    
+    /// Verifica se o endereço existe
     public func verifyContactAddress(_ contactsSelected: [ContactInfo]) -> Void {
         
         var people: [Person] = []

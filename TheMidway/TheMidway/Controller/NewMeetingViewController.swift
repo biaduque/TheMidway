@@ -25,7 +25,7 @@ class NewMeetingViewController: UIViewController {
     private var superViewController: MainViewController
     
 
-    /* Delegates & Data Sources*/
+    /* Delegates & Data Sources */
     
     private var contactDelegate = CNContactDelegate()
     
@@ -122,7 +122,7 @@ class NewMeetingViewController: UIViewController {
         self.mainView.setPlacesFoundCollectionDataSource(self.placesFoundDataSource)
         
 
-        self.reloadDataMeetingsTableView()
+        self.reloadCollectionData()
     }
     
                 
@@ -147,11 +147,7 @@ class NewMeetingViewController: UIViewController {
         self.superViewController.reloadDataMeetingsTableView()
         self.dismiss(animated: true)
     }
-    
-    @objc private func okAction() -> Void {
-        print("Entrei na função do botão")
-    }
-    
+        
     
     /// Cancelando a criação de um novo encontro
     @objc private func cancelAction() -> Void {
@@ -188,7 +184,7 @@ class NewMeetingViewController: UIViewController {
     
     
     /// Atualiza os dados da collection
-    public func reloadDataMeetingsTableView() -> Void {
+    public func reloadCollectionData() -> Void {
         self.placesFoundDelegate.setPlacesFound(self.placesOnTheMidway)
         self.placesFoundDataSource.setPlacesFound(self.placesOnTheMidway)
         

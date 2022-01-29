@@ -5,6 +5,7 @@
 //  Created by Gui Reis on 20/01/22.
 //
 
+
 struct MeetingCreatedCellInfo {
     let title: LabelConfig
     let date: LabelConfig

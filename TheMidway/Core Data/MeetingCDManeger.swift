@@ -9,15 +9,15 @@ import CoreData
 import Foundation
 
 class MeetingCDManeger {
-
+    
+    /* MARK: - Atributos */
+    
     static let shared: MeetingCDManeger = MeetingCDManeger()
     
     private var mainContext: NSManagedObjectContext {
         return self.container.viewContext
     }
-    
-    
-    // MARK: - Core Data stack
+
     
     private lazy var container: NSPersistentContainer = {
        
@@ -32,10 +32,10 @@ class MeetingCDManeger {
 
 
     
-    // MARK: - Core Data Saving support
+    /* MARK: - Acessando o Core Data (Encapsulamento) */
     
-    public func saveContext() -> Void {
-
+    /// Salvando e atualizando alterações que tiveram no core data
+    private func saveContext() -> Void {
         if self.mainContext.hasChanges {
             do {
                 try self.mainContext.save()

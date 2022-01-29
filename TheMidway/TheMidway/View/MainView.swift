@@ -10,13 +10,12 @@ import UIKit
 class MainView: UIView {
     
     /* MARK: -  Atributos */
-    private lazy var emptyView = EmptyView()
     
+    private lazy var emptyView = EmptyView()
     private var emptyViewConstraints: [NSLayoutConstraint] = []
     
     
     private let infoButton: UIButton
-    
     
     // Sugestão
     
@@ -269,12 +268,11 @@ class MainView: UIView {
         ]
         
         self.emptyViewConstraints = emptyViewConstraints
-        
     }
     
     
     
-    /* MARK: -  Criação de Elementos */
+    /* MARK: - Criação de Elementos */
 
     static func newLabel(color: UIColor?) -> UILabel {
         let lbl = UILabel()

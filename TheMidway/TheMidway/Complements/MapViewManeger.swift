@@ -9,6 +9,7 @@ import MapKit
 import CoreLocation
 
 class MapViewManeger {
+    
     /* MARK: - Atributos */
     
     /// View da controller
