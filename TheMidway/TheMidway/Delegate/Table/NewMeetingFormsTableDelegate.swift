@@ -13,13 +13,13 @@ class NewMeetingFormsTableDelegate: NSObject, UITableViewDelegate {
     
     /* MARK: - Atributos */
     
-    private var parentController: UIViewController!
+    private var parentController: NewMeetingViewController!
     
     
 
     /* MARK: - Encapsulamento */
     
-    public func setParentController(_ vc: UIViewController) -> Void {
+    public func setParentController(_ vc: NewMeetingViewController) -> Void {
         self.parentController = vc
     }
     
@@ -34,11 +34,7 @@ class NewMeetingFormsTableDelegate: NSObject, UITableViewDelegate {
         
         // Células dos participantes
         if indexPath.section == 1 && indexPath.row == 1 {
-            let vc = ParticipantsViewController()
-            vc.modalPresentationStyle = .fullScreen
-            
-            self.parentController.navigationController?.pushViewController(vc, animated: true)
-            
+            self.parentController.setParticipantsAction()
         }
     }
 }

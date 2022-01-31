@@ -24,6 +24,8 @@ class NewMeetingViewController: UIViewController {
     
     private var superViewController: MainViewController
     
+    private let participantsController = ParticipantsViewController()
+    
 
     /* Delegates & Data Sources */
     
@@ -147,7 +149,7 @@ class NewMeetingViewController: UIViewController {
         self.superViewController.reloadDataMeetingsTableView()
         self.dismiss(animated: true)
     }
-        
+    
     
     /// Cancelando a criação de um novo encontro
     @objc private func cancelAction() -> Void {
@@ -159,7 +161,13 @@ class NewMeetingViewController: UIViewController {
     @objc private func dismissKeyboard() -> Void {
         self.view.endEditing(true)
     }
-        
+    
+    
+    /// Tira o teclado da tela
+    @objc public func setParticipantsAction() -> Void {
+        self.participantsController.title = "Quem vai?"
+        self.navigationController?.pushViewController(self.participantsController, animated: true)
+    }
     
     
     /* MARK: - Configurações*/
