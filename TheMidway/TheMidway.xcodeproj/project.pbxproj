@@ -7,181 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		132CD68C2767C58F00066BA9 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
-		1344B5B92758051E00280E11 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5B82758051E00280E11 /* Contacts.swift */; };
-		1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */; };
-		135026AD275026470092165D /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135026AC275026470092165D /* MapPlace.swift */; };
-		136A52E2276BA8C6000E2108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
-		136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */; };
-		136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FE0F8275FEFAA004F3E2D /* DataView.swift */; };
-		13763FBF276AB871001DAE7D /* AmigosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */; };
-		13763FC1276ABA8C001DAE7D /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13763FC0276ABA8C001DAE7D /* TagView.swift */; };
-		1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */; };
-		1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB29274ED6EF0091E62A /* PerfilViewController.swift */; };
-		1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */; };
-		1376CB2E274ED72F0091E62A /* QuemVaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */; };
-		1376CB30274FF77A0091E62A /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
-		1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */; };
-		1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
-		1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */; };
-		13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A6C276278E0005D8D95 /* AppDelegate.swift */; };
-		13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A6E276278E0005D8D95 /* SceneDelegate.swift */; };
-		13B67A71276278E0005D8D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B67A70276278E0005D8D95 /* ViewController.swift */; };
-		13B67A74276278E0005D8D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A72276278E0005D8D95 /* Main.storyboard */; };
-		13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */; };
-		13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */; };
-		13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */; };
-		13ED1091276938A200D85E04 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13ED1090276938A200D85E04 /* WidgetKit.framework */; };
-		13ED1093276938A200D85E04 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13ED1092276938A200D85E04 /* SwiftUI.framework */; };
-		13ED1096276938A200D85E04 /* WidgetTheMidway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED1095276938A200D85E04 /* WidgetTheMidway.swift */; };
-		13ED1098276938A300D85E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13ED1097276938A300D85E04 /* Assets.xcassets */; };
-		13ED109C276938A400D85E04 /* WidgetTheMidwayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		13ED10A327693AE300D85E04 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A227693AE300D85E04 /* UserDefaultManager.swift */; };
-		13ED10A427693AE600D85E04 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A227693AE300D85E04 /* UserDefaultManager.swift */; };
-		13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
-		13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */; };
-		13ED10AC276A5F0000D85E04 /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */; };
-		2210352D276BE37D0059A5DB /* PointsOfinterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2210352C276BE37D0059A5DB /* PointsOfinterest.swift */; };
-		225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */; };
-		225CD6242756C15900E07A21 /* Pessoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CD6232756C15900E07A21 /* Pessoa.swift */; };
-		22B09AFD276A625000448337 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09AFC276A625000448337 /* APIError.swift */; };
-		22B09B00276A629600448337 /* APIManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09AFF276A629600448337 /* APIManeger.swift */; };
-		22B09B02276A62D200448337 /* HTTPVerbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B01276A62D200448337 /* HTTPVerbs.swift */; };
-		22B09B05276A631D00448337 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B04276A631D00448337 /* Items.swift */; };
-		22B09B07276A633E00448337 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B06276A633E00448337 /* MeetingInfo.swift */; };
-		22B09B09276A637300448337 /* EncontroMarcado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B09B08276A637300448337 /* EncontroMarcado.swift */; };
-		4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */; };
-		DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */; };
-		DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */; };
-		DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA522274817D9003BBFCA /* AppDelegate.swift */; };
-		DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA524274817D9003BBFCA /* SceneDelegate.swift */; };
-		DB5BA52A274817D9003BBFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA528274817D9003BBFCA /* Main.storyboard */; };
-		DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */; };
-		DB5BA52F274817DC003BBFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA52E274817DC003BBFCA /* Assets.xcassets */; };
-		DB5BA532274817DC003BBFCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */; };
+		2215BB7827A21FC4009362AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2215BB7627A21FC4009362AC /* Main.storyboard */; };
+		223E1EE327A4C819005C9D84 /* ParticipantsCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223E1EE227A4C819005C9D84 /* ParticipantsCDManeger.swift */; };
+		2267F86C27A4EF7A0090E324 /* ParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */; };
+		2267F86E27A4EF9F0090E324 /* ParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */; };
+		2267F87027A4F0BE0090E324 /* ParticipantsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F86F27A4F0BE0090E324 /* ParticipantsTableCell.swift */; };
+		2267F87227A4FEEF0090E324 /* ParticipantsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87127A4FEEF0090E324 /* ParticipantsTableDelegate.swift */; };
+		2267F87427A4FF240090E324 /* ParticipantsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87327A4FF240090E324 /* ParticipantsTableDataSource.swift */; };
+		229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D227A23C400039902B /* MainTableDelegate.swift */; };
+		229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D727A23D440039902B /* MainTableDataSource.swift */; };
+		229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */; };
+		229F79E127A2D3AD0039902B /* TheMidway.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DE27A2D3AD0039902B /* TheMidway.xcdatamodeld */; };
+		229F79E427A2D4090039902B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E227A2D4090039902B /* SceneDelegate.swift */; };
+		229F79E527A2D4090039902B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E327A2D4090039902B /* AppDelegate.swift */; };
+		229F79E927A2D4250039902B /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E627A2D4240039902B /* TextFieldDelegate.swift */; };
+		229F79EA27A2D4250039902B /* LocationManegerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E727A2D4250039902B /* LocationManegerDelegate.swift */; };
+		229F79EB27A2D4250039902B /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79E827A2D4250039902B /* MapViewDelegate.swift */; };
+		229F79EE27A2D45E0039902B /* PlacesCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79EC27A2D45E0039902B /* PlacesCategories.swift */; };
+		229F79EF27A2D45E0039902B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79ED27A2D45E0039902B /* APIError.swift */; };
+		229F79F127A2D4750039902B /* MapViewManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F027A2D4750039902B /* MapViewManeger.swift */; };
+		229F79F827A2D49C0039902B /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F227A2D49B0039902B /* Person.swift */; };
+		229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */; };
+		229F79FA27A2D49C0039902B /* LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F427A2D49B0039902B /* LabelConfig.swift */; };
+		229F79FC27A2D49C0039902B /* MeetingCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F627A2D49B0039902B /* MeetingCreated.swift */; };
+		229F79FD27A2D49C0039902B /* MapPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79F727A2D49C0039902B /* MapPlace.swift */; };
+		229F79FF27A2D4CC0039902B /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79FE27A2D4CC0039902B /* EmptyView.swift */; };
+		229F7A0427A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0027A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift */; };
+		229F7A0527A2D4EA0039902B /* NewMeetingTableDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0127A2D4EA0039902B /* NewMeetingTableDateCell.swift */; };
+		229F7A0627A2D4EA0039902B /* MainViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0227A2D4EA0039902B /* MainViewTableCell.swift */; };
+		229F7A0727A2D4EA0039902B /* NewMeetingTableTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0327A2D4EA0039902B /* NewMeetingTableTitleCell.swift */; };
+		229F7A0A27A2D5D50039902B /* MainViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0827A2D5D50039902B /* MainViewCollectionCell.swift */; };
+		229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0927A2D5D50039902B /* NewMeetingCollectionCell.swift */; };
+		229F7A0E27A2D5F50039902B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0C27A2D5F50039902B /* MainView.swift */; };
+		229F7A0F27A2D5F50039902B /* NewMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A0D27A2D5F50039902B /* NewMeetingView.swift */; };
+		229F7A1227A2D6230039902B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1027A2D6230039902B /* MainViewController.swift */; };
+		229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1127A2D6230039902B /* NewMeetingViewController.swift */; };
+		229F7A1727A2E30C0039902B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229F7A1627A2E30C0039902B /* Assets.xcassets */; };
+		229F7A1927A2E3B80039902B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */; };
+		229F7A1B27A31D4A0039902B /* MainCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */; };
+		229F7A1D27A31D820039902B /* MainCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */; };
+		22D4F20927A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20827A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift */; };
+		22D4F20B27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20A27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift */; };
+		22D4F20D27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20C27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift */; };
+		22D4F20F27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F20E27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift */; };
+		22D4F21127A34D0000DD5A00 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21027A34D0000DD5A00 /* MeetingInfo.swift */; };
+		22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */; };
+		22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21427A42B4500DD5A00 /* AddressInfo.swift */; };
+		22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21627A42B7900DD5A00 /* ContactInfo.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		13B67A7C276278E2005D8D95 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB5BA517274817D9003BBFCA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13B67A69276278E0005D8D95;
-			remoteInfo = "TheMidway Clip";
-		};
-		13ED109A276938A400D85E04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB5BA517274817D9003BBFCA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13ED108D276938A200D85E04;
-			remoteInfo = WidgetTheMidwayExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		13B67A7F276278E2005D8D95 /* Embed App Clips */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
-			dstSubfolderSpec = 16;
-			files = (
-				13B67A7E276278E2005D8D95 /* TheMidway Clip.app in Embed App Clips */,
-			);
-			name = "Embed App Clips";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13ED109D276938A400D85E04 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				13ED109C276938A400D85E04 /* WidgetTheMidwayExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		1344B5B82758051E00280E11 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
-		1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosTableViewCell.swift; sourceTree = "<group>"; };
-		135026AC275026470092165D /* MapPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
-		136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizaEncontroViewController.swift; sourceTree = "<group>"; };
-		136FE0F8275FEFAA004F3E2D /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
-		13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosCollectionViewCell.swift; sourceTree = "<group>"; };
-		13763FC0276ABA8C001DAE7D /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
-		1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosViewController.swift; sourceTree = "<group>"; };
-		1376CB29274ED6EF0091E62A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
-		1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroViewController.swift; sourceTree = "<group>"; };
-		1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiViewController.swift; sourceTree = "<group>"; };
-		1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoEncontroCollectionViewCell.swift; sourceTree = "<group>"; };
-		1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuandoSeraTableViewCell.swift; sourceTree = "<group>"; };
-		1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuemVaiTableViewCell.swift; sourceTree = "<group>"; };
-		13B67A6A276278E0005D8D95 /* TheMidway Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheMidway Clip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B67A6C276278E0005D8D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		13B67A6E276278E0005D8D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		13B67A70276278E0005D8D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		13B67A73276278E0005D8D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		13B67A78276278E2005D8D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		13B67A7A276278E2005D8D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13B67A7B276278E2005D8D95 /* TheMidway_Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway_Clip.entitlements; sourceTree = "<group>"; };
-		13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetTheMidwayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		13ED1090276938A200D85E04 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		13ED1092276938A200D85E04 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		13ED1095276938A200D85E04 /* WidgetTheMidway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTheMidway.swift; sourceTree = "<group>"; };
-		13ED1097276938A300D85E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		13ED1099276938A400D85E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13ED10A227693AE300D85E04 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
-		13ED10A527693C3B00D85E04 /* TheMidway.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMidway.entitlements; sourceTree = "<group>"; };
-		13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestoesCollectionViewCell.swift; sourceTree = "<group>"; };
-		13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetTheMidwayExtension.entitlements; sourceTree = "<group>"; };
-		13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataClass.swift"; sourceTree = "<group>"; };
-		13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encontro+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataClass.swift"; sourceTree = "<group>"; };
-		13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pessoa+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2210352C276BE37D0059A5DB /* PointsOfinterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOfinterest.swift; sourceTree = "<group>"; };
-		225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NovoEncontroViewController+Mapkit.swift"; sourceTree = "<group>"; };
-		225CD6232756C15900E07A21 /* Pessoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pessoa.swift; sourceTree = "<group>"; };
-		22B09AFC276A625000448337 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		22B09AFF276A629600448337 /* APIManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManeger.swift; sourceTree = "<group>"; };
-		22B09B01276A62D200448337 /* HTTPVerbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerbs.swift; sourceTree = "<group>"; };
-		22B09B04276A631D00448337 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
-		22B09B06276A633E00448337 /* MeetingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
-		22B09B08276A637300448337 /* EncontroMarcado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroMarcado.swift; sourceTree = "<group>"; };
-		4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontrosTableViewCell.swift; sourceTree = "<group>"; };
-		DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncontroRepository.swift; sourceTree = "<group>"; };
-		DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PessoaRepository.swift; sourceTree = "<group>"; };
-		DB5BA51F274817D9003BBFCA /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB5BA522274817D9003BBFCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB5BA524274817D9003BBFCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB5BA529274817D9003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DB5BA52C274817D9003BBFCA /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
-		DB5BA52E274817DC003BBFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../TheMidway/Assets.xcassets; sourceTree = "<group>"; };
-		DB5BA531274817DC003BBFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DB5BA533274817DC003BBFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2215BB6D27A21FC4009362AC /* TheMidway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMidway.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2215BB7727A21FC4009362AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2215BB8127A21FC5009362AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		223E1EE227A4C819005C9D84 /* ParticipantsCDManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsCDManeger.swift; sourceTree = "<group>"; };
+		2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsView.swift; sourceTree = "<group>"; };
+		2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewController.swift; sourceTree = "<group>"; };
+		2267F86F27A4F0BE0090E324 /* ParticipantsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableCell.swift; sourceTree = "<group>"; };
+		2267F87127A4FEEF0090E324 /* ParticipantsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableDelegate.swift; sourceTree = "<group>"; };
+		2267F87327A4FF240090E324 /* ParticipantsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableDataSource.swift; sourceTree = "<group>"; };
+		229F79D227A23C400039902B /* MainTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDelegate.swift; sourceTree = "<group>"; };
+		229F79D727A23D440039902B /* MainTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDataSource.swift; sourceTree = "<group>"; };
+		229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCDManeger.swift; sourceTree = "<group>"; };
+		229F79DF27A2D3AD0039902B /* TheMidway.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMidway.xcdatamodel; sourceTree = "<group>"; };
+		229F79E227A2D4090039902B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		229F79E327A2D4090039902B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		229F79E627A2D4240039902B /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		229F79E727A2D4250039902B /* LocationManegerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManegerDelegate.swift; sourceTree = "<group>"; };
+		229F79E827A2D4250039902B /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		229F79EC27A2D45E0039902B /* PlacesCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCategories.swift; sourceTree = "<group>"; };
+		229F79ED27A2D45E0039902B /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		229F79F027A2D4750039902B /* MapViewManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewManeger.swift; sourceTree = "<group>"; };
+		229F79F227A2D49B0039902B /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCreatedCellInfo.swift; sourceTree = "<group>"; };
+		229F79F427A2D49B0039902B /* LabelConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelConfig.swift; sourceTree = "<group>"; };
+		229F79F627A2D49B0039902B /* MeetingCreated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCreated.swift; sourceTree = "<group>"; };
+		229F79F727A2D49C0039902B /* MapPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPlace.swift; sourceTree = "<group>"; };
+		229F79FE27A2D4CC0039902B /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		229F7A0027A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingTableParticipantsCell.swift; sourceTree = "<group>"; };
+		229F7A0127A2D4EA0039902B /* NewMeetingTableDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingTableDateCell.swift; sourceTree = "<group>"; };
+		229F7A0227A2D4EA0039902B /* MainViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTableCell.swift; sourceTree = "<group>"; };
+		229F7A0327A2D4EA0039902B /* NewMeetingTableTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingTableTitleCell.swift; sourceTree = "<group>"; };
+		229F7A0827A2D5D50039902B /* MainViewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCollectionCell.swift; sourceTree = "<group>"; };
+		229F7A0927A2D5D50039902B /* NewMeetingCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingCollectionCell.swift; sourceTree = "<group>"; };
+		229F7A0C27A2D5F50039902B /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		229F7A0D27A2D5F50039902B /* NewMeetingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingView.swift; sourceTree = "<group>"; };
+		229F7A1027A2D6230039902B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		229F7A1127A2D6230039902B /* NewMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingViewController.swift; sourceTree = "<group>"; };
+		229F7A1627A2E30C0039902B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionDelegate.swift; sourceTree = "<group>"; };
+		229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionDataSource.swift; sourceTree = "<group>"; };
+		22D4F20827A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingFormsTableDelegate.swift; sourceTree = "<group>"; };
+		22D4F20A27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingFormsTableDataSource.swift; sourceTree = "<group>"; };
+		22D4F20C27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingPlacesFoundCollectionDelegate.swift; sourceTree = "<group>"; };
+		22D4F20E27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingPlacesFoundCollectionDataSource.swift; sourceTree = "<group>"; };
+		22D4F21027A34D0000DD5A00 /* MeetingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
+		22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContactDelegate.swift; sourceTree = "<group>"; };
+		22D4F21427A42B4500DD5A00 /* AddressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfo.swift; sourceTree = "<group>"; };
+		22D4F21627A42B7900DD5A00 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		13B67A67276278E0005D8D95 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13ED108B276938A200D85E04 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13ED1093276938A200D85E04 /* SwiftUI.framework in Frameworks */,
-				13ED1091276938A200D85E04 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB5BA51C274817D9003BBFCA /* Frameworks */ = {
+		2215BB6A27A21FC4009362AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -191,293 +119,290 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1344B5C1275A839300280E11 /* TableCell */ = {
+		2215BB6427A21FC4009362AC = {
 			isa = PBXGroup;
 			children = (
-				1376CB35275008880091E62A /* QuemVaiTableViewCell.swift */,
-				1376CB332750087B0091E62A /* QuandoSeraTableViewCell.swift */,
-				1344B5BC2759348300280E11 /* AmigosTableViewCell.swift */,
-				4A8CD6E227595AD900CDD268 /* EncontrosTableViewCell.swift */,
-				1376CB2F274FF77A0091E62A /* TextFieldTableViewCell.swift */,
-			);
-			path = TableCell;
-			sourceTree = "<group>";
-		};
-		1344B5C2275A83BA00280E11 /* CollectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				1376CB31274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift */,
-				13ED10A6276960AF00D85E04 /* SugestoesCollectionViewCell.swift */,
-				13763FBE276AB871001DAE7D /* AmigosCollectionViewCell.swift */,
-			);
-			path = CollectionCell;
-			sourceTree = "<group>";
-		};
-		135026AB275026350092165D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				135026AC275026470092165D /* MapPlace.swift */,
-				225CD6232756C15900E07A21 /* Pessoa.swift */,
-				1344B5B82758051E00280E11 /* Contacts.swift */,
-				13ED10A227693AE300D85E04 /* UserDefaultManager.swift */,
-				22B09B08276A637300448337 /* EncontroMarcado.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1376CB24274ED67F0091E62A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1376CB2B274ED7190091E62A /* NovoEncontroViewController.swift */,
-				1376CB27274ED6CC0091E62A /* EncontrosViewController.swift */,
-				1376CB29274ED6EF0091E62A /* PerfilViewController.swift */,
-				1376CB2D274ED72F0091E62A /* QuemVaiViewController.swift */,
-				136FE0F6275FEDCF004F3E2D /* VisualizaEncontroViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		1376CB25274ED68C0091E62A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1344B5C2275A83BA00280E11 /* CollectionCell */,
-				1344B5C1275A839300280E11 /* TableCell */,
-				136FE0F8275FEFAA004F3E2D /* DataView.swift */,
-				13763FC0276ABA8C001DAE7D /* TagView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1376CB26274ED6960091E62A /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				DB5BA522274817D9003BBFCA /* AppDelegate.swift */,
-				DB5BA524274817D9003BBFCA /* SceneDelegate.swift */,
-			);
-			path = Delegate;
-			sourceTree = "<group>";
-		};
-		13B67A6B276278E0005D8D95 /* TheMidway Clip */ = {
-			isa = PBXGroup;
-			children = (
-				13B67A6C276278E0005D8D95 /* AppDelegate.swift */,
-				13B67A6E276278E0005D8D95 /* SceneDelegate.swift */,
-				13B67A70276278E0005D8D95 /* ViewController.swift */,
-				13B67A72276278E0005D8D95 /* Main.storyboard */,
-				13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */,
-				13B67A7A276278E2005D8D95 /* Info.plist */,
-				13B67A7B276278E2005D8D95 /* TheMidway_Clip.entitlements */,
-			);
-			path = "TheMidway Clip";
-			sourceTree = "<group>";
-		};
-		13B67A8327627A40005D8D95 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				DB5BA52E274817DC003BBFCA /* Assets.xcassets */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		13ED108F276938A200D85E04 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				13ED1090276938A200D85E04 /* WidgetKit.framework */,
-				13ED1092276938A200D85E04 /* SwiftUI.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		13ED1094276938A200D85E04 /* WidgetTheMidway */ = {
-			isa = PBXGroup;
-			children = (
-				13ED1095276938A200D85E04 /* WidgetTheMidway.swift */,
-				13ED1097276938A300D85E04 /* Assets.xcassets */,
-				13ED1099276938A400D85E04 /* Info.plist */,
-			);
-			path = WidgetTheMidway;
-			sourceTree = "<group>";
-		};
-		13ED10CC276A671500D85E04 /* Manage Objects */ = {
-			isa = PBXGroup;
-			children = (
-				13ED10C8276A66D000D85E04 /* Encontro+CoreDataClass.swift */,
-				13ED10C9276A66D000D85E04 /* Encontro+CoreDataProperties.swift */,
-				13ED10CA276A66D000D85E04 /* Pessoa+CoreDataClass.swift */,
-				13ED10CB276A66D000D85E04 /* Pessoa+CoreDataProperties.swift */,
-			);
-			path = "Manage Objects";
-			sourceTree = "<group>";
-		};
-		2210352B276BE3670059A5DB /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				2210352C276BE37D0059A5DB /* PointsOfinterest.swift */,
-			);
-			path = Enum;
-			sourceTree = "<group>";
-		};
-		225CD6202756BF9E00E07A21 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				225CD6212756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		22B09AFE276A625700448337 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				22B09B03276A630A00448337 /* Model */,
-				22B09AFC276A625000448337 /* APIError.swift */,
-				22B09AFF276A629600448337 /* APIManeger.swift */,
-				22B09B01276A62D200448337 /* HTTPVerbs.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		22B09B03276A630A00448337 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				22B09B04276A631D00448337 /* Items.swift */,
-				22B09B06276A633E00448337 /* MeetingInfo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DB355CBF2757EEF900A6A1D5 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */,
-				DB355CC02757EF2900A6A1D5 /* EncontroRepository.swift */,
-				DB355CC32757F2A300A6A1D5 /* PessoaRepository.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		DB5BA516274817D8003BBFCA = {
-			isa = PBXGroup;
-			children = (
-				13ED10CC276A671500D85E04 /* Manage Objects */,
-				13ED10A9276A558000D85E04 /* WidgetTheMidwayExtension.entitlements */,
-				DB355CBF2757EEF900A6A1D5 /* CoreData */,
-				13B67A8327627A40005D8D95 /* Shared */,
-				DB5BA521274817D9003BBFCA /* TheMidway */,
-				13B67A6B276278E0005D8D95 /* TheMidway Clip */,
-				13ED1094276938A200D85E04 /* WidgetTheMidway */,
-				13ED108F276938A200D85E04 /* Frameworks */,
-				DB5BA520274817D9003BBFCA /* Products */,
+				2215BB8F27A221C0009362AC /* Assets */,
+				2215BB8927A22199009362AC /* Core Data */,
+				2215BB6F27A21FC4009362AC /* TheMidway */,
+				2215BB6E27A21FC4009362AC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		DB5BA520274817D9003BBFCA /* Products */ = {
+		2215BB6E27A21FC4009362AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB5BA51F274817D9003BBFCA /* TheMidway.app */,
-				13B67A6A276278E0005D8D95 /* TheMidway Clip.app */,
-				13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */,
+				2215BB6D27A21FC4009362AC /* TheMidway.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB5BA521274817D9003BBFCA /* TheMidway */ = {
+		2215BB6F27A21FC4009362AC /* TheMidway */ = {
 			isa = PBXGroup;
 			children = (
-				2210352B276BE3670059A5DB /* Enum */,
-				13ED10A527693C3B00D85E04 /* TheMidway.entitlements */,
-				22B09AFE276A625700448337 /* API */,
-				1376CB26274ED6960091E62A /* Delegate */,
-				225CD6202756BF9E00E07A21 /* Extensions */,
-				135026AB275026350092165D /* Model */,
-				1376CB25274ED68C0091E62A /* View */,
-				1376CB24274ED67F0091E62A /* Controller */,
-				DB5BA533274817DC003BBFCA /* Info.plist */,
-				DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */,
-				DB5BA528274817D9003BBFCA /* Main.storyboard */,
+				229F79D427A23D0E0039902B /* Data Source */,
+				2215BBC327A2236D009362AC /* Delegate */,
+				2215BB9227A22205009362AC /* Complements */,
+				2215BB9A27A22241009362AC /* Modal */,
+				2215BBAA27A22286009362AC /* View */,
+				2215BBA527A22268009362AC /* Controller */,
+				2215BB7627A21FC4009362AC /* Main.storyboard */,
+				2215BB8127A21FC5009362AC /* Info.plist */,
 			);
 			path = TheMidway;
+			sourceTree = "<group>";
+		};
+		2215BB8927A22199009362AC /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				229F79DE27A2D3AD0039902B /* TheMidway.xcdatamodeld */,
+				229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */,
+				223E1EE227A4C819005C9D84 /* ParticipantsCDManeger.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		2215BB8F27A221C0009362AC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				229F7A1627A2E30C0039902B /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2215BB9227A22205009362AC /* Complements */ = {
+			isa = PBXGroup;
+			children = (
+				2215BB9327A2220F009362AC /* Enum */,
+				229F79F027A2D4750039902B /* MapViewManeger.swift */,
+			);
+			path = Complements;
+			sourceTree = "<group>";
+		};
+		2215BB9327A2220F009362AC /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				229F79ED27A2D45E0039902B /* APIError.swift */,
+				229F79EC27A2D45E0039902B /* PlacesCategories.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		2215BB9A27A22241009362AC /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				22D4F21B27A42C3C00DD5A00 /* Map */,
+				22D4F21A27A42C2C00DD5A00 /* Meeting */,
+				22D4F21927A42C0F00DD5A00 /* Person */,
+				22D4F21827A42BFC00DD5A00 /* View */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		2215BBA527A22268009362AC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				229F7A1027A2D6230039902B /* MainViewController.swift */,
+				229F7A1127A2D6230039902B /* NewMeetingViewController.swift */,
+				2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2215BBAA27A22286009362AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */,
+				2215BBBE27A222F3009362AC /* EmptyView */,
+				2215BBAB27A2228B009362AC /* Cell */,
+				229F7A0C27A2D5F50039902B /* MainView.swift */,
+				229F7A0D27A2D5F50039902B /* NewMeetingView.swift */,
+				2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2215BBAB27A2228B009362AC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2215BBAD27A22298009362AC /* Table */,
+				2215BBAC27A22290009362AC /* Collection */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2215BBAC27A22290009362AC /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				229F7A0827A2D5D50039902B /* MainViewCollectionCell.swift */,
+				229F7A0927A2D5D50039902B /* NewMeetingCollectionCell.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		2215BBAD27A22298009362AC /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				229F7A0227A2D4EA0039902B /* MainViewTableCell.swift */,
+				229F7A0327A2D4EA0039902B /* NewMeetingTableTitleCell.swift */,
+				229F7A0127A2D4EA0039902B /* NewMeetingTableDateCell.swift */,
+				229F7A0027A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift */,
+				2267F86F27A4F0BE0090E324 /* ParticipantsTableCell.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		2215BBBE27A222F3009362AC /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				229F79FE27A2D4CC0039902B /* EmptyView.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		2215BBC327A2236D009362AC /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2215BBC427A22374009362AC /* System */,
+				229F79D127A23C160039902B /* Table */,
+				229F79D027A23C0F0039902B /* Collection */,
+				229F79E727A2D4250039902B /* LocationManegerDelegate.swift */,
+				229F79E827A2D4250039902B /* MapViewDelegate.swift */,
+				229F79E627A2D4240039902B /* TextFieldDelegate.swift */,
+				22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		2215BBC427A22374009362AC /* System */ = {
+			isa = PBXGroup;
+			children = (
+				229F79E327A2D4090039902B /* AppDelegate.swift */,
+				229F79E227A2D4090039902B /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		229F79D027A23C0F0039902B /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				229F7A1A27A31D4A0039902B /* MainCollectionDelegate.swift */,
+				22D4F20C27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		229F79D127A23C160039902B /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				229F79D227A23C400039902B /* MainTableDelegate.swift */,
+				22D4F20827A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift */,
+				2267F87127A4FEEF0090E324 /* ParticipantsTableDelegate.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		229F79D427A23D0E0039902B /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				229F79D527A23D1C0039902B /* Table */,
+				229F79D627A23D210039902B /* Collection */,
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		229F79D527A23D1C0039902B /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				229F79D727A23D440039902B /* MainTableDataSource.swift */,
+				22D4F20A27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift */,
+				2267F87327A4FF240090E324 /* ParticipantsTableDataSource.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		229F79D627A23D210039902B /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				229F7A1C27A31D820039902B /* MainCollectionDataSource.swift */,
+				22D4F20E27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		22D4F21827A42BFC00DD5A00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				229F79F427A2D49B0039902B /* LabelConfig.swift */,
+				229F79F327A2D49B0039902B /* MeetingCreatedCellInfo.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22D4F21927A42C0F00DD5A00 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				229F79F227A2D49B0039902B /* Person.swift */,
+				22D4F21627A42B7900DD5A00 /* ContactInfo.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		22D4F21A27A42C2C00DD5A00 /* Meeting */ = {
+			isa = PBXGroup;
+			children = (
+				22D4F21027A34D0000DD5A00 /* MeetingInfo.swift */,
+				229F79F627A2D49B0039902B /* MeetingCreated.swift */,
+			);
+			path = Meeting;
+			sourceTree = "<group>";
+		};
+		22D4F21B27A42C3C00DD5A00 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				229F79F727A2D49C0039902B /* MapPlace.swift */,
+				22D4F21427A42B4500DD5A00 /* AddressInfo.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B67A69276278E0005D8D95 /* TheMidway Clip */ = {
+		2215BB6C27A21FC4009362AC /* TheMidway */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B67A82276278E2005D8D95 /* Build configuration list for PBXNativeTarget "TheMidway Clip" */;
+			buildConfigurationList = 2215BB8427A21FC5009362AC /* Build configuration list for PBXNativeTarget "TheMidway" */;
 			buildPhases = (
-				13B67A66276278E0005D8D95 /* Sources */,
-				13B67A67276278E0005D8D95 /* Frameworks */,
-				13B67A68276278E0005D8D95 /* Resources */,
+				2215BB6927A21FC4009362AC /* Sources */,
+				2215BB6A27A21FC4009362AC /* Frameworks */,
+				2215BB6B27A21FC4009362AC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = "TheMidway Clip";
-			productName = "TheMidway Clip";
-			productReference = 13B67A6A276278E0005D8D95 /* TheMidway Clip.app */;
-			productType = "com.apple.product-type.application.on-demand-install-capable";
-		};
-		13ED108D276938A200D85E04 /* WidgetTheMidwayExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 13ED10A0276938A400D85E04 /* Build configuration list for PBXNativeTarget "WidgetTheMidwayExtension" */;
-			buildPhases = (
-				13ED108A276938A200D85E04 /* Sources */,
-				13ED108B276938A200D85E04 /* Frameworks */,
-				13ED108C276938A200D85E04 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WidgetTheMidwayExtension;
-			productName = WidgetTheMidwayExtension;
-			productReference = 13ED108E276938A200D85E04 /* WidgetTheMidwayExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		DB5BA51E274817D9003BBFCA /* TheMidway */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DB5BA536274817DC003BBFCA /* Build configuration list for PBXNativeTarget "TheMidway" */;
-			buildPhases = (
-				DB5BA51B274817D9003BBFCA /* Sources */,
-				DB5BA51C274817D9003BBFCA /* Frameworks */,
-				DB5BA51D274817D9003BBFCA /* Resources */,
-				13B67A7F276278E2005D8D95 /* Embed App Clips */,
-				13ED109D276938A400D85E04 /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				13B67A7D276278E2005D8D95 /* PBXTargetDependency */,
-				13ED109B276938A400D85E04 /* PBXTargetDependency */,
 			);
 			name = TheMidway;
 			productName = TheMidway;
-			productReference = DB5BA51F274817D9003BBFCA /* TheMidway.app */;
+			productReference = 2215BB6D27A21FC4009362AC /* TheMidway.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DB5BA517274817D9003BBFCA /* Project object */ = {
+		2215BB6527A21FC4009362AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1310;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					13B67A69276278E0005D8D95 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					13ED108D276938A200D85E04 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					DB5BA51E274817D9003BBFCA = {
-						CreatedOnToolsVersion = 13.1;
+					2215BB6C27A21FC4009362AC = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
-			buildConfigurationList = DB5BA51A274817D9003BBFCA /* Build configuration list for PBXProject "TheMidway" */;
+			buildConfigurationList = 2215BB6827A21FC4009362AC /* Build configuration list for PBXProject "TheMidway" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -485,283 +410,96 @@
 				en,
 				Base,
 			);
-			mainGroup = DB5BA516274817D8003BBFCA;
-			productRefGroup = DB5BA520274817D9003BBFCA /* Products */;
+			mainGroup = 2215BB6427A21FC4009362AC;
+			productRefGroup = 2215BB6E27A21FC4009362AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB5BA51E274817D9003BBFCA /* TheMidway */,
-				13B67A69276278E0005D8D95 /* TheMidway Clip */,
-				13ED108D276938A200D85E04 /* WidgetTheMidwayExtension */,
+				2215BB6C27A21FC4009362AC /* TheMidway */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		13B67A68276278E0005D8D95 /* Resources */ = {
+		2215BB6B27A21FC4009362AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13B67A79276278E2005D8D95 /* LaunchScreen.storyboard in Resources */,
-				136A52E2276BA8C6000E2108 /* Assets.xcassets in Resources */,
-				13B67A74276278E0005D8D95 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13ED108C276938A200D85E04 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13ED1098276938A300D85E04 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB5BA51D274817D9003BBFCA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DB5BA532274817DC003BBFCA /* LaunchScreen.storyboard in Resources */,
-				DB5BA52F274817DC003BBFCA /* Assets.xcassets in Resources */,
-				DB5BA52A274817D9003BBFCA /* Main.storyboard in Resources */,
+				229F7A1927A2E3B80039902B /* LaunchScreen.storyboard in Resources */,
+				229F7A1727A2E30C0039902B /* Assets.xcassets in Resources */,
+				2215BB7827A21FC4009362AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		13B67A66276278E0005D8D95 /* Sources */ = {
+		2215BB6927A21FC4009362AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				132CD68C2767C58F00066BA9 /* DataView.swift in Sources */,
-				13B67A71276278E0005D8D95 /* ViewController.swift in Sources */,
-				13B67A6D276278E0005D8D95 /* AppDelegate.swift in Sources */,
-				13ED10A8276960B800D85E04 /* SugestoesCollectionViewCell.swift in Sources */,
-				13B67A6F276278E0005D8D95 /* SceneDelegate.swift in Sources */,
-				13B67A8E2763CEF4005D8D95 /* QuandoSeraTableViewCell.swift in Sources */,
-				13B67A8D2763CEEC005D8D95 /* TextFieldTableViewCell.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		13ED108A276938A200D85E04 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				13ED10A427693AE600D85E04 /* UserDefaultManager.swift in Sources */,
-				13ED10AC276A5F0000D85E04 /* TheMidway.xcdatamodeld in Sources */,
-				13ED1096276938A200D85E04 /* WidgetTheMidway.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB5BA51B274817D9003BBFCA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22B09B00276A629600448337 /* APIManeger.swift in Sources */,
-				22B09B07276A633E00448337 /* MeetingInfo.swift in Sources */,
-				13763FBF276AB871001DAE7D /* AmigosCollectionViewCell.swift in Sources */,
-				13763FC1276ABA8C001DAE7D /* TagView.swift in Sources */,
-				1376CB2A274ED6EF0091E62A /* PerfilViewController.swift in Sources */,
-				2210352D276BE37D0059A5DB /* PointsOfinterest.swift in Sources */,
-				1376CB36275008880091E62A /* QuemVaiTableViewCell.swift in Sources */,
-				DB355CC12757EF2900A6A1D5 /* EncontroRepository.swift in Sources */,
-				22B09B05276A631D00448337 /* Items.swift in Sources */,
-				1344B5BD2759348300280E11 /* AmigosTableViewCell.swift in Sources */,
-				1344B5B92758051E00280E11 /* Contacts.swift in Sources */,
-				22B09AFD276A625000448337 /* APIError.swift in Sources */,
-				13ED10A7276960AF00D85E04 /* SugestoesCollectionViewCell.swift in Sources */,
-				136FE0F9275FEFAA004F3E2D /* DataView.swift in Sources */,
-				DB5BA523274817D9003BBFCA /* AppDelegate.swift in Sources */,
-				DB355CC42757F2A300A6A1D5 /* PessoaRepository.swift in Sources */,
-				DB5BA52D274817D9003BBFCA /* TheMidway.xcdatamodeld in Sources */,
-				22B09B02276A62D200448337 /* HTTPVerbs.swift in Sources */,
-				1376CB342750087B0091E62A /* QuandoSeraTableViewCell.swift in Sources */,
-				22B09B09276A637300448337 /* EncontroMarcado.swift in Sources */,
-				1376CB28274ED6CC0091E62A /* EncontrosViewController.swift in Sources */,
-				225CD6242756C15900E07A21 /* Pessoa.swift in Sources */,
-				136FE0F7275FEDCF004F3E2D /* VisualizaEncontroViewController.swift in Sources */,
-				1376CB30274FF77A0091E62A /* TextFieldTableViewCell.swift in Sources */,
-				1376CB2E274ED72F0091E62A /* QuemVaiViewController.swift in Sources */,
-				DB5BA525274817D9003BBFCA /* SceneDelegate.swift in Sources */,
-				225CD6222756BFC200E07A21 /* NovoEncontroViewController+Mapkit.swift in Sources */,
-				1376CB32274FFB3F0091E62A /* NovoEncontroCollectionViewCell.swift in Sources */,
-				13ED10A327693AE300D85E04 /* UserDefaultManager.swift in Sources */,
-				1376CB2C274ED7190091E62A /* NovoEncontroViewController.swift in Sources */,
-				4A8CD6E327595AD900CDD268 /* EncontrosTableViewCell.swift in Sources */,
-				135026AD275026470092165D /* MapPlace.swift in Sources */,
+				22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */,
+				2267F86E27A4EF9F0090E324 /* ParticipantsViewController.swift in Sources */,
+				229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */,
+				229F79E927A2D4250039902B /* TextFieldDelegate.swift in Sources */,
+				229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */,
+				229F79EA27A2D4250039902B /* LocationManegerDelegate.swift in Sources */,
+				229F79F127A2D4750039902B /* MapViewManeger.swift in Sources */,
+				2267F86C27A4EF7A0090E324 /* ParticipantsView.swift in Sources */,
+				2267F87027A4F0BE0090E324 /* ParticipantsTableCell.swift in Sources */,
+				229F7A0627A2D4EA0039902B /* MainViewTableCell.swift in Sources */,
+				229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */,
+				229F7A0A27A2D5D50039902B /* MainViewCollectionCell.swift in Sources */,
+				229F7A0527A2D4EA0039902B /* NewMeetingTableDateCell.swift in Sources */,
+				229F79E527A2D4090039902B /* AppDelegate.swift in Sources */,
+				229F79F827A2D49C0039902B /* Person.swift in Sources */,
+				22D4F20D27A3485100DD5A00 /* NewMeetingPlacesFoundCollectionDelegate.swift in Sources */,
+				229F79EE27A2D45E0039902B /* PlacesCategories.swift in Sources */,
+				22D4F20B27A344E300DD5A00 /* NewMeetingFormsTableDataSource.swift in Sources */,
+				229F79FD27A2D49C0039902B /* MapPlace.swift in Sources */,
+				2267F87427A4FF240090E324 /* ParticipantsTableDataSource.swift in Sources */,
+				22D4F21127A34D0000DD5A00 /* MeetingInfo.swift in Sources */,
+				229F7A1D27A31D820039902B /* MainCollectionDataSource.swift in Sources */,
+				22D4F20F27A3486900DD5A00 /* NewMeetingPlacesFoundCollectionDataSource.swift in Sources */,
+				22D4F20927A3445200DD5A00 /* NewMeetingFormsTableDelegate.swift in Sources */,
+				229F79FF27A2D4CC0039902B /* EmptyView.swift in Sources */,
+				229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */,
+				229F79E127A2D3AD0039902B /* TheMidway.xcdatamodeld in Sources */,
+				229F7A0F27A2D5F50039902B /* NewMeetingView.swift in Sources */,
+				229F7A0427A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift in Sources */,
+				229F7A0727A2D4EA0039902B /* NewMeetingTableTitleCell.swift in Sources */,
+				2267F87227A4FEEF0090E324 /* ParticipantsTableDelegate.swift in Sources */,
+				223E1EE327A4C819005C9D84 /* ParticipantsCDManeger.swift in Sources */,
+				229F7A0E27A2D5F50039902B /* MainView.swift in Sources */,
+				229F79EF27A2D45E0039902B /* APIError.swift in Sources */,
+				229F79E427A2D4090039902B /* SceneDelegate.swift in Sources */,
+				229F79FC27A2D49C0039902B /* MeetingCreated.swift in Sources */,
+				229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */,
+				229F79EB27A2D4250039902B /* MapViewDelegate.swift in Sources */,
+				229F7A1227A2D6230039902B /* MainViewController.swift in Sources */,
+				229F7A1B27A31D4A0039902B /* MainCollectionDelegate.swift in Sources */,
+				229F79FA27A2D49C0039902B /* LabelConfig.swift in Sources */,
+				22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */,
+				22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */,
+				229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		13B67A7D276278E2005D8D95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13B67A69276278E0005D8D95 /* TheMidway Clip */;
-			targetProxy = 13B67A7C276278E2005D8D95 /* PBXContainerItemProxy */;
-		};
-		13ED109B276938A400D85E04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13ED108D276938A200D85E04 /* WidgetTheMidwayExtension */;
-			targetProxy = 13ED109A276938A400D85E04 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		13B67A72276278E0005D8D95 /* Main.storyboard */ = {
+		2215BB7627A21FC4009362AC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				13B67A73276278E0005D8D95 /* Base */,
+				2215BB7727A21FC4009362AC /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		13B67A77276278E2005D8D95 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B67A78276278E2005D8D95 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		DB5BA528274817D9003BBFCA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB5BA529274817D9003BBFCA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DB5BA530274817DC003BBFCA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB5BA531274817DC003BBFCA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		13B67A80276278E2005D8D95 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.Clip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		13B67A81276278E2005D8D95 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "TheMidway Clip/TheMidway_Clip.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "TheMidway Clip/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.Clip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		13ED109E276938A400D85E04 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetTheMidway/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WidgetTheMidway;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidwayy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		13ED109F276938A400D85E04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetTheMidwayExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WidgetTheMidway/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WidgetTheMidway;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway.WidgetTheMidwayy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		DB5BA534274817DC003BBFCA /* Debug */ = {
+		2215BB8227A21FC5009362AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -812,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -822,7 +560,7 @@
 			};
 			name = Debug;
 		};
-		DB5BA535274817DC003BBFCA /* Release */ = {
+		2215BB8327A21FC5009362AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -867,7 +605,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -877,58 +615,59 @@
 			};
 			name = Release;
 		};
-		DB5BA537274817DC003BBFCA /* Debug */ = {
+		2215BB8527A21FC5009362AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TheMidway/TheMidway.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		DB5BA538274817DC003BBFCA /* Release */ = {
+		2215BB8627A21FC5009362AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TheMidway/TheMidway.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Anna.Andrade.TheMidway;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -940,38 +679,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B67A82276278E2005D8D95 /* Build configuration list for PBXNativeTarget "TheMidway Clip" */ = {
+		2215BB6827A21FC4009362AC /* Build configuration list for PBXProject "TheMidway" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13B67A80276278E2005D8D95 /* Debug */,
-				13B67A81276278E2005D8D95 /* Release */,
+				2215BB8227A21FC5009362AC /* Debug */,
+				2215BB8327A21FC5009362AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13ED10A0276938A400D85E04 /* Build configuration list for PBXNativeTarget "WidgetTheMidwayExtension" */ = {
+		2215BB8427A21FC5009362AC /* Build configuration list for PBXNativeTarget "TheMidway" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				13ED109E276938A400D85E04 /* Debug */,
-				13ED109F276938A400D85E04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DB5BA51A274817D9003BBFCA /* Build configuration list for PBXProject "TheMidway" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB5BA534274817DC003BBFCA /* Debug */,
-				DB5BA535274817DC003BBFCA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DB5BA536274817DC003BBFCA /* Build configuration list for PBXNativeTarget "TheMidway" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB5BA537274817DC003BBFCA /* Debug */,
-				DB5BA538274817DC003BBFCA /* Release */,
+				2215BB8527A21FC5009362AC /* Debug */,
+				2215BB8627A21FC5009362AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -979,17 +700,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DB5BA52B274817D9003BBFCA /* TheMidway.xcdatamodeld */ = {
+		229F79DE27A2D3AD0039902B /* TheMidway.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DB5BA52C274817D9003BBFCA /* TheMidway.xcdatamodel */,
+				229F79DF27A2D3AD0039902B /* TheMidway.xcdatamodel */,
 			);
-			currentVersion = DB5BA52C274817D9003BBFCA /* TheMidway.xcdatamodel */;
+			currentVersion = 229F79DF27A2D3AD0039902B /* TheMidway.xcdatamodel */;
 			path = TheMidway.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = DB5BA517274817D9003BBFCA /* Project object */;
+	rootObject = 2215BB6527A21FC4009362AC /* Project object */;
 }
