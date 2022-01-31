@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 struct LabelConfig {
     var text: String
     let sizeFont: CGFloat

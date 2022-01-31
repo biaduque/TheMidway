@@ -10,11 +10,11 @@ import MapKit
 
 class MapViewDelegate: NSObject, MKMapViewDelegate {
     
+    /* MARK: - Delegate */
+    
     /// Todos os desenhos são configurados nessa função delegate. (OBS: caso faça algum outro desenho precisa específica com o if comentado)
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         // if overlay is MKCircle {
-            print("Estou no delegate do círculo")
-        
             let circle = MKCircleRenderer(overlay: overlay)
             circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.18)
             circle.strokeColor = UIColor(named: "Color4")

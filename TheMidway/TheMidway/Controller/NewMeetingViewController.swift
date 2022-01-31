@@ -6,74 +6,39 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 import CoreLocation
-import MapKit
 
-class NewMeetingViewController: UIViewController,
-                                UICollectionViewDelegate, UICollectionViewDataSource,
-                                UITableViewDelegate, UITableViewDataSource{
+class NewMeetingViewController: UIViewController {
     
     /* MARK: - Atributos */
     
     private let mainView = NewMeetingView()
     
-    private var superViewController: MainViewController
-    
-    private var placesOnTheMidway: [MapPlace] = [
-        MapPlace(
-            name: "Muza",
-            coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
-            pin: nil,
-            type: .restaurant,
-            postalCode: "06414-007",
-            country: "BR",
-            city: "SP",
-            district: "Barueri",
-            address: "Avenida Sebastião Davino dos Reis",
-            number: "101"
-        ),
-        MapPlace(
-            name: "Gui Reis",
-            coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
-            pin: nil,
-            type: .nightlife,
-            postalCode: "09770-200",
-            country: "BR",
-            city: "SP",
-            district: "São Bernardo do Campo",
-            address: "Rua Nicola Spinelli",
-            number: "469"
-        ),
-        MapPlace(
-            name: "Leh",
-            coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
-            pin: nil,
-            type: .cafe,
-            postalCode: "04304-000",
-            country: "BR",
-            city: "SP",
-            district: "São Paulo",
-            address: "Avenida Fagundes Filho",
-            number: "470"
-        )
-    ]
-    
+    private var placesOnTheMidway: [MapPlace] = []
     private var mapManeger: MapViewManeger!
     
-    private var lastCellChecked: NewMeetingCollectionCell = NewMeetingCollectionCell()
     
+    /* ViewController */
     
+    private var superViewController: MainViewController
     
-    /* Delegates */
+    private let participantsController = ParticipantsViewController()
     
-    private let textFieldDelegate = TextFieldDelegate()
+
+    /* Delegates & Data Sources */
+    
+    private var contactDelegate = CNContactDelegate()
     
     private let mapViewDelegate = MapViewDelegate()
-    
     private let locationDelegate = LocationManegerDelegate()
     
+    private let formsTableDelegate = NewMeetingFormsTableDelegate()
+    private let formsTableDataSource = NewMeetingFormsTableDataSource()
     
-    /* DataSources */
+    private let placesFoundDelegate = NewMeetingPlacesFoundCollectionDelegate()
+    private let placesFoundDataSource = NewMeetingPlacesFoundCollectionDataSource()
     
     
     
@@ -90,10 +55,10 @@ class NewMeetingViewController: UIViewController,
     
     
     /* MARK: - Ciclo de Vida */
-    
+        
     public override func loadView() -> Void {
         super.loadView()
-        
+
         self.view = self.mainView
     }
     
@@ -101,20 +66,11 @@ class NewMeetingViewController: UIViewController,
     public override func viewDidLoad() -> Void {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Salvar",
-            style: .done,
-            target: self,
-            action: #selector(self.saveNewMeetingAction)
-        )
+        self.setInfoForTests()  // Pré definindo algumas informações apenas pra teste
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Cancelar",
-            style: .plain,
-            target: self,
-            action: #selector(self.saveNewMeetingAction)
-        )
-        self.navigationItem.leftBarButtonItem?.tintColor = .systemRed
+        // Nav bar
+        self.configureNavBar()
+        
         
         // Configurando a remoção do teclado em qualquer lugar da tela
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -156,152 +112,32 @@ class NewMeetingViewController: UIViewController,
     public override func viewWillAppear(_ animated: Bool) -> Void {
         super.viewWillAppear(animated)
         
-        self.mainView.formsTableView.delegate = self
-        self.mainView.formsTableView.dataSource = self
-
-        self.mainView.placesFoundCollection.delegate = self
-        self.mainView.placesFoundCollection.dataSource = self
-
-        self.reloadDataMeetingsTableView()
-    }
-    
-    
-    
-    /* MARK: - Delegate (Table) */
-
-    /// Quantidade de células que vai ter na table
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return 1
-        }
-        return 3
-    }
-    
-    
-    /// Número de sessões diferentes
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    /// Ação de quando clica em uma célula
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
-        tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadInputViews()
-    }
-    
-    
-    /// Cria o conteúdo da célula
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Definindo delegate & datasources
+        self.formsTableDelegate.setParentController(self)
+        self.mainView.setFormsTableDelegate(self.formsTableDelegate)
         
-        var cell = UITableViewCell()
+        self.mainView.setFormsTableDataSource(self.formsTableDataSource)
         
-        if indexPath.section == 0 {
-            guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableTitleCell.identifier, for: indexPath) as? NewMeetingTableTitleCell else {
-                return cell
-            }
-            
-            newCell.setTextBackground("Título do encontro")
-            newCell.setTextFieldDelegate(delegate: self.textFieldDelegate)
-            cell = newCell
-        } else {
-            switch indexPath.row {
-            case 0:
-                guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableDateCell.identifier, for: indexPath) as? NewMeetingTableDateCell else {
-                    return cell
-                }
+        self.placesFoundDelegate.setMapManeger(self.mapManeger)
+        self.mainView.setPlacesFoundCollectionDelegate(self.placesFoundDelegate)
+        
+        self.mainView.setPlacesFoundCollectionDataSource(self.placesFoundDataSource)
+        
+
+        self.reloadCollectionData()
+    }
+    
                 
-                newCell.setCellTitle(LabelConfig(text: "Quando será?", sizeFont: 17, weight: .bold))
-                cell = newCell
-                
-            case 1:
-                guard let newCell = self.mainView.formsTableView.dequeueReusableCell(withIdentifier: NewMeetingTableParticipantsCell.identifier, for: indexPath) as? NewMeetingTableParticipantsCell else {
-                    return cell
-                }
-                
-                newCell.setCellTitle(
-                    leftText: LabelConfig(text: "Quem vai?", sizeFont: 17, weight: .bold),
-                    rightText: LabelConfig(text: "10", sizeFont: 17, weight: .regular))
-                cell = newCell
-
-            default: return cell
-            }
-        }
-    
-        return cell
-    }
-    
-    
-    
-    /* MARK: - Delegate (Collection) */
-    
-    /// Mostra quantas células vão ser mostradas
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.placesOnTheMidway.count
-    }
-    
-    
-    /// Configura uma célula
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // Cria uma variável para mexer com uma célula que foi criada
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewMeetingCollectionCell.identifier, for: indexPath) as? NewMeetingCollectionCell else {
-            return UICollectionViewCell()
-        }
-        
-        let completeAddress = NewMeetingViewController.creatAddressVisualization(place: self.placesOnTheMidway[indexPath.row])
-        
-        cell.setCellInfo(
-            title: LabelConfig(text: self.placesOnTheMidway[indexPath.row].name, sizeFont: 20, weight: .bold),
-            address: LabelConfig(text: completeAddress, sizeFont: 15, weight: .regular),
-            tag: self.placesOnTheMidway[indexPath.row].type
-        )
-        return cell
-    }
-    
-    
-    /// Ação de quando clica em uma célula
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) -> Void {
-        // Pega a célula clicada
-        guard let cell = collectionView.cellForItem(at: indexPath) as? NewMeetingCollectionCell else {
-            return
-        }
-        
-        cell.checkCell()
-        self.lastCellChecked.uncheckCell()
-        self.lastCellChecked = cell
-        
-        collectionView.tag = indexPath.row
-        
-        self.mapManeger.setMapFocus(at: self.placesOnTheMidway[indexPath.row].coordinates, radius: 3000)
-    }
-    
-        
     
     /* MARK: - Ações dos botões */
     
-    
+    /// Salva os dados criados do novo encontro
     @objc private func saveNewMeetingAction() -> Void {
-        
-        let mapPlace = self.placesOnTheMidway[self.mainView.placesFoundCollection.tag]
-        
-        
-        guard let cellDate = self.mainView.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 1) as IndexPath) as? NewMeetingTableDateCell else {
-            return
-        }
-        
-        guard let cellTitle = self.mainView.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as? NewMeetingTableTitleCell else {
-            return
-        }
-        
-        if cellTitle.getText() == "" {
-            // Caso para quando a pessoa não colocu um título
-        }
+        let mapPlace = self.placesOnTheMidway[self.mainView.getPlacesFoundCollectionTag()]
         
         let data = MeetingCreated(
             placeInfo: mapPlace,
-            date: cellDate.getDate(),
-            hour: cellDate.getTime(),
-            meetingName: cellTitle.getText(),
+            meetingInfo: self.mainView.getFormsTableData(),
             participants: []
         )
 
@@ -314,22 +150,107 @@ class NewMeetingViewController: UIViewController,
         self.dismiss(animated: true)
     }
     
+    
+    /// Cancelando a criação de um novo encontro
+    @objc private func cancelAction() -> Void {
+        self.dismiss(animated: true)
+    }
+    
+    
     /// Tira o teclado da tela
     @objc private func dismissKeyboard() -> Void {
         self.view.endEditing(true)
     }
     
     
+    /// Tira o teclado da tela
+    @objc public func setParticipantsAction() -> Void {
+        self.participantsController.title = "Quem vai?"
+        self.navigationController?.pushViewController(self.participantsController, animated: true)
+    }
     
     
     /* MARK: - Configurações*/
     
-    public func reloadDataMeetingsTableView() -> Void {
-        self.mainView.formsTableView.reloadData()
+    /// Configura a NavBar da classe
+    private func configureNavBar() -> Void {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Salvar",
+            style: .done,
+            target: self,
+            action: #selector(self.saveNewMeetingAction)
+        )
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Cancelar",
+            style: .plain,
+            target: self,
+            action: #selector(self.cancelAction)
+        )
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemRed
     }
     
     
-    static func creatAddressVisualization(place: MapPlace) -> String {
+    /// Atualiza os dados da collection
+    public func reloadCollectionData() -> Void {
+        self.placesFoundDelegate.setPlacesFound(self.placesOnTheMidway)
+        self.placesFoundDataSource.setPlacesFound(self.placesOnTheMidway)
+        
+        self.mainView.updatePlacesFoundCollectionData()
+    }
+    
+    
+    /// Cria uma string com as informações do  endereço completo
+    static func creatAddressVisualization(place: AddressInfo) -> String {
         return "\(place.address), \(place.number) - \(place.district), \(place.city) - \(place.postalCode)"
+    }
+    
+    
+    /// Função apenas para teste
+    private func setInfoForTests() -> Void {
+        self.placesOnTheMidway = [
+            MapPlace(
+                name: "Muza",
+                coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
+                pin: nil,
+                type: .restaurant,
+                addressInfo: AddressInfo(
+                    postalCode: "06414-007",
+                    country: "BR",
+                    city: "SP",
+                    district: "Barueri",
+                    address: "Avenida Sebastião Davino dos Reis",
+                    number: "101"
+                )
+            ),
+            MapPlace(
+                name: "Gui Reis",
+                coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
+                pin: nil,
+                type: .nightlife,
+                addressInfo: AddressInfo(
+                    postalCode: "09770-200",
+                    country: "BR",
+                    city: "SP",
+                    district: "São Bernardo do Campo",
+                    address: "Rua Nicola Spinelli",
+                    number: "469"
+                )
+            ),
+            MapPlace(
+                name: "Leh",
+                coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
+                pin: nil,
+                type: .cafe,
+                addressInfo: AddressInfo(
+                    postalCode: "04304-000",
+                    country: "BR",
+                    city: "SP",
+                    district: "São Paulo",
+                    address: "Avenida Fagundes Filho",
+                    number: "470"
+                )
+            )
+        ]
     }
 }

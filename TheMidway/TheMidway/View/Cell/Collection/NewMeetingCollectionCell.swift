@@ -37,6 +37,7 @@ class NewMeetingCollectionCell: UICollectionViewCell {
     private var defaultButtonFontSize: CGFloat = 0
     
     
+    
     /* MARK: -  */
     
     public override init(frame: CGRect) {

@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewCollectionCell: UICollectionViewCell {
     
-    // MARK: - Atributos
+    /* MARK: - Atributos */
     
     static let identifier = "IdMainViewCollectionCell"
     
@@ -25,7 +25,8 @@ class MainViewCollectionCell: UICollectionViewCell {
     private var label: UILabel
     
     
-    // MARK: -
+    
+    /* MARK: - */
     
     public override init(frame: CGRect) {
         self.label = MainView.newLabel(color: UIColor(named: "TitleLabel"))
@@ -41,7 +42,8 @@ class MainViewCollectionCell: UICollectionViewCell {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
     
-    // MARK: - Encapsulamento
+    
+    /* MARK: - Encapsulamento */
     
     public func setContentView(text: String, sizeFont:CGFloat, w:UIFont.Weight) -> Void {
         self.label.text = text
@@ -52,8 +54,8 @@ class MainViewCollectionCell: UICollectionViewCell {
     
     
     
+    /* MARK: - Constraints */
     
-    // MARK: - Constraints
     public func setConstraints() -> Void {
         
         // Image View
@@ -76,7 +78,9 @@ class MainViewCollectionCell: UICollectionViewCell {
         NSLayoutConstraint.activate(labelConstraints)
     }
     
-    // MARK: - Configurações
+    
+    
+    /* MARK: - Configurações */
     
     public override func prepareForReuse() -> Void {
         super.prepareForReuse()
@@ -84,5 +88,4 @@ class MainViewCollectionCell: UICollectionViewCell {
         self.label.text = nil
         self.image.image = nil
     }
-    
 }

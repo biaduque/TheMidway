@@ -19,26 +19,22 @@ class NewMeetingView: UIView {
     
     // Formulário
     
-    public let formsTableView: UITableView = {
+    private let formsTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.backgroundColor = UIColor(named: "BackgroundColor") // .secondarySystemBackground
         table.translatesAutoresizingMaskIntoConstraints = false
         
-        table.alwaysBounceVertical = false
-        table.alwaysBounceHorizontal = false
-        
+        table.backgroundColor = UIColor(named: "BackgroundColor")   // .secondarySystemBackground
         table.isScrollEnabled = false
         
         table.clipsToBounds = true
         table.layer.masksToBounds = true
         table.layer.cornerRadius = 7
         
-        // Tamanho da célula
-        table.rowHeight = 45
-    
         table.register(NewMeetingTableTitleCell.self, forCellReuseIdentifier: NewMeetingTableTitleCell.identifier)
         table.register(NewMeetingTableDateCell.self, forCellReuseIdentifier: NewMeetingTableDateCell.identifier)
         table.register(NewMeetingTableParticipantsCell.self, forCellReuseIdentifier: NewMeetingTableParticipantsCell.identifier)
+        
+        table.rowHeight = 45
         
         // Tirando o espaço do topo
         var frame = CGRect.zero
@@ -47,8 +43,10 @@ class NewMeetingView: UIView {
         let view = UIView(frame: frame)
         table.tableHeaderView = view
         table.tableFooterView = view
-         table.sectionHeaderHeight = .leastNormalMagnitude
-         table.sectionFooterHeight = 20
+        
+        // Tirando o espaço entre as seções
+        table.sectionHeaderHeight = .leastNormalMagnitude
+        table.sectionFooterHeight = 20
         
         table.contentInset = .zero
         
@@ -62,7 +60,7 @@ class NewMeetingView: UIView {
     
     public let retryButton: UIButton
     
-    public let placesFoundCollection: UICollectionView = {
+    private let placesFoundCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal                // Direção da rolagem (se é horizontal ou vertical)
         layout.itemSize = CGSize(width: 300, height: 120)   // Define o tamanho da célula
@@ -118,6 +116,7 @@ class NewMeetingView: UIView {
     
     /* MARK: -  Encapsulamento */
     
+    /// Define os textos e botões da tela
     public func setTitles(placeFoundText: LabelConfig) -> Void {
         self.placesFoundLabel.text = placeFoundText.text
         self.placesFoundLabel.font = .systemFont(ofSize: placeFoundText.sizeFont, weight: placeFoundText.weight)
@@ -128,7 +127,50 @@ class NewMeetingView: UIView {
         self.retryButton.setImage(UIImage(systemName: "arrow.counterclockwise", withConfiguration: configIcon), for: .normal)
     }
     
+    /// Tag onde salva a posição da célula que foi clicada
+    public func getPlacesFoundCollectionTag() -> Int { return self.placesFoundCollection.tag }
+    
+    
+    // Delegate & Datasource
+    
+    public func setFormsTableDelegate(_ delegate: NewMeetingFormsTableDelegate) -> Void {
+        self.formsTableView.delegate = delegate
+    }
+    
+    public func setFormsTableDataSource(_ dataSource: NewMeetingFormsTableDataSource) -> Void {
+        self.formsTableView.dataSource = dataSource
+    }
+    
+    public func setPlacesFoundCollectionDelegate(_ delegate: NewMeetingPlacesFoundCollectionDelegate) -> Void {
+        self.placesFoundCollection.delegate = delegate
+    }
+    
+    public func setPlacesFoundCollectionDataSource(_ dataSource: NewMeetingPlacesFoundCollectionDataSource) -> Void {
+        self.placesFoundCollection.dataSource = dataSource
+    }
+    
+    
+    // Delegate & Datasource
+    
+    /// Atualiza as informações do mapa
+    public func updatePlacesFoundCollectionData() -> Void { self.placesFoundCollection.reloadData() }
+    
+    
+    /// Pega as informações que froam selecionas e definidas da tabela
+    public func getFormsTableData() -> MeetingInfo {
+        guard let cellTitle = self.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as? NewMeetingTableTitleCell,
+                let cellDate = self.formsTableView.cellForRow(at: NSIndexPath(row: 0, section: 1) as IndexPath) as? NewMeetingTableDateCell else {
+            return MeetingInfo(date: "", hour: "", meetingName: "")
+        }
         
+        return MeetingInfo(
+            date: cellDate.getDate(),
+            hour: cellDate.getTime(),
+            meetingName: cellTitle.getText()
+        )
+    }
+    
+    
     
     /* MARK: -  Constraints */
     

@@ -16,6 +16,14 @@ class LocationManegerDelegate: NSObject, CLLocationManagerDelegate {
     
     
     
+    /* MARK: - Encapsulamento */
+    
+    public func setManeger(manegar: MapViewManeger) -> Void {
+        self.mapManeger = manegar
+    }
+    
+    
+    
     /* MARK: - Delegate (MapView) */
 
     /// Autorização pra usar o mapa
@@ -29,9 +37,5 @@ class LocationManegerDelegate: NSObject, CLLocationManagerDelegate {
     
     
     
-    /* MARK: - Encapsulamento */
     
-    public func setManeger(manegar: MapViewManeger) -> Void {
-        self.mapManeger = manegar
-    }
 }
