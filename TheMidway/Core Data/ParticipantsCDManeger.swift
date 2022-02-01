@@ -34,7 +34,7 @@ class ParticipantsCDManeger {
     
     /* MARK: - Acessando o Core Data (Encapsulamento) */
     
-    /// Salvando e atualizando alterações que tiveram no core data
+    /// Salvando as alterações que tiveram no core data
     private func saveContext() -> Void {
 
         if self.mainContext.hasChanges {
@@ -72,7 +72,7 @@ class ParticipantsCDManeger {
     }
     
     
-    /// Adiciona um novo encontro no core data
+    /// Adiciona um participante no core data
     public func newParticipant(data: Person) throws -> Participants {
         let person = Participants(context: self.mainContext)
         
@@ -87,7 +87,6 @@ class ParticipantsCDManeger {
         
         person.meetingId = Int16(data.meetingId)
         
-        
         self.saveContext()
         return person
     }
@@ -100,9 +99,9 @@ class ParticipantsCDManeger {
     }
     
     
-    /// Remove uma lista de usuários
-    public func deleteParticipants(at item: [Participants]) throws {
-        for person in item {
+    /// Remove usuário de um determinado encontro
+    public func deleteParticipantsWhitMeetingID(at num: Int) throws {
+        for person in self.getParticipants(at: num) {
             self.mainContext.delete(person)
         }
         self.saveContext()

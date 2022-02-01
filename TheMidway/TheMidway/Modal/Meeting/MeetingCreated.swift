@@ -7,6 +7,7 @@
 
 
 struct MeetingCreated {
+    let meetingId: Int
     var placeInfo: MapPlace
     let meetingInfo: MeetingInfo
     let participants: [String]

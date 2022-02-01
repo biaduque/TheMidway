@@ -26,6 +26,11 @@ class NewMeetingTableParticipantsCell: UITableViewCell {
         return lbl
     }()
     
+    private var rightText: String = "0"
+    
+    
+    
+    
     /* MARK: -  */
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -64,7 +69,7 @@ class NewMeetingTableParticipantsCell: UITableViewCell {
         let configIcon = UIImage.SymbolConfiguration(pointSize: leftText.sizeFont-10, weight: .semibold, scale: .medium)
         self.leftImage.image = UIImage(systemName: "person.2.fill", withConfiguration: configIcon)
         
-        self.rightLabel.text = rightText.text
+        // self.rightLabel.text = self.rightText
         self.rightLabel.font = .systemFont(ofSize: rightText.sizeFont, weight: rightText.weight)
         
         let configRightImage = UIImage.SymbolConfiguration(pointSize: leftText.sizeFont-10, weight: .medium, scale: .default)
@@ -73,7 +78,8 @@ class NewMeetingTableParticipantsCell: UITableViewCell {
     
     
     public func setParticipantsCount(num: Int) -> Void {
-        self.leftLabel.text = String(num)
+        self.rightText = String(num)
+        self.rightLabel.text = self.rightText
     }
     
     

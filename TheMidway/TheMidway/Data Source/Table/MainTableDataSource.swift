@@ -40,6 +40,19 @@ class MainTableDataSource: NSObject, UITableViewDataSource {
             return MainViewTableCell()
         }
         
+        
+        let meetingId = Int(meetings[indexPath.row].id)
+        print("\n\nPessoas desse encontro (ID = \(meetingId):")
+        let participantsAtMeeting = ParticipantsCDManeger.shared.getParticipants(at: meetingId)
+        
+        var participantsName: [String] = []
+        
+        
+        for person in participantsAtMeeting {
+            participantsName.append(person.name ?? "")
+            print(person.name ?? "")
+        }
+        
         let infos = MeetingCreatedCellInfo(
             title: LabelConfig(
                 text: self.meetings[indexPath.row].meetingName ?? "",
@@ -50,7 +63,7 @@ class MainTableDataSource: NSObject, UITableViewDataSource {
                 sizeFont: 14, weight: .regular
             ),
             hour: self.meetings[indexPath.row].hour ?? "",
-            participants: ["Gui", "Anna", "Leh", "Bia", "Muza"],
+            participants: participantsName,
             participantsConfig: LabelConfig(text: "", sizeFont: 11, weight: .regular)
         )
 

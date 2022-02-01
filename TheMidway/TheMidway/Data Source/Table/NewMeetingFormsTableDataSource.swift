@@ -60,7 +60,7 @@ class NewMeetingFormsTableDataSource: NSObject, UITableViewDataSource {
                 
                 newCell.setCellTitle(
                     leftText: LabelConfig(text: "Quem vai?", sizeFont: 17, weight: .bold),
-                    rightText: LabelConfig(text: "10", sizeFont: 17, weight: .regular))
+                    rightText: LabelConfig(text: "", sizeFont: 17, weight: .regular))
                 cell = newCell
 
             default: return cell

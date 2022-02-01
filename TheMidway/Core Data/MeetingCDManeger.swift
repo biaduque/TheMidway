@@ -63,6 +63,8 @@ class MeetingCDManeger {
     public func newMeeting(data: MeetingCreated) throws -> Meetings {
         let meeting = Meetings(context: self.mainContext)
         
+        meeting.id = Int16(data.meetingId)
+        
         // Informações do Encontro
         meeting.meetingName = data.meetingInfo.meetingName
         meeting.date = data.meetingInfo.date
@@ -82,6 +84,7 @@ class MeetingCDManeger {
         
         meeting.categorie = data.placeInfo.type.localizedDescription
         
+        print("Id: \(data.meetingId)")
         self.saveContext()
         return meeting
     }

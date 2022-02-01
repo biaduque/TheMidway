@@ -78,7 +78,7 @@ class NewMeetingTableDateCell: UITableViewCell {
     
     public func getDate() -> String {
         let df = DateFormatter()
-        df.dateFormat = "HH:mm"
+        df.dateFormat = "dd/MM/yyyy"
         return df.string(from: self.date.date)
     }
     
