@@ -14,9 +14,7 @@ class SuggestionsView: UIView {
     private let image: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
-        
-        imgView.layer.cornerRadius = 15
-        imgView.layer.masksToBounds = true
+     
         return imgView
     }()
     
@@ -86,7 +84,7 @@ class SuggestionsView: UIView {
    
         
         let imageConstraints: [NSLayoutConstraint] = [
-            self.image.topAnchor.constraint(equalTo: self.topAnchor),
+            self.image.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
             self.image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.image.heightAnchor.constraint(equalToConstant: 180)

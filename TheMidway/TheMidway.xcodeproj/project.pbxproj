@@ -59,6 +59,7 @@
 		22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21627A42B7900DD5A00 /* ContactInfo.swift */; };
 		EE557DA727A9BF3400417221 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DA627A9BF3400417221 /* SuggestionsView.swift */; };
 		EE557DA927A9C61300417221 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DA827A9C61300417221 /* SuggestionsViewController.swift */; };
+		EE557DAB27A9C9D500417221 /* MainControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		22D4F21627A42B7900DD5A00 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
 		EE557DA627A9BF3400417221 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		EE557DA827A9C61300417221 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
+		EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				2267F87827A8D6570090E324 /* NewMeetingControllerDelegate.swift */,
+				EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */,
 				2267F87C27A953A90090E324 /* ParticipantsControllerDelegate.swift */,
 			);
 			path = Protocols;
@@ -510,6 +513,7 @@
 				22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */,
 				22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */,
 				229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */,
+				EE557DAB27A9C9D500417221 /* MainControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

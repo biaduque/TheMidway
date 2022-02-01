@@ -44,7 +44,7 @@ class SuggestionsViewController: UIViewController {
     
     public override func viewDidLoad() -> Void {
         super.viewDidLoad()
-            
+        self.configureNavBar()
         // Configurando informações da view
         self.mainView.setImage(name: self.mainWord)
     }
@@ -65,7 +65,9 @@ class SuggestionsViewController: UIViewController {
     
     /* MARK: - Ações dos botões */
     
-    
+    @objc private func cancelAction() -> Void {
+        self.dismiss(animated: true)
+    }
     
     
     
@@ -75,5 +77,17 @@ class SuggestionsViewController: UIViewController {
     public func reloadDataCollection() -> Void {
         // Pega os dados do CoreData
        
+    }
+    
+    /// Configura a NavBar da classe
+    private func configureNavBar() -> Void {
+       
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Cancelar",
+            style: .plain,
+            target: self,
+            action: #selector(self.cancelAction)
+        )
+        self.navigationItem.leftBarButtonItem?.tintColor = .systemRed
     }
 }
