@@ -46,6 +46,14 @@ class NewMeetingPlacesFoundCollectionDataSource: NSObject, UICollectionViewDataS
             address: LabelConfig(text: completeAddress, sizeFont: 15, weight: .regular),
             tag: self.placesFound[indexPath.row].type
         )
+        
+        // Sombra
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.6
+        cell.layer.shadowOffset = .zero
+        cell.layer.shadowRadius = 5
+        
         return cell
     }
 }

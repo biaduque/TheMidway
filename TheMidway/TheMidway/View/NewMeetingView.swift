@@ -69,6 +69,7 @@ class NewMeetingView: UIView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(NewMeetingCollectionCell.self, forCellWithReuseIdentifier: NewMeetingCollectionCell.identifier)
         cv.backgroundColor = UIColor(named: "BackgroundColor")
+        cv.tag = -1
         cv.translatesAutoresizingMaskIntoConstraints = false
 
         return cv
@@ -84,6 +85,11 @@ class NewMeetingView: UIView {
         map.layer.cornerRadius = 10
         return map
     }()
+    
+    
+    private var placesFoundConstraints: [NSLayoutConstraint] = []
+    
+    private var placesFoundLabelText: String = ""
     
     
     
@@ -105,19 +111,22 @@ class NewMeetingView: UIView {
         
         self.addSubview(self.mapView)
         
-        // self.addSubview(self.emptyView)
+        self.addSubview(self.emptyView)
         
         self.setConstraints()
+        
+        self.setRetryButtonVisible(true)
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     
     
-    /* MARK: -  Encapsulamento */
+    /* MARK: - Encapsulamento */
     
     /// Define os textos e botões da tela
     public func setTitles(placeFoundText: LabelConfig) -> Void {
+        self.placesFoundLabelText = placeFoundText.text
         self.placesFoundLabel.text = placeFoundText.text
         self.placesFoundLabel.font = .systemFont(ofSize: placeFoundText.sizeFont, weight: placeFoundText.weight)
         
@@ -127,8 +136,32 @@ class NewMeetingView: UIView {
         self.retryButton.setImage(UIImage(systemName: "arrow.counterclockwise", withConfiguration: configIcon), for: .normal)
     }
     
+    
+    /// Define a quantidade de locais encontrados
+    public func setPlaceFoundCount(_ num: Int) -> Void {
+        self.placesFoundLabel.text = "\(self.placesFoundLabelText): \(num)"
+    }
+    
+    
     /// Tag onde salva a posição da célula que foi clicada
     public func getPlacesFoundCollectionTag() -> Int { return self.placesFoundCollection.tag }
+    
+    
+    /// Define o número de participantes que foram selecionados
+    public func setParticipantsCount(_ num: Int) -> Void {
+        // Acessa a célula
+        guard let cell = self.formsTableView.cellForRow(at: NSIndexPath(row: 1, section: 1) as IndexPath) as? NewMeetingTableParticipantsCell else {
+            return
+        }
+        cell.setParticipantsCount(num: num)
+    }
+    
+    
+    /// Define a visibilidade do botão retry (se aparace ou fica escondido)
+    public func setRetryButtonVisible(_ bool: Bool) -> Void {
+        self.retryButton.isHidden = bool
+        self.retryButton.isEnabled = !bool
+    }
     
     
     // Delegate & Datasource
@@ -150,7 +183,7 @@ class NewMeetingView: UIView {
     }
     
     
-    // Delegate & Datasource
+    // Dados da table e collection
     
     /// Atualiza as informações do mapa
     public func updatePlacesFoundCollectionData() -> Void { self.placesFoundCollection.reloadData() }
@@ -168,6 +201,49 @@ class NewMeetingView: UIView {
             hour: cellDate.getTime(),
             meetingName: cellTitle.getText()
         )
+    }
+    
+    
+    // EmptyView
+    
+    public func activateEmptyView(_ bool: Bool) -> Void {
+        if bool {
+            self.emptyView.isHidden = false
+            NSLayoutConstraint.activate(self.emptyViewConstraints)
+            
+            if !self.emptyView.isDescendant(of: self) {
+                self.addSubview(self.emptyView)
+            }
+            
+            
+            self.setPlaceFoundGroupViewVisibility(is: true)
+            NSLayoutConstraint.deactivate(self.placesFoundConstraints)
+
+        } else {
+            self.emptyView.isHidden = true
+            NSLayoutConstraint.deactivate(self.emptyViewConstraints)
+            self.emptyView.removeFromSuperview()
+
+            self.setPlaceFoundGroupViewVisibility(is: false)
+            NSLayoutConstraint.activate(self.placesFoundConstraints)
+        }
+    }
+    
+    
+    public func setEmptyViewInfo(img: String, label: LabelConfig, button: LabelConfig) {
+        self.emptyView.setEmptyViewInfo(img: img, text: label, button: button)
+    }
+    
+    public func getEmptyViewButton() -> UIButton {
+        return self.emptyView.getButton()
+    }
+    
+    
+    /// Ativa/desativa as view que mostram informações sobre locais
+    private func setPlaceFoundGroupViewVisibility(is bool: Bool) -> Void {
+        self.placesFoundLabel.isHidden = bool
+        self.placesFoundCollection.isHidden = bool
+        self.mapView.isHidden = bool
     }
     
     
@@ -194,56 +270,46 @@ class NewMeetingView: UIView {
         /*  Lugares encontrados */
         
         // Label
-        let placesFoundLabelConstraints: [NSLayoutConstraint] = [
+        let placesFoundConstraints: [NSLayoutConstraint] = [
+            // Label
             self.placesFoundLabel.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor, constant: betweenSpace*1.2),
             self.placesFoundLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.placesFoundLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.placesFoundLabel.heightAnchor.constraint(equalToConstant: 50)
-        ]
-        NSLayoutConstraint.activate(placesFoundLabelConstraints)
-        
-        
-        // Botão de novo encontro
-        let retryButtonConstraints: [NSLayoutConstraint] = [
+            self.placesFoundLabel.heightAnchor.constraint(equalToConstant: 50),
+            
+            // Botão de atualizar locais
             self.retryButton.topAnchor.constraint(equalTo: self.placesFoundLabel.topAnchor),
             self.retryButton.centerYAnchor.constraint(equalTo: self.placesFoundLabel.centerYAnchor),
             self.retryButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.retryButton.heightAnchor.constraint(equalToConstant: buttonSize),
-            self.retryButton.widthAnchor.constraint(equalToConstant: buttonSize)
-        ]
-        NSLayoutConstraint.activate(retryButtonConstraints)
-        
-        
-        // Collection
-        let placesFoundCollectionConstraints: [NSLayoutConstraint] = [
+            self.retryButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            
+            // Collection
             self.placesFoundCollection.topAnchor.constraint(equalTo: self.placesFoundLabel.bottomAnchor, constant: betweenSpace/2),
             self.placesFoundCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.placesFoundCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.placesFoundCollection.heightAnchor.constraint(equalToConstant: 140)
-        ]
-        NSLayoutConstraint.activate(placesFoundCollectionConstraints)
-        
-        
-        // Mapa
-        let mapConstraints: [NSLayoutConstraint] = [
+            self.placesFoundCollection.heightAnchor.constraint(equalToConstant: 140),
+            
+            // Mapa
             self.mapView.topAnchor.constraint(equalTo: self.placesFoundCollection.bottomAnchor, constant: betweenSpace/2),
             self.mapView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.mapView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.mapView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 2)
-            // self.mapView.heightAnchor.constraint(equalToConstant: 140)
+            self.mapView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 2),
+            
         ]
-        NSLayoutConstraint.activate(mapConstraints)
+        self.placesFoundConstraints = placesFoundConstraints
+        
         
         
         /* EmptyView */
         
-//        let emptyViewConstraints: [NSLayoutConstraint] = [
-//            self.emptyView.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor),
-//            self.emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
-//            self.emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-//            self.emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//        ]
-//
-//        self.emptyViewConstraints = emptyViewConstraints
+        let emptyViewConstraints: [NSLayoutConstraint] = [
+            self.emptyView.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor),
+            self.emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
+            self.emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
+            self.emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        ]
+
+        self.emptyViewConstraints = emptyViewConstraints
     }
 }
