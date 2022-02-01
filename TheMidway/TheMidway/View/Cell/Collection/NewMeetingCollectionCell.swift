@@ -109,6 +109,12 @@ class NewMeetingCollectionCell: UICollectionViewCell {
     }
     
     
+    public func hideNewMeetingViews(_ bool: Bool) -> Void {
+        self.checkButton.isHidden = bool
+        self.tagLabel.isHidden = bool
+    }
+    
+    
     public func uncheckCell() -> Void {
         self.checked = false
         self.setIconButton(self.checkButton, icon: LabelConfig(text: "circle", sizeFont: self.defaultButtonFontSize, weight: .medium))

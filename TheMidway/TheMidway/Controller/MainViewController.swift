@@ -8,8 +8,8 @@
 import UIKit
 import CoreLocation
 
-class MainViewController: UIViewController {
-
+class MainViewController: UIViewController, MainControllerDelegate {
+ 
     /* MARK: - Atributos */
     
     private let mainView: MainView = MainView()
@@ -63,14 +63,28 @@ class MainViewController: UIViewController {
         // Define o delegate e dataSource
         self.mainView.setMeetingsTableDelegate(self.mainTableDelegate)
         self.mainView.setMeetingsTableDataSource(self.mainTableDataSource)
-        
+        self.mainCollectionDelegate.setProtocol(self)
         self.mainView.setSuggestionsCollectionDelegate(self.mainCollectionDelegate)
         self.mainView.setSuggestionsCollectionDataSource(self.mainCollectionDataSource)
         
         
         self.reloadDataMeetingsTableView()
     }
- 
+    
+    
+    
+    /* MARK: - Delegate (Protocolo) */
+    
+    func openSuggestionsAction(name: String) -> Void {
+        let vc = SuggestionsViewController(mainWord: name)
+        vc.title = "Sugestões"
+        vc.modalPresentationStyle = .popover
+        
+        
+        let navBar = UINavigationController(rootViewController: vc)
+        self.present(navBar, animated: true)
+    }
+    
     
     
     /* MARK: - Ações dos botões */

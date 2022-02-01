@@ -13,14 +13,22 @@ class MainCollectionDelegate: NSObject, UICollectionViewDelegate {
     
     private let suggestionTypes: [String] = MainCollectionDataSource.sugestionTypes
     
+    private weak var mainDelegate: MainControllerDelegate?
+        
+
     
+    /* MARK: - Encapsulamento */
+    
+    public func setProtocol(_ delegate: MainControllerDelegate) -> Void {
+        self.mainDelegate = delegate
+    }
     
     /* MARK: - Delegate */
     
     /// Ação de quando clica em uma célula
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.mainDelegate?.openSuggestionsAction(name: self.suggestionTypes[indexPath.row])
         
-        
-        print("\(self.suggestionTypes[indexPath.row]) selecionado.")
+
     }
 }

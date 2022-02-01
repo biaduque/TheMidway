@@ -57,6 +57,9 @@
 		22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */; };
 		22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21427A42B4500DD5A00 /* AddressInfo.swift */; };
 		22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21627A42B7900DD5A00 /* ContactInfo.swift */; };
+		EE557DA727A9BF3400417221 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DA627A9BF3400417221 /* SuggestionsView.swift */; };
+		EE557DA927A9C61300417221 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DA827A9C61300417221 /* SuggestionsViewController.swift */; };
+		EE557DAB27A9C9D500417221 /* MainControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,9 @@
 		22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContactDelegate.swift; sourceTree = "<group>"; };
 		22D4F21427A42B4500DD5A00 /* AddressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfo.swift; sourceTree = "<group>"; };
 		22D4F21627A42B7900DD5A00 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
+		EE557DA627A9BF3400417221 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
+		EE557DA827A9C61300417221 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
+		EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,7 @@
 			children = (
 				229F7A1027A2D6230039902B /* MainViewController.swift */,
 				229F7A1127A2D6230039902B /* NewMeetingViewController.swift */,
+				EE557DA827A9C61300417221 /* SuggestionsViewController.swift */,
 				2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */,
 			);
 			path = Controller;
@@ -224,6 +231,7 @@
 				2215BBAB27A2228B009362AC /* Cell */,
 				229F7A0C27A2D5F50039902B /* MainView.swift */,
 				229F7A0D27A2D5F50039902B /* NewMeetingView.swift */,
+				EE557DA627A9BF3400417221 /* SuggestionsView.swift */,
 				2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */,
 			);
 			path = View;
@@ -294,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				2267F87827A8D6570090E324 /* NewMeetingControllerDelegate.swift */,
+				EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */,
 				2267F87C27A953A90090E324 /* ParticipantsControllerDelegate.swift */,
 			);
 			path = Protocols;
@@ -455,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE557DA727A9BF3400417221 /* SuggestionsView.swift in Sources */,
 				22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */,
 				2267F86E27A4EF9F0090E324 /* ParticipantsViewController.swift in Sources */,
 				229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */,
@@ -464,6 +474,7 @@
 				229F79F127A2D4750039902B /* MapViewManeger.swift in Sources */,
 				2267F86C27A4EF7A0090E324 /* ParticipantsView.swift in Sources */,
 				2267F87027A4F0BE0090E324 /* ParticipantsTableCell.swift in Sources */,
+				EE557DA927A9C61300417221 /* SuggestionsViewController.swift in Sources */,
 				229F7A0627A2D4EA0039902B /* MainViewTableCell.swift in Sources */,
 				229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */,
 				229F7A0A27A2D5D50039902B /* MainViewCollectionCell.swift in Sources */,
@@ -502,6 +513,7 @@
 				22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */,
 				22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */,
 				229F79F927A2D49C0039902B /* MeetingCreatedCellInfo.swift in Sources */,
+				EE557DAB27A9C9D500417221 /* MainControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
