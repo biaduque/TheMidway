@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 
 class ParticipantsTableDelegate: NSObject, UITableViewDelegate {
     
@@ -13,12 +15,18 @@ class ParticipantsTableDelegate: NSObject, UITableViewDelegate {
     
     private var person: [Person] = []
     
+    private weak var participantsDelegate: ParticipantsControllerDelegate!
+    
     
     
     /* MARK: - Encapsulamento */
     
     public func setPerson(_ person: [Person]) -> Void {
         return self.person = person
+    }
+    
+    public func setDelegate(_ delegate: ParticipantsControllerDelegate) -> Void {
+        self.participantsDelegate = delegate
     }
     
     
@@ -29,8 +37,10 @@ class ParticipantsTableDelegate: NSObject, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadInputViews()
         
-        if indexPath.section == 1 && indexPath.row == 1 {
-            print("Vai abrir uma nova controller aqui")
-        }
+        
+        let personContact = self.person[indexPath.row]
+        
+        self.participantsDelegate.openContactPage(with: personContact)
+        tableView.tag = indexPath.row
     }
 }

@@ -44,12 +44,19 @@ class NewMeetingPlacesFoundCollectionDelegate: NSObject, UICollectionViewDelegat
             return
         }
         
-        cell.checkCell()
-        self.lastCellChecked.uncheckCell()
-        self.lastCellChecked = cell
+        if self.lastCellChecked == cell {
+            if !self.lastCellChecked.checkedToggle() {
+                collectionView.tag = -1
+                return
+            }
+        } else {
+            cell.checkCell()
+            self.lastCellChecked.uncheckCell()
+            self.lastCellChecked = cell
+        }
         
         collectionView.tag = indexPath.row
         
-        self.mapManeger.setMapFocus(at: self.placesFound[indexPath.row].coordinates, radius: 3000)
+        self.mapManeger.setMapFocus(at: self.placesFound[indexPath.row].coordinates, radius: 2000)
     }
 }

@@ -11,7 +11,7 @@ import ContactsUI
 
 class CNContactDelegate: NSObject, CNContactPickerDelegate {
     
-    /* MARK: - Atriutos */
+    /* MARK: - Atributos */
     
     private var peopleSelected: [String:ContactInfo] = [:]
     
@@ -34,53 +34,43 @@ class CNContactDelegate: NSObject, CNContactPickerDelegate {
     
     /* MARK: - Delegate */
     
-    /// Pega os conttos selecionados
+    /// Pega os contatos selecionados
     public func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) -> Void {
-        print("\n\nPessoas selecionadas da lista: \(contacts.count)\n\n")
-        
         for contact in contacts {
-            let postalInfo: [CNLabeledValue<CNPostalAddress>] = contact.postalAddresses
-
-            // Verifica se tem informações nos campos de endereço
-            if postalInfo.count != 0 {
-                let infos = postalInfo[0].value
-
-                let name: String = "\(contact.givenName) \(contact.familyName)"
-                
-                let address = AddressInfo(
-                    postalCode: infos.postalCode,
-                    country: infos.country,
-                    city: infos.isoCountryCode,
-                    district: infos.subLocality,
-                    address: infos.street,
-                    number: ""
-                )
-                
-                let contactInfo = ContactInfo(name: name, address: address)
-                
-                if !(self.peopleSelected.keys.contains(name)) {
-                    self.peopleSelected[name] = contactInfo
-                }
-                
-                self.showContactInfo(contact: contactInfo)
+            let contactInfo = self.getContactInfo(with: contact)
+        
+            if !(self.peopleSelected.keys.contains(contactInfo.name)) {
+                self.peopleSelected[contactInfo.name] = contactInfo
             }
         }
-        print("\n\nPessoas selecionadas: \(self.peopleSelected.count)\n\n")
-        
-        
         self.parentController.verifyContactAddress(self.getPeopleSelected())
     }
     
     
     
-    /* MARK: - Outros */
+    /* MARK: - Configurações */
     
-    private func showContactInfo(contact: ContactInfo) -> Void {
-        print("Nome: \(contact.name)\n")
-        print("Pais: \(contact.address.country)")
-        print("Cidade: \(contact.address.city)")
-        print("Bairro: \(contact.address.district)")
-        print("CEP: \(contact.address.postalCode)")
-        print("Rua: \(contact.address.address)")
+    /// Pega as infomações da lista de contatos
+    public func getContactInfo(with contact: CNContact) -> ContactInfo {
+        
+        let postalInfo: [CNLabeledValue<CNPostalAddress>] = contact.postalAddresses
+        
+        let name: String = "\(contact.givenName) \(contact.familyName)"
+        
+        // Verifica se tem informações nos campos de endereço
+        if postalInfo.count != 0 {
+            let infos = postalInfo[0].value
+
+            let address = AddressInfo(
+                postalCode: infos.postalCode,
+                country: infos.country,
+                city: infos.isoCountryCode,
+                district: infos.subLocality,
+                address: infos.street,
+                number: ""
+            )
+            return ContactInfo(name: name, contact: contact, address: address)
+        }
+        return ContactInfo(name: name, contact: contact)
     }
 }

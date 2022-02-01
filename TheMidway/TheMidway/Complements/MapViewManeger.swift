@@ -27,9 +27,6 @@ class MapViewManeger {
     /// Locais encontrados
     private var nerbyPlaces: [MapPlace] = []
         
-    /// Pesoas que foram selecionadas
-    private var peopleSelected: [String: Person] = [:]
-    
     /// Tamanho da área que vai ser desenhada pra fazer a busca
     private var radiusArea: CLLocationDistance = 2500
     
@@ -51,7 +48,6 @@ class MapViewManeger {
     
     public func clearVariable() -> Void {
         self.nerbyPlaces = []
-        self.peopleSelected = [:]
     }
     
     public func setRadiusViewDefault(_ radius: CLLocationDistance) -> Void {
@@ -67,15 +63,24 @@ class MapViewManeger {
         self.mapView.addAnnotation(pin)
     }
     
+    
+    /// Remove todos os pins no mapa
+    public func removeAllPins() -> Void {
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.mapView.removeOverlays(self.mapView.overlays)
+    }
+    
+    
     /// Cria um pin
     public func createPin(name: String, coordinate: CLLocationCoordinate2D, type: String) -> MKPointAnnotation {
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
         pin.title = name
         pin.subtitle = type
-        
+    
         return pin
     }
+    
     
     /// Verifica qual é o tipo do pin
     private func pinType(type: String) -> PlacesCategories {
@@ -108,8 +113,22 @@ class MapViewManeger {
     
     /* MARK: - Ponto Médio */
     
+    /// Cria o pin e a área do TheMidway
+    public func getTheMidwayArea(with coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
+        let midwayPoint = self.midpointCalculate(coordinates: coordinates)
+        let pin = self.createPin(name: "The Midway", coordinate: midwayPoint, type: "The Midway")
+    
+        self.addPointOnMap(pin: pin)
+        
+        self.addCircle(at: midwayPoint)
+        self.setMapFocus(at: midwayPoint, radius: self.radiusArea*2)
+        
+        return midwayPoint
+    }
+    
+    
     /// Calculo do ponto médio entre os pontos
-    public func midpointCalculate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
+    private func midpointCalculate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
         let coordsCount = Double(coordinates.count)
         
         guard coordsCount > 1 else {
@@ -277,6 +296,7 @@ class MapViewManeger {
     
     /// Pega a cordenada a partir de um endereço
     static func getCoordsByAddress(address: String, _ completionHandler: @escaping (Result< CLLocationCoordinate2D, APIError>) -> Void) -> Void {
+
         let geocoder: CLGeocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(address) { placemarks, error in

@@ -9,7 +9,7 @@ import struct CoreLocation.CLLocationCoordinate2D
 
 
 struct Person {
-    let contactInfo: ContactInfo
+    var contactInfo: ContactInfo
     let image: Int
     let coordinate: CLLocationCoordinate2D
     var meetingId: Int

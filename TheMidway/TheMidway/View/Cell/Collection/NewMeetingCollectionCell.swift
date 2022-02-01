@@ -36,6 +36,8 @@ class NewMeetingCollectionCell: UICollectionViewCell {
     
     private var defaultButtonFontSize: CGFloat = 0
     
+    private var checked: Bool = false
+    
     
     
     /* MARK: -  */
@@ -47,7 +49,20 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
+        // Célula
+        // self.layer.borderWidth = 2
+        self.layer.cornerRadius = 10
         self.backgroundColor = UIColor(named: "BackgroundColor")
+        
+//        // Sombra
+//        self.layer.masksToBounds = false
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOpacity = 0.2
+//        self.layer.shadowOffset = .zero
+//        self.layer.shadowRadius = 5
+        
+        
+        
                 
         self.contentView.addSubview(self.titleLabel)
         self.contentView.addSubview(self.checkButton)
@@ -77,17 +92,31 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         self.defaultButtonFontSize = title.sizeFont-2
         
         self.uncheckCell()
-        //self.setIconButton(self.checkButton, icon: LabelConfig(text: "circle", sizeFont: self.defaultButtonFontSize, weight: .medium))
-        self.setIconButton(self.webButton, icon: LabelConfig(text: "network", sizeFont: self.defaultButtonFontSize, weight: .medium))
+        // self.setIconButton(self.checkButton, icon: LabelConfig(text: "circle", sizeFont: self.defaultButtonFontSize, weight: .medium))
+        self.setIconButton(self.webButton, icon: LabelConfig(text: "chevron.forward", sizeFont: self.defaultButtonFontSize-5, weight: .medium))
+    }
+    
+    
+    /// Verifica o estado atual da célula e muda
+    public func checkedToggle() -> Bool {
+        if self.checked {
+            self.uncheckCell()
+            return false
+        } else {
+            self.checkCell()
+            return true
+        }
     }
     
     
     public func uncheckCell() -> Void {
+        self.checked = false
         self.setIconButton(self.checkButton, icon: LabelConfig(text: "circle", sizeFont: self.defaultButtonFontSize, weight: .medium))
     }
     
     
     public func checkCell() -> Void {
+        self.checked = true
         self.setIconButton(self.checkButton, icon: LabelConfig(text: "checkmark.circle.fill", sizeFont: self.defaultButtonFontSize, weight: .medium))
     }
     
@@ -112,7 +141,7 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         let titleLabelConstraints: [NSLayoutConstraint] = [
             self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: lateralSpace),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
-            self.titleLabel.rightAnchor.constraint(equalTo: self.checkButton.leftAnchor, constant: betweenSpace),
+            self.titleLabel.rightAnchor.constraint(equalTo: self.checkButton.leftAnchor, constant: -betweenSpace),
             self.titleLabel.bottomAnchor.constraint(equalTo: self.addressLabel.topAnchor, constant: -lateralSpace)
         ]
         NSLayoutConstraint.activate(titleLabelConstraints)

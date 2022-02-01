@@ -36,7 +36,7 @@ enum APIError:Error, CustomStringConvertible {
             return error?.localizedDescription ?? "Erro com a URL passada"
         
         case .mkLocalSearchError(_):
-            return "Não foi possível concluir a busca."
+            return "Não foi possível concluir a busca.\nTente novamente mais tarde."
         
         case .noResult:
             return "Não foi achado um resultado."

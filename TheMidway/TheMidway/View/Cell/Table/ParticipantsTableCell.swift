@@ -22,7 +22,13 @@ class ParticipantsTableCell: UITableViewCell {
     
     private var titleLabel: UILabel
     
-    private var subtitleLabel: UILabel
+    private var subtitleLabel: UILabel = {
+        let lbl =  MainView.newLabel(color: .secondaryLabel)
+        lbl.numberOfLines = 2
+        // lbl.adjustsFontSizeToFitWidth = true
+        lbl.textAlignment = .justified
+        return lbl
+    }()
     
     
     
@@ -30,7 +36,6 @@ class ParticipantsTableCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.titleLabel = MainView.newLabel(color: UIColor(named: "TitleLabel"))
-        self.subtitleLabel = MainView.newLabel(color: .secondaryLabel)
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     
@@ -70,7 +75,8 @@ class ParticipantsTableCell: UITableViewCell {
             self.image.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace),
             self.image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: betweenSpace),
             self.image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.image.widthAnchor.constraint(equalToConstant: self.frame.height)
+            self.image.widthAnchor.constraint(equalToConstant: self.frame.height*1.5),
+            self.image.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ]
         NSLayoutConstraint.activate(imageConstraints)
 
@@ -78,7 +84,7 @@ class ParticipantsTableCell: UITableViewCell {
         let titleLabelConstraints: [NSLayoutConstraint] = [
             self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace),
             self.titleLabel.leftAnchor.constraint(equalTo: self.image.rightAnchor),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -betweenSpace),
             self.titleLabel.heightAnchor.constraint(equalToConstant: 20)
         ]
         NSLayoutConstraint.activate(titleLabelConstraints)
@@ -87,7 +93,7 @@ class ParticipantsTableCell: UITableViewCell {
         let subtitleLabelConstraints: [NSLayoutConstraint] = [
             self.subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: betweenSpace),
             self.subtitleLabel.leftAnchor.constraint(equalTo: self.image.rightAnchor),
-            self.subtitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.subtitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -betweenSpace),
             self.subtitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace)
         ]
         NSLayoutConstraint.activate(subtitleLabelConstraints)

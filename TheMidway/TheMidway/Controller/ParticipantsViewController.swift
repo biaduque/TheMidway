@@ -11,43 +11,32 @@ import MapKit
 import UIKit
 
 
-class ParticipantsViewController: UIViewController {
+class ParticipantsViewController: UIViewController, ParticipantsControllerDelegate {
 
     /* MARK: - Atributos */
     
     private let mainView = ParticipantsView()
     
-    // private var mapManeger = MapViewManeger()
+    private var participantesSelected: ParticipantsSelected = ParticipantsSelected(confirmed: [], notConfirmed: [])
     
+    private var personEdited: Person?
     
     /* ViewController */
     
     private let contactController = CNContactPickerViewController()
     
-    // private var superViewController: MainViewController
+    private var parentDelegate: NewMeetingControllerDelegate!
     
 
     /* Delegates & Data Sources*/
     
     private var contactDelegate = CNContactDelegate()
     
-    private let tableDelegate = ParticipantsTableDelegate()
-    private let tableDataSource = ParticipantsTableDataSource()
+    private let confirmedTableDelegate = ParticipantsTableDelegate()
+    private let confirmedTableDataSource = ParticipantsTableDataSource()
     
-    //private let placesFoundDelegate = NewMeetingPlacesFoundCollectionDelegate()
-    //private let placesFoundDataSource = NewMeetingPlacesFoundCollectionDataSource()
-    
-    
-    
-    /* MARK: -  */
-    
-//    init(vc: MainViewController) {
-//        self.superViewController = vc
-//
-//        super.init(nibName: nil, bundle: nil)
-//    }
-    
-    // required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
+    private let notConfirmedTableDelegate = ParticipantsTableDelegate()
+    private let notConfirmedDataSource = ParticipantsTableDataSource()
     
     
     
@@ -62,6 +51,8 @@ class ParticipantsViewController: UIViewController {
     
     public override func viewDidLoad() -> Void {
         super.viewDidLoad()
+        
+        self.isModalInPresentation = true
         
         // Nav bar
         self.configureNavBar()
@@ -87,47 +78,90 @@ class ParticipantsViewController: UIViewController {
         
         self.contactDelegate.setParentController(self)
         
-        // Definindo delegate & datasources
-        self.mainView.setConfirmedTableDelegate(self.tableDelegate)
-        self.mainView.setConfirmedTableDataSource(self.tableDataSource)
+        self.confirmedTableDelegate.setDelegate(self)
+        self.notConfirmedTableDelegate.setDelegate(self)
         
-        self.mainView.setNotFoundTableDelegate(self.tableDelegate)
-        self.mainView.setNotFoundTableDataSource(self.tableDataSource)
+        // Definindo delegate & datasources
+        self.mainView.setConfirmedTableDelegate(self.confirmedTableDelegate)
+        self.mainView.setConfirmedTableDataSource(self.confirmedTableDataSource)
+        
+        self.mainView.setNotFoundTableDelegate(self.notConfirmedTableDelegate)
+        self.mainView.setNotFoundTableDataSource(self.notConfirmedDataSource)
 
         self.reloadTablesDatas()
     }
     
     
-    public override func viewDidAppear(_ animated: Bool) -> Void {
-        super.viewDidAppear(animated)
+    
+    /* MARK: - Delegate (Protocol) */
+    
+    func openContactPage(with contact: Person) -> Void {
+        self.personEdited = contact
+        
+        var personContact: CNContact = contact.contactInfo.contact
+        
+        if !personContact.areKeysAvailable([CNContactViewController.descriptorForRequiredKeys()]) {
+            do {
+                let store = CNContactStore()
+                personContact = try store.unifiedContact(withIdentifier: personContact.identifier, keysToFetch: [CNContactViewController.descriptorForRequiredKeys()])
+            }
+            catch { }
+        }
+        
+        self.personEdited?.contactInfo.contact = personContact
+        
+        let contactViewController = CNContactViewController(for: personContact)
+        
+        contactViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(self.exitContactController)
+        )
+        
+        let navBar = UINavigationController(rootViewController: contactViewController)
+        self.present(navBar, animated: true)
     }
     
-                
+                    
+    
+    /* MARK: - Encapsulamento */
+    
+    /// Defeine o delegate da NewMeeting para poder se comunicar com ela (via protocolo)
+    public func setParenteDelegate(_ delegate: NewMeetingControllerDelegate) -> Void {
+        self.parentDelegate = delegate
+    }
+    
     
     /* MARK: - Ações dos botões */
     
     /// Salva os dados criados do novo encontro
     @objc private func saveAction() -> Void {
-        // guard let _ = try? MeetingCDManeger.shared.newMeeting(data: data) else {
-        //     print("\n\nErro na hora de salvar o encontro no CoreData\n\n")
-        //     return
-        // }
+        self.parentDelegate.getParticipants(by: self.participantesSelected)
         
-        // self.superViewController.reloadDataMeetingsTableView()
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
         
-    
-    /// Cancelando a criação de um novo encontro
-    @objc private func cancelAction() -> Void {
-        self.dismiss(animated: true)
-    }
-    
-    
+        
     /// Mostra a tela de selecionar os contatos
     @objc private func addParticipantsAction() -> Void {
         self.contactController.modalPresentationStyle = .popover
         self.present(self.contactController, animated: true)
+    }
+    
+    
+    /// Mostra a tela de selecionar os contatos
+    @objc private func exitContactController() -> Void {
+        self.dismiss(animated: true, completion: nil)
+        self.participantesSelected.confirmed.append(self.personEdited!)
+        
+        var contacts: [CNContact] = []
+        for person in self.participantesSelected.confirmed {
+            contacts.append(person.contactInfo.contact)
+        }
+        
+        self.contactDelegate.contactPicker(self.contactController, didSelect: contacts)
+        // self.verifyContactEdited(self.personEdited!)
+        
     }
         
     
@@ -136,25 +170,25 @@ class ParticipantsViewController: UIViewController {
     
     /// Configura a NavBar da classe
     private func configureNavBar() -> Void {
+        self.title = "Quem vai?"
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Salvar",
             style: .done,
             target: self,
             action: #selector(self.saveAction)
         )
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Cancelar",
-            style: .plain,
-            target: self,
-            action: #selector(self.cancelAction)
-        )
-        self.navigationItem.leftBarButtonItem?.tintColor = .systemRed
     }
     
     
     /// Atualiza os dados da collection
     public func reloadTablesDatas() -> Void {
+        self.confirmedTableDelegate.setPerson(self.participantesSelected.confirmed)
+        self.confirmedTableDataSource.setPerson(self.participantesSelected.confirmed)
+        
+        self.notConfirmedTableDelegate.setPerson(self.participantesSelected.notConfirmed)
+        self.notConfirmedDataSource.setPerson(self.participantesSelected.notConfirmed)
+        
         self.mainView.updateTableDatas()
     }
     
@@ -162,22 +196,98 @@ class ParticipantsViewController: UIViewController {
     /// Verifica se o endereço existe
     public func verifyContactAddress(_ contactsSelected: [ContactInfo]) -> Void {
         
-        var people: [Person] = []
+        let group = DispatchGroup()
         
+        var peopleConfirmed: [Person] = []
+        var peopleNotConfirmed: [Person] = []
+    
         for contact in contactsSelected {
-            let image = Int.random(in: 1...8)
+            group.enter()
+            let address = NewMeetingViewController.creatAddressVisualization(place: contact.address)
+            var addressCoords = CLLocationCoordinate2D()
             
-            let person = Person(
-                contactInfo: contact,
-                image: image,
-                coordinate: CLLocationCoordinate2D(),
-                meetingId: 0
-            )
             
-            people.append(person)
+            MapViewManeger.getCoordsByAddress(address: address) { result in
+                defer {group.leave()}
+                switch result {
+                case .success(let coords):
+                    print("Achei o endereço: \n\(contact.name)\nEnd: \(address)\nCoords: \(coords)")
+                    addressCoords = coords
+
+                case .failure(_):
+                    print("Não achei o endereço: \(contact.name)\nEnd: \(address)")
+                    addressCoords = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                }
+            }
+            
+            
+            
+            group.notify(queue: .main) {
+                let image = Int.random(in: 1...8)
+                
+                if address == "" {
+                    addressCoords = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                }
+                
+                let person = Person(
+                    contactInfo: contact,
+                    image: image,
+                    coordinate: addressCoords,
+                    meetingId: 0
+                )
+                
+                if addressCoords.latitude == 0 {
+                    peopleNotConfirmed.append(person)
+                } else {
+                    peopleConfirmed.append(person)
+                }
+            }
         }
         
-        self.tableDataSource.setPerson(people)
-        self.reloadTablesDatas()
+        group.notify(queue: .main) {
+            self.participantesSelected.confirmed = peopleConfirmed
+            self.participantesSelected.notConfirmed = peopleNotConfirmed
+
+            self.reloadTablesDatas()
+        }
+    }
+    
+    
+    /// Verifica se o contato que foi editado está correto
+    public func verifyContactEdited(_ person: Person) -> Void {
+        let newContactInfo = self.contactDelegate.getContactInfo(with: person.contactInfo.contact)
+        let group = DispatchGroup()
+        
+        let address = NewMeetingViewController.creatAddressVisualization(place: newContactInfo.address)
+        var addressCoords = CLLocationCoordinate2D()
+        
+        group.enter()
+        MapViewManeger.getCoordsByAddress(address: address) { result in
+            defer {group.leave()}
+            
+            switch result {
+            case .success(let coords):
+                addressCoords = coords
+            case .failure(_):
+                addressCoords = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+            }
+        }
+    
+        group.notify(queue: .main) {
+            let newPerson = Person(
+                contactInfo: newContactInfo,
+                image: person.image,
+                coordinate: addressCoords,
+                meetingId: person.meetingId
+            )
+                
+            if addressCoords.latitude != 0 {
+                self.participantesSelected.confirmed.append(newPerson)
+                self.participantesSelected.notConfirmed.remove(at: self.mainView.getTagTableNotFound())
+            }
+            
+            self.reloadTablesDatas()
+            self.personEdited = nil
+        }
     }
 }

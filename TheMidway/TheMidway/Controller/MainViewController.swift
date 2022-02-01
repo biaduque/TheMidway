@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
 
     /* MARK: - Atributos */
     
-    private let mainView = MainView()
+    private let mainView: MainView = MainView()
     
     // Delegate e DataSources
     private let mainTableDelegate = MainTableDelegate()
@@ -79,6 +79,7 @@ class MainViewController: UIViewController {
         let vc = NewMeetingViewController(vc: self)
         vc.title = "Novo encontro"
         vc.modalPresentationStyle = .popover
+        
         
         let navBar = UINavigationController(rootViewController: vc)
         self.present(navBar, animated: true)

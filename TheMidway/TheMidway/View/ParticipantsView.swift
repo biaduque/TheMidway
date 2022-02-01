@@ -78,6 +78,12 @@ class ParticipantsView: UIView {
     }
     
     
+    /// Retorna a tag da tableview (variávle usada para identificar qual célula foi selecionada da tabela)
+    public func getTagTableNotFound() -> Int {
+        return self.notFoundTableView.tag
+    }
+    
+    
     // Delegate & Datasource
     
     public func setConfirmedTableDelegate(_ delegate: ParticipantsTableDelegate) -> Void {
