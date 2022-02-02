@@ -101,7 +101,5 @@ class SuggestionsView: UIView {
        
         ]
         NSLayoutConstraint.activate(suggestionCollectionConstraints)
-        
     }
-
 }

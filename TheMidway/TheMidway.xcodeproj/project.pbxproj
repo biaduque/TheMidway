@@ -17,6 +17,8 @@
 		2267F87927A8D6570090E324 /* NewMeetingControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87827A8D6570090E324 /* NewMeetingControllerDelegate.swift */; };
 		2267F87B27A8DA220090E324 /* ParticipantsSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87A27A8DA220090E324 /* ParticipantsSelected.swift */; };
 		2267F87D27A953A90090E324 /* ParticipantsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87C27A953A90090E324 /* ParticipantsControllerDelegate.swift */; };
+		2267F87F27AA44710090E324 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F87E27AA44710090E324 /* WebViewController.swift */; };
+		2267F88127AA479E0090E324 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F88027AA479E0090E324 /* WebView.swift */; };
 		229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D227A23C400039902B /* MainTableDelegate.swift */; };
 		229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D727A23D440039902B /* MainTableDataSource.swift */; };
 		229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */; };
@@ -75,6 +77,8 @@
 		2267F87827A8D6570090E324 /* NewMeetingControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingControllerDelegate.swift; sourceTree = "<group>"; };
 		2267F87A27A8DA220090E324 /* ParticipantsSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsSelected.swift; sourceTree = "<group>"; };
 		2267F87C27A953A90090E324 /* ParticipantsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsControllerDelegate.swift; sourceTree = "<group>"; };
+		2267F87E27AA44710090E324 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		2267F88027AA479E0090E324 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		229F79D227A23C400039902B /* MainTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDelegate.swift; sourceTree = "<group>"; };
 		229F79D727A23D440039902B /* MainTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDataSource.swift; sourceTree = "<group>"; };
 		229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCDManeger.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 				229F7A1127A2D6230039902B /* NewMeetingViewController.swift */,
 				EE557DA827A9C61300417221 /* SuggestionsViewController.swift */,
 				2267F86D27A4EF9F0090E324 /* ParticipantsViewController.swift */,
+				2267F87E27AA44710090E324 /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				229F7A0D27A2D5F50039902B /* NewMeetingView.swift */,
 				EE557DA627A9BF3400417221 /* SuggestionsView.swift */,
 				2267F86B27A4EF7A0090E324 /* ParticipantsView.swift */,
+				2267F88027AA479E0090E324 /* WebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,8 +307,8 @@
 		2267F87527A8D5F30090E324 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2267F87827A8D6570090E324 /* NewMeetingControllerDelegate.swift */,
 				EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */,
+				2267F87827A8D6570090E324 /* NewMeetingControllerDelegate.swift */,
 				2267F87C27A953A90090E324 /* ParticipantsControllerDelegate.swift */,
 			);
 			path = Protocols;
@@ -468,6 +474,7 @@
 				22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */,
 				2267F86E27A4EF9F0090E324 /* ParticipantsViewController.swift in Sources */,
 				229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */,
+				2267F87F27AA44710090E324 /* WebViewController.swift in Sources */,
 				229F79E927A2D4250039902B /* TextFieldDelegate.swift in Sources */,
 				229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */,
 				229F79EA27A2D4250039902B /* LocationManegerDelegate.swift in Sources */,
@@ -504,6 +511,7 @@
 				2267F87B27A8DA220090E324 /* ParticipantsSelected.swift in Sources */,
 				229F79EF27A2D45E0039902B /* APIError.swift in Sources */,
 				229F79E427A2D4090039902B /* SceneDelegate.swift in Sources */,
+				2267F88127AA479E0090E324 /* WebView.swift in Sources */,
 				229F79FC27A2D49C0039902B /* MeetingCreated.swift in Sources */,
 				229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */,
 				229F79EB27A2D4250039902B /* MapViewDelegate.swift in Sources */,

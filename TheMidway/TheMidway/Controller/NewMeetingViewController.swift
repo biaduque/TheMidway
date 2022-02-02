@@ -122,18 +122,18 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     public override func viewWillAppear(_ animated: Bool) -> Void {
         super.viewWillAppear(animated)
         
-
-        // Definindo delegate & datasources
+        // Definindo os protocolos
+        self.placesFoundDataSource.setProtocol(self)
+        self.formsTableDelegate.setProtocol(self)                       // Define o delegate (protocolo) da delegate
+        
         self.participantsController.setParenteDelegate(self)
         
-        self.formsTableDelegate.setProtocol(self)                       // Define o delegate (protocolo) da delegate
+        // Definindo delegate & datasources
         self.mainView.setFormsTableDelegate(self.formsTableDelegate)
-        
         self.mainView.setFormsTableDataSource(self.formsTableDataSource)
         
         self.placesFoundDelegate.setMapManeger(self.mapManeger)
         self.mainView.setPlacesFoundCollectionDelegate(self.placesFoundDelegate)
-        
         self.mainView.setPlacesFoundCollectionDataSource(self.placesFoundDataSource)
         
 
@@ -145,13 +145,13 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     /* MARK: - Delegate (Protocol) */
     
     /// Ação de quando clica na célula para selecionar os participantes
-    @objc func setParticipantsAction() -> Void {
+    @objc internal func setParticipantsAction() -> Void {
         self.navigationController?.pushViewController(self.participantsController, animated: true)
     }
     
     
     /// Pega os participantes selecionados
-    func getParticipants(by participants: ParticipantsSelected) -> Void {
+    internal func getParticipants(by participants: ParticipantsSelected) -> Void {
         self.participants = participants.confirmed
         
         // Define para o delegate do MapView (permite criar os ícones pra cada participante no mapa)
@@ -163,6 +163,12 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         self.calculateTheMidwayPoint()
         
         self.findPlacesInMidwayArea()
+    }
+    
+    
+    /// Botão para abrir o safari
+    @objc internal func setWebButtonAction(_ button: UIButton) -> Void {
+        button.addTarget(self, action: #selector(self.webButtonAction(sender:)), for: .touchDown)
     }
     
     
@@ -233,7 +239,18 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     @objc private func dismissKeyboard() -> Void {
         self.view.endEditing(true)
     }
-
+    
+    
+    /// Abre a tela web
+    @objc private func webButtonAction(sender: UIButton) -> Void {
+        let vc = WebViewController(placeQuery: self.placesInMidwayArea[sender.tag])
+        vc.modalPresentationStyle = .popover
+        
+        
+        let navBar = UINavigationController(rootViewController: vc)
+        self.present(navBar, animated: true)
+    }
+    
     
     
     /* MARK: - Configurações */

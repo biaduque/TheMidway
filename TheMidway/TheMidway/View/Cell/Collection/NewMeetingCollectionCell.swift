@@ -49,20 +49,8 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        // Célula
-        // self.layer.borderWidth = 2
         self.layer.cornerRadius = 10
         self.backgroundColor = UIColor(named: "BackgroundColor")
-        
-//        // Sombra
-//        self.layer.masksToBounds = false
-//        self.layer.shadowColor = UIColor.black.cgColor
-//        self.layer.shadowOpacity = 0.2
-//        self.layer.shadowOffset = .zero
-//        self.layer.shadowRadius = 5
-        
-        
-        
                 
         self.contentView.addSubview(self.titleLabel)
         self.contentView.addSubview(self.checkButton)
@@ -93,7 +81,12 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         
         self.uncheckCell()
         // self.setIconButton(self.checkButton, icon: LabelConfig(text: "circle", sizeFont: self.defaultButtonFontSize, weight: .medium))
-        self.setIconButton(self.webButton, icon: LabelConfig(text: "chevron.forward", sizeFont: self.defaultButtonFontSize-5, weight: .medium))
+        self.setIconButton(self.webButton, icon: LabelConfig(text: "safari", sizeFont: self.defaultButtonFontSize, weight: .medium))
+    }
+    
+    
+    public func getWebButton() -> UIButton {
+        return self.webButton
     }
     
     
@@ -109,7 +102,8 @@ class NewMeetingCollectionCell: UICollectionViewCell {
     }
     
     
-    public func hideNewMeetingViews(_ bool: Bool) -> Void {
+    /// Esconde as views que não são necessárias para a tela de sugetões recebidas
+    public func hideViewsForSuggestions(_ bool: Bool) -> Void {
         self.checkButton.isHidden = bool
         self.tagLabel.isHidden = bool
     }
@@ -126,14 +120,7 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         self.setIconButton(self.checkButton, icon: LabelConfig(text: "checkmark.circle.fill", sizeFont: self.defaultButtonFontSize, weight: .medium))
     }
     
-    
-    private func setIconButton(_ bt: UIButton, icon: LabelConfig) -> Void {
-        let weight = UIImage.SymbolWeight(rawValue: Int(icon.weight.rawValue)) ?? .medium
-        let configIcon = UIImage.SymbolConfiguration(pointSize: icon.sizeFont, weight: weight, scale: .large)
-        bt.setImage(UIImage(systemName: icon.text, withConfiguration: configIcon), for: .normal)
-    }
-    
-    
+        
     
     /* MARK: - Constraints */
     
@@ -195,5 +182,15 @@ class NewMeetingCollectionCell: UICollectionViewCell {
             self.webButton.widthAnchor.constraint(equalToConstant: buttonSize)
         ]
         NSLayoutConstraint.activate(webButtonConstraints)
+    }
+    
+    
+    
+    /* MARK: - Configurações */
+    
+    private func setIconButton(_ bt: UIButton, icon: LabelConfig) -> Void {
+        let weight = UIImage.SymbolWeight(rawValue: Int(icon.weight.rawValue)) ?? .medium
+        let configIcon = UIImage.SymbolConfiguration(pointSize: icon.sizeFont, weight: weight, scale: .large)
+        bt.setImage(UIImage(systemName: icon.text, withConfiguration: configIcon), for: .normal)
     }
 }
