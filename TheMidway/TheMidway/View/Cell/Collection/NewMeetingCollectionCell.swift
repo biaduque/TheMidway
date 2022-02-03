@@ -11,11 +11,11 @@ class NewMeetingCollectionCell: UICollectionViewCell {
     
     /* MARK: -  Atributos */
     
-    static let identifier = "IdNewMeetingCollectionCell"
+    static var identifier = "IdNewMeetingCollectionCell"
     
     private let titleLabel: UILabel
     
-    private let checkButton: UIButton
+    internal let checkButton: UIButton
     
     private let addressLabel: UILabel = {
         let lbl = MainViewTableCell.newLabelAjustable(color: .secondaryLabel)
@@ -23,7 +23,7 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         return lbl
     }()
     
-    private let tagLabel: UILabel = {
+    internal let tagLabel: UILabel = {
         let lbl = MainView.newLabel(color: .secondaryLabel)
         lbl.textAlignment = .center
         lbl.layer.cornerRadius = 5
@@ -101,14 +101,7 @@ class NewMeetingCollectionCell: UICollectionViewCell {
         }
     }
     
-    
-    /// Esconde as views que não são necessárias para a tela de sugetões recebidas
-    public func hideViewsForSuggestions(_ bool: Bool) -> Void {
-        self.checkButton.isHidden = bool
-        self.tagLabel.isHidden = bool
-    }
-    
-    
+        
     public func uncheckCell() -> Void {
         self.checked = false
         self.setIconButton(self.checkButton, icon: LabelConfig(text: "circle", sizeFont: self.defaultButtonFontSize, weight: .medium))

@@ -82,6 +82,8 @@ class MainView: UIViewWithEmptyView {
         self.addSubview(self.meetingsTableView)
                         
         self.setConstraints()
+        
+        self.infoButton.isHidden = true     // Inativo até ser implementado o OnBoarding
     }
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -90,7 +92,7 @@ class MainView: UIViewWithEmptyView {
     
     /* MARK: -  Encapsulamento */
     
-    // Configuração da View
+    /// Configuração da View
     public func setTitles(suggestionText: String, meetingText: String, sizeFont:CGFloat, w:UIFont.Weight) -> Void {
         // Labels
         self.suggestionLabel.text = suggestionText
@@ -150,79 +152,60 @@ class MainView: UIViewWithEmptyView {
     /* MARK: -  Constraints */
     
     private func setConstraints() -> Void {
+        let safeArea: CGFloat = 50
         let lateralSpace: CGFloat = 25
         let betweenSpace: CGFloat = 20
         
         let buttonSize: CGFloat = 25
         
-        // Botão de Informação
+        
+        // Botão de Informação (inativo até ter o onboarding)
         let infoButtonConstraints: [NSLayoutConstraint] = [
-            self.infoButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
+            self.infoButton.topAnchor.constraint(equalTo: self.topAnchor, constant: safeArea),
             self.infoButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.infoButton.heightAnchor.constraint(equalToConstant: buttonSize),
             self.infoButton.widthAnchor.constraint(equalToConstant: buttonSize)
         ]
         NSLayoutConstraint.activate(infoButtonConstraints)
         
-        
-        
-        /* Sugestão */
-        
-        // Label
-        let suggestionsLabelConstraints: [NSLayoutConstraint] = [
-            self.suggestionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 50+35),
+
+        let viewConstraints: [NSLayoutConstraint] = [
+            // Sugestões
+            self.suggestionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: safeArea), // +35
             self.suggestionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.suggestionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.suggestionLabel.bottomAnchor.constraint(equalTo: self.suggestionCollection.topAnchor)
-        ]
-        NSLayoutConstraint.activate(suggestionsLabelConstraints)
-        
-        
-        // Collection
-        let suggestionCollectionConstraints: [NSLayoutConstraint] = [
+            self.suggestionLabel.bottomAnchor.constraint(equalTo: self.suggestionCollection.topAnchor),
+            
+            
             self.suggestionCollection.topAnchor.constraint(equalTo: self.suggestionLabel.bottomAnchor, constant: betweenSpace),
             self.suggestionCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.suggestionCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            // self.suggestionCollection.bottomAnchor.constraint(equalTo: self.meetingsLabel.topAnchor, constant: -betweenSpace)
-            self.suggestionCollection.heightAnchor.constraint(equalToConstant: 250)
-        ]
-        NSLayoutConstraint.activate(suggestionCollectionConstraints)
-        
-        
-        
-        /*  Encontros */
-        
-        // Label
-        let meetingsLabelConstraints: [NSLayoutConstraint] = [
+            self.suggestionCollection.heightAnchor.constraint(equalToConstant: 250),
+            
+            
+            // Encontros
+            
             self.meetingsLabel.topAnchor.constraint(equalTo: self.suggestionCollection.bottomAnchor, constant: betweenSpace),
             self.meetingsLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.meetingsLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.meetingsLabel.heightAnchor.constraint(equalToConstant: 50)
-        ]
-        NSLayoutConstraint.activate(meetingsLabelConstraints)
-        
-        
-        // Botão de novo encontro
-        let newMeetingBtConstraints: [NSLayoutConstraint] = [
+            self.meetingsLabel.heightAnchor.constraint(equalToConstant: 50),
+            
+            
             self.newMeetingButton.topAnchor.constraint(equalTo: self.meetingsLabel.topAnchor),
             self.newMeetingButton.centerYAnchor.constraint(equalTo: self.meetingsLabel.centerYAnchor),
             self.newMeetingButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.newMeetingButton.heightAnchor.constraint(equalToConstant: buttonSize),
-            self.newMeetingButton.widthAnchor.constraint(equalToConstant: buttonSize)
-        ]
-        NSLayoutConstraint.activate(newMeetingBtConstraints)
-        
-        
-        // TableView
-        let meetingsTableConstraints: [NSLayoutConstraint] = [
+            self.newMeetingButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            
+            
             self.meetingsTableView.topAnchor.constraint(equalTo: self.meetingsLabel.bottomAnchor, constant: betweenSpace),
             self.meetingsTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.meetingsTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.meetingsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace)
+            self.meetingsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace),
         ]
-        NSLayoutConstraint.activate(meetingsTableConstraints)
+        NSLayoutConstraint.activate(viewConstraints)
         
-        
+                
         /*  EmptyView */
         
         let emptyViewConstraints: [NSLayoutConstraint] = [
@@ -241,7 +224,6 @@ class MainView: UIViewWithEmptyView {
     static func newLabel(color: UIColor?) -> UILabel {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        // lbl.adjustsFontSizeToFitWidth = true
         lbl.textColor = color ?? .blue
         return lbl
     }
@@ -250,7 +232,6 @@ class MainView: UIViewWithEmptyView {
     static func newButton(color: UIColor?) -> UIButton {
         let bt = UIButton()
         bt.translatesAutoresizingMaskIntoConstraints = false
-        
         bt.tintColor = color ?? .blue
         return bt
     }
