@@ -55,7 +55,7 @@ class NewMeetingView: UIViewWithEmptyView {
     
     public let retryButton: UIButton
     
-    private let placesFoundCollection: UICollectionView = {
+    internal let placesFoundCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal                // Direção da rolagem (se é horizontal ou vertical)
         layout.itemSize = CGSize(width: 300, height: 120)   // Define o tamanho da célula
@@ -131,6 +131,12 @@ class NewMeetingView: UIViewWithEmptyView {
     /// Define a quantidade de locais encontrados
     public func setPlaceFoundCount(_ num: Int) -> Void {
         self.placesFoundLabel.text = "\(self.placesFoundLabelText): \(num)"
+    }
+    
+    
+    /// Deixa apenas uma célula na collection
+    public func blockCollection() -> Void {
+        self.placesFoundCollection.isScrollEnabled = false
     }
     
     

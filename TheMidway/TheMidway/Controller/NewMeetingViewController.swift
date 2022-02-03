@@ -24,6 +24,8 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     private let meetingId: Int = UserDefaults.standard.integer(forKey: "meetingId") + 1
     
+    private var placePreSelected: MapPlace?
+    
     
     // The Midway configurações
     
@@ -65,10 +67,14 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     /* MARK: -  */
     
-    init(delegate: MainControllerDelegate) {
+    init(delegate: MainControllerDelegate, place: MapPlace?) {
         self.mainProtocol = delegate
         
         super.init(nibName: nil, bundle: nil)
+        
+        if let place = place {
+            self.placePreSelected = place
+        }
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -81,7 +87,6 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         super.loadView()
 
         self.view = self.mainView
-        
     }
     
     
@@ -117,7 +122,12 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         // Empty View
         let emptyViewText: String = "Escolha os participantes do encontro para achar os locais perto deles."
         
-        self.configureEmptyView(num: 0, emptyViewText)
+        if let _ = self.placePreSelected {
+            self.configureEmptyView(num: 1, emptyViewText)
+        } else {
+            self.configureEmptyView(num: 0, emptyViewText)
+        }
+        
     }
     
     
@@ -162,9 +172,22 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         // Define na label da célula a quantidade de pessoas
         self.mainView.setParticipantsCount(self.participants.count)
         
-        self.calculateTheMidwayPoint()
-        
-        self.findPlacesInMidwayArea()
+        if let place = self.placePreSelected {
+            
+            let pin = self.mapManeger.createPin(
+                name: place.name,
+                coordinate: place.coordinates,
+                type: place.type.localizedDescription
+            )
+            self.mapManeger.addPointOnMap(pin: pin)
+            
+            self.placesInMidwayArea.append(place)
+
+            self.reloadCollectionData()
+        } else {
+            self.calculateTheMidwayPoint()
+            self.findPlacesInMidwayArea()
+        }
     }
     
     
@@ -247,7 +270,6 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     @objc private func webButtonAction(sender: UIButton) -> Void {
         let vc = WebViewController(placeQuery: self.placesInMidwayArea[sender.tag])
         vc.modalPresentationStyle = .popover
-        
         
         let navBar = UINavigationController(rootViewController: vc)
         self.present(navBar, animated: true)
@@ -393,11 +415,9 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
             
             // Adiciona os locais encontrados no mapa
             for place in self.placesInMidwayArea {
-                let coordinate = place.coordinates
-                
                 let pin = self.mapManeger.createPin(
                     name: place.name,
-                    coordinate: coordinate,
+                    coordinate: place.coordinates,
                     type: place.type.localizedDescription
                 )
                 self.mapManeger.addPointOnMap(pin: pin)

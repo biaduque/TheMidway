@@ -11,7 +11,7 @@ class NewMeetingPlacesFoundCollectionDataSource: NSObject, UICollectionViewDataS
 
     /* MARK: - Atributos */
     
-    private var placesFound: [MapPlace] = []
+    internal var placesFound: [MapPlace] = []
     
     private var newMeetingProtocol: NewMeetingControllerDelegate!
     

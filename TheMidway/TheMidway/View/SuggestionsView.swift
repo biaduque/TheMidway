@@ -20,12 +20,12 @@ class SuggestionsView: UIViewWithEmptyView {
     
     private let suggestionCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical                // Direção da rolagem (se é horizontal ou vertical)
-        layout.itemSize = CGSize(width: 400, height: 120)   // Define o tamanho da célula
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 330, height: 120)   // Define o tamanho da célula
         layout.minimumLineSpacing = 20                      // Espaço entre as células
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(NewMeetingCollectionCell.self, forCellWithReuseIdentifier: NewMeetingCollectionCell.identifier)
+        cv.register(SuggestionsCollectionCell.self, forCellWithReuseIdentifier: SuggestionsCollectionCell.identifier)
         cv.backgroundColor = UIColor(named: "BackgroundColor")
         cv.translatesAutoresizingMaskIntoConstraints = false
 
@@ -62,11 +62,11 @@ class SuggestionsView: UIViewWithEmptyView {
     
     // Delegate & Datasource
     
-    public func setSuggestionsCollectionDelegate(_ delegate: MainCollectionDelegate) -> Void {
+    public func setSuggestionsCollectionDelegate(_ delegate: SuggestionsCollectionDelegate) -> Void {
         self.suggestionCollection.delegate = delegate
     }
     
-    public func setSuggestionsCollectionDataSource(_ dataSource: MainCollectionDataSource) -> Void {
+    public func setSuggestionsCollectionDataSource(_ dataSource: SuggestionsCollectionDataSource) -> Void {
         self.suggestionCollection.dataSource = dataSource
     }
     

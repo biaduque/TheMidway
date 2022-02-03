@@ -114,7 +114,7 @@ class MeetingPageViewController: UIViewController, MeetingPageViewControllerDele
         
         // Configurando os participantes
         
-        var participantsCoords: [CLLocationCoordinate2D] = []
+        // var participantsCoords: [CLLocationCoordinate2D] = []
         for people in participants {
             let coords = CLLocationCoordinate2D(latitude: Double(people.latitude), longitude: Double(people.longitude))
             
@@ -125,11 +125,23 @@ class MeetingPageViewController: UIViewController, MeetingPageViewControllerDele
             )
             self.mapManeger.addPointOnMap(pin: pin)
             
-            participantsCoords.append(coords)
+            // participantsCoords.append(coords)
         }
         
-        self.mapManeger.setRadiusViewDefault(10000)
-        let _ = self.mapManeger.getTheMidwayArea(with: participantsCoords, false)
+        // self.mapManeger.setRadiusViewDefault(10000)
+        // let _ = self.mapManeger.getTheMidwayArea(with: participantsCoords, false)
+        
+        
+        // Adicionando o lugar
+        let coords = CLLocationCoordinate2D(latitude: Double(meeting.latitude), longitude: Double(meeting.longitude))
+        let pin = self.mapManeger.createPin(
+            name: meeting.placeName ?? "",
+            coordinate: coords,
+            type: completeAddress
+        )
+        self.mapManeger.addPointOnMap(pin: pin)
+        self.mapManeger.setMapFocus(at: coords, radius: 10000)
+        
     }
     
     
@@ -157,8 +169,8 @@ class MeetingPageViewController: UIViewController, MeetingPageViewControllerDele
                 let infos = ParticipantInfo(
                     name: person.name ?? "",
                     image: Int(person.image),
-                    distance: "0 Km",
-                    distanceTime: "0"
+                    distance: "",
+                    distanceTime: ""
                 )
                 self.participantsInfo.append(infos)
             }

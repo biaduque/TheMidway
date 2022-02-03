@@ -82,8 +82,7 @@ class MainViewController: UIViewController, MainControllerDelegate {
     
     /// Abre a área de sugestões
     internal func openSuggestionsAction(name: String) -> Void {
-        let vc = SuggestionsViewController(mainWord: name)
-        
+        let vc = SuggestionsViewController(mainWord: name, delegate: self)
         self.showViewController(with: vc)
     }
     
@@ -91,7 +90,6 @@ class MainViewController: UIViewController, MainControllerDelegate {
     /// Abre a  página do encontro
     internal func openMeetingPageAction(meetingInfo: MeetingCompleteInfo) -> Void {
         let vc = MeetingPageViewController(meetingInfo: meetingInfo, delegate: self)
-        
         self.showViewController(with: vc)
     }
     
@@ -126,8 +124,7 @@ class MainViewController: UIViewController, MainControllerDelegate {
     
     /// Abre a tela de novo encontro
     @objc private func newMeetingAction() -> Void {
-        let vc = NewMeetingViewController(delegate: self)
-        
+        let vc = NewMeetingViewController(delegate: self, place: nil)
         self.showViewController(with: vc)
     }
     

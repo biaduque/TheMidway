@@ -106,6 +106,21 @@ class MapViewManeger {
     }
     
     
+    /// Verifica qual é o tipo
+    static func categoryType(with categorie: String) -> PlacesCategories {
+        switch categorie {
+        case "Parque":  return .amusementPark
+        case "Restaurante": return .restaurant
+        case "Padaria": return .bakery
+        case "Teatro": return .theater
+        case "Cinema": return .movieTheater
+        case "Cafeteria": return .cafe
+        case "Bar": return .nightlife
+        default: return .restaurant
+        }
+    }
+    
+    
     
     /* MARK: - Gerenciamento do Mapa */
     

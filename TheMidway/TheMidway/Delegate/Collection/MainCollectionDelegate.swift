@@ -23,12 +23,12 @@ class MainCollectionDelegate: NSObject, UICollectionViewDelegate {
         self.mainDelegate = delegate
     }
     
+    
+    
     /* MARK: - Delegate */
     
     /// Ação de quando clica em uma célula
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.mainDelegate?.openSuggestionsAction(name: self.suggestionTypes[indexPath.row])
-        
-
     }
 }
