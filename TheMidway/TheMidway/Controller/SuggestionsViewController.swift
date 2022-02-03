@@ -44,9 +44,21 @@ class SuggestionsViewController: UIViewController {
     
     public override func viewDidLoad() -> Void {
         super.viewDidLoad()
+        
         self.configureNavBar()
-        // Configurando informações da view
+        
         self.mainView.setImage(name: self.mainWord)
+        
+        
+        // Empty View
+        let emptyViewText: String = "Poxa, não foi possível te mandar as nossas sugestões. Tente novamente mais tarde"
+        
+        self.mainView.setEmptyViewInfo(
+            img: "PlacesEmptyView",
+            label: LabelConfig(text: emptyViewText, sizeFont: 20, weight: .regular),
+            button: LabelConfig(text: "", sizeFont: 15, weight: .medium)
+        )
+        self.mainView.activateEmptyView(num: 0)
     }
     
     
@@ -54,11 +66,6 @@ class SuggestionsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Define o delegate e dataSource
-//        self.mainView.setSuggestionsCollectionDelegate(self.mainCollectionDelegate)
-//        self.mainView.setSuggestionsCollectionDataSource(self.mainCollectionDataSource)
-//        
-//        
-//        self.reloadDataCollection()
     }
  
     
@@ -74,14 +81,15 @@ class SuggestionsViewController: UIViewController {
     /* MARK: - Configurações */
     
     /// Recarrega os dados da CollectionView
-    public func reloadDataCollection() -> Void {
-        // Pega os dados do CoreData
+    public func reloadCollectionData() -> Void {
+        
        
     }
     
     /// Configura a NavBar da classe
     private func configureNavBar() -> Void {
-       
+        self.title = "Sugestões"
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "Cancelar",
             style: .plain,

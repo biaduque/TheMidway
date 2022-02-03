@@ -12,14 +12,14 @@ class MainTableDataSource: NSObject, UITableViewDataSource {
     
     /* MARK: - Atributos */
     
-    private var meetings: [Meetings] = MeetingCDManeger.shared.getMeetingsCreated()
+    private var mainProtocol: MainControllerDelegate!
     
     
     
     /* MARK: - Encapsulamento */
     
-    public func setMeetings(_ meetings: [Meetings]) -> Void {
-        return self.meetings = meetings
+    public func setProtocol(_ delegate: MainControllerDelegate) -> Void {
+        self.mainProtocol = delegate
     }
     
     
@@ -28,7 +28,7 @@ class MainTableDataSource: NSObject, UITableViewDataSource {
     
     /// Fala quantas linhas vão ter na tableView
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.meetings.count
+        return self.mainProtocol.getMeeting().count
     }
     
     
@@ -40,9 +40,10 @@ class MainTableDataSource: NSObject, UITableViewDataSource {
             return MainViewTableCell()
         }
         
+        let allMeetings = self.mainProtocol.getMeeting()
         
-        let meetingId = Int(meetings[indexPath.row].id)
-        print("\n\nPessoas desse encontro (ID = \(meetingId):")
+        let meetingId = Int(allMeetings[indexPath.row].id)
+
         let participantsAtMeeting = ParticipantsCDManeger.shared.getParticipants(at: meetingId)
         
         var participantsName: [String] = []
@@ -50,25 +51,23 @@ class MainTableDataSource: NSObject, UITableViewDataSource {
         
         for person in participantsAtMeeting {
             participantsName.append(person.name ?? "")
-            print(person.name ?? "")
         }
         
         let infos = MeetingCreatedCellInfo(
             title: LabelConfig(
-                text: self.meetings[indexPath.row].meetingName ?? "",
+                text: allMeetings[indexPath.row].meetingName ?? "",
                 sizeFont: 20, weight: .bold
             ),
             date: LabelConfig(
-                text: self.meetings[indexPath.row].date ?? "",
+                text: allMeetings[indexPath.row].date ?? "",
                 sizeFont: 14, weight: .regular
             ),
-            hour: self.meetings[indexPath.row].hour ?? "",
+            hour: allMeetings[indexPath.row].hour ?? "",
             participants: participantsName,
             participantsConfig: LabelConfig(text: "", sizeFont: 11, weight: .regular)
         )
 
         cell.setCellInfo(info: infos)
-
         return cell
     }
 }

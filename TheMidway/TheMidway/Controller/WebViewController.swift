@@ -45,8 +45,19 @@ class WebViewController: UIViewController {
         
         self.configureNavBar()
         
+        // Empty View
+        let emptyViewText: String = "Houve um erro com o link de busca."
+        
+        self.mainView.setEmptyViewInfo(
+            img: "PlacesEmptyView",
+            label: LabelConfig(text: emptyViewText, sizeFont: 20, weight: .regular),
+            button: LabelConfig(text: "", sizeFont: 15, weight: .medium))
+        
         let urlString = "\(self.url)\(self.queryUrl)"
-        self.mainView.setUrl(at: urlString)
+        
+        if !self.mainView.setUrl(at: urlString) {
+            self.mainView.activateEmptyView(num: 0)
+        }
     }
     
     

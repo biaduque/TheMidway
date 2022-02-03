@@ -8,4 +8,8 @@
 
 protocol MainControllerDelegate: AnyObject {
     func openSuggestionsAction(name: String) -> Void
+    func openMeetingPageAction(meetingInfo: MeetingCompleteInfo) -> Void
+    func reloadMeetingsTableData() -> Void
+    func getMeeting() -> [Meetings]
+    func deleteMeeting(with meeting: Meetings) -> Void
 }

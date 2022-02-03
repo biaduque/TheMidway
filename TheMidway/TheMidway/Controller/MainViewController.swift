@@ -14,6 +14,8 @@ class MainViewController: UIViewController, MainControllerDelegate {
     
     private let mainView: MainView = MainView()
     
+    private var allMeetingsData: [Meetings] = MeetingCDManeger.shared.getMeetingsCreated()
+    
     // Delegate e DataSources
     private let mainTableDelegate = MainTableDelegate()
     private let mainTableDataSource = MainTableDataSource()
@@ -35,7 +37,6 @@ class MainViewController: UIViewController, MainControllerDelegate {
     public override func viewDidLoad() -> Void {
         super.viewDidLoad()
             
-        // Configurando informações da view
         self.mainView.setTitles(
             suggestionText: "Sugestões de Locais",
             meetingText: "Meus Encontros",
@@ -60,61 +61,85 @@ class MainViewController: UIViewController, MainControllerDelegate {
     public override func viewWillAppear(_ animated: Bool) -> Void {
         super.viewWillAppear(animated)
         
+        self.mainTableDelegate.setProtocol(self)
+        self.mainTableDataSource.setProtocol(self)
+        self.mainCollectionDelegate.setProtocol(self)
+        
         // Define o delegate e dataSource
         self.mainView.setMeetingsTableDelegate(self.mainTableDelegate)
         self.mainView.setMeetingsTableDataSource(self.mainTableDataSource)
-        self.mainCollectionDelegate.setProtocol(self)
+        
         self.mainView.setSuggestionsCollectionDelegate(self.mainCollectionDelegate)
         self.mainView.setSuggestionsCollectionDataSource(self.mainCollectionDataSource)
         
         
-        self.reloadDataMeetingsTableView()
+        self.reloadMeetingsTableData()
     }
     
     
     
     /* MARK: - Delegate (Protocolo) */
     
-    func openSuggestionsAction(name: String) -> Void {
+    /// Abre a área de sugestões
+    internal func openSuggestionsAction(name: String) -> Void {
         let vc = SuggestionsViewController(mainWord: name)
-        vc.title = "Sugestões"
-        vc.modalPresentationStyle = .popover
         
+        self.showViewController(with: vc)
+    }
+    
+    
+    /// Abre a  página do encontro
+    internal func openMeetingPageAction(meetingInfo: MeetingCompleteInfo) -> Void {
+        let vc = MeetingPageViewController(meetingInfo: meetingInfo, delegate: self)
         
-        let navBar = UINavigationController(rootViewController: vc)
-        self.present(navBar, animated: true)
+        self.showViewController(with: vc)
+    }
+    
+    
+    /// Atualiza os dados da tabela e as informações vindas do Core Data
+    internal func reloadMeetingsTableData() -> Void {
+        self.allMeetingsData = MeetingCDManeger.shared.getMeetingsCreated()
+        
+        self.mainView.updateMeetingsTableData()
+        
+        // Verifica se precisa ativar a emptyView
+        self.mainView.activateEmptyView(num: self.allMeetingsData.count)
+    }
+    
+    
+    /// Retorna os encontros do Core Data
+    internal func getMeeting() -> [Meetings] {
+        return self.allMeetingsData
+    }
+    
+    
+    /// Deleta um encontro no CoreData
+    internal func deleteMeeting(with meeting: Meetings) -> Void {
+        if let _ = try? MeetingCDManeger.shared.deleteMeeting(at: meeting) {
+            self.reloadMeetingsTableData()
+        }
     }
     
     
     
     /* MARK: - Ações dos botões */
     
+    /// Abre a tela de novo encontro
     @objc private func newMeetingAction() -> Void {
-        let vc = NewMeetingViewController(vc: self)
-        vc.title = "Novo encontro"
-        vc.modalPresentationStyle = .popover
+        let vc = NewMeetingViewController(delegate: self)
         
-        
-        let navBar = UINavigationController(rootViewController: vc)
-        self.present(navBar, animated: true)
+        self.showViewController(with: vc)
     }
     
     
     
     /* MARK: - Configurações */
     
-    /// Recarrega os dados da TableView
-    public func reloadDataMeetingsTableView() -> Void {
-        // Pega os dados do CoreData
-        let meetingCoreData = MeetingCDManeger.shared.getMeetingsCreated()
+    /// Mostra uma nova tela com a Navbar
+    private func showViewController(with controller: UIViewController, _ isModal: Bool = true) -> Void {
+        if isModal { controller.modalPresentationStyle = .popover }
         
-        // Atualiza a variável do DataSource e Delegate
-        self.mainTableDataSource.setMeetings(meetingCoreData)
-        self.mainTableDelegate.setMeetings(meetingCoreData)
-    
-        self.mainView.updateMeetingsTableData()
-        
-        // Verifica se precisa ativar a emptyView
-        self.mainView.activateEmptyView(num: meetingCoreData.count)
+        let navBar = UINavigationController(rootViewController: controller)
+        self.present(navBar, animated: true)
     }
 }

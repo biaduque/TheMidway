@@ -43,7 +43,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     /* ViewController */
     
-    private var superViewController: MainViewController
+    private var mainProtocol: MainControllerDelegate
     
     private let participantsController = ParticipantsViewController()
     
@@ -65,8 +65,8 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     /* MARK: -  */
     
-    init(vc: MainViewController) {
-        self.superViewController = vc
+    init(delegate: MainControllerDelegate) {
+        self.mainProtocol = delegate
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -87,6 +87,8 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     public override func viewDidLoad() -> Void {
         super.viewDidLoad()
+        
+        self.isModalInPresentation = true
         
         // Nav bar
         self.configureNavBar()
@@ -115,7 +117,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         // Empty View
         let emptyViewText: String = "Escolha os participantes do encontro para achar os locais perto deles."
         
-        self.configureEmptyView(show: true, emptyViewText)
+        self.configureEmptyView(num: 0, emptyViewText)
     }
     
     
@@ -205,7 +207,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         
         if let _ = try? MeetingCDManeger.shared.newMeeting(data: data) {
             UserDefaults.standard.set(self.meetingId, forKey: "meetingId")
-            self.superViewController.reloadDataMeetingsTableView()
+            self.mainProtocol.reloadMeetingsTableData()
         } else {
             print("\n\nErro na hora de salvar o encontro no CoreData\n\n")
         }
@@ -257,6 +259,8 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     /// Configura a NavBar da classe
     private func configureNavBar() -> Void {
+        self.title = "Novo Encontro"
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Salvar",
             style: .done,
@@ -275,7 +279,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     
     /// Configura a EmptyView
-    private func configureEmptyView(show: Bool, _ text: String = "") -> Void {
+    private func configureEmptyView(num: Int, _ text: String = "") -> Void {
         self.mainView.setEmptyViewInfo(
             img: "PlacesEmptyView",
             label: LabelConfig(text: text, sizeFont: 15, weight: .regular),
@@ -283,7 +287,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         
         self.mainView.getEmptyViewButton().addTarget(self, action: #selector(self.setParticipantsAction), for: .touchDown)
         
-        self.mainView.activateEmptyView(show)
+        self.mainView.activateEmptyView(num: num)
         
     }
     
@@ -350,8 +354,6 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         for person in self.participants {
             let coordinate = person.coordinate
             
-            print("Adicionando \(person.contactInfo.name) - Coords\(person.coordinate)\n")
-            
             let pin = self.mapManeger.createPin(
                 name: person.contactInfo.name,
                 coordinate: person.coordinate,
@@ -409,13 +411,13 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
             
             // Ativa o botão de recarregar
             if self.placesInMidwayArea.count == 0 {
-                self.configureEmptyView(show: true, errorText)
+                self.configureEmptyView(num: 0, errorText)
                 self.mainView.getEmptyViewButton().isHidden = true
             } else if self.placesInMidwayArea.count < 10 {
                 self.mainView.setRetryButtonVisible(false)
             }
             
-            self.configureEmptyView(show: false)
+            self.configureEmptyView(num: 1)
         }
     }
 }

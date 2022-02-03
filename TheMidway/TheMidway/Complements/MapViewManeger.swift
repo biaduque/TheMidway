@@ -83,7 +83,15 @@ class MapViewManeger {
     
     
     /// Verifica qual é o tipo do pin
-    private func pinType(type: String) -> PlacesCategories {
+    private func pinType(type: String, name: String) -> PlacesCategories {
+        if name.contains("padaria") || name.contains("panificadora") {
+            return .bakery
+        } else if name.contains("shopping") {
+            return .shopping
+        } else if name.contains("cafe") || name.contains("café") {
+            return .cafe
+        }
+        
         switch type {
         case "MKPOICategoryAmusementPark":  return .amusementPark
         case "MKPOICategoryPark":           return .nationalPark
@@ -114,13 +122,16 @@ class MapViewManeger {
     /* MARK: - Ponto Médio */
     
     /// Cria o pin e a área do TheMidway
-    public func getTheMidwayArea(with coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
+    public func getTheMidwayArea(with coordinates: [CLLocationCoordinate2D], _ withCircleOn: Bool = true) -> CLLocationCoordinate2D {
         let midwayPoint = self.midpointCalculate(coordinates: coordinates)
         let pin = self.createPin(name: "The Midway", coordinate: midwayPoint, type: "The Midway")
     
         self.addPointOnMap(pin: pin)
         
-        self.addCircle(at: midwayPoint)
+        if withCircleOn {
+            self.addCircle(at: midwayPoint)
+        }
+       
         self.setMapFocus(at: midwayPoint, radius: self.radiusArea*2)
         
         return midwayPoint
@@ -220,20 +231,11 @@ class MapViewManeger {
                 return
             }
             
-            print("Itens encontrados para \(mainWord): \(response.mapItems.count). \n\n")
-            
-    
+        
             for item in response.mapItems {
-                
-                if let name = item.name, let coords = item.placemark.location, let type = item.pointOfInterestCategory {
-                    // Cria a cordenada
-                    let coords2d = CLLocationCoordinate2D(
-                        latitude: coords.coordinate.latitude,
-                        longitude: coords.coordinate.longitude
-                    )
-                                        
+                if let name = item.name, let coords = item.placemark.location?.coordinate, let type = item.pointOfInterestCategory {
                     // Cria o pin
-                    let pin = self.createPin(name: name, coordinate: coords2d, type: "")
+                    let pin = self.createPin(name: name, coordinate: coords, type: "")
                     
                     // Endereço
                     let addressInfo = AddressInfo(
@@ -248,29 +250,24 @@ class MapViewManeger {
                     // Guarda as informações
                     let newItem: MapPlace = MapPlace(
                         name: name,
-                        coordinates: coords2d,
+                        coordinates: coords,
                         pin: pin,
-                        type: self.pinType(type: type.rawValue),
+                        type: self.pinType(type: type.rawValue, name: name.lowercased()),
                         addressInfo: addressInfo
                     )
                     
                     // Verifica se está dentro do raio E se já não foi adicionado.
-                    if self.getDistance(from: location, to: coords2d) <= self.radiusArea+500 && !self.findPlace(place: newItem){
-                                                
+                    if self.getDistance(from: location, to: coords) <= self.radiusArea && !self.findPlace(place: newItem) {
                         placesFound.append(newItem)
                         self.nerbyPlaces.append(newItem)
                         
                         self.addPointOnMap(pin: pin)
-                        
-                        self.showPlacesFoundInfo(info: item)
                     }
                 }
             }
-            print("\n\n Locais no mapa: \(placesFound.count) \n\n")
         }
         
         group.notify(queue: .main) {
-            print("Finalizei")
             completionHandler(.success(placesFound))
         }
     }
@@ -321,28 +318,6 @@ class MapViewManeger {
                 completionHandler(.failure(.noResult))
             }
         }
-    }
-    
-    
-    
-    /* MARK: - Prints (Debug) */
-    
-    /// Mostra as informações achadas dos lugares
-    private func showPlacesFoundInfo(info: MKMapItem) -> Void {
-        print("\n\nLugar: \(info.name ?? "None")")
-        print("Site: \(String(describing: info.url))")
-        print("Celular: \(info.phoneNumber ?? "None")")
-        print("TipoRaw: \(info.pointOfInterestCategory?.rawValue ?? "None")\n")
-        print("CEP: \(info.placemark.postalCode ?? "None")")
-        print("Pais: \(info.placemark.country ?? "None")")
-        print("Pais-codigo: \(info.placemark.countryCode ?? "None")")
-        print("Pais-iso: \(info.placemark.isoCountryCode ?? "None")")
-        print("Postal-Code: \(info.placemark.postalCode ?? "None")")
-        print("Areas de Interesse: \(info.placemark.areasOfInterest ?? ["None"])")
-        print("Rua: \(info.placemark.thoroughfare ?? "None")")
-        print("Num: \(info.placemark.subThoroughfare ?? "None")")
-        print("Cidade: \(info.placemark.administrativeArea ?? "None")")
-        print("Bairro: \(info.placemark.subLocality ?? "None")\n\n")
     }
 }
 

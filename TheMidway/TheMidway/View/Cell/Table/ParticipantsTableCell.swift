@@ -72,8 +72,8 @@ class ParticipantsTableCell: UITableViewCell {
         let betweenSpace: CGFloat = 4
         
         let imageConstraints: [NSLayoutConstraint] = [
-            self.image.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace),
-            self.image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: betweenSpace),
+            self.image.topAnchor.constraint(equalTo: self.topAnchor),
+            self.image.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.image.widthAnchor.constraint(equalToConstant: self.frame.height*1.5),
             self.image.centerYAnchor.constraint(equalTo: self.centerYAnchor)
@@ -84,7 +84,7 @@ class ParticipantsTableCell: UITableViewCell {
         let titleLabelConstraints: [NSLayoutConstraint] = [
             self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace),
             self.titleLabel.leftAnchor.constraint(equalTo: self.image.rightAnchor),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -betweenSpace),
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(betweenSpace*2)),
             self.titleLabel.heightAnchor.constraint(equalToConstant: 20)
         ]
         NSLayoutConstraint.activate(titleLabelConstraints)
@@ -93,7 +93,7 @@ class ParticipantsTableCell: UITableViewCell {
         let subtitleLabelConstraints: [NSLayoutConstraint] = [
             self.subtitleLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: betweenSpace),
             self.subtitleLabel.leftAnchor.constraint(equalTo: self.image.rightAnchor),
-            self.subtitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -betweenSpace),
+            self.subtitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -(betweenSpace*2)),
             self.subtitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace)
         ]
         NSLayoutConstraint.activate(subtitleLabelConstraints)
