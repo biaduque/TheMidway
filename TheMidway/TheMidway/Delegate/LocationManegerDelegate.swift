@@ -12,7 +12,7 @@ class LocationManegerDelegate: NSObject, CLLocationManagerDelegate {
     
     /* MARK: - Atributos */
     
-    private var mapManeger: MapViewManeger!
+    private var mapManeger: MapViewManeger?
     
     
     
@@ -31,7 +31,9 @@ class LocationManegerDelegate: NSObject, CLLocationManagerDelegate {
         let status = manager.authorizationStatus
         
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            self.mapManeger.locationManager.startUpdatingLocation()
+            if let maneger = self.mapManeger?.locationManager {
+                maneger.startUpdatingLocation()
+            }
         }
     }
     
