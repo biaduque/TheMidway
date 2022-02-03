@@ -38,7 +38,6 @@ class NewMeetingFormsTableDelegate: NSObject, UITableViewDelegate {
         
         // Células dos participantes
         if indexPath.section == 1 && indexPath.row == 1 {
-            print("Estou sendo clicada")
             self.navDelegate?.setParticipantsAction()
         }
     }

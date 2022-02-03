@@ -12,14 +12,14 @@ class MainTableDelegate: NSObject, UITableViewDelegate {
     
     /* MARK: - Atributos */
     
-    private var meetings: [Meetings] = MeetingCDManeger.shared.getMeetingsCreated()
+    private var mainProtocol: MainControllerDelegate!
     
     
     
     /* MARK: - Encapsulamento */
     
-    public func setMeetings(_ meetings: [Meetings]) -> Void {
-        return self.meetings = meetings
+    public func setProtocol(_ delegate: MainControllerDelegate) -> Void {
+        self.mainProtocol = delegate
     }
     
     
@@ -29,6 +29,13 @@ class MainTableDelegate: NSObject, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadInputViews()
+        
+        let meetingSelected: Meetings = self.mainProtocol.getMeeting()[indexPath.row]
+        let participants: [Participants] = ParticipantsCDManeger.shared.getParticipants(at: Int(meetingSelected.id))
+        
+        let meetingInfo = MeetingCompleteInfo(meeting: meetingSelected, participants: participants)
+        
+        self.mainProtocol.openMeetingPageAction(meetingInfo: meetingInfo)
     }
     
     
@@ -37,11 +44,8 @@ class MainTableDelegate: NSObject, UITableViewDelegate {
         let action = UIContextualAction(style: .destructive, title: nil) {_, _, handler in
             handler(true)
             
-            if let _ = try? MeetingCDManeger.shared.deleteMeeting(at: self.meetings[indexPath.row]) {
-                self.meetings.remove(at: indexPath.row)
-                tableView.reloadInputViews()
-                tableView.reloadData()
-            }
+            let allMeetings = self.mainProtocol.getMeeting()
+            self.mainProtocol.deleteMeeting(with: allMeetings[indexPath.row])
         }
         action.image = UIImage(systemName: "trash")
         action.backgroundColor = .systemRed

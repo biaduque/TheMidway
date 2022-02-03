@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class WebView: UIView {
+class WebView: UIViewWithEmptyView {
 
     /* MARK: -  Atributos */
     
@@ -22,9 +22,10 @@ class WebView: UIView {
 
     /* MARK: -  */
 
-    init() {
-        super.init(frame: .zero)
-        self.backgroundColor = UIColor(named: "BackgroundColor")
+    override init() {
+        super.init()
+        
+        self.emptyView.setStyle(style: .justVisualisation)
         
         self.addSubview(self.webView)
                 
@@ -38,18 +39,26 @@ class WebView: UIView {
     /* MARK: -  Encapsulamento */
     
     /// Define a URL que vai aparecer
-    public func setUrl(at urlQuery: String) -> Void {
+    public func setUrl(at urlQuery: String) -> Bool {
         if let url = URL(string: urlQuery) {
             let request = URLRequest(url: url)
             
             self.webView.load(request)
-        } else {
-            print("Não criei a URL: \(urlQuery)")
+            return true
         }
+        return false
     }
     
     
-   
+    override public func activateEmptyView(num: Int) -> Void {
+        var bool = true
+        if num == 0 { bool = false }
+        self.emptyView.isHidden = bool
+        self.webView.isHidden = !bool
+    }
+    
+    
+    
     /* MARK: -  Constraints */
     
     private func setConstraints() -> Void {
@@ -62,5 +71,15 @@ class WebView: UIView {
             self.webView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ]
         NSLayoutConstraint.activate(webViewConstraints)
+        
+        
+        // Empty View
+        let emptyViewConstraints: [NSLayoutConstraint] = [
+            self.emptyView.topAnchor.constraint(equalTo: self.topAnchor, constant: safeArea),
+            self.emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(emptyViewConstraints)
     }
 }

@@ -8,15 +8,10 @@
 import UIKit
 import MapKit
 
-class NewMeetingView: UIView {
+class NewMeetingView: UIViewWithEmptyView {
 
     /* MARK: -  Atributos */
-    
-    private lazy var emptyView = EmptyView()
-    
-    private var emptyViewConstraints: [NSLayoutConstraint] = []
-    
-    
+        
     // Formulário
     
     private let formsTableView: UITableView = {
@@ -87,22 +82,18 @@ class NewMeetingView: UIView {
     }()
     
     
-    private var placesFoundConstraints: [NSLayoutConstraint] = []
-    
     private var placesFoundLabelText: String = ""
     
     
     
     /* MARK: -  */
     
-    init() {
+    override init() {
         self.placesFoundLabel = MainView.newLabel(color: UIColor(named: "TitleLabel"))
         self.retryButton = MainView.newButton(color: UIColor(named: "AccentColor"))
         
-        super.init(frame: .zero)
+        super.init()
     
-        self.backgroundColor = UIColor(named: "BackgroundColor")
-                
         self.addSubview(self.formsTableView)
         
         self.addSubview(self.placesFoundLabel)
@@ -206,44 +197,14 @@ class NewMeetingView: UIView {
     
     // EmptyView
     
-    public func activateEmptyView(_ bool: Bool) -> Void {
-        if bool {
-            self.emptyView.isHidden = false
-            NSLayoutConstraint.activate(self.emptyViewConstraints)
-            
-            if !self.emptyView.isDescendant(of: self) {
-                self.addSubview(self.emptyView)
-            }
-            
-            
-            self.setPlaceFoundGroupViewVisibility(is: true)
-            NSLayoutConstraint.deactivate(self.placesFoundConstraints)
-
-        } else {
-            self.emptyView.isHidden = true
-            NSLayoutConstraint.deactivate(self.emptyViewConstraints)
-            self.emptyView.removeFromSuperview()
-
-            self.setPlaceFoundGroupViewVisibility(is: false)
-            NSLayoutConstraint.activate(self.placesFoundConstraints)
-        }
-    }
-    
-    
-    public func setEmptyViewInfo(img: String, label: LabelConfig, button: LabelConfig) {
-        self.emptyView.setEmptyViewInfo(img: img, text: label, button: button)
-    }
-    
-    public func getEmptyViewButton() -> UIButton {
-        return self.emptyView.getButton()
-    }
-    
-    
-    /// Ativa/desativa as view que mostram informações sobre locais
-    private func setPlaceFoundGroupViewVisibility(is bool: Bool) -> Void {
-        self.placesFoundLabel.isHidden = bool
-        self.placesFoundCollection.isHidden = bool
-        self.mapView.isHidden = bool
+    public override func activateEmptyView(num: Int) -> Void {
+        var bool = true
+        if num == 0 { bool = false }
+        self.emptyView.isHidden = bool
+        
+        self.placesFoundLabel.isHidden = !bool
+        self.placesFoundCollection.isHidden = !bool
+        self.mapView.isHidden = !bool
     }
     
     
@@ -267,9 +228,7 @@ class NewMeetingView: UIView {
         NSLayoutConstraint.activate(formsTableViewConstraints)
         
         
-        /*  Lugares encontrados */
-        
-        // Label
+        /* Lugares encontrados */
         let placesFoundConstraints: [NSLayoutConstraint] = [
             // Label
             self.placesFoundLabel.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor, constant: betweenSpace*1.2),
@@ -297,19 +256,16 @@ class NewMeetingView: UIView {
             self.mapView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 2),
             
         ]
-        self.placesFoundConstraints = placesFoundConstraints
+        NSLayoutConstraint.activate(placesFoundConstraints)
         
-        
-        
+
         /* EmptyView */
-        
         let emptyViewConstraints: [NSLayoutConstraint] = [
             self.emptyView.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor),
             self.emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ]
-
-        self.emptyViewConstraints = emptyViewConstraints
+        NSLayoutConstraint.activate(emptyViewConstraints)
     }
 }

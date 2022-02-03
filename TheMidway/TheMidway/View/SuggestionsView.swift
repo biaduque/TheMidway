@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SuggestionsView: UIView {
+class SuggestionsView: UIViewWithEmptyView {
     
     /* MARK: -  Atributos */
     
@@ -37,14 +37,14 @@ class SuggestionsView: UIView {
 
     /* MARK: -  */
 
-    init() {
-      
-        super.init(frame: .zero)
-        self.backgroundColor = UIColor(named: "BackgroundColor")
+    override init() {
+        super.init()
+        
+        self.emptyView.setStyle(style: .justVisualisation)
+        
         self.addSubview(self.image)
         self.addSubview(self.suggestionCollection)
-      
-                
+        
         self.setConstraints()
     }
     
@@ -71,8 +71,19 @@ class SuggestionsView: UIView {
     }
     
     
-//     Atualizando dados da Collection
+    // Atualizando dados da Collection
     public func updateSuggestionsCollectionData() -> Void { self.suggestionCollection.reloadData() }
+    
+    
+    // EmptyView
+    
+    public override func activateEmptyView(num: Int) -> Void {
+        var bool = true
+        if num == 0 { bool = false }
+        self.emptyView.isHidden = bool
+
+        self.suggestionCollection.isHidden = !bool
+    }
     
     
    
@@ -87,19 +98,24 @@ class SuggestionsView: UIView {
             self.image.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
             self.image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.image.heightAnchor.constraint(equalToConstant: 180)
+            self.image.heightAnchor.constraint(equalToConstant: 180),
+            
+            
+            self.suggestionCollection.topAnchor.constraint(equalTo: self.image.bottomAnchor, constant: betweenSpace),
+            self.suggestionCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
+            self.suggestionCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
+            self.suggestionCollection.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace)
         ]
         NSLayoutConstraint.activate(imageConstraints)
         
        
-        // Collection
-        let suggestionCollectionConstraints: [NSLayoutConstraint] = [
-            self.suggestionCollection.topAnchor.constraint(equalTo: self.image.bottomAnchor, constant: betweenSpace),
-            self.suggestionCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
-            self.suggestionCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-             self.suggestionCollection.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace)
-       
+        // Empty View
+        let emptyViewConstraints: [NSLayoutConstraint] = [
+            self.emptyView.topAnchor.constraint(equalTo: self.image.bottomAnchor),
+            self.emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
+            self.emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
+            self.emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ]
-        NSLayoutConstraint.activate(suggestionCollectionConstraints)
+        NSLayoutConstraint.activate(emptyViewConstraints)
     }
 }

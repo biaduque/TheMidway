@@ -30,14 +30,11 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
     
     /// Todos os desenhos são configurados nessa função delegate. (OBS: caso faça algum outro desenho precisa específica com o if comentado)
     public func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        // if overlay is MKCircle {
-            let circle = MKCircleRenderer(overlay: overlay)
-            circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.18)
-            circle.strokeColor = UIColor(named: "Color4")
-            circle.lineWidth = 1.0
-            return circle
-        // }
-        // return overlay
+        let circle = MKCircleRenderer(overlay: overlay)
+        circle.fillColor = UIColor(named: "Color4")?.withAlphaComponent(0.18)
+        circle.strokeColor = UIColor(named: "Color4")
+        circle.lineWidth = 1.0
+        return circle
     }
     
     
@@ -60,11 +57,7 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         return annotationView
     }
     
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-    }
-    
     
     /* MARK: - Outros */
     

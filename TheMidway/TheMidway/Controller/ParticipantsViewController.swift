@@ -57,9 +57,7 @@ class ParticipantsViewController: UIViewController, ParticipantsControllerDelega
         // Nav bar
         self.configureNavBar()
         
-        self.contactController.delegate = self.contactDelegate
-        
-        
+        // View
         self.mainView.addPersonButton.addTarget(self, action: #selector(self.addParticipantsAction), for: .touchDown)
         
         self.mainView.setTitles(
@@ -69,12 +67,25 @@ class ParticipantsViewController: UIViewController, ParticipantsControllerDelega
             w: .bold
         )
         
+        // Empty View
+        
+        let emptyViewText: String = "Escolha os endereços nos seus contatos dos seus amigos para criar o encontro!"
+        
+        self.mainView.setEmptyViewInfo(
+            img: "FriendsEmptyView",
+            label: LabelConfig(text: emptyViewText, sizeFont: 15, weight: .regular),
+            button: LabelConfig(text: "Adicionar participantes", sizeFont: 15, weight: .medium))
+        
+        self.mainView.getEmptyViewButton().addTarget(self, action: #selector(self.addParticipantsAction), for: .touchDown)
+        
         self.addParticipantsAction()
     }
     
     
     public override func viewWillAppear(_ animated: Bool) -> Void {
         super.viewWillAppear(animated)
+        
+        self.contactController.delegate = self.contactDelegate
         
         self.contactDelegate.setParentController(self)
         
@@ -91,6 +102,17 @@ class ParticipantsViewController: UIViewController, ParticipantsControllerDelega
         self.reloadTablesDatas()
     }
     
+    
+    public override func viewDidAppear(_ animated: Bool) -> Void {
+        super.viewDidAppear(animated)
+        
+        if self.participantesSelected.notConfirmed.isEmpty {
+            if self.participantesSelected.confirmed.isEmpty {
+                self.mainView.setConfirmedVisibility(bool: true)
+            }
+            self.mainView.setNotFoundVisibility(bool: true)
+        }
+    }
     
     
     /* MARK: - Delegate (Protocol) */
@@ -126,10 +148,11 @@ class ParticipantsViewController: UIViewController, ParticipantsControllerDelega
     
     /* MARK: - Encapsulamento */
     
-    /// Defeine o delegate da NewMeeting para poder se comunicar com ela (via protocolo)
+    /// Define o delegate da NewMeeting para poder se comunicar com ela (via protocolo)
     public func setParenteDelegate(_ delegate: NewMeetingControllerDelegate) -> Void {
         self.parentDelegate = delegate
     }
+    
     
     
     /* MARK: - Ações dos botões */
@@ -209,18 +232,14 @@ class ParticipantsViewController: UIViewController, ParticipantsControllerDelega
             
             MapViewManeger.getCoordsByAddress(address: address) { result in
                 defer {group.leave()}
+                
                 switch result {
                 case .success(let coords):
-                    print("Achei o endereço: \n\(contact.name)\nEnd: \(address)\nCoords: \(coords)")
                     addressCoords = coords
-
                 case .failure(_):
-                    print("Não achei o endereço: \(contact.name)\nEnd: \(address)")
                     addressCoords = CLLocationCoordinate2D(latitude: 0, longitude: 0)
                 }
             }
-            
-            
             
             group.notify(queue: .main) {
                 let image = Int.random(in: 1...8)
@@ -245,10 +264,24 @@ class ParticipantsViewController: UIViewController, ParticipantsControllerDelega
         }
         
         group.notify(queue: .main) {
-            self.participantesSelected.confirmed = peopleConfirmed
-            self.participantesSelected.notConfirmed = peopleNotConfirmed
-
-            self.reloadTablesDatas()
+            if !peopleConfirmed.isEmpty {
+                self.mainView.activateEmptyView(num: 1)
+                
+                if !peopleNotConfirmed.isEmpty {
+                    print("Lista: ", peopleNotConfirmed)
+                    self.participantesSelected.notConfirmed = peopleNotConfirmed
+                    self.mainView.setNotFoundVisibility(bool: false)
+                } else {
+                    self.mainView.setNotFoundVisibility(bool: true)
+                }
+                
+                self.mainView.setConfirmedVisibility(bool: false)
+                self.participantesSelected.confirmed = peopleConfirmed
+                
+                self.reloadTablesDatas()
+            } else {
+                self.mainView.activateEmptyView(num: 0)
+            }
         }
     }
     

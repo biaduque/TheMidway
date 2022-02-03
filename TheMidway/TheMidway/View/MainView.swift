@@ -7,13 +7,9 @@
 
 import UIKit
 
-class MainView: UIView {
+class MainView: UIViewWithEmptyView {
     
     /* MARK: -  Atributos */
-    
-    private lazy var emptyView = EmptyView()
-    private var emptyViewConstraints: [NSLayoutConstraint] = []
-    
     
     private let infoButton: UIButton
     
@@ -23,9 +19,9 @@ class MainView: UIView {
     
     private let suggestionCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal                // Direção da rolagem (se é horizontal ou vertical)
-        layout.itemSize = CGSize(width: 200, height: 230)   // Define o tamanho da célula
-        layout.minimumLineSpacing = 20                      // Espaço entre as células
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 200, height: 230)
+        layout.minimumLineSpacing = 20
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(MainViewCollectionCell.self, forCellWithReuseIdentifier: MainViewCollectionCell.identifier)
@@ -50,7 +46,6 @@ class MainView: UIView {
         table.alwaysBounceVertical = false
         table.alwaysBounceHorizontal = false
         
-        // Tamanho da célula
         table.rowHeight = 80
     
         table.register(MainViewTableCell.self, forCellReuseIdentifier: MainViewTableCell.identifier)
@@ -62,14 +57,12 @@ class MainView: UIView {
         
         return table
     }()
-    
-    private var meetingsTableViewConstraints: [NSLayoutConstraint] = []
-    
+        
     
 
     /* MARK: -  */
 
-    init() {
+    override init() {
         self.infoButton = MainView.newButton(color: UIColor(named: "AccentColor"))
         
         self.suggestionLabel = MainView.newLabel(color: UIColor(named: "TitleLabel"))
@@ -77,11 +70,8 @@ class MainView: UIView {
         self.meetingsLabel = MainView.newLabel(color: UIColor(named: "TitleLabel"))
         self.newMeetingButton = MainView.newButton(color: UIColor(named: "AccentColor"))
         
-        
-        super.init(frame: .zero)
-        
-        self.backgroundColor = UIColor(named: "BackgroundColor")
-                
+        super.init()
+    
         self.addSubview(self.infoButton)
         
         self.addSubview(self.suggestionLabel)
@@ -90,9 +80,7 @@ class MainView: UIView {
         self.addSubview(self.meetingsLabel)
         self.addSubview(self.newMeetingButton)
         self.addSubview(self.meetingsTableView)
-        
-        self.addSubview(self.emptyView)
-                
+                        
         self.setConstraints()
     }
     
@@ -119,8 +107,15 @@ class MainView: UIView {
     }
     
     
+    /// Atualiza os dados da Table
+    public func updateMeetingsTableData() -> Void {
+        self.meetingsTableView.reloadData()
+    }
+    
+    
     // Delegate & Datasource
     
+    // Collection
     public func setSuggestionsCollectionDelegate(_ delegate: MainCollectionDelegate) -> Void {
         self.suggestionCollection.delegate = delegate
     }
@@ -130,6 +125,7 @@ class MainView: UIView {
     }
     
     
+    // Table
     public func setMeetingsTableDelegate(_ delegate: MainTableDelegate) -> Void {
         self.meetingsTableView.delegate = delegate
     }
@@ -139,43 +135,14 @@ class MainView: UIView {
     }
     
     
-    // Atualizando dados da Table
-    public func updateMeetingsTableData() -> Void { self.meetingsTableView.reloadData() }
-    
-    
     // EmptyView
     
-    public func activateEmptyView(num: Int) -> Void {
-        if num == 0 {
-            self.emptyView.isHidden = false
-            NSLayoutConstraint.activate(self.emptyViewConstraints)
-            
-            if !self.emptyView.isDescendant(of: self) {
-                self.addSubview(self.emptyView)
-                print("Entrei aqui")
-            }
-            
-            
-            self.meetingsTableView.isHidden = true
-            NSLayoutConstraint.deactivate(self.meetingsTableViewConstraints)
-
-        } else {
-            self.emptyView.isHidden = true
-            NSLayoutConstraint.deactivate(self.emptyViewConstraints)
-            self.emptyView.removeFromSuperview()
-
-            self.meetingsTableView.isHidden = false
-            NSLayoutConstraint.activate(self.meetingsTableViewConstraints)
-        }
-    }
-    
-    
-    public func setEmptyViewInfo(img: String, label: LabelConfig, button: LabelConfig) {
-        self.emptyView.setEmptyViewInfo(img: img, text: label, button: button)
-    }
-    
-    public func getEmptyViewButton() -> UIButton {
-        return self.emptyView.getButton()
+    /// Ativa/desativa a empty view da tela
+    public override func activateEmptyView(num: Int) -> Void {
+        var bool = true
+        if num == 0 { bool = false }
+        self.emptyView.isHidden = bool
+        self.meetingsTableView.isHidden = !bool
     }
 
     
@@ -253,9 +220,7 @@ class MainView: UIView {
             self.meetingsTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.meetingsTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace)
         ]
-
-        self.meetingsTableViewConstraints = meetingsTableConstraints
-        
+        NSLayoutConstraint.activate(meetingsTableConstraints)
         
         
         /*  EmptyView */
@@ -266,8 +231,7 @@ class MainView: UIView {
             self.emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ]
-        
-        self.emptyViewConstraints = emptyViewConstraints
+        NSLayoutConstraint.activate(emptyViewConstraints)
     }
     
     
