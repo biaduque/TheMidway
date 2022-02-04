@@ -264,24 +264,23 @@ class ParticipantsViewController: UIViewController, ParticipantsControllerDelega
         }
         
         group.notify(queue: .main) {
-            if !peopleConfirmed.isEmpty {
-                self.mainView.activateEmptyView(num: 1)
-                
-                if !peopleNotConfirmed.isEmpty {
-                    print("Lista: ", peopleNotConfirmed)
-                    self.participantesSelected.notConfirmed = peopleNotConfirmed
-                    self.mainView.setNotFoundVisibility(bool: false)
-                } else {
-                    self.mainView.setNotFoundVisibility(bool: true)
-                }
-                
-                self.mainView.setConfirmedVisibility(bool: false)
-                self.participantesSelected.confirmed = peopleConfirmed
-                
-                self.reloadTablesDatas()
-            } else {
+            if peopleConfirmed.isEmpty && peopleNotConfirmed.isEmpty {
                 self.mainView.activateEmptyView(num: 0)
             }
+            self.mainView.activateEmptyView(num: 1)
+            
+            if !peopleNotConfirmed.isEmpty {
+                print("Lista: ", peopleNotConfirmed)
+                self.participantesSelected.notConfirmed = peopleNotConfirmed
+                self.mainView.setNotFoundVisibility(bool: false)
+            } else {
+                self.mainView.setNotFoundVisibility(bool: true)
+            }
+            
+            self.mainView.setConfirmedVisibility(bool: false)
+            self.participantesSelected.confirmed = peopleConfirmed
+            
+            self.reloadTablesDatas()
         }
     }
     

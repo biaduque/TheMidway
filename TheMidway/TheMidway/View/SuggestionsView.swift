@@ -21,8 +21,8 @@ class SuggestionsView: UIViewWithEmptyView {
     private let suggestionCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 330, height: 120)   // Define o tamanho da célula
-        layout.minimumLineSpacing = 20                      // Espaço entre as células
+        layout.itemSize = CGSize(width: 350, height: 120)   // Define o tamanho da célula
+        layout.minimumLineSpacing = 10                      // Espaço entre as células
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(SuggestionsCollectionCell.self, forCellWithReuseIdentifier: SuggestionsCollectionCell.identifier)
@@ -90,7 +90,7 @@ class SuggestionsView: UIViewWithEmptyView {
     /* MARK: -  Constraints */
     
     private func setConstraints() -> Void {
-        let lateralSpace: CGFloat = 25
+        let lateralSpace: CGFloat = 15
         let betweenSpace: CGFloat = 20
    
         
