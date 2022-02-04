@@ -9,5 +9,5 @@ import Foundation
 
 
 struct Itens: Decodable {
-    let itens: [SuggestionPlaceInfo]?
+    let items: [SuggestionPlaceInfo]?
 }

@@ -14,6 +14,9 @@ class MeetingCDManeger {
     
     static let shared: MeetingCDManeger = MeetingCDManeger()
     
+    private let apiManeger = ApiManeger()
+    
+    
     private var mainContext: NSManagedObjectContext {
         return self.container.viewContext
     }
@@ -84,7 +87,19 @@ class MeetingCDManeger {
         meeting.longitude = Float(data.placeInfo.coordinates.longitude)
         
         meeting.categorie = data.placeInfo.type.localizedDescription
+        
+        
+        self.apiManeger.postMeetingCreated(data: data) { result in
+            switch result {
+            case .success(let status):
+                // Entra aqui quando da certo!
+                print("\n\nFoi dado um POST: \(status)\n\n")
 
+            case .failure(let error):
+                print("\n\nErro POST: \(error.description)\n\n")
+            }
+        }
+        
         self.saveContext()
         return meeting
     }
