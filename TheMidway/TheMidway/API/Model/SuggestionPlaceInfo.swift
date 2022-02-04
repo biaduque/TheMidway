@@ -9,8 +9,9 @@ import Foundation
 
 
 struct SuggestionPlaceInfo: Decodable {
-    let name: String
-    let type: String
+    let placeName: String
+    let category: String
+    let id: Int
 
     let latitude: Float
     let longitude: Float
@@ -19,6 +20,6 @@ struct SuggestionPlaceInfo: Decodable {
     let city: String?
     let district: String?
     let address: String?
-    let number: String?
+    let addressNumber: String?
     let postalCode: String?
 }

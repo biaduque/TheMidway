@@ -16,7 +16,10 @@ class ApiManeger {
     private let suggetionsLink: String = "https://themidway-dev.herokuapp.com/suggestions"
     
     private let meetingsLink: String = "https://themidway-dev.herokuapp.com/meetingsCreated"
-
+    
+    
+    private var postParameters: [String:String] = [:]
+    
     /**
         Faz a chamda da API para os métodos GET e POST..
      
@@ -45,10 +48,12 @@ class ApiManeger {
 
         // Erro na URL
         guard let url = URL(string: urlRequest) else {
+            print("POST: Url criada \(urlRequest)")
             completionHandler(.failure(APIError.badURL))
             return
         }
-
+        
+        print("Deu: Url criada \(url)")
 
         var request = URLRequest(url: url)
         request.httpMethod = verbHttp
@@ -86,7 +91,8 @@ class ApiManeger {
                 completionHandler(.failure(APIError.badDecode))
                 return
             }
-
+            
+            print("Deu: Arquivos encontrados \(meeting)")
 
             completionHandler(.success(self.compactInfo(itens: meeting)))
         }
@@ -95,8 +101,8 @@ class ApiManeger {
 
 
     /// Método POST: manda informações pro banco de dados
-    public func postMeetingCreated(urlData: [String:String], _ completionHandler: @escaping (Result<HTTPVerbs, APIError>) -> Void) -> Void {
-        let parameters = self.getPostParameters(urlData)
+    public func postMeetingCreated(data: MeetingCreated, _ completionHandler: @escaping (Result<HTTPVerbs, APIError>) -> Void) -> Void {
+        let parameters = self.getPostParameters(self.createDict(with: data))
 
         self.communicateWithAPI(type: .POST, parameters) { result in
             switch result {
@@ -112,7 +118,7 @@ class ApiManeger {
     
     /// Método GET: recebe informações do banco de dados
     public func getSuggetions(with word: String, _ completionHandler: @escaping (Result<[MapPlace], APIError>) -> Void) -> Void {
-        let mainWord = "mainWord=\(word)"
+        let mainWord = "?keyWord=\(word.capitalized)"
         
         self.communicateWithAPI(type: .GET, mainWord) { result in
             switch result {
@@ -133,10 +139,10 @@ class ApiManeger {
         - Parâmetros:
             - items: Struct com as informações recebidas da API
     */
-    private func compactInfo(itens:Itens) -> [MapPlace] {
+    private func compactInfo(itens: Itens) -> [MapPlace] {
         var suggestionsPlaces: [MapPlace] = []
         
-        if let items = itens.itens {
+        if let items = itens.items {
             for info in items {
                 let coords = CLLocationCoordinate2D(
                     latitude: Double(info.latitude),
@@ -149,14 +155,14 @@ class ApiManeger {
                     city: info.city ?? "",
                     district: info.district ?? "",
                     address: info.address ?? "",
-                    number: info.number ?? ""
+                    number: info.addressNumber ?? ""
                 )
                 
                 let mapPlace = MapPlace(
-                    name: info.name,
+                    name: info.placeName,
                     coordinates: coords,
                     pin: nil,
-                    type: MapViewManeger.categoryType(with: info.type),
+                    type: MapViewManeger.categoryType(with: info.category),
                     addressInfo: addressInfo
                 )
                 
@@ -171,19 +177,41 @@ class ApiManeger {
     /* MARK: - Métodos auxiliares */
 
     private func getPostParameters (_ urlData: [String:String]) -> String {
-        // URL gerada: ?data=&hora=&nome=&tipo=&latitude=&longitude=&pais=&cidade=&bairro=&endereco=&numero=
+        // URL gerada: ?meetingName=&date=time=&placeName=&category=&longitude=&latitude=&postalCode=&country=&city=&address=&addressNumber=
         
-        let colunas: [String] = ["data", "hora", "nome", "tipo", "longitude", "latitude", "pais", "cidade", "bairro", "endereco", "numero"]
+        let colunas: [String] = ["meetingName", "date", "time", "placeName", "category", "longitude", "latitude", "postalCode", "country", "city", "district", "address", "addressNumber"]
 
         var url: String = "?"
         for col in colunas {
             url += "\(col)=\(urlData[col] ?? "")"
 
-            if col != "numero" {
+            if col != "addressNumber" {
                 url += "&"
             }
         }
 
         return url.replacingOccurrences(of: " ", with: "%20")
+    }
+    
+    
+    private func createDict(with data: MeetingCreated) -> [String:String] {
+        let dict: [String:String] = [
+            "meetingName" : data.meetingInfo.meetingName,
+            "date" : data.meetingInfo.date,
+            "time" : data.meetingInfo.hour,
+            "placeName" : data.placeInfo.name,
+            "category" : data.placeInfo.type.localizedDescription,
+            "longitude" : String(data.placeInfo.coordinates.longitude),
+            "latitude" : String(data.placeInfo.coordinates.latitude),
+            "postalCode" : data.placeInfo.addressInfo.postalCode.replacingOccurrences(of: "-", with: ""),
+            "country" : data.placeInfo.addressInfo.country,
+            "city" : data.placeInfo.addressInfo.city,
+            "district" : data.placeInfo.addressInfo.district,
+            "address" : data.placeInfo.addressInfo.address,
+            "addressNumber" : data.placeInfo.addressInfo.number
+        ]
+        
+        self.postParameters = dict
+        return dict
     }
 }

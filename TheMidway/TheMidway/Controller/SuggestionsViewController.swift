@@ -38,8 +38,6 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
         super.init(nibName: nil, bundle: nil)
         
         self.mainWord = mainWord
-        
-        // self.getSuggestions()
     }
 
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -90,6 +88,9 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
         // Define o delegate e dataSource
         self.mainView.setSuggestionsCollectionDelegate(self.suggestionsCollectionDelegate)
         self.mainView.setSuggestionsCollectionDataSource(self.suggestionsCollectionDataSource)
+        
+        
+        self.getSuggestions()
     }
  
     
@@ -100,6 +101,8 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
     internal func reloadCollectionData() -> Void {
         self.suggestionsCollectionDataSource.setPlacesFound(self.suggestionsPlaces)
         self.mainView.updateSuggestionsCollectionData()
+        
+        self.mainView.activateEmptyView(num: self.suggestionsPlaces.count)
     }
     
     
@@ -192,152 +195,158 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
     
     
     /// Pega os lugares de sugestão da API a partir da palavra chave
-//    private func getSuggestions() -> Void {
-//        self.apiManeger.getSuggetions(with: self.mainWord) { result in
-//            switch result {
-//            case .success(let suggestionsPlaces):
-//                self.suggestionsPlaces = suggestionsPlaces
-//
-//                self.reloadCollectionData()
-//
-//            case .failure(let error):
-//                self.mainView.setEmptyViewText(error.localizedDescription)
-//            }
-//        }
-//    }
-    
-    
     private func getSuggestions() -> Void {
-        self.suggestionsPlaces = [
-            MapPlace(
-                name: "Muza",
-                coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
-                pin: nil,
-                type: .restaurant,
-                addressInfo: AddressInfo(
-                    postalCode: "06414-007",
-                    country: "BR",
-                    city: "SP",
-                    district: "Barueri",
-                    address: "Avenida Sebastião Davino dos Reis",
-                    number: "101"
-                )
-            ),
-            MapPlace(
-                name: "Gui Reis",
-                coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
-                pin: nil,
-                type: .nightlife,
-                addressInfo: AddressInfo(
-                    postalCode: "09770-200",
-                    country: "BR",
-                    city: "SP",
-                    district: "São Bernardo do Campo",
-                    address: "Rua Nicola Spinelli",
-                    number: "469"
-                )
-            ),
-            MapPlace(
-                name: "Leh",
-                coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
-                pin: nil,
-                type: .cafe,
-                addressInfo: AddressInfo(
-                    postalCode: "04304-000",
-                    country: "BR",
-                    city: "SP",
-                    district: "São Paulo",
-                    address: "Avenida Fagundes Filho",
-                    number: "470"
-                )
-            ),
-            MapPlace(
-                name: "Muza",
-                coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
-                pin: nil,
-                type: .restaurant,
-                addressInfo: AddressInfo(
-                    postalCode: "06414-007",
-                    country: "BR",
-                    city: "SP",
-                    district: "Barueri",
-                    address: "Avenida Sebastião Davino dos Reis",
-                    number: "101"
-                )
-            ),
-            MapPlace(
-                name: "Gui Reis",
-                coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
-                pin: nil,
-                type: .nightlife,
-                addressInfo: AddressInfo(
-                    postalCode: "09770-200",
-                    country: "BR",
-                    city: "SP",
-                    district: "São Bernardo do Campo",
-                    address: "Rua Nicola Spinelli",
-                    number: "469"
-                )
-            ),
-            MapPlace(
-                name: "Leh",
-                coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
-                pin: nil,
-                type: .cafe,
-                addressInfo: AddressInfo(
-                    postalCode: "04304-000",
-                    country: "BR",
-                    city: "SP",
-                    district: "São Paulo",
-                    address: "Avenida Fagundes Filho",
-                    number: "470"
-                )
-            ),
-            MapPlace(
-                name: "Muza",
-                coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
-                pin: nil,
-                type: .restaurant,
-                addressInfo: AddressInfo(
-                    postalCode: "06414-007",
-                    country: "BR",
-                    city: "SP",
-                    district: "Barueri",
-                    address: "Avenida Sebastião Davino dos Reis",
-                    number: "101"
-                )
-            ),
-            MapPlace(
-                name: "Gui Reis",
-                coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
-                pin: nil,
-                type: .nightlife,
-                addressInfo: AddressInfo(
-                    postalCode: "09770-200",
-                    country: "BR",
-                    city: "SP",
-                    district: "São Bernardo do Campo",
-                    address: "Rua Nicola Spinelli",
-                    number: "469"
-                )
-            ),
-            MapPlace(
-                name: "Leh",
-                coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
-                pin: nil,
-                type: .cafe,
-                addressInfo: AddressInfo(
-                    postalCode: "04304-000",
-                    country: "BR",
-                    city: "SP",
-                    district: "São Paulo",
-                    address: "Avenida Fagundes Filho",
-                    number: "470"
-                )
-            )
-        ]
+        self.apiManeger.getSuggetions(with: self.mainWord) { result in
+            switch result {
+            case .success(let suggestionsPlaces):
+                print("Deu certo \(suggestionsPlaces)")
+                self.suggestionsPlaces = suggestionsPlaces
+                
+                DispatchQueue.main.async {
+                    self.reloadCollectionData()
+                }
+
+            case .failure(let error):
+                print("Deu erro \(error.description)")
+                self.mainView.setEmptyViewText(error.localizedDescription)
+            }
+        }
         
-        self.suggestionsCollectionDataSource.setPlacesFound(self.suggestionsPlaces)
-        self.reloadCollectionData()
+        
     }
+    
+    
+//    private func getSuggestions() -> Void {
+//        self.suggestionsPlaces = [
+//            MapPlace(
+//                name: "Muza",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
+//                pin: nil,
+//                type: .restaurant,
+//                addressInfo: AddressInfo(
+//                    postalCode: "06414-007",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "Barueri",
+//                    address: "Avenida Sebastião Davino dos Reis",
+//                    number: "101"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Gui Reis",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
+//                pin: nil,
+//                type: .nightlife,
+//                addressInfo: AddressInfo(
+//                    postalCode: "09770-200",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "São Bernardo do Campo",
+//                    address: "Rua Nicola Spinelli",
+//                    number: "469"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Leh",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
+//                pin: nil,
+//                type: .cafe,
+//                addressInfo: AddressInfo(
+//                    postalCode: "04304-000",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "São Paulo",
+//                    address: "Avenida Fagundes Filho",
+//                    number: "470"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Muza",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
+//                pin: nil,
+//                type: .restaurant,
+//                addressInfo: AddressInfo(
+//                    postalCode: "06414-007",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "Barueri",
+//                    address: "Avenida Sebastião Davino dos Reis",
+//                    number: "101"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Gui Reis",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
+//                pin: nil,
+//                type: .nightlife,
+//                addressInfo: AddressInfo(
+//                    postalCode: "09770-200",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "São Bernardo do Campo",
+//                    address: "Rua Nicola Spinelli",
+//                    number: "469"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Leh",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
+//                pin: nil,
+//                type: .cafe,
+//                addressInfo: AddressInfo(
+//                    postalCode: "04304-000",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "São Paulo",
+//                    address: "Avenida Fagundes Filho",
+//                    number: "470"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Muza",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.495333, longitude: -46.868243),
+//                pin: nil,
+//                type: .restaurant,
+//                addressInfo: AddressInfo(
+//                    postalCode: "06414-007",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "Barueri",
+//                    address: "Avenida Sebastião Davino dos Reis",
+//                    number: "101"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Gui Reis",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.713213, longitude: -46.536622),
+//                pin: nil,
+//                type: .nightlife,
+//                addressInfo: AddressInfo(
+//                    postalCode: "09770-200",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "São Bernardo do Campo",
+//                    address: "Rua Nicola Spinelli",
+//                    number: "469"
+//                )
+//            ),
+//            MapPlace(
+//                name: "Leh",
+//                coordinates: CLLocationCoordinate2D(latitude: -23.627604, longitude: -46.637000),
+//                pin: nil,
+//                type: .cafe,
+//                addressInfo: AddressInfo(
+//                    postalCode: "04304-000",
+//                    country: "BR",
+//                    city: "SP",
+//                    district: "São Paulo",
+//                    address: "Avenida Fagundes Filho",
+//                    number: "470"
+//                )
+//            )
+//        ]
+//
+//        self.suggestionsCollectionDataSource.setPlacesFound(self.suggestionsPlaces)
+//        self.reloadCollectionData()
+//    }
 }
