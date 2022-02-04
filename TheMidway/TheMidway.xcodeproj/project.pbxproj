@@ -39,6 +39,10 @@
 		2267F8A727ABADDA0090E324 /* HTTPVerbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8A627ABADDA0090E324 /* HTTPVerbs.swift */; };
 		2267F8A927ABB8430090E324 /* SuggestionsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8A827ABB8430090E324 /* SuggestionsControllerDelegate.swift */; };
 		2267F8AC27AC8C810090E324 /* UIViewController+ShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8AB27AC8C810090E324 /* UIViewController+ShowController.swift */; };
+		2267F8AE27ACBE640090E324 /* PlaceVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8AD27ACBE640090E324 /* PlaceVisualization.swift */; };
+		2267F8B327ACBF450090E324 /* PlaceVisualizationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8B227ACBF450090E324 /* PlaceVisualizationStyle.swift */; };
+		2267F8B527ACC1990090E324 /* UILabel+LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8B427ACC1990090E324 /* UILabel+LabelConfig.swift */; };
+		2267F8B727ACE4350090E324 /* UIImageView+LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8B627ACE4350090E324 /* UIImageView+LabelConfig.swift */; };
 		229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D227A23C400039902B /* MainTableDelegate.swift */; };
 		229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D727A23D440039902B /* MainTableDataSource.swift */; };
 		229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */; };
@@ -119,6 +123,10 @@
 		2267F8A627ABADDA0090E324 /* HTTPVerbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerbs.swift; sourceTree = "<group>"; };
 		2267F8A827ABB8430090E324 /* SuggestionsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsControllerDelegate.swift; sourceTree = "<group>"; };
 		2267F8AB27AC8C810090E324 /* UIViewController+ShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowController.swift"; sourceTree = "<group>"; };
+		2267F8AD27ACBE640090E324 /* PlaceVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVisualization.swift; sourceTree = "<group>"; };
+		2267F8B227ACBF450090E324 /* PlaceVisualizationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVisualizationStyle.swift; sourceTree = "<group>"; };
+		2267F8B427ACC1990090E324 /* UILabel+LabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LabelConfig.swift"; sourceTree = "<group>"; };
+		2267F8B627ACE4350090E324 /* UIImageView+LabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LabelConfig.swift"; sourceTree = "<group>"; };
 		229F79D227A23C400039902B /* MainTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDelegate.swift; sourceTree = "<group>"; };
 		229F79D727A23D440039902B /* MainTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDataSource.swift; sourceTree = "<group>"; };
 		229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCDManeger.swift; sourceTree = "<group>"; };
@@ -241,10 +249,9 @@
 		2215BB9327A2220F009362AC /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				229F79ED27A2D45E0039902B /* APIError.swift */,
 				229F79EC27A2D45E0039902B /* PlacesCategories.swift */,
-				2267F89427AB7D140090E324 /* EmptyViewStyles.swift */,
-				2267F8A627ABADDA0090E324 /* HTTPVerbs.swift */,
+				2267F8B027ACBF0E0090E324 /* API */,
+				2267F8B127ACBF200090E324 /* ViewStyles */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				229F7A1827A2E3B80039902B /* LaunchScreen.storyboard */,
+				2267F8AF27ACBE680090E324 /* Complements */,
 				2215BBBE27A222F3009362AC /* EmptyView */,
 				2215BBAB27A2228B009362AC /* Cell */,
 				229F7A0C27A2D5F50039902B /* MainView.swift */,
@@ -388,8 +396,36 @@
 			isa = PBXGroup;
 			children = (
 				2267F8AB27AC8C810090E324 /* UIViewController+ShowController.swift */,
+				2267F8B427ACC1990090E324 /* UILabel+LabelConfig.swift */,
+				2267F8B627ACE4350090E324 /* UIImageView+LabelConfig.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2267F8AF27ACBE680090E324 /* Complements */ = {
+			isa = PBXGroup;
+			children = (
+				2267F8AD27ACBE640090E324 /* PlaceVisualization.swift */,
+			);
+			path = Complements;
+			sourceTree = "<group>";
+		};
+		2267F8B027ACBF0E0090E324 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2267F8A627ABADDA0090E324 /* HTTPVerbs.swift */,
+				229F79ED27A2D45E0039902B /* APIError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2267F8B127ACBF200090E324 /* ViewStyles */ = {
+			isa = PBXGroup;
+			children = (
+				2267F89427AB7D140090E324 /* EmptyViewStyles.swift */,
+				2267F8B227ACBF450090E324 /* PlaceVisualizationStyle.swift */,
+			);
+			path = ViewStyles;
 			sourceTree = "<group>";
 		};
 		229F79D027A23C0F0039902B /* Collection */ = {
@@ -558,6 +594,7 @@
 				EE557DA727A9BF3400417221 /* SuggestionsView.swift in Sources */,
 				22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */,
 				2267F8A927ABB8430090E324 /* SuggestionsControllerDelegate.swift in Sources */,
+				2267F8B327ACBF450090E324 /* PlaceVisualizationStyle.swift in Sources */,
 				2267F86E27A4EF9F0090E324 /* ParticipantsViewController.swift in Sources */,
 				229F7A0B27A2D5D50039902B /* NewMeetingCollectionCell.swift in Sources */,
 				2267F87F27AA44710090E324 /* WebViewController.swift in Sources */,
@@ -602,11 +639,13 @@
 				229F79E127A2D3AD0039902B /* TheMidway.xcdatamodeld in Sources */,
 				229F7A0F27A2D5F50039902B /* NewMeetingView.swift in Sources */,
 				2267F89D27ABA41A0090E324 /* SuggestionsCollectionDataSource.swift in Sources */,
+				2267F8B727ACE4350090E324 /* UIImageView+LabelConfig.swift in Sources */,
 				229F7A0427A2D4EA0039902B /* NewMeetingTableParticipantsCell.swift in Sources */,
 				2267F88727AAFE100090E324 /* MeetingCompleteInfo.swift in Sources */,
 				229F7A0727A2D4EA0039902B /* NewMeetingTableTitleCell.swift in Sources */,
 				2267F87227A4FEEF0090E324 /* ParticipantsTableDelegate.swift in Sources */,
 				223E1EE327A4C819005C9D84 /* ParticipantsCDManeger.swift in Sources */,
+				2267F8AE27ACBE640090E324 /* PlaceVisualization.swift in Sources */,
 				229F7A0E27A2D5F50039902B /* MainView.swift in Sources */,
 				2267F87B27A8DA220090E324 /* ParticipantsSelected.swift in Sources */,
 				229F79EF27A2D45E0039902B /* APIError.swift in Sources */,
@@ -616,6 +655,7 @@
 				229F79FC27A2D49C0039902B /* MeetingCreated.swift in Sources */,
 				229F7A1327A2D6230039902B /* NewMeetingViewController.swift in Sources */,
 				229F79EB27A2D4250039902B /* MapViewDelegate.swift in Sources */,
+				2267F8B527ACC1990090E324 /* UILabel+LabelConfig.swift in Sources */,
 				229F7A1227A2D6230039902B /* MainViewController.swift in Sources */,
 				229F7A1B27A31D4A0039902B /* MainCollectionDelegate.swift in Sources */,
 				229F79FA27A2D49C0039902B /* LabelConfig.swift in Sources */,

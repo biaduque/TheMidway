@@ -55,7 +55,7 @@ class NewMeetingView: UIViewWithEmptyView {
     
     public let retryButton: UIButton
     
-    internal let placesFoundCollection: UICollectionView = {
+    private let placesFoundCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal                // Direção da rolagem (se é horizontal ou vertical)
         layout.itemSize = CGSize(width: 300, height: 120)   // Define o tamanho da célula
@@ -66,10 +66,12 @@ class NewMeetingView: UIViewWithEmptyView {
         cv.backgroundColor = UIColor(named: "BackgroundColor")
         cv.tag = -1
         cv.translatesAutoresizingMaskIntoConstraints = false
-
+        cv.allowsMultipleSelection = false
         return cv
     }()
     
+    
+    private let suggestionPlaceView = PlaceVisualization()
     
     // Mapa
     
@@ -93,6 +95,8 @@ class NewMeetingView: UIViewWithEmptyView {
         self.retryButton = MainView.newButton(color: UIColor(named: "AccentColor"))
         
         super.init()
+        
+        // self.suggestionPlaceView.backgroundColor = .red
     
         self.addSubview(self.formsTableView)
         
@@ -103,6 +107,8 @@ class NewMeetingView: UIViewWithEmptyView {
         self.addSubview(self.mapView)
         
         self.addSubview(self.emptyView)
+        
+        self.addSubview(self.suggestionPlaceView)
         
         self.setConstraints()
         
@@ -118,8 +124,7 @@ class NewMeetingView: UIViewWithEmptyView {
     /// Define os textos e botões da tela
     public func setTitles(placeFoundText: LabelConfig) -> Void {
         self.placesFoundLabelText = placeFoundText.text
-        self.placesFoundLabel.text = placeFoundText.text
-        self.placesFoundLabel.font = .systemFont(ofSize: placeFoundText.sizeFont, weight: placeFoundText.weight)
+        self.placesFoundLabel.configureLabelText(with: placeFoundText)
         
         // Botões
         let configIcon = UIImage.SymbolConfiguration(pointSize: placeFoundText.sizeFont, weight: .semibold, scale: .large)
@@ -134,16 +139,6 @@ class NewMeetingView: UIViewWithEmptyView {
     }
     
     
-    /// Deixa apenas uma célula na collection
-    public func blockCollection() -> Void {
-        self.placesFoundCollection.isScrollEnabled = false
-    }
-    
-    
-    /// Tag onde salva a posição da célula que foi clicada
-    public func getPlacesFoundCollectionTag() -> Int { return self.placesFoundCollection.tag }
-    
-    
     /// Define o número de participantes que foram selecionados
     public func setParticipantsCount(_ num: Int) -> Void {
         // Acessa a célula
@@ -151,6 +146,33 @@ class NewMeetingView: UIViewWithEmptyView {
             return
         }
         cell.setParticipantsCount(num: num)
+    }
+    
+    
+    /// Pega a célula selecionada
+    public func getCellSelected() -> Int {
+        let cell = self.placesFoundCollection.indexPathsForSelectedItems ?? []
+        if cell.isEmpty {return -1}
+        return cell[0].row
+    }
+    
+    
+    /// Define se o novo encontro veio da área de sugestões
+    public func isSuggestionPlace(_ bool: Bool) -> Void {
+        self.suggestionPlaceView.isHidden = !bool
+        self.placesFoundCollection.isHidden = true
+    }
+    
+    
+    /// Pega o botão de navegação pra web
+    public func getWebButton() -> UIButton {
+        return self.suggestionPlaceView.getWebButton()
+    }
+    
+    
+    /// Define as informações do lugar escolhido pela sugestão
+    public func setSuggestionInfo(title: LabelConfig, address: LabelConfig, tag: PlacesCategories) -> Void {
+        self.suggestionPlaceView.setInfo(title: title, address: address, tag: tag)
     }
     
     
@@ -264,7 +286,17 @@ class NewMeetingView: UIViewWithEmptyView {
         ]
         NSLayoutConstraint.activate(placesFoundConstraints)
         
-
+        
+        /* Lugar da sugestão */
+        let suggestionPlaceViewConstraints: [NSLayoutConstraint] = [
+            self.suggestionPlaceView.topAnchor.constraint(equalTo: self.placesFoundLabel.bottomAnchor, constant: betweenSpace),
+            self.suggestionPlaceView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
+            self.suggestionPlaceView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
+            self.suggestionPlaceView.heightAnchor.constraint(equalToConstant: 120),
+        ]
+        NSLayoutConstraint.activate(suggestionPlaceViewConstraints)
+        
+        
         /* EmptyView */
         let emptyViewConstraints: [NSLayoutConstraint] = [
             self.emptyView.topAnchor.constraint(equalTo: self.formsTableView.bottomAnchor),

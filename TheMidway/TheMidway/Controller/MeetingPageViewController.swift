@@ -84,9 +84,8 @@ class MeetingPageViewController: UIViewController, MeetingPageViewControllerDele
         
         // Configurando os títulos
         self.mainView.setTitles(
-            dateTitle: LabelConfig(text: "Data", sizeFont: 22, weight: .semibold),
-            localTitle: "Local",
-            participantesTitle: "Participantes"
+            dateIcon: LabelConfig(text: "calendar.badge.clock", sizeFont: 20, weight: .semibold),
+            participantesTitle: LabelConfig(text: "Participantes", sizeFont: 22, weight: .semibold)
         )
         
         // Configurando as informações do encontro
@@ -106,9 +105,9 @@ class MeetingPageViewController: UIViewController, MeetingPageViewControllerDele
         self.mainView.setMeetingInfo(
             meetingName: LabelConfig(text: meeting.meetingName ?? "", sizeFont: 30, weight: .heavy),
             date: LabelConfig(text: date, sizeFont: 17, weight: .medium),
-            placeName: LabelConfig(text: meeting.placeName ?? "", sizeFont: 17, weight: .medium),
+            placeName: LabelConfig(text: meeting.placeName ?? "", sizeFont: 20, weight: .medium),
             address: LabelConfig(text: self.completeAddress, sizeFont: 15, weight: .regular),
-            tag: LabelConfig(text: meeting.categorie ?? "", sizeFont: 14, weight: .medium)
+            tag: MapViewManeger.categoryType(with: meeting.categorie ?? "")
         )
         
         

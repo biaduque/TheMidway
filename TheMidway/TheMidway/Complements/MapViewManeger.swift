@@ -295,7 +295,7 @@ class MapViewManeger {
         return place01.distance(from: place02)
     }
     
-    /// Verifica se já foi achado o lugar p
+    /// Verifica se já foi achado o lugar
     private func findPlace(place: MapPlace) -> Bool {
         for places in self.nerbyPlaces {
             if place.name == places.name {
@@ -323,6 +323,8 @@ class MapViewManeger {
             if (placemarks?.count ?? 0 > 0) {
                 // Pega o primeiro resultado
                 let placemark: MKPlacemark = MKPlacemark(placemark: (placemarks?[0])!)
+                
+                print("\n\nEndereços encontrados: \(placemarks!)\n\n")
                 
                 let point = CLLocationCoordinate2D(
                     latitude: (placemark.location?.coordinate.latitude)!,

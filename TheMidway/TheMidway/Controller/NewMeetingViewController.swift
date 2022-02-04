@@ -43,6 +43,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         .theater, .movieTheater
     ]
     
+    
     /* ViewController */
     
     private var mainProtocol: MainControllerDelegate
@@ -74,6 +75,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         
         if let place = place {
             self.placePreSelected = place
+            self.mainView.isSuggestionPlace(true)
         }
     }
     
@@ -113,20 +115,27 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         )
         self.locationDelegate.setManeger(manegar: self.mapManeger)
         
-
-        self.mainView.setTitles(placeFoundText: LabelConfig(text: "Locais encontrados", sizeFont: 23, weight: .bold))
-        
         self.mainView.retryButton.addTarget(self, action: #selector(self.retryAction), for: .touchDown)
         
+         
+        var placeFoundtext = ""
         
-        // Empty View
-        let emptyViewText: String = "Escolha os participantes do encontro para achar os locais perto deles."
-        
-        if let _ = self.placePreSelected {
-            self.configureEmptyView(num: 1, emptyViewText)
+        if let place = self.placePreSelected {
+            self.configureEmptyView(num: 1)
+            
+            placeFoundtext = "Sugestão selecionada:"
+            
+            self.setSuggestionInfo(with: place)
+            
         } else {
+            let emptyViewText: String = "Escolha os participantes do encontro para achar os locais perto deles."
+            
             self.configureEmptyView(num: 0, emptyViewText)
+            
+            placeFoundtext = "Locais encontrados:"
         }
+        
+        self.mainView.setTitles(placeFoundText: LabelConfig(text: placeFoundtext, sizeFont: 23, weight: .bold))
         
     }
     
@@ -135,21 +144,23 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         super.viewWillAppear(animated)
         
         // Definindo os protocolos
-        self.placesFoundDataSource.setProtocol(self)
-        self.formsTableDelegate.setProtocol(self)                       // Define o delegate (protocolo) da delegate
         
-        self.participantsController.setParenteDelegate(self)
-        
-        // Definindo delegate & datasources
+        self.formsTableDelegate.setProtocol(self)
         self.mainView.setFormsTableDelegate(self.formsTableDelegate)
         self.mainView.setFormsTableDataSource(self.formsTableDataSource)
         
-        self.placesFoundDelegate.setMapManeger(self.mapManeger)
-        self.mainView.setPlacesFoundCollectionDelegate(self.placesFoundDelegate)
-        self.mainView.setPlacesFoundCollectionDataSource(self.placesFoundDataSource)
+        self.participantsController.setParenteDelegate(self)
         
-
-        self.reloadCollectionData()
+        if self.placePreSelected == nil {
+            self.placesFoundDataSource.setProtocol(self)
+            
+            self.placesFoundDelegate.setMapManeger(self.mapManeger)
+            self.mainView.setPlacesFoundCollectionDelegate(self.placesFoundDelegate)
+            self.mainView.setPlacesFoundCollectionDataSource(self.placesFoundDataSource)
+            
+            
+            self.reloadCollectionData()
+        }        
     }
     
     
@@ -166,28 +177,19 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     internal func getParticipants(by participants: ParticipantsSelected) -> Void {
         self.participants = participants.confirmed
         
+        if self.participants.count == 0 {return}
+        
         // Define para o delegate do MapView (permite criar os ícones pra cada participante no mapa)
         self.mapViewDelegate.setParticipantsSelected(self.participants)
         
         // Define na label da célula a quantidade de pessoas
         self.mainView.setParticipantsCount(self.participants.count)
         
-        if let place = self.placePreSelected {
-            
-            let pin = self.mapManeger.createPin(
-                name: place.name,
-                coordinate: place.coordinates,
-                type: place.type.localizedDescription
-            )
-            self.mapManeger.addPointOnMap(pin: pin)
-            
-            self.placesInMidwayArea.append(place)
-
-            self.reloadCollectionData()
-        } else {
-            self.calculateTheMidwayPoint()
-            self.findPlacesInMidwayArea()
-        }
+        self.calculateTheMidwayPoint()
+        
+        if let _ = self.placePreSelected {return}
+        
+        self.findPlacesInMidwayArea()
     }
     
     
@@ -219,7 +221,13 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         }
         
         // Salva o encontro
-        let mapPlace = self.placesInMidwayArea[self.mainView.getPlacesFoundCollectionTag()]
+        var mapPlace: MapPlace
+        if let place = self.placePreSelected {
+            mapPlace = place
+        } else {
+            mapPlace = self.placesInMidwayArea[self.mainView.getCellSelected()]
+        }
+        
         
         let data = MeetingCreated(
             meetingId: self.meetingId,
@@ -268,7 +276,12 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     
     /// Abre a tela web
     @objc private func webButtonAction(sender: UIButton) -> Void {
-        let vc = WebViewController(placeQuery: self.placesInMidwayArea[sender.tag])
+        var vc: WebViewController
+        if let place = self.placePreSelected {
+            vc = WebViewController(placeQuery: place)
+        } else {
+            vc = WebViewController(placeQuery: self.placesInMidwayArea[sender.tag])
+        }
         self.showViewController(with: vc)
     }
     
@@ -332,8 +345,12 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         var warningText = ""
         if self.mainView.getFormsTableData().meetingName == "" {
             warningText = "Coloque um título para o encontro."
-        } else if self.mainView.getPlacesFoundCollectionTag() == -1 {
-            warningText = "Nenhum local fo escolhido. Selecione os participantes para mostrar os locais no ponto médio encontrado e escolha um para poder concluir a criação do encontro"
+        }
+        
+        if self.placePreSelected == nil {
+            if self.mainView.getCellSelected() == -1 {
+                warningText = "Nenhum local foi escolhido. Selecione os participantes para mostrar os locais no ponto médio encontrado e escolha um para poder concluir a criação do encontro"
+            }
         }
         
         if warningText != "" {
@@ -350,6 +367,33 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
         self.placesFoundDataSource.setPlacesFound(self.placesInMidwayArea)
         
         self.mainView.updatePlacesFoundCollectionData()
+    }
+    
+    
+    /// Define as informações do local da sugestão
+    private func setSuggestionInfo(with place: MapPlace) -> Void {
+        // self.placesInMidwayArea.append(place)
+        
+        self.setWebButtonAction(self.mainView.getWebButton())
+        
+        // Infos da label
+        let completeAddress = NewMeetingViewController.creatAddressVisualization(place: place.addressInfo)
+        
+        self.mainView.setSuggestionInfo(
+            title: LabelConfig(text: place.name, sizeFont: 20, weight: .bold),
+            address: LabelConfig(text: completeAddress, sizeFont: 15, weight: .regular),
+            tag: place.type
+        )
+        
+        // Add pin no mapa
+        let pin = self.mapManeger.createPin(
+            name: place.name,
+            coordinate: place.coordinates,
+            type: place.type.localizedDescription
+        )
+        self.mapManeger.addPointOnMap(pin: pin)
+        
+        self.mapManeger.setMapFocus(at: place.coordinates, radius: 1000)
     }
     
     
@@ -383,7 +427,9 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
             participantesCoords.append(coordinate)
         }
         
-        self.theMidwayCoordinates = self.mapManeger.getTheMidwayArea(with: participantesCoords)
+        if self.placePreSelected == nil {
+            self.theMidwayCoordinates = self.mapManeger.getTheMidwayArea(with: participantesCoords)
+        }
     }
     
     
