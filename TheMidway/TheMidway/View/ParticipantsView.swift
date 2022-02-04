@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ParticipantsView: UIView {
+class ParticipantsView: UIViewWithEmptyView {
     
     /* MARK: - Atributos */
-        
+
     public let addPersonButton: UIButton
     
     private var confirmedLabel: UILabel
@@ -26,7 +26,7 @@ class ParticipantsView: UIView {
     
     /* MARK: - */
     
-    init() {
+    override init() {
         self.addPersonButton = MainView.newButton(color: UIColor(named: "AccentColor"))
         
         self.confirmedLabel = MainView.newLabel(color: UIColor(named: "TitleLabel"))
@@ -36,11 +36,9 @@ class ParticipantsView: UIView {
         self.notFoundTableView = ParticipantsView.newTable(cellHeight: self.cellHeight, backgroundColor: .secondarySystemBackground)
         
         
-        super.init(frame: .zero)
+        super.init()
         
-        self.backgroundColor = UIColor(named: "BackgroundColor")
-        
-        // Registrando as telas
+        // Registrando as células
         self.confirmedTableView.register(ParticipantsTableCell.self, forCellReuseIdentifier: ParticipantsTableCell.identifier)
         
         self.notFoundTableView.register(ParticipantsTableCell.self, forCellReuseIdentifier: ParticipantsTableCell.identifier)
@@ -53,7 +51,10 @@ class ParticipantsView: UIView {
         self.addSubview(self.notFoundLabel)
         self.addSubview(self.notFoundTableView)
         
+        
         self.setConstraints()
+        
+        self.activateEmptyView(num: 0)
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -75,6 +76,12 @@ class ParticipantsView: UIView {
         // Botões
         let configIcon = UIImage.SymbolConfiguration(pointSize: sizeFont-10, weight: .semibold, scale: .large)
         self.addPersonButton.setImage(UIImage(systemName: "person.fill.badge.plus", withConfiguration: configIcon), for: .normal)
+    }
+    
+    
+    /// Retorna a tag da tableview (variávle usada para identificar qual célula foi selecionada da tabela)
+    public func getTagTableNotFound() -> Int {
+        return self.notFoundTableView.tag
     }
     
     
@@ -104,7 +111,38 @@ class ParticipantsView: UIView {
         self.confirmedTableView.reloadData()
         self.notFoundTableView.reloadData()
     }
+    
+    
+    public func setNotFoundVisibility(bool: Bool) -> Void {
+        self.notFoundLabel.isHidden = bool
+        self.notFoundTableView.isHidden = bool
+    }
+    
+    
+    public func setConfirmedVisibility(bool: Bool) -> Void {
+        self.confirmedLabel.isHidden = bool
+        self.confirmedTableView.isHidden = bool
+    }
+    
+    
+    // EmptyView
+    
+    /// Ativa/desativa a empty view da tela
+    public override func activateEmptyView(num: Int) -> Void {
+        var bool = true
+        if num == 0 { bool = false }
+        self.emptyView.isHidden = bool
         
+        
+        self.addPersonButton.isHidden = !bool
+        
+        self.confirmedLabel.isHidden = !bool
+        self.confirmedTableView.isHidden = !bool
+        
+        self.notFoundLabel.isHidden = !bool
+        self.notFoundTableView.isHidden = !bool
+    }
+    
     
     
     /* MARK: - Constraints */
@@ -116,56 +154,54 @@ class ParticipantsView: UIView {
         let betweenSpace: CGFloat = 15
         
         let buttonSize: CGFloat = 25
+        let labelSize: CGFloat = 30
+        
         
         // Botão adicionar novas pessoas
-        let addPersonButtonConstraints: [NSLayoutConstraint] = [
+        let viewConstraints: [NSLayoutConstraint] = [
             self.addPersonButton.topAnchor.constraint(equalTo: self.topAnchor, constant: safeArea),
             self.addPersonButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.addPersonButton.centerYAnchor.constraint(equalTo: self.confirmedLabel.centerYAnchor),
             self.addPersonButton.heightAnchor.constraint(equalToConstant: buttonSize),
-            self.addPersonButton.widthAnchor.constraint(equalToConstant: buttonSize)
-        ]
-        NSLayoutConstraint.activate(addPersonButtonConstraints)
-        
-                
-        // Label confirmados
-        let confirmedLabelConstraints: [NSLayoutConstraint] = [
+            self.addPersonButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            
+            
+            // Confirmados
             self.confirmedLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: safeArea),
             self.confirmedLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.confirmedLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.confirmedLabel.heightAnchor.constraint(equalToConstant: 30)
-        ]
-        NSLayoutConstraint.activate(confirmedLabelConstraints)
+            self.confirmedLabel.heightAnchor.constraint(equalToConstant: labelSize),
+            
         
-        
-        // Table dos confirmados
-        let confirmedTableConstraints: [NSLayoutConstraint] = [
             self.confirmedTableView.topAnchor.constraint(equalTo: self.confirmedLabel.bottomAnchor, constant: betweenSpace),
             self.confirmedTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.confirmedTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.confirmedTableView.heightAnchor.constraint(equalToConstant: self.cellHeight*4)
-        ]
-        NSLayoutConstraint.activate(confirmedTableConstraints)
-        
-        
-        // Label dos não confirmados
-        let notFoundLabelConstraints: [NSLayoutConstraint] = [
+            self.confirmedTableView.heightAnchor.constraint(equalToConstant: self.cellHeight*4),
+            
+            
+            // Não confirmados
             self.notFoundLabel.topAnchor.constraint(equalTo: self.confirmedTableView.bottomAnchor, constant: betweenSpace),
             self.notFoundLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.notFoundLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
-            self.notFoundLabel.heightAnchor.constraint(equalToConstant: 30)
-        ]
-        NSLayoutConstraint.activate(notFoundLabelConstraints)
-        
-        
-        // Table dos não confirmados
-        let notFoundTableConstraints: [NSLayoutConstraint] = [
+            self.notFoundLabel.heightAnchor.constraint(equalToConstant: labelSize),
+            
+            
             self.notFoundTableView.topAnchor.constraint(equalTo: self.notFoundLabel.bottomAnchor, constant: betweenSpace),
             self.notFoundTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
             self.notFoundTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.notFoundTableView.heightAnchor.constraint(equalToConstant: self.cellHeight*4)
         ]
-        NSLayoutConstraint.activate(notFoundTableConstraints)
+        NSLayoutConstraint.activate(viewConstraints)
+        
+
+        // Empty View
+        let emptyViewConstraints: [NSLayoutConstraint] = [
+            self.emptyView.topAnchor.constraint(equalTo: self.topAnchor, constant: safeArea),
+            self.emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lateralSpace),
+            self.emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
+            self.emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(emptyViewConstraints)
     }
     
     

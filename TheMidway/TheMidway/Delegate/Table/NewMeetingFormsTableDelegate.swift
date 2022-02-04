@@ -9,18 +9,22 @@ import UIKit
 import CoreData
 import ContactsUI
 
+
+
+
+
 class NewMeetingFormsTableDelegate: NSObject, UITableViewDelegate {
     
     /* MARK: - Atributos */
     
-    private var parentController: NewMeetingViewController!
-    
-    
+    weak var navDelegate: NewMeetingControllerDelegate?
+        
 
+    
     /* MARK: - Encapsulamento */
     
-    public func setParentController(_ vc: NewMeetingViewController) -> Void {
-        self.parentController = vc
+    public func setProtocol(_ delegate: NewMeetingControllerDelegate) -> Void {
+        self.navDelegate = delegate
     }
     
     
@@ -34,7 +38,7 @@ class NewMeetingFormsTableDelegate: NSObject, UITableViewDelegate {
         
         // Células dos participantes
         if indexPath.section == 1 && indexPath.row == 1 {
-            self.parentController.setParticipantsAction()
+            self.navDelegate?.setParticipantsAction()
         }
     }
 }

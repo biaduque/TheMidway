@@ -47,6 +47,8 @@ class MainViewTableCell: UITableViewCell {
         
         self.backgroundColor = UIColor(named: "BackgroundColor")
         
+        self.accessoryType = .disclosureIndicator
+        
         self.setConstraints()
     }
     

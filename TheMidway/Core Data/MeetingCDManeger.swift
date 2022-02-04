@@ -51,7 +51,7 @@ class MeetingCDManeger {
     public func getMeetingsCreated() -> [Meetings] {
         let fr = NSFetchRequest<Meetings>(entityName: "Meetings")
         do {
-            return try self.mainContext.fetch(fr)
+            return try self.mainContext.fetch(fr).reversed()
         }catch {
             print(error)
         }
@@ -62,6 +62,8 @@ class MeetingCDManeger {
     /// Adiciona um novo encontro no core data
     public func newMeeting(data: MeetingCreated) throws -> Meetings {
         let meeting = Meetings(context: self.mainContext)
+        
+        meeting.id = Int16(data.meetingId)
         
         // Informações do Encontro
         meeting.meetingName = data.meetingInfo.meetingName
@@ -76,12 +78,13 @@ class MeetingCDManeger {
         meeting.district = data.placeInfo.addressInfo.district
         meeting.address = data.placeInfo.addressInfo.address
         meeting.addressNumber = data.placeInfo.addressInfo.number
+        meeting.postalCode = data.placeInfo.addressInfo.postalCode
         
         meeting.latitude = Float(data.placeInfo.coordinates.latitude)
         meeting.longitude = Float(data.placeInfo.coordinates.longitude)
         
         meeting.categorie = data.placeInfo.type.localizedDescription
-        
+
         self.saveContext()
         return meeting
     }

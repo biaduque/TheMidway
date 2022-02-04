@@ -15,6 +15,8 @@ enum PlacesCategories: CustomStringConvertible {
     case nightlife
     case theater
     case movieTheater
+    case person
+    case shopping
 
     /// Tags
     var localizedDescription:String {
@@ -25,6 +27,8 @@ enum PlacesCategories: CustomStringConvertible {
             case .theater, .movieTheater: return "Teatro"
             case .cafe: return "Cafeteria"
             case .nightlife: return "Bar"
+            case .shopping: return "Shopping"
+            case .person: return ""
         }
     }
 
@@ -39,6 +43,8 @@ enum PlacesCategories: CustomStringConvertible {
             case .movieTheater: return "MKPOICategoryMovietheater"
             case .cafe: return "MKPOICategoryCafe"
             case .nightlife: return "MKPOICategoryNightlife"
+            case .shopping: return ""
+            case .person: return ""
         }
     }
 }

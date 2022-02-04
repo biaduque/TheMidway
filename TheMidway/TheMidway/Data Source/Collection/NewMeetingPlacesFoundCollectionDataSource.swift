@@ -11,7 +11,9 @@ class NewMeetingPlacesFoundCollectionDataSource: NSObject, UICollectionViewDataS
 
     /* MARK: - Atributos */
     
-    private var placesFound: [MapPlace] = []
+    internal var placesFound: [MapPlace] = []
+    
+    private var newMeetingProtocol: NewMeetingControllerDelegate!
     
     
     
@@ -19,6 +21,11 @@ class NewMeetingPlacesFoundCollectionDataSource: NSObject, UICollectionViewDataS
     
     public func setPlacesFound(_ places: [MapPlace]) -> Void {
         return self.placesFound = places
+    }
+    
+    
+    public func setProtocol(_ delegate: NewMeetingControllerDelegate) -> Void {
+        self.newMeetingProtocol = delegate
     }
     
     
@@ -46,6 +53,20 @@ class NewMeetingPlacesFoundCollectionDataSource: NSObject, UICollectionViewDataS
             address: LabelConfig(text: completeAddress, sizeFont: 15, weight: .regular),
             tag: self.placesFound[indexPath.row].type
         )
+        
+        // Botão web
+        let webButton = cell.getWebButton()
+        webButton.tag = indexPath.row
+        
+        self.newMeetingProtocol.setWebButtonAction(webButton)
+        
+        // Sombra
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.6
+        cell.layer.shadowOffset = .zero
+        cell.layer.shadowRadius = 5
+        
         return cell
     }
 }

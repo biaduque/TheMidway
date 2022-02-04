@@ -41,10 +41,14 @@ class ParticipantsTableDataSource: NSObject, UITableViewDataSource {
         
         let person = self.person[indexPath.row]
         
-        let completeAddres = NewMeetingViewController.creatAddressVisualization(place: person.contactInfo.address)
-
+        var completeAddres = NewMeetingViewController.creatAddressVisualization(place: person.contactInfo.address)
+        
+        if completeAddres == "" {
+            completeAddres = "Endereço não encontrado. Clique para atualizar o endereço do contato."
+        }
+        
         cell.setCellTitle(
-            titleText: LabelConfig(text: person.contactInfo.name, sizeFont: 18, weight: .medium),
+            titleText: LabelConfig(text: person.contactInfo.name, sizeFont: 18, weight: .semibold),
             subtitleText:LabelConfig(text: completeAddres, sizeFont: 13, weight: .regular),
             image: person.image
         )

@@ -27,9 +27,6 @@ class MapViewManeger {
     /// Locais encontrados
     private var nerbyPlaces: [MapPlace] = []
         
-    /// Pesoas que foram selecionadas
-    private var peopleSelected: [String: Person] = [:]
-    
     /// Tamanho da área que vai ser desenhada pra fazer a busca
     private var radiusArea: CLLocationDistance = 2500
     
@@ -51,7 +48,6 @@ class MapViewManeger {
     
     public func clearVariable() -> Void {
         self.nerbyPlaces = []
-        self.peopleSelected = [:]
     }
     
     public func setRadiusViewDefault(_ radius: CLLocationDistance) -> Void {
@@ -67,18 +63,35 @@ class MapViewManeger {
         self.mapView.addAnnotation(pin)
     }
     
+    
+    /// Remove todos os pins no mapa
+    public func removeAllPins() -> Void {
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.mapView.removeOverlays(self.mapView.overlays)
+    }
+    
+    
     /// Cria um pin
     public func createPin(name: String, coordinate: CLLocationCoordinate2D, type: String) -> MKPointAnnotation {
         let pin = MKPointAnnotation()
         pin.coordinate = coordinate
         pin.title = name
         pin.subtitle = type
-        
+    
         return pin
     }
     
+    
     /// Verifica qual é o tipo do pin
-    private func pinType(type: String) -> PlacesCategories {
+    private func pinType(type: String, name: String) -> PlacesCategories {
+        if name.contains("padaria") || name.contains("panificadora") {
+            return .bakery
+        } else if name.contains("shopping") {
+            return .shopping
+        } else if name.contains("cafe") || name.contains("café") {
+            return .cafe
+        }
+        
         switch type {
         case "MKPOICategoryAmusementPark":  return .amusementPark
         case "MKPOICategoryPark":           return .nationalPark
@@ -88,6 +101,21 @@ class MapViewManeger {
         case "MKPOICategoryMovietheater":   return .movieTheater
         case "MKPOICategoryCafe":           return .cafe
         case "MKPOICategoryNightlife":      return .nightlife
+        default: return .restaurant
+        }
+    }
+    
+    
+    /// Verifica qual é o tipo
+    static func categoryType(with categorie: String) -> PlacesCategories {
+        switch categorie {
+        case "Parque":  return .amusementPark
+        case "Restaurante": return .restaurant
+        case "Padaria": return .bakery
+        case "Teatro": return .theater
+        case "Cinema": return .movieTheater
+        case "Cafeteria": return .cafe
+        case "Bar": return .nightlife
         default: return .restaurant
         }
     }
@@ -108,8 +136,25 @@ class MapViewManeger {
     
     /* MARK: - Ponto Médio */
     
+    /// Cria o pin e a área do TheMidway
+    public func getTheMidwayArea(with coordinates: [CLLocationCoordinate2D], _ withCircleOn: Bool = true) -> CLLocationCoordinate2D {
+        let midwayPoint = self.midpointCalculate(coordinates: coordinates)
+        let pin = self.createPin(name: "The Midway", coordinate: midwayPoint, type: "The Midway")
+    
+        self.addPointOnMap(pin: pin)
+        
+        if withCircleOn {
+            self.addCircle(at: midwayPoint)
+        }
+       
+        self.setMapFocus(at: midwayPoint, radius: self.radiusArea*2)
+        
+        return midwayPoint
+    }
+    
+    
     /// Calculo do ponto médio entre os pontos
-    public func midpointCalculate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
+    private func midpointCalculate(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
         let coordsCount = Double(coordinates.count)
         
         guard coordsCount > 1 else {
@@ -201,20 +246,11 @@ class MapViewManeger {
                 return
             }
             
-            print("Itens encontrados para \(mainWord): \(response.mapItems.count). \n\n")
-            
-    
+        
             for item in response.mapItems {
-                
-                if let name = item.name, let coords = item.placemark.location, let type = item.pointOfInterestCategory {
-                    // Cria a cordenada
-                    let coords2d = CLLocationCoordinate2D(
-                        latitude: coords.coordinate.latitude,
-                        longitude: coords.coordinate.longitude
-                    )
-                                        
+                if let name = item.name, let coords = item.placemark.location?.coordinate, let type = item.pointOfInterestCategory {
                     // Cria o pin
-                    let pin = self.createPin(name: name, coordinate: coords2d, type: "")
+                    let pin = self.createPin(name: name, coordinate: coords, type: "")
                     
                     // Endereço
                     let addressInfo = AddressInfo(
@@ -229,29 +265,24 @@ class MapViewManeger {
                     // Guarda as informações
                     let newItem: MapPlace = MapPlace(
                         name: name,
-                        coordinates: coords2d,
+                        coordinates: coords,
                         pin: pin,
-                        type: self.pinType(type: type.rawValue),
+                        type: self.pinType(type: type.rawValue, name: name.lowercased()),
                         addressInfo: addressInfo
                     )
                     
                     // Verifica se está dentro do raio E se já não foi adicionado.
-                    if self.getDistance(from: location, to: coords2d) <= self.radiusArea+500 && !self.findPlace(place: newItem){
-                                                
+                    if self.getDistance(from: location, to: coords) <= self.radiusArea && !self.findPlace(place: newItem) {
                         placesFound.append(newItem)
                         self.nerbyPlaces.append(newItem)
                         
                         self.addPointOnMap(pin: pin)
-                        
-                        self.showPlacesFoundInfo(info: item)
                     }
                 }
             }
-            print("\n\n Locais no mapa: \(placesFound.count) \n\n")
         }
         
         group.notify(queue: .main) {
-            print("Finalizei")
             completionHandler(.success(placesFound))
         }
     }
@@ -264,7 +295,7 @@ class MapViewManeger {
         return place01.distance(from: place02)
     }
     
-    /// Verifica se já foi achado o lugar p
+    /// Verifica se já foi achado o lugar
     private func findPlace(place: MapPlace) -> Bool {
         for places in self.nerbyPlaces {
             if place.name == places.name {
@@ -277,6 +308,7 @@ class MapViewManeger {
     
     /// Pega a cordenada a partir de um endereço
     static func getCoordsByAddress(address: String, _ completionHandler: @escaping (Result< CLLocationCoordinate2D, APIError>) -> Void) -> Void {
+
         let geocoder: CLGeocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(address) { placemarks, error in
@@ -292,6 +324,8 @@ class MapViewManeger {
                 // Pega o primeiro resultado
                 let placemark: MKPlacemark = MKPlacemark(placemark: (placemarks?[0])!)
                 
+                print("\n\nEndereços encontrados: \(placemarks!)\n\n")
+                
                 let point = CLLocationCoordinate2D(
                     latitude: (placemark.location?.coordinate.latitude)!,
                     longitude: (placemark.location?.coordinate.longitude)!
@@ -301,28 +335,6 @@ class MapViewManeger {
                 completionHandler(.failure(.noResult))
             }
         }
-    }
-    
-    
-    
-    /* MARK: - Prints (Debug) */
-    
-    /// Mostra as informações achadas dos lugares
-    private func showPlacesFoundInfo(info: MKMapItem) -> Void {
-        print("\n\nLugar: \(info.name ?? "None")")
-        print("Site: \(String(describing: info.url))")
-        print("Celular: \(info.phoneNumber ?? "None")")
-        print("TipoRaw: \(info.pointOfInterestCategory?.rawValue ?? "None")\n")
-        print("CEP: \(info.placemark.postalCode ?? "None")")
-        print("Pais: \(info.placemark.country ?? "None")")
-        print("Pais-codigo: \(info.placemark.countryCode ?? "None")")
-        print("Pais-iso: \(info.placemark.isoCountryCode ?? "None")")
-        print("Postal-Code: \(info.placemark.postalCode ?? "None")")
-        print("Areas de Interesse: \(info.placemark.areasOfInterest ?? ["None"])")
-        print("Rua: \(info.placemark.thoroughfare ?? "None")")
-        print("Num: \(info.placemark.subThoroughfare ?? "None")")
-        print("Cidade: \(info.placemark.administrativeArea ?? "None")")
-        print("Bairro: \(info.placemark.subLocality ?? "None")\n\n")
     }
 }
 

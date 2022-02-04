@@ -13,10 +13,9 @@ class NewMeetingTableDateCell: UITableViewCell {
     
     static let identifier = "IdNewMeetingTableDateCell"
     
+    private var image: UIImageView = NewMeetingTableDateCell.newImageView(color: UIColor(named: "AccentColor"))
     
-    private var image: UIImageView
-    
-    private let label: UILabel
+    private let label: UILabel = MainView.newLabel(color: UIColor.secondaryLabel)
     
     private let date: UIDatePicker = {
         let dt = UIDatePicker()
@@ -33,10 +32,6 @@ class NewMeetingTableDateCell: UITableViewCell {
     /* MARK: -  */
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.image = NewMeetingTableDateCell.newImageView(color: UIColor(named: "AccentColor"))
-        
-        self.label = MainView.newLabel(color: UIColor.secondaryLabel)
-        
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = .secondarySystemBackground // UIColor(named: "BackgroundColor")
@@ -69,29 +64,10 @@ class NewMeetingTableDateCell: UITableViewCell {
     }
     
     
-    public func getTime() -> String {
-        let df = DateFormatter()
-        df.dateFormat = "HH:mm"
-        return df.string(from: self.date.date)
-    }
+    public func getTime() -> String {return self.getDateFormatted(with: "HH:mm")}
     
     
-    public func getDate() -> String {
-        let df = DateFormatter()
-        df.dateFormat = "HH:mm"
-        return df.string(from: self.date.date)
-    }
-    
-    
-    /* MARK: - Configurações */
-    
-    public override func awakeFromNib() -> Void {
-        super.awakeFromNib()
-    }
-
-    public override func setSelected(_ selected: Bool, animated: Bool) -> Void{
-        super.setSelected(selected, animated: animated)
-    }
+    public func getDate() -> String {return self.getDateFormatted(with: "dd/MM/yyyy")}
     
     
     
@@ -106,32 +82,37 @@ class NewMeetingTableDateCell: UITableViewCell {
             self.image.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace),
             self.image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -betweenSpace),
             self.image.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.image.widthAnchor.constraint(equalToConstant: self.frame.height - betweenSpace*2)
-        ]
-        NSLayoutConstraint.activate(imageConstraints)
-
-
-        let labelConstraints: [NSLayoutConstraint] = [
+            self.image.widthAnchor.constraint(equalToConstant: self.frame.height - betweenSpace*2),
+            
+            
             self.label.topAnchor.constraint(equalTo: self.topAnchor),
             self.label.leftAnchor.constraint(equalTo: self.image.rightAnchor, constant: betweenSpace),
             self.label.trailingAnchor.constraint(equalTo: self.centerXAnchor),
-            self.label.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ]
-        NSLayoutConstraint.activate(labelConstraints)
-        
-
-        let dateConstraints: [NSLayoutConstraint] = [
+            self.label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            
             self.date.topAnchor.constraint(equalTo: self.topAnchor, constant: betweenSpace/2),
             self.date.leadingAnchor.constraint(equalTo: self.centerXAnchor, constant: -(lateralSpace*2)),
             self.date.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.date.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -lateralSpace),
             self.date.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lateralSpace)
         ]
-        NSLayoutConstraint.activate(dateConstraints)
+        NSLayoutConstraint.activate(imageConstraints)
     }
     
     
+
     /* MARK: - Configurações */
+    
+    private func getDateFormatted(with format: String) -> String {
+        let df = DateFormatter()
+        df.dateFormat = format
+        return df.string(from: self.date.date)
+    }
+    
+    
+    
+    /* MARK: - Criação de View */
     
     static func newImageView(color: UIColor?) -> UIImageView {
         let imgView = UIImageView()
