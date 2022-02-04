@@ -160,14 +160,14 @@ def create_encontro_item(table: str, data: tuple) -> dict:
     dict_data = {}
 
     if table == TABLE_SUGGESTIONS:
-        column_names = ["id","", "placeName", "category", "longitude ", "latitude ", "postalCode", "country", "city", "district", "address", "addressNumber"]
+        column_names = ["id","", "placeName", "category", "longitude", "latitude", "postalCode", "country", "city", "district", "address", "addressNumber"]
 
         for x in range(len(data)):
             if x != 1:
                 dict_data[column_names[x]] = data[x]
 
     else:
-        column_names = ["id","", "meetingName", "date", "time", "placeName", "category", "longitude ", "latitude ", "postalCode", "country", "city", "district", "address", "addressNumber"]
+        column_names = ["id","", "meetingName", "date", "time", "placeName", "category", "longitude", "latitude", "postalCode", "country", "city", "district", "address", "addressNumber"]
 
         for x in range(len(data)):
             if x != 1:
