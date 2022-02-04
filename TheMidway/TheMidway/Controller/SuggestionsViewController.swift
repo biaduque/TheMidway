@@ -20,6 +20,8 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
     private var suggestionsPlaces: [MapPlace] = []
     private var placeSelected: MapPlace!
     
+    private let formsLink: String = "https://forms.gle/VFw6XT9vC7c2DUCdA"
+    
     // Delegate e DataSources
     private var mainProtocol: MainControllerDelegate
     
@@ -141,23 +143,23 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
     
     @objc private func createNewMeetingAction() -> Void {
         let vc = NewMeetingViewController(delegate: self.mainProtocol, place: self.placeSelected)
-        vc.modalPresentationStyle = .popover
-
-        let navBar = UINavigationController(rootViewController: vc)
-        self.present(navBar, animated: true)
-        
-        print("Abrir nova tela")
+        self.showViewController(with: vc)
     }
     
     
     /// Abre a tela web
     @objc private func webButtonAction(sender: UIButton) -> Void {
         let vc = WebViewController(placeQuery: self.suggestionsPlaces[sender.tag])
-        vc.modalPresentationStyle = .popover
-        
-        let navBar = UINavigationController(rootViewController: vc)
-        self.present(navBar, animated: true)
+        self.showViewController(with: vc)
     }
+    
+    
+    /// Abre a tela de formulário para novo encontro
+    @objc private func openNewSuggestionForms(sender: UIButton) -> Void {
+        let vc = WebViewController(placeQuery: self.formsLink)
+        self.showViewController(with: vc)
+    }
+        
     
     
     
@@ -166,7 +168,7 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
     
     /// Configura a NavBar da classe
     private func configureNavBar() -> Void {
-        self.title = "Sugestões"
+        // self.title = "Sugestões"
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "Cancelar",
@@ -175,6 +177,14 @@ class SuggestionsViewController: UIViewController, SuggestionsControllerDelegate
             action: #selector(self.cancelAction)
         )
         self.navigationItem.leftBarButtonItem?.tintColor = .systemRed
+        
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Nova sugestão",
+            style: .plain,
+            target: self,
+            action: #selector(self.openNewSuggestionForms)
+        )
     }
     
     

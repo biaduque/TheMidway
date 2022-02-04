@@ -269,10 +269,7 @@ class NewMeetingViewController: UIViewController, NewMeetingControllerDelegate {
     /// Abre a tela web
     @objc private func webButtonAction(sender: UIButton) -> Void {
         let vc = WebViewController(placeQuery: self.placesInMidwayArea[sender.tag])
-        vc.modalPresentationStyle = .popover
-        
-        let navBar = UINavigationController(rootViewController: vc)
-        self.present(navBar, animated: true)
+        self.showViewController(with: vc)
     }
     
     

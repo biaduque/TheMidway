@@ -127,16 +127,4 @@ class MainViewController: UIViewController, MainControllerDelegate {
         let vc = NewMeetingViewController(delegate: self, place: nil)
         self.showViewController(with: vc)
     }
-    
-    
-    
-    /* MARK: - Configurações */
-    
-    /// Mostra uma nova tela com a Navbar
-    private func showViewController(with controller: UIViewController, _ isModal: Bool = true) -> Void {
-        if isModal { controller.modalPresentationStyle = .popover }
-        
-        let navBar = UINavigationController(rootViewController: controller)
-        self.present(navBar, animated: true)
-    }
 }

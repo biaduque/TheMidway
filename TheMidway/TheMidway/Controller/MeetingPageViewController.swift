@@ -333,7 +333,7 @@ class MeetingPageViewController: UIViewController, MeetingPageViewControllerDele
         
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Ok",
+            title: "OK",
             style: .done,
             target: self,
             action: #selector(self.dismissAction)

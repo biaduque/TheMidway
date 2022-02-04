@@ -26,6 +26,13 @@ class WebViewController: UIViewController {
         
         self.queryUrl = self.createQueryString(with: placeQuery)
     }
+    
+    
+    init(placeQuery: String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.url = placeQuery
+    }
 
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 
