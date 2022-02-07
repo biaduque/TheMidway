@@ -1,0 +1,35 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "grid-size" : "regular"
+  },
+  "stickers" : [
+    {
+      "filename" : "Logo.sticker"
+    },
+    {
+      "filename" : "Bar.sticker"
+    },
+    {
+      "filename" : "Cafeteria .sticker"
+    },
+    {
+      "filename" : "Cinema.sticker"
+    },
+    {
+      "filename" : "Padaria.sticker"
+    },
+    {
+      "filename" : "Restaurante.sticker"
+    },
+    {
+      "filename" : "Shopping.sticker"
+    },
+    {
+      "filename" : "Teatro.sticker"
+    }
+  ]
+}
