@@ -43,6 +43,8 @@
 		2267F8B327ACBF450090E324 /* PlaceVisualizationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8B227ACBF450090E324 /* PlaceVisualizationStyle.swift */; };
 		2267F8B527ACC1990090E324 /* UILabel+LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8B427ACC1990090E324 /* UILabel+LabelConfig.swift */; };
 		2267F8B727ACE4350090E324 /* UIImageView+LabelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267F8B627ACE4350090E324 /* UIImageView+LabelConfig.swift */; };
+		2292BCF727B1B8AA00AC66AC /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2292BCF627B1B8AA00AC66AC /* Stickers.xcassets */; };
+		2292BCFB27B1B8AA00AC66AC /* TheMidway-Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2292BCF427B1B8A800AC66AC /* TheMidway-Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		229F79D327A23C400039902B /* MainTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D227A23C400039902B /* MainTableDelegate.swift */; };
 		229F79D827A23D440039902B /* MainTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79D727A23D440039902B /* MainTableDataSource.swift */; };
 		229F79E027A2D3AD0039902B /* MeetingCDManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */; };
@@ -83,20 +85,18 @@
 		22D4F21327A42AAD00DD5A00 /* CNContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */; };
 		22D4F21527A42B4500DD5A00 /* AddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21427A42B4500DD5A00 /* AddressInfo.swift */; };
 		22D4F21727A42B7900DD5A00 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4F21627A42B7900DD5A00 /* ContactInfo.swift */; };
-		EE3EFC0527B1B4D700C08C90 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3EFC0427B1B4D700C08C90 /* Stickers.xcassets */; };
-		EE3EFC0927B1B4D700C08C90 /* The Midway Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EE3EFC0227B1B4D500C08C90 /* The Midway Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE557DA727A9BF3400417221 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DA627A9BF3400417221 /* SuggestionsView.swift */; };
 		EE557DA927A9C61300417221 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DA827A9C61300417221 /* SuggestionsViewController.swift */; };
 		EE557DAB27A9C9D500417221 /* MainControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EE3EFC0727B1B4D700C08C90 /* PBXContainerItemProxy */ = {
+		2292BCF927B1B8AA00AC66AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2215BB6527A21FC4009362AC /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EE3EFC0127B1B4D500C08C90;
-			remoteInfo = "The Midway Stickers";
+			remoteGlobalIDString = 2292BCF327B1B8A800AC66AC;
+			remoteInfo = "TheMidway-Stickers";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -107,7 +107,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				EE3EFC0927B1B4D700C08C90 /* The Midway Stickers.appex in Embed App Extensions */,
+				2292BCFB27B1B8AA00AC66AC /* TheMidway-Stickers.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +153,9 @@
 		2267F8B227ACBF450090E324 /* PlaceVisualizationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVisualizationStyle.swift; sourceTree = "<group>"; };
 		2267F8B427ACC1990090E324 /* UILabel+LabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LabelConfig.swift"; sourceTree = "<group>"; };
 		2267F8B627ACE4350090E324 /* UIImageView+LabelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LabelConfig.swift"; sourceTree = "<group>"; };
+		2292BCF427B1B8A800AC66AC /* TheMidway-Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TheMidway-Stickers.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2292BCF627B1B8AA00AC66AC /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		2292BCF827B1B8AA00AC66AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		229F79D227A23C400039902B /* MainTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDelegate.swift; sourceTree = "<group>"; };
 		229F79D727A23D440039902B /* MainTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableDataSource.swift; sourceTree = "<group>"; };
 		229F79DD27A2D3AD0039902B /* MeetingCDManeger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCDManeger.swift; sourceTree = "<group>"; };
@@ -193,9 +196,6 @@
 		22D4F21227A42AAD00DD5A00 /* CNContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNContactDelegate.swift; sourceTree = "<group>"; };
 		22D4F21427A42B4500DD5A00 /* AddressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfo.swift; sourceTree = "<group>"; };
 		22D4F21627A42B7900DD5A00 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
-		EE3EFC0227B1B4D500C08C90 /* The Midway Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "The Midway Stickers.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE3EFC0427B1B4D700C08C90 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
-		EE3EFC0627B1B4D700C08C90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE557DA627A9BF3400417221 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		EE557DA827A9C61300417221 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
 		EE557DAA27A9C9D500417221 /* MainControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerDelegate.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				2215BB8F27A221C0009362AC /* Assets */,
 				2215BB8927A22199009362AC /* Core Data */,
 				2215BB6F27A21FC4009362AC /* TheMidway */,
-				EE3EFC0327B1B4D500C08C90 /* The Midway Stickers */,
+				2292BCF527B1B8A800AC66AC /* TheMidway-Stickers */,
 				2215BB6E27A21FC4009362AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				2215BB6D27A21FC4009362AC /* TheMidway.app */,
-				EE3EFC0227B1B4D500C08C90 /* The Midway Stickers.appex */,
+				2292BCF427B1B8A800AC66AC /* TheMidway-Stickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -459,6 +459,15 @@
 			path = ViewStyles;
 			sourceTree = "<group>";
 		};
+		2292BCF527B1B8A800AC66AC /* TheMidway-Stickers */ = {
+			isa = PBXGroup;
+			children = (
+				2292BCF627B1B8AA00AC66AC /* Stickers.xcassets */,
+				2292BCF827B1B8AA00AC66AC /* Info.plist */,
+			);
+			path = "TheMidway-Stickers";
+			sourceTree = "<group>";
+		};
 		229F79D027A23C0F0039902B /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,15 +558,6 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		EE3EFC0327B1B4D500C08C90 /* The Midway Stickers */ = {
-			isa = PBXGroup;
-			children = (
-				EE3EFC0427B1B4D700C08C90 /* Stickers.xcassets */,
-				EE3EFC0627B1B4D700C08C90 /* Info.plist */,
-			);
-			path = "The Midway Stickers";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -573,26 +573,26 @@
 			buildRules = (
 			);
 			dependencies = (
-				EE3EFC0827B1B4D700C08C90 /* PBXTargetDependency */,
+				2292BCFA27B1B8AA00AC66AC /* PBXTargetDependency */,
 			);
 			name = TheMidway;
 			productName = TheMidway;
 			productReference = 2215BB6D27A21FC4009362AC /* TheMidway.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EE3EFC0127B1B4D500C08C90 /* The Midway Stickers */ = {
+		2292BCF327B1B8A800AC66AC /* TheMidway-Stickers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE3EFC0A27B1B4D700C08C90 /* Build configuration list for PBXNativeTarget "The Midway Stickers" */;
+			buildConfigurationList = 2292BCFC27B1B8AA00AC66AC /* Build configuration list for PBXNativeTarget "TheMidway-Stickers" */;
 			buildPhases = (
-				EE3EFC0027B1B4D500C08C90 /* Resources */,
+				2292BCF227B1B8A800AC66AC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "The Midway Stickers";
-			productName = "The Midway Stickers";
-			productReference = EE3EFC0227B1B4D500C08C90 /* The Midway Stickers.appex */;
+			name = "TheMidway-Stickers";
+			productName = "TheMidway-Stickers";
+			productReference = 2292BCF427B1B8A800AC66AC /* TheMidway-Stickers.appex */;
 			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
@@ -609,7 +609,7 @@
 						CreatedOnToolsVersion = 13.2.1;
 						LastSwiftMigration = 1320;
 					};
-					EE3EFC0127B1B4D500C08C90 = {
+					2292BCF327B1B8A800AC66AC = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -628,7 +628,7 @@
 			projectRoot = "";
 			targets = (
 				2215BB6C27A21FC4009362AC /* TheMidway */,
-				EE3EFC0127B1B4D500C08C90 /* The Midway Stickers */,
+				2292BCF327B1B8A800AC66AC /* TheMidway-Stickers */,
 			);
 		};
 /* End PBXProject section */
@@ -644,11 +644,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE3EFC0027B1B4D500C08C90 /* Resources */ = {
+		2292BCF227B1B8A800AC66AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE3EFC0527B1B4D700C08C90 /* Stickers.xcassets in Resources */,
+				2292BCF727B1B8AA00AC66AC /* Stickers.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,10 +741,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EE3EFC0827B1B4D700C08C90 /* PBXTargetDependency */ = {
+		2292BCFA27B1B8AA00AC66AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EE3EFC0127B1B4D500C08C90 /* The Midway Stickers */;
-			targetProxy = EE3EFC0727B1B4D700C08C90 /* PBXContainerItemProxy */;
+			target = 2292BCF327B1B8A800AC66AC /* TheMidway-Stickers */;
+			targetProxy = 2292BCF927B1B8AA00AC66AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -885,7 +885,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "O acesso ao calendário é apenas para criar o evento, nada será salvo.";
@@ -919,7 +919,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheMidway/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "O acesso ao calendário é apenas para criar o evento, nada será salvo.";
@@ -943,43 +943,43 @@
 			};
 			name = Release;
 		};
-		EE3EFC0B27B1B4D700C08C90 /* Debug */ = {
+		2292BCFD27B1B8AA00AC66AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "The Midway Stickers/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "The Midway ";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.The-Midway-Stickers";
+				INFOPLIST_FILE = "TheMidway-Stickers/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.TheMidway-Stickers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		EE3EFC0C27B1B4D700C08C90 /* Release */ = {
+		2292BCFE27B1B8AA00AC66AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "The Midway Stickers/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "The Midway ";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.The-Midway-Stickers";
+				INFOPLIST_FILE = "TheMidway-Stickers/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = TheMidway;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "Anna.Andrade.TheMidway.TheMidway-Stickers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1004,11 +1004,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE3EFC0A27B1B4D700C08C90 /* Build configuration list for PBXNativeTarget "The Midway Stickers" */ = {
+		2292BCFC27B1B8AA00AC66AC /* Build configuration list for PBXNativeTarget "TheMidway-Stickers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EE3EFC0B27B1B4D700C08C90 /* Debug */,
-				EE3EFC0C27B1B4D700C08C90 /* Release */,
+				2292BCFD27B1B8AA00AC66AC /* Debug */,
+				2292BCFE27B1B8AA00AC66AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
