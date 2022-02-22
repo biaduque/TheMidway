@@ -2,11 +2,12 @@
 //  Items.swift
 //  TheMidway
 //
-//  Created by Gui Reis on 15/12/21.
+//  Created by Gui Reis on 03/02/22.
 //
 
 import Foundation
 
+
 struct Itens: Decodable {
-    let itens: [MeetingInfo]?
+    let items: [SuggestionPlaceInfo]?
 }
